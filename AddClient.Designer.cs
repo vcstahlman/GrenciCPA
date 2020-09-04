@@ -195,6 +195,7 @@
             this.btnClose.TabIndex = 14;
             this.btnClose.Text = "Cancel";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // comboBox2
             // 

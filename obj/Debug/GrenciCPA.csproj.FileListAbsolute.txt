@@ -15,3 +15,6 @@ C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Jobs.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.JobScreen.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.SplashScreen.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.StaffSelect.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ClientView.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Fees.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Payments.resources

@@ -40,5 +40,11 @@ namespace GrenciCPA
             StaffSelect form = new StaffSelect();
             form.ShowDialog();
         }
+
+        private void btnGlobals_Click(object sender, EventArgs e)
+        {
+            Fees form = new Fees();
+            form.ShowDialog();
+        }
     }
 }

@@ -76,6 +76,7 @@
             this.btnGlobals.TabIndex = 3;
             this.btnGlobals.Text = "Globals";
             this.btnGlobals.UseVisualStyleBackColor = true;
+            this.btnGlobals.Click += new System.EventHandler(this.btnGlobals_Click);
             // 
             // btnStaff
             // 

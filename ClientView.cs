@@ -10,26 +10,16 @@ using System.Windows.Forms;
 
 namespace GrenciCPA
 {
-    public partial class ClientList : Form
+    public partial class ClientView : Form
     {
-        public ClientList()
+        public ClientView()
         {
             InitializeComponent();
         }
 
-        private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnClientView_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
