@@ -38,14 +38,15 @@
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.dgvClientPast = new System.Windows.Forms.DataGridView();
-            this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNewJob = new System.Windows.Forms.Button();
+            this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateInvoices = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatePaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountBilled = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatePaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ViewInvoice = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,32 +143,19 @@
             // 
             this.dgvClientPast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientPast.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ReturnDate,
             this.Service,
+            this.ReturnDate,
             this.DateInvoices,
-            this.DatePaid,
             this.AmountBilled,
-            this.AmountPaid});
+            this.DatePaid,
+            this.AmountPaid,
+            this.ViewInvoice});
             this.dgvClientPast.Location = new System.Drawing.Point(12, 193);
             this.dgvClientPast.Name = "dgvClientPast";
             this.dgvClientPast.RowHeadersWidth = 51;
             this.dgvClientPast.RowTemplate.Height = 24;
             this.dgvClientPast.Size = new System.Drawing.Size(709, 208);
             this.dgvClientPast.TabIndex = 29;
-            // 
-            // ReturnDate
-            // 
-            this.ReturnDate.HeaderText = "Return Date";
-            this.ReturnDate.MinimumWidth = 6;
-            this.ReturnDate.Name = "ReturnDate";
-            this.ReturnDate.Width = 125;
-            // 
-            // Service
-            // 
-            this.Service.HeaderText = "Service";
-            this.Service.MinimumWidth = 6;
-            this.Service.Name = "Service";
-            this.Service.Width = 125;
             // 
             // btnSave
             // 
@@ -187,19 +175,26 @@
             this.btnNewJob.Text = "New Job";
             this.btnNewJob.UseVisualStyleBackColor = true;
             // 
+            // Service
+            // 
+            this.Service.HeaderText = "Service";
+            this.Service.MinimumWidth = 6;
+            this.Service.Name = "Service";
+            this.Service.Width = 125;
+            // 
+            // ReturnDate
+            // 
+            this.ReturnDate.HeaderText = "Return Date";
+            this.ReturnDate.MinimumWidth = 6;
+            this.ReturnDate.Name = "ReturnDate";
+            this.ReturnDate.Width = 125;
+            // 
             // DateInvoices
             // 
             this.DateInvoices.HeaderText = "Date Invoices";
             this.DateInvoices.MinimumWidth = 6;
             this.DateInvoices.Name = "DateInvoices";
             this.DateInvoices.Width = 125;
-            // 
-            // DatePaid
-            // 
-            this.DatePaid.HeaderText = "Date Paid";
-            this.DatePaid.MinimumWidth = 6;
-            this.DatePaid.Name = "DatePaid";
-            this.DatePaid.Width = 125;
             // 
             // AmountBilled
             // 
@@ -208,12 +203,26 @@
             this.AmountBilled.Name = "AmountBilled";
             this.AmountBilled.Width = 125;
             // 
+            // DatePaid
+            // 
+            this.DatePaid.HeaderText = "Date Paid";
+            this.DatePaid.MinimumWidth = 6;
+            this.DatePaid.Name = "DatePaid";
+            this.DatePaid.Width = 125;
+            // 
             // AmountPaid
             // 
             this.AmountPaid.HeaderText = "Amount Paid";
             this.AmountPaid.MinimumWidth = 6;
             this.AmountPaid.Name = "AmountPaid";
             this.AmountPaid.Width = 125;
+            // 
+            // ViewInvoice
+            // 
+            this.ViewInvoice.HeaderText = "View Invoice";
+            this.ViewInvoice.MinimumWidth = 6;
+            this.ViewInvoice.Name = "ViewInvoice";
+            this.ViewInvoice.Width = 125;
             // 
             // ClientView
             // 
@@ -252,13 +261,14 @@
         private System.Windows.Forms.Label lblAddressSt;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.DataGridView dgvClientPast;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Service;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnNewJob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateInvoices;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatePaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountBilled;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatePaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountPaid;
+        private System.Windows.Forms.DataGridViewButtonColumn ViewInvoice;
     }
 }
