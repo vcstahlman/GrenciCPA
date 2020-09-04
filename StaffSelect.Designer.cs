@@ -31,6 +31,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnAddEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -44,27 +45,37 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(35, 110);
+            this.btnSelect.Location = new System.Drawing.Point(183, 115);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(131, 49);
+            this.btnSelect.Size = new System.Drawing.Size(134, 49);
             this.btnSelect.TabIndex = 1;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(183, 110);
+            this.btnClose.Location = new System.Drawing.Point(183, 170);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(134, 49);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
+            // btnAddEdit
+            // 
+            this.btnAddEdit.Location = new System.Drawing.Point(35, 115);
+            this.btnAddEdit.Name = "btnAddEdit";
+            this.btnAddEdit.Size = new System.Drawing.Size(128, 49);
+            this.btnAddEdit.TabIndex = 3;
+            this.btnAddEdit.Text = "Add/Edit Staff";
+            this.btnAddEdit.UseVisualStyleBackColor = true;
+            // 
             // StaffSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 198);
+            this.ClientSize = new System.Drawing.Size(361, 295);
+            this.Controls.Add(this.btnAddEdit);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.comboBox1);
@@ -79,5 +90,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnAddEdit;
     }
 }

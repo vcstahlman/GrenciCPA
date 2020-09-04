@@ -40,7 +40,7 @@
             // 
             // btnClients
             // 
-            this.btnClients.Location = new System.Drawing.Point(12, 237);
+            this.btnClients.Location = new System.Drawing.Point(12, 298);
             this.btnClients.Name = "btnClients";
             this.btnClients.Size = new System.Drawing.Size(110, 50);
             this.btnClients.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // btnJobs
             // 
-            this.btnJobs.Location = new System.Drawing.Point(12, 293);
+            this.btnJobs.Location = new System.Drawing.Point(12, 354);
             this.btnJobs.Name = "btnJobs";
             this.btnJobs.Size = new System.Drawing.Size(110, 50);
             this.btnJobs.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // btnInvoices
             // 
-            this.btnInvoices.Location = new System.Drawing.Point(128, 237);
+            this.btnInvoices.Location = new System.Drawing.Point(128, 298);
             this.btnInvoices.Name = "btnInvoices";
             this.btnInvoices.Size = new System.Drawing.Size(110, 50);
             this.btnInvoices.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // btnGlobals
             // 
-            this.btnGlobals.Location = new System.Drawing.Point(312, 293);
+            this.btnGlobals.Location = new System.Drawing.Point(312, 354);
             this.btnGlobals.Name = "btnGlobals";
             this.btnGlobals.Size = new System.Drawing.Size(110, 50);
             this.btnGlobals.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             // btnStaff
             // 
-            this.btnStaff.Location = new System.Drawing.Point(312, 237);
+            this.btnStaff.Location = new System.Drawing.Point(312, 298);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Size = new System.Drawing.Size(110, 50);
             this.btnStaff.TabIndex = 4;
@@ -100,7 +100,7 @@
             // 
             // btnReports
             // 
-            this.btnReports.Location = new System.Drawing.Point(128, 293);
+            this.btnReports.Location = new System.Drawing.Point(128, 354);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(110, 50);
             this.btnReports.TabIndex = 6;
@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 354);
+            this.ClientSize = new System.Drawing.Size(434, 416);
             this.Controls.Add(this.btnReports);
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.btnStaff);

@@ -40,6 +40,12 @@
             this.dgvClientPast = new System.Windows.Forms.DataGridView();
             this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnNewJob = new System.Windows.Forms.Button();
+            this.DateInvoices = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatePaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountBilled = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,10 +61,10 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(255, 6);
+            this.richTextBox1.Location = new System.Drawing.Point(154, 6);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(466, 131);
+            this.richTextBox1.Size = new System.Drawing.Size(567, 180);
             this.richTextBox1.TabIndex = 23;
             this.richTextBox1.Text = "Notes:";
             // 
@@ -137,8 +143,12 @@
             this.dgvClientPast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientPast.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ReturnDate,
-            this.Service});
-            this.dgvClientPast.Location = new System.Drawing.Point(12, 157);
+            this.Service,
+            this.DateInvoices,
+            this.DatePaid,
+            this.AmountBilled,
+            this.AmountPaid});
+            this.dgvClientPast.Location = new System.Drawing.Point(12, 193);
             this.dgvClientPast.Name = "dgvClientPast";
             this.dgvClientPast.RowHeadersWidth = 51;
             this.dgvClientPast.RowTemplate.Height = 24;
@@ -159,11 +169,59 @@
             this.Service.Name = "Service";
             this.Service.Width = 125;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(10, 144);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(125, 31);
+            this.btnSave.TabIndex = 30;
+            this.btnSave.Text = "Save Notes";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnNewJob
+            // 
+            this.btnNewJob.Location = new System.Drawing.Point(10, 407);
+            this.btnNewJob.Name = "btnNewJob";
+            this.btnNewJob.Size = new System.Drawing.Size(160, 55);
+            this.btnNewJob.TabIndex = 31;
+            this.btnNewJob.Text = "New Job";
+            this.btnNewJob.UseVisualStyleBackColor = true;
+            // 
+            // DateInvoices
+            // 
+            this.DateInvoices.HeaderText = "Date Invoices";
+            this.DateInvoices.MinimumWidth = 6;
+            this.DateInvoices.Name = "DateInvoices";
+            this.DateInvoices.Width = 125;
+            // 
+            // DatePaid
+            // 
+            this.DatePaid.HeaderText = "Date Paid";
+            this.DatePaid.MinimumWidth = 6;
+            this.DatePaid.Name = "DatePaid";
+            this.DatePaid.Width = 125;
+            // 
+            // AmountBilled
+            // 
+            this.AmountBilled.HeaderText = "Amount Billed";
+            this.AmountBilled.MinimumWidth = 6;
+            this.AmountBilled.Name = "AmountBilled";
+            this.AmountBilled.Width = 125;
+            // 
+            // AmountPaid
+            // 
+            this.AmountPaid.HeaderText = "Amount Paid";
+            this.AmountPaid.MinimumWidth = 6;
+            this.AmountPaid.Name = "AmountPaid";
+            this.AmountPaid.Width = 125;
+            // 
             // ClientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 474);
+            this.Controls.Add(this.btnNewJob);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvClientPast);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.richTextBox1);
@@ -196,5 +254,11 @@
         private System.Windows.Forms.DataGridView dgvClientPast;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnNewJob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateInvoices;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatePaid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountBilled;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountPaid;
     }
 }
