@@ -21,5 +21,10 @@ namespace GrenciCPA
         {
 
         }
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -21,5 +21,16 @@ namespace GrenciCPA
         {
 
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            JobScreen form = new JobScreen();
+            form.ShowDialog();
+        }
     }
 }

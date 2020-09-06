@@ -38,6 +38,14 @@
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.dgvFees = new System.Windows.Forms.DataGridView();
+            this.FeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Multiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Started = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ended = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Completed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnComplete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblCurrentTime = new System.Windows.Forms.Label();
@@ -48,25 +56,18 @@
             this.txbOverride = new System.Windows.Forms.TextBox();
             this.lblOverride = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.FeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Multiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Started = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ended = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Completed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(757, 411);
+            this.button3.Location = new System.Drawing.Point(757, 410);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(103, 53);
             this.button3.TabIndex = 28;
             this.button3.Text = "Close";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // richTextBox1
             // 
@@ -86,6 +87,7 @@
             this.btnEditClient.TabIndex = 22;
             this.btnEditClient.Text = "Edit Client Info";
             this.btnEditClient.UseVisualStyleBackColor = true;
+            this.btnEditClient.Click += new System.EventHandler(this.btnEditClient_Click);
             // 
             // lblSSN
             // 
@@ -167,6 +169,62 @@
             this.dgvFees.Size = new System.Drawing.Size(850, 242);
             this.dgvFees.TabIndex = 29;
             this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
+            // 
+            // FeeName
+            // 
+            this.FeeName.HeaderText = "Fee";
+            this.FeeName.MinimumWidth = 6;
+            this.FeeName.Name = "FeeName";
+            this.FeeName.Width = 125;
+            // 
+            // Amount
+            // 
+            this.Amount.HeaderText = "Base Amount";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 125;
+            // 
+            // Multiplier
+            // 
+            this.Multiplier.HeaderText = "Multiplier";
+            this.Multiplier.MinimumWidth = 6;
+            this.Multiplier.Name = "Multiplier";
+            this.Multiplier.Width = 125;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.Width = 125;
+            // 
+            // Started
+            // 
+            this.Started.HeaderText = "Started";
+            this.Started.MinimumWidth = 6;
+            this.Started.Name = "Started";
+            this.Started.Width = 90;
+            // 
+            // Ended
+            // 
+            this.Ended.HeaderText = "Ended";
+            this.Ended.MinimumWidth = 6;
+            this.Ended.Name = "Ended";
+            this.Ended.Width = 90;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.Width = 90;
+            // 
+            // Completed
+            // 
+            this.Completed.HeaderText = "Completed";
+            this.Completed.MinimumWidth = 6;
+            this.Completed.Name = "Completed";
+            this.Completed.Width = 125;
             // 
             // btnComplete
             // 
@@ -261,62 +319,6 @@
             this.button1.TabIndex = 39;
             this.button1.Text = "Add/Override";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // FeeName
-            // 
-            this.FeeName.HeaderText = "Fee";
-            this.FeeName.MinimumWidth = 6;
-            this.FeeName.Name = "FeeName";
-            this.FeeName.Width = 125;
-            // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "Base Amount";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 125;
-            // 
-            // Multiplier
-            // 
-            this.Multiplier.HeaderText = "Multiplier";
-            this.Multiplier.MinimumWidth = 6;
-            this.Multiplier.Name = "Multiplier";
-            this.Multiplier.Width = 125;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.Width = 125;
-            // 
-            // Started
-            // 
-            this.Started.HeaderText = "Started";
-            this.Started.MinimumWidth = 6;
-            this.Started.Name = "Started";
-            this.Started.Width = 90;
-            // 
-            // Ended
-            // 
-            this.Ended.HeaderText = "Ended";
-            this.Ended.MinimumWidth = 6;
-            this.Ended.Name = "Ended";
-            this.Ended.Width = 90;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.Width = 90;
-            // 
-            // Completed
-            // 
-            this.Completed.HeaderText = "Completed";
-            this.Completed.MinimumWidth = 6;
-            this.Completed.Name = "Completed";
-            this.Completed.Width = 125;
             // 
             // JobScreen
             // 

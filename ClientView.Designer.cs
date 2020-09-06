@@ -38,8 +38,6 @@
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.dgvClientPast = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnNewJob = new System.Windows.Forms.Button();
             this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateInvoices = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +45,8 @@
             this.DatePaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewInvoice = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnNewJob = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +78,7 @@
             this.btnEditClient.TabIndex = 22;
             this.btnEditClient.Text = "Edit Client Info";
             this.btnEditClient.UseVisualStyleBackColor = true;
+            this.btnEditClient.Click += new System.EventHandler(this.btnEditClient_Click);
             // 
             // lblSSN
             // 
@@ -157,24 +158,6 @@
             this.dgvClientPast.Size = new System.Drawing.Size(709, 208);
             this.dgvClientPast.TabIndex = 29;
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(10, 144);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(125, 31);
-            this.btnSave.TabIndex = 30;
-            this.btnSave.Text = "Save Notes";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnNewJob
-            // 
-            this.btnNewJob.Location = new System.Drawing.Point(10, 407);
-            this.btnNewJob.Name = "btnNewJob";
-            this.btnNewJob.Size = new System.Drawing.Size(160, 55);
-            this.btnNewJob.TabIndex = 31;
-            this.btnNewJob.Text = "New Job";
-            this.btnNewJob.UseVisualStyleBackColor = true;
-            // 
             // Service
             // 
             this.Service.HeaderText = "Service";
@@ -223,6 +206,25 @@
             this.ViewInvoice.MinimumWidth = 6;
             this.ViewInvoice.Name = "ViewInvoice";
             this.ViewInvoice.Width = 125;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(10, 144);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(125, 31);
+            this.btnSave.TabIndex = 30;
+            this.btnSave.Text = "Save Notes";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnNewJob
+            // 
+            this.btnNewJob.Location = new System.Drawing.Point(10, 407);
+            this.btnNewJob.Name = "btnNewJob";
+            this.btnNewJob.Size = new System.Drawing.Size(160, 55);
+            this.btnNewJob.TabIndex = 31;
+            this.btnNewJob.Text = "New Job";
+            this.btnNewJob.UseVisualStyleBackColor = true;
+            this.btnNewJob.Click += new System.EventHandler(this.btnNewJob_Click);
             // 
             // ClientView
             // 

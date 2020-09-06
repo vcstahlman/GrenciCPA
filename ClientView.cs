@@ -21,5 +21,18 @@ namespace GrenciCPA
         {
             this.Close();
         }
+
+        private void btnNewJob_Click(object sender, EventArgs e)
+        {
+            JobScreen form = new JobScreen();
+            form.ShowDialog();
+
+        }
+
+        private void btnEditClient_Click(object sender, EventArgs e)
+        {
+            AddClient form = new AddClient();
+            form.ShowDialog();
+        }
     }
 }

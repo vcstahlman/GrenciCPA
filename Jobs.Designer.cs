@@ -44,6 +44,7 @@
             this.Print = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cbxToInvoice = new System.Windows.Forms.CheckBox();
             this.cbxUnassigned = new System.Windows.Forms.CheckBox();
+            this.btnSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             this.btnClose.TabIndex = 14;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSearch
             // 
@@ -202,11 +204,22 @@
             this.cbxUnassigned.Text = "Unassigned";
             this.cbxUnassigned.UseVisualStyleBackColor = true;
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(766, 462);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(121, 57);
+            this.btnSelect.TabIndex = 18;
+            this.btnSelect.Text = "Take To Job Screen";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // Jobs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 530);
+            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.cbxUnassigned);
             this.Controls.Add(this.cbxToInvoice);
             this.Controls.Add(this.btnClose);
@@ -239,5 +252,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Invoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Staff;
         private System.Windows.Forms.DataGridViewButtonColumn Print;
+        private System.Windows.Forms.Button btnSelect;
     }
 }

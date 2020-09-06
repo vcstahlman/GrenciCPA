@@ -16,5 +16,22 @@ namespace GrenciCPA
         {
             InitializeComponent();
         }
+
+        private void btnAddEdit_Click(object sender, EventArgs e)
+        {
+            StaffAddEdit form = new StaffAddEdit();
+            form.ShowDialog();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            Jobs form = new Jobs();
+            form.ShowDialog();
+        }
     }
 }

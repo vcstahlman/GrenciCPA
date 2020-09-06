@@ -51,6 +51,7 @@
             this.btnSelect.TabIndex = 1;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // btnClose
             // 
@@ -60,6 +61,7 @@
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnAddEdit
             // 
@@ -69,6 +71,7 @@
             this.btnAddEdit.TabIndex = 3;
             this.btnAddEdit.Text = "Add/Edit Staff";
             this.btnAddEdit.UseVisualStyleBackColor = true;
+            this.btnAddEdit.Click += new System.EventHandler(this.btnAddEdit_Click);
             // 
             // StaffSelect
             // 

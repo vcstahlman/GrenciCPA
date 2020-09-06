@@ -26,5 +26,16 @@ namespace GrenciCPA
         {
 
         }
+
+        private void btnEditClient_Click(object sender, EventArgs e)
+        {
+            AddClient form = new AddClient();
+            form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

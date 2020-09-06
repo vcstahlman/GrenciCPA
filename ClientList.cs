@@ -29,7 +29,8 @@ namespace GrenciCPA
 
         private void btnClientView_Click(object sender, EventArgs e)
         {
-            
+            ClientView form = new ClientView();
+            form.ShowDialog();
         }
     }
 }
