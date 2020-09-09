@@ -324,7 +324,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 476);
+            this.ClientSize = new System.Drawing.Size(874, 476);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblOverride);
             this.Controls.Add(this.txbOverride);
