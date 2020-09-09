@@ -177,6 +177,7 @@
             this.btnAddClient.TabIndex = 4;
             this.btnAddClient.Text = "Add New Client";
             this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
             // 
             // btnClose
             // 

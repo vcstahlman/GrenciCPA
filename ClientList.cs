@@ -32,5 +32,11 @@ namespace GrenciCPA
             ClientView form = new ClientView();
             form.ShowDialog();
         }
+
+        private void btnAddClient_Click(object sender, EventArgs e)
+        {
+            AddClient form = new AddClient();
+            form.ShowDialog();
+        }
     }
 }
