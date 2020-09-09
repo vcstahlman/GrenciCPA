@@ -38,15 +38,16 @@
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.dgvClientPast = new System.Windows.Forms.DataGridView();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnNewJob = new System.Windows.Forms.Button();
             this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateInvoices = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountBilled = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Overdue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatePaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewInvoice = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnNewJob = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,6 +149,7 @@
             this.ReturnDate,
             this.DateInvoices,
             this.AmountBilled,
+            this.Overdue,
             this.DatePaid,
             this.AmountPaid,
             this.ViewInvoice});
@@ -157,6 +159,25 @@
             this.dgvClientPast.RowTemplate.Height = 24;
             this.dgvClientPast.Size = new System.Drawing.Size(709, 208);
             this.dgvClientPast.TabIndex = 29;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(10, 144);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(125, 31);
+            this.btnSave.TabIndex = 30;
+            this.btnSave.Text = "Save Notes";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnNewJob
+            // 
+            this.btnNewJob.Location = new System.Drawing.Point(10, 407);
+            this.btnNewJob.Name = "btnNewJob";
+            this.btnNewJob.Size = new System.Drawing.Size(160, 55);
+            this.btnNewJob.TabIndex = 31;
+            this.btnNewJob.Text = "New Job";
+            this.btnNewJob.UseVisualStyleBackColor = true;
+            this.btnNewJob.Click += new System.EventHandler(this.btnNewJob_Click);
             // 
             // Service
             // 
@@ -186,6 +207,12 @@
             this.AmountBilled.Name = "AmountBilled";
             this.AmountBilled.Width = 125;
             // 
+            // Overdue
+            // 
+            this.Overdue.HeaderText = "Amount Overdue";
+            this.Overdue.MinimumWidth = 6;
+            this.Overdue.Name = "Overdue";
+            // 
             // DatePaid
             // 
             this.DatePaid.HeaderText = "Date Paid";
@@ -206,25 +233,6 @@
             this.ViewInvoice.MinimumWidth = 6;
             this.ViewInvoice.Name = "ViewInvoice";
             this.ViewInvoice.Width = 125;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(10, 144);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(125, 31);
-            this.btnSave.TabIndex = 30;
-            this.btnSave.Text = "Save Notes";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnNewJob
-            // 
-            this.btnNewJob.Location = new System.Drawing.Point(10, 407);
-            this.btnNewJob.Name = "btnNewJob";
-            this.btnNewJob.Size = new System.Drawing.Size(160, 55);
-            this.btnNewJob.TabIndex = 31;
-            this.btnNewJob.Text = "New Job";
-            this.btnNewJob.UseVisualStyleBackColor = true;
-            this.btnNewJob.Click += new System.EventHandler(this.btnNewJob_Click);
             // 
             // ClientView
             // 
@@ -269,6 +277,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateInvoices;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountBilled;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Overdue;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatePaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountPaid;
         private System.Windows.Forms.DataGridViewButtonColumn ViewInvoice;
