@@ -76,6 +76,12 @@
     <Compile Include="Invoices.Designer.cs">
       <DependentUpon>Invoices.cs</DependentUpon>
     </Compile>
+    <Compile Include="InvoiceScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvoiceScreen.Designer.cs">
+      <DependentUpon>InvoiceScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Jobs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     <EmbeddedResource Include="Invoices.resx">
       <DependentUpon>Invoices.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceScreen.resx">
+      <DependentUpon>InvoiceScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Jobs.resx">
       <DependentUpon>Jobs.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +198,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AA invoice 2019-page-001.jpg" />
     <Content Include="AFG Logo.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

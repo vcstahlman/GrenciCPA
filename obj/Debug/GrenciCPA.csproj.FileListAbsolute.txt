@@ -19,3 +19,4 @@ C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ClientView.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Fees.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Payments.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.StaffAddEdit.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ServiceSelect.resources

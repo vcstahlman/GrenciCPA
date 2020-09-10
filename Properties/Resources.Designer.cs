@@ -63,6 +63,16 @@ namespace GrenciCPA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AA_invoice_2019_page_001 {
+            get {
+                object obj = ResourceManager.GetObject("AA invoice 2019-page-001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AFG_Logo {
             get {
                 object obj = ResourceManager.GetObject("AFG Logo", resourceCulture);

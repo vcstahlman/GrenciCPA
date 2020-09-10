@@ -37,5 +37,21 @@ namespace GrenciCPA
         {
             this.Close();
         }
+
+        private void btnTimer_Click(object sender, EventArgs e)
+        {
+            if (btnTimer.Text == "Start Timer")
+            {
+                btnTimer.Text = "Stop Timer";
+                lblTime.Text = DateTime.Now.ToString();
+            }
+            else btnTimer.Text = "Start Timer";
+        }
+
+        private void btnComplete_Click(object sender, EventArgs e)
+        {
+            InvoiceScreen form = new InvoiceScreen();
+            form.ShowDialog();
+        }
     }
 }

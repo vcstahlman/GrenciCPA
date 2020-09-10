@@ -39,13 +39,10 @@
             this.lblName = new System.Windows.Forms.Label();
             this.dgvFees = new System.Windows.Forms.DataGridView();
             this.FeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Multiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FeeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Started = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ended = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Completed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnComplete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblCurrentTime = new System.Windows.Forms.Label();
@@ -58,12 +55,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblCatagory = new System.Windows.Forms.Label();
             this.lblService = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TimeLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(755, 463);
+            this.button3.Location = new System.Drawing.Point(1054, 531);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(103, 53);
             this.button3.TabIndex = 28;
@@ -157,48 +159,38 @@
             this.dgvFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FeeName,
-            this.Amount,
-            this.Multiplier,
-            this.Total,
+            this.Discription,
+            this.FeeCost,
             this.Started,
-            this.Ended,
-            this.Status,
-            this.Completed});
+            this.Ended});
             this.dgvFees.Location = new System.Drawing.Point(8, 200);
             this.dgvFees.Name = "dgvFees";
             this.dgvFees.RowHeadersWidth = 51;
             this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(1112, 242);
+            this.dgvFees.Size = new System.Drawing.Size(628, 325);
             this.dgvFees.TabIndex = 29;
             this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             // 
             // FeeName
             // 
-            this.FeeName.HeaderText = "Fee";
+            this.FeeName.HeaderText = "Name";
             this.FeeName.MinimumWidth = 6;
             this.FeeName.Name = "FeeName";
             this.FeeName.Width = 125;
             // 
-            // Amount
+            // Discription
             // 
-            this.Amount.HeaderText = "Base Amount";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 125;
+            this.Discription.HeaderText = "Discription";
+            this.Discription.MinimumWidth = 6;
+            this.Discription.Name = "Discription";
+            this.Discription.Width = 125;
             // 
-            // Multiplier
+            // FeeCost
             // 
-            this.Multiplier.HeaderText = "Multiplier";
-            this.Multiplier.MinimumWidth = 6;
-            this.Multiplier.Name = "Multiplier";
-            this.Multiplier.Width = 125;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.Width = 125;
+            this.FeeCost.HeaderText = "Cost";
+            this.FeeCost.MinimumWidth = 6;
+            this.FeeCost.Name = "FeeCost";
+            this.FeeCost.Width = 125;
             // 
             // Started
             // 
@@ -214,32 +206,19 @@
             this.Ended.Name = "Ended";
             this.Ended.Width = 90;
             // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.Width = 90;
-            // 
-            // Completed
-            // 
-            this.Completed.HeaderText = "Completed";
-            this.Completed.MinimumWidth = 6;
-            this.Completed.Name = "Completed";
-            this.Completed.Width = 125;
-            // 
             // btnComplete
             // 
-            this.btnComplete.Location = new System.Drawing.Point(642, 464);
+            this.btnComplete.Location = new System.Drawing.Point(941, 531);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(107, 53);
             this.btnComplete.TabIndex = 30;
-            this.btnComplete.Text = "Comlpete and Invoice";
+            this.btnComplete.Text = "Complete";
             this.btnComplete.UseVisualStyleBackColor = true;
+            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(537, 464);
+            this.btnSave.Location = new System.Drawing.Point(836, 531);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(99, 53);
             this.btnSave.TabIndex = 31;
@@ -249,7 +228,7 @@
             // lblCurrentTime
             // 
             this.lblCurrentTime.AutoSize = true;
-            this.lblCurrentTime.Location = new System.Drawing.Point(73, 450);
+            this.lblCurrentTime.Location = new System.Drawing.Point(727, 12);
             this.lblCurrentTime.Name = "lblCurrentTime";
             this.lblCurrentTime.Size = new System.Drawing.Size(0, 17);
             this.lblCurrentTime.TabIndex = 36;
@@ -258,7 +237,7 @@
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(4, 447);
+            this.lblTime.Location = new System.Drawing.Point(658, 9);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(56, 20);
             this.lblTime.TabIndex = 35;
@@ -274,7 +253,7 @@
             "40 minutes",
             "50 minutes",
             "1 hour"});
-            this.cmboAddTime.Location = new System.Drawing.Point(130, 493);
+            this.cmboAddTime.Location = new System.Drawing.Point(730, 89);
             this.cmboAddTime.Name = "cmboAddTime";
             this.cmboAddTime.Size = new System.Drawing.Size(60, 24);
             this.cmboAddTime.TabIndex = 34;
@@ -282,7 +261,7 @@
             // lblAddTime
             // 
             this.lblAddTime.AutoSize = true;
-            this.lblAddTime.Location = new System.Drawing.Point(127, 473);
+            this.lblAddTime.Location = new System.Drawing.Point(659, 92);
             this.lblAddTime.Name = "lblAddTime";
             this.lblAddTime.Size = new System.Drawing.Size(72, 17);
             this.lblAddTime.TabIndex = 33;
@@ -290,24 +269,25 @@
             // 
             // btnTimer
             // 
-            this.btnTimer.Location = new System.Drawing.Point(8, 470);
+            this.btnTimer.Location = new System.Drawing.Point(662, 36);
             this.btnTimer.Name = "btnTimer";
             this.btnTimer.Size = new System.Drawing.Size(107, 47);
             this.btnTimer.TabIndex = 32;
             this.btnTimer.Text = "Start Timer";
             this.btnTimer.UseVisualStyleBackColor = true;
+            this.btnTimer.Click += new System.EventHandler(this.btnTimer_Click);
             // 
             // txbOverride
             // 
-            this.txbOverride.Location = new System.Drawing.Point(211, 495);
+            this.txbOverride.Location = new System.Drawing.Point(730, 122);
             this.txbOverride.Name = "txbOverride";
-            this.txbOverride.Size = new System.Drawing.Size(100, 22);
+            this.txbOverride.Size = new System.Drawing.Size(60, 22);
             this.txbOverride.TabIndex = 37;
             // 
             // lblOverride
             // 
             this.lblOverride.AutoSize = true;
-            this.lblOverride.Location = new System.Drawing.Point(208, 473);
+            this.lblOverride.Location = new System.Drawing.Point(659, 125);
             this.lblOverride.Name = "lblOverride";
             this.lblOverride.Size = new System.Drawing.Size(63, 17);
             this.lblOverride.TabIndex = 38;
@@ -315,7 +295,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(317, 473);
+            this.button1.Location = new System.Drawing.Point(662, 151);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 43);
             this.button1.TabIndex = 39;
@@ -340,11 +320,47 @@
             this.lblService.TabIndex = 41;
             this.lblService.Text = "Service: Tax Return";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TimeLength,
+            this.StartedTime,
+            this.EndedTime});
+            this.dataGridView1.Location = new System.Drawing.Point(796, 9);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(361, 185);
+            this.dataGridView1.TabIndex = 42;
+            // 
+            // TimeLength
+            // 
+            this.TimeLength.HeaderText = "Time";
+            this.TimeLength.MinimumWidth = 6;
+            this.TimeLength.Name = "TimeLength";
+            this.TimeLength.Width = 125;
+            // 
+            // StartedTime
+            // 
+            this.StartedTime.HeaderText = "Start";
+            this.StartedTime.MinimumWidth = 6;
+            this.StartedTime.Name = "StartedTime";
+            this.StartedTime.Width = 125;
+            // 
+            // EndedTime
+            // 
+            this.EndedTime.HeaderText = "End";
+            this.EndedTime.MinimumWidth = 6;
+            this.EndedTime.Name = "EndedTime";
+            this.EndedTime.Width = 125;
+            // 
             // JobScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1169, 596);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblService);
             this.Controls.Add(this.lblCatagory);
             this.Controls.Add(this.button1);
@@ -371,6 +387,7 @@
             this.Text = "JobScreen";
             this.Load += new System.EventHandler(this.JobScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,15 +415,16 @@
         private System.Windows.Forms.TextBox txbOverride;
         private System.Windows.Forms.Label lblOverride;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FeeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Multiplier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Started;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ended;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Completed;
         private System.Windows.Forms.Label lblCatagory;
         private System.Windows.Forms.Label lblService;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeLength;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartedTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndedTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FeeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FeeCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Started;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ended;
     }
 }
