@@ -102,6 +102,12 @@
       <DependentUpon>Payments.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceSelect.Designer.cs">
+      <DependentUpon>ServiceSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ServiceSelect.resx">
+      <DependentUpon>ServiceSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>

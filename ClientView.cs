@@ -24,7 +24,7 @@ namespace GrenciCPA
 
         private void btnNewJob_Click(object sender, EventArgs e)
         {
-            JobScreen form = new JobScreen();
+            ServiceSelect form = new ServiceSelect();
             form.ShowDialog();
 
         }
@@ -33,6 +33,22 @@ namespace GrenciCPA
         {
             AddClient form = new AddClient();
             form.ShowDialog();
+        }
+
+        private void ClientView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnActive_Click(object sender, EventArgs e)
+        {
+            Jobs form = new Jobs();
+            form.ShowDialog();
+        }
+
+        private void dgvClientPast_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

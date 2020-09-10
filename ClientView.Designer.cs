@@ -40,12 +40,13 @@
             this.dgvClientPast = new System.Windows.Forms.DataGridView();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNewJob = new System.Windows.Forms.Button();
+            this.lblOverdue = new System.Windows.Forms.Label();
+            this.lblCatagory = new System.Windows.Forms.Label();
+            this.btnActive = new System.Windows.Forms.Button();
             this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateInvoices = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountBilled = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Overdue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatePaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewInvoice = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
@@ -53,7 +54,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(549, 407);
+            this.button3.Location = new System.Drawing.Point(978, 409);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(172, 53);
             this.button3.TabIndex = 28;
@@ -63,7 +64,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(154, 6);
+            this.richTextBox1.Location = new System.Drawing.Point(583, 6);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(567, 180);
@@ -72,7 +73,7 @@
             // 
             // btnEditClient
             // 
-            this.btnEditClient.Location = new System.Drawing.Point(10, 109);
+            this.btnEditClient.Location = new System.Drawing.Point(10, 155);
             this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditClient.Name = "btnEditClient";
             this.btnEditClient.Size = new System.Drawing.Size(125, 28);
@@ -84,7 +85,7 @@
             // lblSSN
             // 
             this.lblSSN.AutoSize = true;
-            this.lblSSN.Location = new System.Drawing.Point(13, 89);
+            this.lblSSN.Location = new System.Drawing.Point(13, 134);
             this.lblSSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSSN.Name = "lblSSN";
             this.lblSSN.Size = new System.Drawing.Size(90, 17);
@@ -94,7 +95,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(13, 73);
+            this.lblEmail.Location = new System.Drawing.Point(13, 117);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(131, 17);
@@ -104,7 +105,7 @@
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(13, 57);
+            this.lblPhone.Location = new System.Drawing.Point(15, 100);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(98, 17);
@@ -114,7 +115,7 @@
             // lblAddressCSZ
             // 
             this.lblAddressCSZ.AutoSize = true;
-            this.lblAddressCSZ.Location = new System.Drawing.Point(13, 41);
+            this.lblAddressCSZ.Location = new System.Drawing.Point(13, 60);
             this.lblAddressCSZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressCSZ.Name = "lblAddressCSZ";
             this.lblAddressCSZ.Size = new System.Drawing.Size(122, 17);
@@ -124,7 +125,7 @@
             // lblAddressSt
             // 
             this.lblAddressSt.AutoSize = true;
-            this.lblAddressSt.Location = new System.Drawing.Point(13, 25);
+            this.lblAddressSt.Location = new System.Drawing.Point(13, 43);
             this.lblAddressSt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressSt.Name = "lblAddressSt";
             this.lblAddressSt.Size = new System.Drawing.Size(108, 17);
@@ -146,23 +147,22 @@
             this.dgvClientPast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientPast.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Service,
-            this.ReturnDate,
+            this.StartDate,
             this.DateInvoices,
             this.AmountBilled,
-            this.Overdue,
-            this.DatePaid,
             this.AmountPaid,
             this.ViewInvoice});
             this.dgvClientPast.Location = new System.Drawing.Point(12, 193);
             this.dgvClientPast.Name = "dgvClientPast";
             this.dgvClientPast.RowHeadersWidth = 51;
             this.dgvClientPast.RowTemplate.Height = 24;
-            this.dgvClientPast.Size = new System.Drawing.Size(709, 208);
+            this.dgvClientPast.Size = new System.Drawing.Size(1138, 208);
             this.dgvClientPast.TabIndex = 29;
+            this.dgvClientPast.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientPast_CellContentClick);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(10, 144);
+            this.btnSave.Location = new System.Drawing.Point(278, 155);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(125, 31);
             this.btnSave.TabIndex = 30;
@@ -179,6 +179,34 @@
             this.btnNewJob.UseVisualStyleBackColor = true;
             this.btnNewJob.Click += new System.EventHandler(this.btnNewJob_Click);
             // 
+            // lblOverdue
+            // 
+            this.lblOverdue.AutoSize = true;
+            this.lblOverdue.Location = new System.Drawing.Point(280, 6);
+            this.lblOverdue.Name = "lblOverdue";
+            this.lblOverdue.Size = new System.Drawing.Size(123, 17);
+            this.lblOverdue.TabIndex = 32;
+            this.lblOverdue.Text = "Overdue: $100.00";
+            // 
+            // lblCatagory
+            // 
+            this.lblCatagory.AutoSize = true;
+            this.lblCatagory.Location = new System.Drawing.Point(280, 23);
+            this.lblCatagory.Name = "lblCatagory";
+            this.lblCatagory.Size = new System.Drawing.Size(132, 17);
+            this.lblCatagory.TabIndex = 33;
+            this.lblCatagory.Text = "Catagory: Individual";
+            // 
+            // btnActive
+            // 
+            this.btnActive.Location = new System.Drawing.Point(176, 409);
+            this.btnActive.Name = "btnActive";
+            this.btnActive.Size = new System.Drawing.Size(148, 53);
+            this.btnActive.TabIndex = 34;
+            this.btnActive.Text = "Active Jobs";
+            this.btnActive.UseVisualStyleBackColor = true;
+            this.btnActive.Click += new System.EventHandler(this.btnActive_Click);
+            // 
             // Service
             // 
             this.Service.HeaderText = "Service";
@@ -186,12 +214,12 @@
             this.Service.Name = "Service";
             this.Service.Width = 125;
             // 
-            // ReturnDate
+            // StartDate
             // 
-            this.ReturnDate.HeaderText = "Return Date";
-            this.ReturnDate.MinimumWidth = 6;
-            this.ReturnDate.Name = "ReturnDate";
-            this.ReturnDate.Width = 125;
+            this.StartDate.HeaderText = "Start Date";
+            this.StartDate.MinimumWidth = 6;
+            this.StartDate.Name = "StartDate";
+            this.StartDate.Width = 125;
             // 
             // DateInvoices
             // 
@@ -206,19 +234,6 @@
             this.AmountBilled.MinimumWidth = 6;
             this.AmountBilled.Name = "AmountBilled";
             this.AmountBilled.Width = 125;
-            // 
-            // Overdue
-            // 
-            this.Overdue.HeaderText = "Amount Overdue";
-            this.Overdue.MinimumWidth = 6;
-            this.Overdue.Name = "Overdue";
-            // 
-            // DatePaid
-            // 
-            this.DatePaid.HeaderText = "Date Paid";
-            this.DatePaid.MinimumWidth = 6;
-            this.DatePaid.Name = "DatePaid";
-            this.DatePaid.Width = 125;
             // 
             // AmountPaid
             // 
@@ -238,7 +253,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 474);
+            this.ClientSize = new System.Drawing.Size(1158, 475);
+            this.Controls.Add(this.btnActive);
+            this.Controls.Add(this.lblCatagory);
+            this.Controls.Add(this.lblOverdue);
             this.Controls.Add(this.btnNewJob);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvClientPast);
@@ -253,6 +271,7 @@
             this.Controls.Add(this.lblName);
             this.Name = "ClientView";
             this.Text = "ClientView";
+            this.Load += new System.EventHandler(this.ClientView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -273,12 +292,13 @@
         private System.Windows.Forms.DataGridView dgvClientPast;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnNewJob;
+        private System.Windows.Forms.Label lblOverdue;
+        private System.Windows.Forms.Label lblCatagory;
+        private System.Windows.Forms.Button btnActive;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateInvoices;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountBilled;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Overdue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatePaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountPaid;
         private System.Windows.Forms.DataGridViewButtonColumn ViewInvoice;
     }
