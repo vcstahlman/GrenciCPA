@@ -40,11 +40,11 @@
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CellPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Invoices = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Jobs = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.NewJob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NewJob = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +61,7 @@
             this.Address,
             this.City,
             this.State,
-            this.CellPhone,
+            this.Contact,
             this.View,
             this.Invoices,
             this.Jobs,
@@ -71,7 +71,7 @@
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersWidth = 51;
             this.dgvClients.RowTemplate.Height = 24;
-            this.dgvClients.Size = new System.Drawing.Size(1013, 372);
+            this.dgvClients.Size = new System.Drawing.Size(1123, 372);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
             // 
@@ -103,7 +103,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(893, 460);
+            this.btnClose.Location = new System.Drawing.Point(1003, 460);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);
             this.btnClose.TabIndex = 5;
@@ -113,7 +113,7 @@
             // 
             // btnClientView
             // 
-            this.btnClientView.Location = new System.Drawing.Point(716, 460);
+            this.btnClientView.Location = new System.Drawing.Point(836, 460);
             this.btnClientView.Name = "btnClientView";
             this.btnClientView.Size = new System.Drawing.Size(161, 57);
             this.btnClientView.TabIndex = 6;
@@ -169,13 +169,13 @@
             this.State.ReadOnly = true;
             this.State.Width = 50;
             // 
-            // CellPhone
+            // Contact
             // 
-            this.CellPhone.HeaderText = "Cell Phone";
-            this.CellPhone.MinimumWidth = 6;
-            this.CellPhone.Name = "CellPhone";
-            this.CellPhone.ReadOnly = true;
-            this.CellPhone.Width = 125;
+            this.Contact.HeaderText = "Perferred Contact";
+            this.Contact.MinimumWidth = 6;
+            this.Contact.Name = "Contact";
+            this.Contact.ReadOnly = true;
+            this.Contact.Width = 125;
             // 
             // View
             // 
@@ -207,13 +207,15 @@
             this.NewJob.MinimumWidth = 6;
             this.NewJob.Name = "NewJob";
             this.NewJob.ReadOnly = true;
-            this.NewJob.Width = 125;
+            this.NewJob.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.NewJob.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.NewJob.Width = 90;
             // 
             // ClientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 529);
+            this.ClientSize = new System.Drawing.Size(1153, 529);
             this.Controls.Add(this.btnClientView);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddClient);
@@ -242,10 +244,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn City;
         private System.Windows.Forms.DataGridViewTextBoxColumn State;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CellPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Contact;
         private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.DataGridViewButtonColumn Invoices;
         private System.Windows.Forms.DataGridViewButtonColumn Jobs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NewJob;
+        private System.Windows.Forms.DataGridViewButtonColumn NewJob;
     }
 }

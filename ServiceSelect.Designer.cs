@@ -68,8 +68,9 @@
             "Merchantile Tax"});
             this.cboService.Location = new System.Drawing.Point(124, 37);
             this.cboService.Name = "cboService";
-            this.cboService.Size = new System.Drawing.Size(121, 24);
+            this.cboService.Size = new System.Drawing.Size(181, 24);
             this.cboService.TabIndex = 2;
+            this.cboService.SelectedIndexChanged += new System.EventHandler(this.cboService_SelectedIndexChanged);
             // 
             // cboStaff
             // 
@@ -79,7 +80,7 @@
             "Mrs. Grenci"});
             this.cboStaff.Location = new System.Drawing.Point(124, 77);
             this.cboStaff.Name = "cboStaff";
-            this.cboStaff.Size = new System.Drawing.Size(121, 24);
+            this.cboStaff.Size = new System.Drawing.Size(181, 24);
             this.cboStaff.TabIndex = 3;
             // 
             // lblDate
@@ -95,7 +96,7 @@
             // 
             this.tbxDate.Location = new System.Drawing.Point(124, 117);
             this.tbxDate.Name = "tbxDate";
-            this.tbxDate.Size = new System.Drawing.Size(100, 22);
+            this.tbxDate.Size = new System.Drawing.Size(181, 22);
             this.tbxDate.TabIndex = 5;
             // 
             // btnContinue

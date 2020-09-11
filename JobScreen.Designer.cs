@@ -59,6 +59,8 @@
             this.TimeLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblStaff = new System.Windows.Forms.Label();
+            this.btnClient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -167,7 +169,7 @@
             this.dgvFees.Name = "dgvFees";
             this.dgvFees.RowHeadersWidth = 51;
             this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(628, 325);
+            this.dgvFees.Size = new System.Drawing.Size(628, 380);
             this.dgvFees.TabIndex = 29;
             this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             // 
@@ -327,11 +329,11 @@
             this.TimeLength,
             this.StartedTime,
             this.EndedTime});
-            this.dataGridView1.Location = new System.Drawing.Point(796, 9);
+            this.dataGridView1.Location = new System.Drawing.Point(796, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(361, 185);
+            this.dataGridView1.Size = new System.Drawing.Size(361, 238);
             this.dataGridView1.TabIndex = 42;
             // 
             // TimeLength
@@ -355,11 +357,31 @@
             this.EndedTime.Name = "EndedTime";
             this.EndedTime.Width = 125;
             // 
+            // lblStaff
+            // 
+            this.lblStaff.AutoSize = true;
+            this.lblStaff.Location = new System.Drawing.Point(453, 9);
+            this.lblStaff.Name = "lblStaff";
+            this.lblStaff.Size = new System.Drawing.Size(110, 17);
+            this.lblStaff.TabIndex = 43;
+            this.lblStaff.Text = "Staff: Dr. Grenci";
+            // 
+            // btnClient
+            // 
+            this.btnClient.Location = new System.Drawing.Point(662, 534);
+            this.btnClient.Name = "btnClient";
+            this.btnClient.Size = new System.Drawing.Size(113, 46);
+            this.btnClient.TabIndex = 44;
+            this.btnClient.Text = "Calculate";
+            this.btnClient.UseVisualStyleBackColor = true;
+            // 
             // JobScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1169, 596);
+            this.Controls.Add(this.btnClient);
+            this.Controls.Add(this.lblStaff);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblService);
             this.Controls.Add(this.lblCatagory);
@@ -426,5 +448,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FeeCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Started;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ended;
+        private System.Windows.Forms.Label lblStaff;
+        private System.Windows.Forms.Button btnClient;
     }
 }

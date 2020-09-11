@@ -30,9 +30,9 @@
         {
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.tbxFirst = new System.Windows.Forms.TextBox();
+            this.tbxLast = new System.Windows.Forms.TextBox();
+            this.tbx = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -71,26 +71,27 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // textBox12
+            // tbxFirst
             // 
-            this.textBox12.Location = new System.Drawing.Point(107, 12);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(196, 22);
-            this.textBox12.TabIndex = 50;
+            this.tbxFirst.Location = new System.Drawing.Point(107, 12);
+            this.tbxFirst.Name = "tbxFirst";
+            this.tbxFirst.Size = new System.Drawing.Size(196, 22);
+            this.tbxFirst.TabIndex = 50;
             // 
-            // textBox11
+            // tbxLast
             // 
-            this.textBox11.Location = new System.Drawing.Point(107, 44);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(196, 22);
-            this.textBox11.TabIndex = 49;
+            this.tbxLast.Location = new System.Drawing.Point(107, 44);
+            this.tbxLast.Name = "tbxLast";
+            this.tbxLast.Size = new System.Drawing.Size(196, 22);
+            this.tbxLast.TabIndex = 49;
             // 
-            // textBox10
+            // tbx
             // 
-            this.textBox10.Location = new System.Drawing.Point(107, 77);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(196, 22);
-            this.textBox10.TabIndex = 48;
+            this.tbx.Location = new System.Drawing.Point(107, 77);
+            this.tbx.Name = "tbx";
+            this.tbx.Size = new System.Drawing.Size(196, 22);
+            this.tbx.TabIndex = 48;
+            this.tbx.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             // 
             // textBox9
             // 
@@ -239,9 +240,9 @@
             this.ClientSize = new System.Drawing.Size(327, 406);
             this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.tbxFirst);
+            this.Controls.Add(this.tbxLast);
+            this.Controls.Add(this.tbx);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
@@ -270,9 +271,9 @@
 
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox tbxFirst;
+        private System.Windows.Forms.TextBox tbxLast;
+        private System.Windows.Forms.TextBox tbx;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;

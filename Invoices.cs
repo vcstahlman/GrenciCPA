@@ -31,5 +31,11 @@ namespace GrenciCPA
         {
             this.Close();
         }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            Payments form = new Payments();
+            form.ShowDialog();
+        }
     }
 }

@@ -20,3 +20,6 @@ C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Fees.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Payments.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.StaffAddEdit.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ServiceSelect.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.InvoiceScreen.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\AA invoice 2019-page-001.jpg
+C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\AFG Logo.JPG

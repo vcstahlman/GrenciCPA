@@ -32,5 +32,10 @@ namespace GrenciCPA
             JobScreen form = new JobScreen();
             form.ShowDialog();
         }
+
+        private void cboService_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

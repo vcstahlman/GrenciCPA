@@ -40,13 +40,13 @@
             this.btnProcess = new System.Windows.Forms.Button();
             this.txbOverride = new System.Windows.Forms.TextBox();
             this.lblOverride = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPayments = new System.Windows.Forms.DataGridView();
             this.Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PayTo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -140,6 +140,7 @@
             this.btnClose.TabIndex = 29;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnProcess
             // 
@@ -166,22 +167,22 @@
             this.lblOverride.TabIndex = 32;
             this.lblOverride.Text = "Payment amount:";
             // 
-            // dataGridView1
+            // dgvPayments
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPayments.AllowUserToAddRows = false;
+            this.dgvPayments.AllowUserToDeleteRows = false;
+            this.dgvPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPayments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Invoice,
             this.Amount,
             this.PayTo});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 127);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(398, 150);
-            this.dataGridView1.TabIndex = 33;
+            this.dgvPayments.Location = new System.Drawing.Point(16, 127);
+            this.dgvPayments.Name = "dgvPayments";
+            this.dgvPayments.ReadOnly = true;
+            this.dgvPayments.RowHeadersWidth = 51;
+            this.dgvPayments.RowTemplate.Height = 24;
+            this.dgvPayments.Size = new System.Drawing.Size(398, 150);
+            this.dgvPayments.TabIndex = 33;
             // 
             // Invoice
             // 
@@ -205,6 +206,7 @@
             this.PayTo.MinimumWidth = 6;
             this.PayTo.Name = "PayTo";
             this.PayTo.ReadOnly = true;
+            this.PayTo.Width = 125;
             // 
             // textBox1
             // 
@@ -229,7 +231,7 @@
             this.ClientSize = new System.Drawing.Size(426, 443);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPayments);
             this.Controls.Add(this.lblOverride);
             this.Controls.Add(this.txbOverride);
             this.Controls.Add(this.btnProcess);
@@ -245,7 +247,7 @@
             this.Name = "Payments";
             this.Text = "Payments";
             this.Load += new System.EventHandler(this.Payments_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,7 +267,7 @@
         private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.TextBox txbOverride;
         private System.Windows.Forms.Label lblOverride;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPayments;
         private System.Windows.Forms.DataGridViewTextBoxColumn Invoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewCheckBoxColumn PayTo;

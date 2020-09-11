@@ -43,7 +43,7 @@ namespace GrenciCPA
             if (btnTimer.Text == "Start Timer")
             {
                 btnTimer.Text = "Stop Timer";
-                lblTime.Text = DateTime.Now.ToString();
+                lblTime.Text = "Timer: " + DateTime.Now.ToString();
             }
             else btnTimer.Text = "Start Timer";
         }
