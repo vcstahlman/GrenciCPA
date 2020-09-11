@@ -32,10 +32,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.dgvClients = new System.Windows.Forms.DataGridView();
-            this.cbxToInvoice = new System.Windows.Forms.CheckBox();
-            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.cbxProgress = new System.Windows.Forms.CheckBox();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,12 +41,17 @@
             this.Staff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Invoice = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cbxToInvoice = new System.Windows.Forms.CheckBox();
+            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.cbxProgress = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(893, 462);
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(824, 667);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);
             this.btnClose.TabIndex = 14;
@@ -80,6 +81,9 @@
             this.dgvClients.AllowUserToAddRows = false;
             this.dgvClients.AllowUserToDeleteRows = false;
             this.dgvClients.AllowUserToOrderColumns = true;
+            this.dgvClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FirstName,
@@ -96,54 +100,8 @@
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersWidth = 51;
             this.dgvClients.RowTemplate.Height = 24;
-            this.dgvClients.Size = new System.Drawing.Size(1013, 372);
+            this.dgvClients.Size = new System.Drawing.Size(944, 577);
             this.dgvClients.TabIndex = 11;
-            // 
-            // cbxToInvoice
-            // 
-            this.cbxToInvoice.AutoSize = true;
-            this.cbxToInvoice.Checked = true;
-            this.cbxToInvoice.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxToInvoice.Location = new System.Drawing.Point(229, 18);
-            this.cbxToInvoice.Name = "cbxToInvoice";
-            this.cbxToInvoice.Size = new System.Drawing.Size(95, 21);
-            this.cbxToInvoice.TabIndex = 16;
-            this.cbxToInvoice.Text = "To Invoice";
-            this.cbxToInvoice.UseVisualStyleBackColor = true;
-            // 
-            // cbxUnassigned
-            // 
-            this.cbxUnassigned.AutoSize = true;
-            this.cbxUnassigned.Checked = true;
-            this.cbxUnassigned.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxUnassigned.Location = new System.Drawing.Point(118, 17);
-            this.cbxUnassigned.Name = "cbxUnassigned";
-            this.cbxUnassigned.Size = new System.Drawing.Size(105, 21);
-            this.cbxUnassigned.TabIndex = 17;
-            this.cbxUnassigned.Text = "Unassigned";
-            this.cbxUnassigned.UseVisualStyleBackColor = true;
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Location = new System.Drawing.Point(766, 462);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(121, 57);
-            this.btnSelect.TabIndex = 18;
-            this.btnSelect.Text = "Take To Job Screen";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // cbxProgress
-            // 
-            this.cbxProgress.AutoSize = true;
-            this.cbxProgress.Checked = true;
-            this.cbxProgress.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxProgress.Location = new System.Drawing.Point(330, 18);
-            this.cbxProgress.Name = "cbxProgress";
-            this.cbxProgress.Size = new System.Drawing.Size(102, 21);
-            this.cbxProgress.TabIndex = 19;
-            this.cbxProgress.Text = "In Progress";
-            this.cbxProgress.UseVisualStyleBackColor = true;
             // 
             // FirstName
             // 
@@ -221,11 +179,58 @@
             this.Invoice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Invoice.Width = 70;
             // 
+            // cbxToInvoice
+            // 
+            this.cbxToInvoice.AutoSize = true;
+            this.cbxToInvoice.Checked = true;
+            this.cbxToInvoice.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxToInvoice.Location = new System.Drawing.Point(229, 18);
+            this.cbxToInvoice.Name = "cbxToInvoice";
+            this.cbxToInvoice.Size = new System.Drawing.Size(95, 21);
+            this.cbxToInvoice.TabIndex = 16;
+            this.cbxToInvoice.Text = "To Invoice";
+            this.cbxToInvoice.UseVisualStyleBackColor = true;
+            // 
+            // cbxUnassigned
+            // 
+            this.cbxUnassigned.AutoSize = true;
+            this.cbxUnassigned.Checked = true;
+            this.cbxUnassigned.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxUnassigned.Location = new System.Drawing.Point(118, 17);
+            this.cbxUnassigned.Name = "cbxUnassigned";
+            this.cbxUnassigned.Size = new System.Drawing.Size(105, 21);
+            this.cbxUnassigned.TabIndex = 17;
+            this.cbxUnassigned.Text = "Unassigned";
+            this.cbxUnassigned.UseVisualStyleBackColor = true;
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelect.Location = new System.Drawing.Point(697, 667);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(121, 57);
+            this.btnSelect.TabIndex = 18;
+            this.btnSelect.Text = "Take To Job Screen";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // cbxProgress
+            // 
+            this.cbxProgress.AutoSize = true;
+            this.cbxProgress.Checked = true;
+            this.cbxProgress.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxProgress.Location = new System.Drawing.Point(330, 18);
+            this.cbxProgress.Name = "cbxProgress";
+            this.cbxProgress.Size = new System.Drawing.Size(102, 21);
+            this.cbxProgress.TabIndex = 19;
+            this.cbxProgress.Text = "In Progress";
+            this.cbxProgress.UseVisualStyleBackColor = true;
+            // 
             // Jobs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 530);
+            this.ClientSize = new System.Drawing.Size(970, 735);
             this.Controls.Add(this.cbxProgress);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.cbxUnassigned);

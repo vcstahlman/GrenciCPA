@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvClients = new System.Windows.Forms.DataGridView();
-            this.tbxSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnAddClient = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnClientView = new System.Windows.Forms.Button();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +40,11 @@
             this.Invoices = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Jobs = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NewJob = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tbxSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnAddClient = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnClientView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +53,9 @@
             this.dgvClients.AllowUserToAddRows = false;
             this.dgvClients.AllowUserToDeleteRows = false;
             this.dgvClients.AllowUserToOrderColumns = true;
+            this.dgvClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LastName,
@@ -74,52 +77,6 @@
             this.dgvClients.Size = new System.Drawing.Size(1123, 372);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
-            // 
-            // tbxSearch
-            // 
-            this.tbxSearch.Location = new System.Drawing.Point(12, 12);
-            this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Size = new System.Drawing.Size(100, 22);
-            this.tbxSearch.TabIndex = 2;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(127, 11);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Search ";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // btnAddClient
-            // 
-            this.btnAddClient.Location = new System.Drawing.Point(15, 460);
-            this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(130, 57);
-            this.btnAddClient.TabIndex = 4;
-            this.btnAddClient.Text = "Add New Client";
-            this.btnAddClient.UseVisualStyleBackColor = true;
-            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(1003, 460);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(132, 57);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnClientView
-            // 
-            this.btnClientView.Location = new System.Drawing.Point(836, 460);
-            this.btnClientView.Name = "btnClientView";
-            this.btnClientView.Size = new System.Drawing.Size(161, 57);
-            this.btnClientView.TabIndex = 6;
-            this.btnClientView.Text = "Temp Client Info";
-            this.btnClientView.UseVisualStyleBackColor = true;
-            this.btnClientView.Click += new System.EventHandler(this.btnClientView_Click);
             // 
             // LastName
             // 
@@ -210,6 +167,55 @@
             this.NewJob.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.NewJob.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.NewJob.Width = 90;
+            // 
+            // tbxSearch
+            // 
+            this.tbxSearch.Location = new System.Drawing.Point(12, 12);
+            this.tbxSearch.Name = "tbxSearch";
+            this.tbxSearch.Size = new System.Drawing.Size(100, 22);
+            this.tbxSearch.TabIndex = 2;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(127, 11);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search ";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // btnAddClient
+            // 
+            this.btnAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddClient.Location = new System.Drawing.Point(15, 460);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(130, 57);
+            this.btnAddClient.TabIndex = 4;
+            this.btnAddClient.Text = "Add New Client";
+            this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1003, 460);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(132, 57);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnClientView
+            // 
+            this.btnClientView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClientView.Location = new System.Drawing.Point(836, 460);
+            this.btnClientView.Name = "btnClientView";
+            this.btnClientView.Size = new System.Drawing.Size(161, 57);
+            this.btnClientView.TabIndex = 6;
+            this.btnClientView.Text = "Temp Client Info";
+            this.btnClientView.UseVisualStyleBackColor = true;
+            this.btnClientView.Click += new System.EventHandler(this.btnClientView_Click);
             // 
             // ClientList
             // 

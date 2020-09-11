@@ -67,7 +67,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1054, 531);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(1133, 602);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(103, 53);
             this.button3.TabIndex = 28;
@@ -158,6 +159,8 @@
             // dgvFees
             // 
             this.dgvFees.AllowUserToOrderColumns = true;
+            this.dgvFees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FeeName,
@@ -169,7 +172,7 @@
             this.dgvFees.Name = "dgvFees";
             this.dgvFees.RowHeadersWidth = 51;
             this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(628, 380);
+            this.dgvFees.Size = new System.Drawing.Size(695, 451);
             this.dgvFees.TabIndex = 29;
             this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             // 
@@ -210,7 +213,8 @@
             // 
             // btnComplete
             // 
-            this.btnComplete.Location = new System.Drawing.Point(941, 531);
+            this.btnComplete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnComplete.Location = new System.Drawing.Point(1020, 602);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(107, 53);
             this.btnComplete.TabIndex = 30;
@@ -220,7 +224,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(836, 531);
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(915, 602);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(99, 53);
             this.btnSave.TabIndex = 31;
@@ -229,17 +234,19 @@
             // 
             // lblCurrentTime
             // 
+            this.lblCurrentTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCurrentTime.AutoSize = true;
-            this.lblCurrentTime.Location = new System.Drawing.Point(727, 12);
+            this.lblCurrentTime.Location = new System.Drawing.Point(719, 12);
             this.lblCurrentTime.Name = "lblCurrentTime";
             this.lblCurrentTime.Size = new System.Drawing.Size(0, 17);
             this.lblCurrentTime.TabIndex = 36;
             // 
             // lblTime
             // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(658, 9);
+            this.lblTime.Location = new System.Drawing.Point(650, 9);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(56, 20);
             this.lblTime.TabIndex = 35;
@@ -247,6 +254,7 @@
             // 
             // cmboAddTime
             // 
+            this.cmboAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmboAddTime.FormattingEnabled = true;
             this.cmboAddTime.Items.AddRange(new object[] {
             "10 minutes",
@@ -255,15 +263,16 @@
             "40 minutes",
             "50 minutes",
             "1 hour"});
-            this.cmboAddTime.Location = new System.Drawing.Point(730, 89);
+            this.cmboAddTime.Location = new System.Drawing.Point(722, 89);
             this.cmboAddTime.Name = "cmboAddTime";
             this.cmboAddTime.Size = new System.Drawing.Size(60, 24);
             this.cmboAddTime.TabIndex = 34;
             // 
             // lblAddTime
             // 
+            this.lblAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAddTime.AutoSize = true;
-            this.lblAddTime.Location = new System.Drawing.Point(659, 92);
+            this.lblAddTime.Location = new System.Drawing.Point(651, 92);
             this.lblAddTime.Name = "lblAddTime";
             this.lblAddTime.Size = new System.Drawing.Size(72, 17);
             this.lblAddTime.TabIndex = 33;
@@ -271,7 +280,8 @@
             // 
             // btnTimer
             // 
-            this.btnTimer.Location = new System.Drawing.Point(662, 36);
+            this.btnTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTimer.Location = new System.Drawing.Point(654, 36);
             this.btnTimer.Name = "btnTimer";
             this.btnTimer.Size = new System.Drawing.Size(107, 47);
             this.btnTimer.TabIndex = 32;
@@ -281,15 +291,17 @@
             // 
             // txbOverride
             // 
-            this.txbOverride.Location = new System.Drawing.Point(730, 122);
+            this.txbOverride.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbOverride.Location = new System.Drawing.Point(722, 122);
             this.txbOverride.Name = "txbOverride";
             this.txbOverride.Size = new System.Drawing.Size(60, 22);
             this.txbOverride.TabIndex = 37;
             // 
             // lblOverride
             // 
+            this.lblOverride.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOverride.AutoSize = true;
-            this.lblOverride.Location = new System.Drawing.Point(659, 125);
+            this.lblOverride.Location = new System.Drawing.Point(651, 125);
             this.lblOverride.Name = "lblOverride";
             this.lblOverride.Size = new System.Drawing.Size(63, 17);
             this.lblOverride.TabIndex = 38;
@@ -297,7 +309,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(662, 151);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(654, 151);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 43);
             this.button1.TabIndex = 39;
@@ -324,16 +337,18 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TimeLength,
             this.StartedTime,
             this.EndedTime});
-            this.dataGridView1.Location = new System.Drawing.Point(796, 36);
+            this.dataGridView1.Location = new System.Drawing.Point(808, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(361, 238);
+            this.dataGridView1.Size = new System.Drawing.Size(428, 309);
             this.dataGridView1.TabIndex = 42;
             // 
             // TimeLength
@@ -368,7 +383,8 @@
             // 
             // btnClient
             // 
-            this.btnClient.Location = new System.Drawing.Point(662, 534);
+            this.btnClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClient.Location = new System.Drawing.Point(741, 605);
             this.btnClient.Name = "btnClient";
             this.btnClient.Size = new System.Drawing.Size(113, 46);
             this.btnClient.TabIndex = 44;
@@ -379,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1169, 596);
+            this.ClientSize = new System.Drawing.Size(1248, 667);
             this.Controls.Add(this.btnClient);
             this.Controls.Add(this.lblStaff);
             this.Controls.Add(this.dataGridView1);

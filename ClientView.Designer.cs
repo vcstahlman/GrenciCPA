@@ -38,23 +38,24 @@
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.dgvClientPast = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnNewJob = new System.Windows.Forms.Button();
-            this.lblOverdue = new System.Windows.Forms.Label();
-            this.lblCatagory = new System.Windows.Forms.Label();
-            this.btnActive = new System.Windows.Forms.Button();
             this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateInvoices = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountBilled = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewInvoice = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnNewJob = new System.Windows.Forms.Button();
+            this.lblOverdue = new System.Windows.Forms.Label();
+            this.lblCatagory = new System.Windows.Forms.Label();
+            this.btnActive = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(978, 409);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(836, 409);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(172, 53);
             this.button3.TabIndex = 28;
@@ -64,10 +65,12 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(583, 6);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(567, 180);
+            this.richTextBox1.Size = new System.Drawing.Size(425, 180);
             this.richTextBox1.TabIndex = 23;
             this.richTextBox1.Text = "Notes:";
             // 
@@ -144,6 +147,9 @@
             // 
             // dgvClientPast
             // 
+            this.dgvClientPast.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientPast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientPast.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Service,
@@ -156,56 +162,9 @@
             this.dgvClientPast.Name = "dgvClientPast";
             this.dgvClientPast.RowHeadersWidth = 51;
             this.dgvClientPast.RowTemplate.Height = 24;
-            this.dgvClientPast.Size = new System.Drawing.Size(1138, 208);
+            this.dgvClientPast.Size = new System.Drawing.Size(996, 208);
             this.dgvClientPast.TabIndex = 29;
             this.dgvClientPast.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientPast_CellContentClick);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(278, 155);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(125, 31);
-            this.btnSave.TabIndex = 30;
-            this.btnSave.Text = "Save Notes";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnNewJob
-            // 
-            this.btnNewJob.Location = new System.Drawing.Point(10, 407);
-            this.btnNewJob.Name = "btnNewJob";
-            this.btnNewJob.Size = new System.Drawing.Size(160, 55);
-            this.btnNewJob.TabIndex = 31;
-            this.btnNewJob.Text = "New Job";
-            this.btnNewJob.UseVisualStyleBackColor = true;
-            this.btnNewJob.Click += new System.EventHandler(this.btnNewJob_Click);
-            // 
-            // lblOverdue
-            // 
-            this.lblOverdue.AutoSize = true;
-            this.lblOverdue.Location = new System.Drawing.Point(280, 6);
-            this.lblOverdue.Name = "lblOverdue";
-            this.lblOverdue.Size = new System.Drawing.Size(123, 17);
-            this.lblOverdue.TabIndex = 32;
-            this.lblOverdue.Text = "Overdue: $100.00";
-            // 
-            // lblCatagory
-            // 
-            this.lblCatagory.AutoSize = true;
-            this.lblCatagory.Location = new System.Drawing.Point(280, 23);
-            this.lblCatagory.Name = "lblCatagory";
-            this.lblCatagory.Size = new System.Drawing.Size(132, 17);
-            this.lblCatagory.TabIndex = 33;
-            this.lblCatagory.Text = "Catagory: Individual";
-            // 
-            // btnActive
-            // 
-            this.btnActive.Location = new System.Drawing.Point(176, 409);
-            this.btnActive.Name = "btnActive";
-            this.btnActive.Size = new System.Drawing.Size(148, 53);
-            this.btnActive.TabIndex = 34;
-            this.btnActive.Text = "Active Jobs";
-            this.btnActive.UseVisualStyleBackColor = true;
-            this.btnActive.Click += new System.EventHandler(this.btnActive_Click);
             // 
             // Service
             // 
@@ -249,11 +208,60 @@
             this.ViewInvoice.Name = "ViewInvoice";
             this.ViewInvoice.Width = 125;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(278, 155);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(125, 31);
+            this.btnSave.TabIndex = 30;
+            this.btnSave.Text = "Save Notes";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnNewJob
+            // 
+            this.btnNewJob.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNewJob.Location = new System.Drawing.Point(10, 407);
+            this.btnNewJob.Name = "btnNewJob";
+            this.btnNewJob.Size = new System.Drawing.Size(160, 55);
+            this.btnNewJob.TabIndex = 31;
+            this.btnNewJob.Text = "New Job";
+            this.btnNewJob.UseVisualStyleBackColor = true;
+            this.btnNewJob.Click += new System.EventHandler(this.btnNewJob_Click);
+            // 
+            // lblOverdue
+            // 
+            this.lblOverdue.AutoSize = true;
+            this.lblOverdue.Location = new System.Drawing.Point(280, 6);
+            this.lblOverdue.Name = "lblOverdue";
+            this.lblOverdue.Size = new System.Drawing.Size(123, 17);
+            this.lblOverdue.TabIndex = 32;
+            this.lblOverdue.Text = "Overdue: $100.00";
+            // 
+            // lblCatagory
+            // 
+            this.lblCatagory.AutoSize = true;
+            this.lblCatagory.Location = new System.Drawing.Point(280, 23);
+            this.lblCatagory.Name = "lblCatagory";
+            this.lblCatagory.Size = new System.Drawing.Size(132, 17);
+            this.lblCatagory.TabIndex = 33;
+            this.lblCatagory.Text = "Catagory: Individual";
+            // 
+            // btnActive
+            // 
+            this.btnActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnActive.Location = new System.Drawing.Point(176, 409);
+            this.btnActive.Name = "btnActive";
+            this.btnActive.Size = new System.Drawing.Size(148, 53);
+            this.btnActive.TabIndex = 34;
+            this.btnActive.Text = "Active Jobs";
+            this.btnActive.UseVisualStyleBackColor = true;
+            this.btnActive.Click += new System.EventHandler(this.btnActive_Click);
+            // 
             // ClientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 475);
+            this.ClientSize = new System.Drawing.Size(1016, 475);
             this.Controls.Add(this.btnActive);
             this.Controls.Add(this.lblCatagory);
             this.Controls.Add(this.lblOverdue);

@@ -51,6 +51,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Check",
@@ -125,6 +126,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 315);
             this.label1.Name = "label1";
@@ -134,6 +136,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClose.Location = new System.Drawing.Point(282, 370);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);
@@ -144,6 +147,7 @@
             // 
             // btnProcess
             // 
+            this.btnProcess.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnProcess.Location = new System.Drawing.Point(137, 370);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(132, 57);
@@ -153,6 +157,7 @@
             // 
             // txbOverride
             // 
+            this.txbOverride.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txbOverride.Location = new System.Drawing.Point(137, 338);
             this.txbOverride.Name = "txbOverride";
             this.txbOverride.Size = new System.Drawing.Size(132, 22);
@@ -160,6 +165,7 @@
             // 
             // lblOverride
             // 
+            this.lblOverride.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblOverride.AutoSize = true;
             this.lblOverride.Location = new System.Drawing.Point(13, 341);
             this.lblOverride.Name = "lblOverride";
@@ -171,6 +177,9 @@
             // 
             this.dgvPayments.AllowUserToAddRows = false;
             this.dgvPayments.AllowUserToDeleteRows = false;
+            this.dgvPayments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPayments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Invoice,
@@ -210,6 +219,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox1.Location = new System.Drawing.Point(334, 338);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(80, 22);
@@ -217,6 +227,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(275, 341);
             this.label2.Name = "label2";

@@ -32,7 +32,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.dgvClients = new System.Windows.Forms.DataGridView();
-            this.cbxOverdue = new System.Windows.Forms.CheckBox();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,13 +42,15 @@
             this.CellPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Payment = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cbxOverdue = new System.Windows.Forms.CheckBox();
             this.btnPayment = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(893, 462);
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(989, 462);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);
             this.btnClose.TabIndex = 10;
@@ -78,6 +79,9 @@
             this.dgvClients.AllowUserToAddRows = false;
             this.dgvClients.AllowUserToDeleteRows = false;
             this.dgvClients.AllowUserToOrderColumns = true;
+            this.dgvClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.View,
@@ -95,19 +99,8 @@
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersWidth = 51;
             this.dgvClients.RowTemplate.Height = 24;
-            this.dgvClients.Size = new System.Drawing.Size(1013, 372);
+            this.dgvClients.Size = new System.Drawing.Size(1109, 372);
             this.dgvClients.TabIndex = 6;
-            // 
-            // cbxOverdue
-            // 
-            this.cbxOverdue.AutoSize = true;
-            this.cbxOverdue.Location = new System.Drawing.Point(142, 16);
-            this.cbxOverdue.Name = "cbxOverdue";
-            this.cbxOverdue.Size = new System.Drawing.Size(85, 21);
-            this.cbxOverdue.TabIndex = 12;
-            this.cbxOverdue.Text = "Overdue";
-            this.cbxOverdue.UseVisualStyleBackColor = true;
-            this.cbxOverdue.CheckedChanged += new System.EventHandler(this.cbxOverdue_CheckedChanged);
             // 
             // View
             // 
@@ -193,9 +186,21 @@
             this.Payment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Payment.Width = 125;
             // 
+            // cbxOverdue
+            // 
+            this.cbxOverdue.AutoSize = true;
+            this.cbxOverdue.Location = new System.Drawing.Point(142, 16);
+            this.cbxOverdue.Name = "cbxOverdue";
+            this.cbxOverdue.Size = new System.Drawing.Size(85, 21);
+            this.cbxOverdue.TabIndex = 12;
+            this.cbxOverdue.Text = "Overdue";
+            this.cbxOverdue.UseVisualStyleBackColor = true;
+            this.cbxOverdue.CheckedChanged += new System.EventHandler(this.cbxOverdue_CheckedChanged);
+            // 
             // btnPayment
             // 
-            this.btnPayment.Location = new System.Drawing.Point(726, 462);
+            this.btnPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPayment.Location = new System.Drawing.Point(822, 462);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(126, 57);
             this.btnPayment.TabIndex = 14;
@@ -207,7 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 535);
+            this.ClientSize = new System.Drawing.Size(1133, 535);
             this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.cbxOverdue);
             this.Controls.Add(this.btnClose);
