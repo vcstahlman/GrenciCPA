@@ -26,5 +26,10 @@ namespace GrenciCPA
         {
 
         }
+
+        private void StaffAddEdit_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

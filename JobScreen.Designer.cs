@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JobScreen));
             this.button3 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnEditClient = new System.Windows.Forms.Button();
@@ -421,6 +422,7 @@
             this.Controls.Add(this.lblAddressCSZ);
             this.Controls.Add(this.lblAddressSt);
             this.Controls.Add(this.lblName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "JobScreen";
             this.Text = "JobScreen";
             this.Load += new System.EventHandler(this.JobScreen_Load);

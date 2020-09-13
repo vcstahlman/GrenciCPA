@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payments));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblSSN = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -58,9 +59,9 @@
             "Cash",
             "Credit",
             "Debit"});
-            this.comboBox1.Location = new System.Drawing.Point(16, 288);
+            this.comboBox1.Location = new System.Drawing.Point(16, 316);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(398, 24);
+            this.comboBox1.Size = new System.Drawing.Size(442, 24);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.Text = "Method of Payment";
             // 
@@ -128,7 +129,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 315);
+            this.label1.Location = new System.Drawing.Point(13, 343);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 17);
             this.label1.TabIndex = 28;
@@ -137,7 +138,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClose.Location = new System.Drawing.Point(282, 370);
+            this.btnClose.Location = new System.Drawing.Point(326, 398);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);
             this.btnClose.TabIndex = 29;
@@ -148,7 +149,7 @@
             // btnProcess
             // 
             this.btnProcess.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnProcess.Location = new System.Drawing.Point(137, 370);
+            this.btnProcess.Location = new System.Drawing.Point(159, 398);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(132, 57);
             this.btnProcess.TabIndex = 30;
@@ -158,7 +159,7 @@
             // txbOverride
             // 
             this.txbOverride.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txbOverride.Location = new System.Drawing.Point(137, 338);
+            this.txbOverride.Location = new System.Drawing.Point(141, 366);
             this.txbOverride.Name = "txbOverride";
             this.txbOverride.Size = new System.Drawing.Size(132, 22);
             this.txbOverride.TabIndex = 31;
@@ -167,7 +168,7 @@
             // 
             this.lblOverride.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblOverride.AutoSize = true;
-            this.lblOverride.Location = new System.Drawing.Point(13, 341);
+            this.lblOverride.Location = new System.Drawing.Point(17, 369);
             this.lblOverride.Name = "lblOverride";
             this.lblOverride.Size = new System.Drawing.Size(118, 17);
             this.lblOverride.TabIndex = 32;
@@ -190,7 +191,7 @@
             this.dgvPayments.ReadOnly = true;
             this.dgvPayments.RowHeadersWidth = 51;
             this.dgvPayments.RowTemplate.Height = 24;
-            this.dgvPayments.Size = new System.Drawing.Size(398, 150);
+            this.dgvPayments.Size = new System.Drawing.Size(442, 178);
             this.dgvPayments.TabIndex = 33;
             // 
             // Invoice
@@ -220,7 +221,7 @@
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(334, 338);
+            this.textBox1.Location = new System.Drawing.Point(378, 366);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(80, 22);
             this.textBox1.TabIndex = 34;
@@ -229,7 +230,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(275, 341);
+            this.label2.Location = new System.Drawing.Point(297, 369);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 17);
             this.label2.TabIndex = 35;
@@ -239,7 +240,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 443);
+            this.ClientSize = new System.Drawing.Size(470, 471);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgvPayments);
@@ -255,6 +256,7 @@
             this.Controls.Add(this.lblAddressSt);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.comboBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Payments";
             this.Text = "Payments";
             this.Load += new System.EventHandler(this.Payments_Load);

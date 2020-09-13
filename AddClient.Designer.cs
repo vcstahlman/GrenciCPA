@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddClient));
             this.lblFirst = new System.Windows.Forms.Label();
             this.lblLast = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.lblHome = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblContact = new System.Windows.Forms.Label();
-            this.cboCatagory = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.cboContact = new System.Windows.Forms.ComboBox();
@@ -55,11 +55,12 @@
             this.tbxAddress = new System.Windows.Forms.TextBox();
             this.tbxLast = new System.Windows.Forms.TextBox();
             this.tbxFirst = new System.Windows.Forms.TextBox();
-            this.lblCata = new System.Windows.Forms.Label();
             this.lblParent = new System.Windows.Forms.Label();
             this.cboParent = new System.Windows.Forms.ComboBox();
             this.tbxCompany = new System.Windows.Forms.TextBox();
             this.lblCompany = new System.Windows.Forms.Label();
+            this.btnLabels = new System.Windows.Forms.Button();
+            this.lbxLabels = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblFirst
@@ -174,28 +175,6 @@
             this.lblContact.TabIndex = 11;
             this.lblContact.Text = "Perferred contact";
             // 
-            // cboCatagory
-            // 
-            this.cboCatagory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboCatagory.FormattingEnabled = true;
-            this.cboCatagory.Items.AddRange(new object[] {
-            "Individual",
-            "S corp",
-            "C corp",
-            "Partnership",
-            "Estate",
-            "Trust",
-            "Gift",
-            "Nonprofit",
-            "Schedule C",
-            "Schedule E",
-            "Misc."});
-            this.cboCatagory.Location = new System.Drawing.Point(562, 152);
-            this.cboCatagory.Name = "cboCatagory";
-            this.cboCatagory.Size = new System.Drawing.Size(195, 24);
-            this.cboCatagory.TabIndex = 12;
-            this.cboCatagory.Text = "Select Catagory";
-            // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -237,7 +216,7 @@
             this.tbxNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxNotes.Location = new System.Drawing.Point(19, 238);
+            this.tbxNotes.Location = new System.Drawing.Point(15, 238);
             this.tbxNotes.Multiline = true;
             this.tbxNotes.Name = "tbxNotes";
             this.tbxNotes.Size = new System.Drawing.Size(396, 200);
@@ -316,21 +295,11 @@
             this.tbxFirst.Size = new System.Drawing.Size(196, 22);
             this.tbxFirst.TabIndex = 28;
             // 
-            // lblCata
-            // 
-            this.lblCata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCata.AutoSize = true;
-            this.lblCata.Location = new System.Drawing.Point(438, 155);
-            this.lblCata.Name = "lblCata";
-            this.lblCata.Size = new System.Drawing.Size(65, 17);
-            this.lblCata.TabIndex = 29;
-            this.lblCata.Text = "Catagory";
-            // 
             // lblParent
             // 
             this.lblParent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblParent.AutoSize = true;
-            this.lblParent.Location = new System.Drawing.Point(438, 188);
+            this.lblParent.Location = new System.Drawing.Point(438, 160);
             this.lblParent.Name = "lblParent";
             this.lblParent.Size = new System.Drawing.Size(105, 17);
             this.lblParent.TabIndex = 30;
@@ -340,7 +309,7 @@
             // 
             this.cboParent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboParent.FormattingEnabled = true;
-            this.cboParent.Location = new System.Drawing.Point(562, 185);
+            this.cboParent.Location = new System.Drawing.Point(562, 157);
             this.cboParent.Name = "cboParent";
             this.cboParent.Size = new System.Drawing.Size(195, 24);
             this.cboParent.TabIndex = 31;
@@ -348,7 +317,7 @@
             // tbxCompany
             // 
             this.tbxCompany.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxCompany.Location = new System.Drawing.Point(562, 218);
+            this.tbxCompany.Location = new System.Drawing.Point(562, 190);
             this.tbxCompany.Name = "tbxCompany";
             this.tbxCompany.Size = new System.Drawing.Size(195, 22);
             this.tbxCompany.TabIndex = 32;
@@ -357,22 +326,47 @@
             // 
             this.lblCompany.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Location = new System.Drawing.Point(438, 221);
+            this.lblCompany.Location = new System.Drawing.Point(438, 193);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(67, 17);
             this.lblCompany.TabIndex = 33;
             this.lblCompany.Text = "Company";
+            // 
+            // btnLabels
+            // 
+            this.btnLabels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLabels.Location = new System.Drawing.Point(439, 312);
+            this.btnLabels.Name = "btnLabels";
+            this.btnLabels.Size = new System.Drawing.Size(117, 38);
+            this.btnLabels.TabIndex = 34;
+            this.btnLabels.Text = "Add/Edit Labels";
+            this.btnLabels.UseVisualStyleBackColor = true;
+            // 
+            // lbxLabels
+            // 
+            this.lbxLabels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbxLabels.FormattingEnabled = true;
+            this.lbxLabels.ItemHeight = 16;
+            this.lbxLabels.Items.AddRange(new object[] {
+            "Joint",
+            "Schedule C",
+            "Dependents"});
+            this.lbxLabels.Location = new System.Drawing.Point(441, 238);
+            this.lbxLabels.Name = "lbxLabels";
+            this.lbxLabels.Size = new System.Drawing.Size(314, 68);
+            this.lbxLabels.TabIndex = 36;
             // 
             // AddClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(772, 450);
+            this.Controls.Add(this.lbxLabels);
+            this.Controls.Add(this.btnLabels);
             this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.tbxCompany);
             this.Controls.Add(this.cboParent);
             this.Controls.Add(this.lblParent);
-            this.Controls.Add(this.lblCata);
             this.Controls.Add(this.tbxFirst);
             this.Controls.Add(this.tbxLast);
             this.Controls.Add(this.tbxAddress);
@@ -387,7 +381,6 @@
             this.Controls.Add(this.cboContact);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.cboCatagory);
             this.Controls.Add(this.lblContact);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblHome);
@@ -400,8 +393,9 @@
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblLast);
             this.Controls.Add(this.lblFirst);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddClient";
-            this.Text = "AddClient";
+            this.Text = "Client Add Form";
             this.Load += new System.EventHandler(this.AddClient_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -422,7 +416,6 @@
         private System.Windows.Forms.Label lblHome;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblContact;
-        private System.Windows.Forms.ComboBox cboCatagory;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ComboBox cboContact;
@@ -437,10 +430,11 @@
         private System.Windows.Forms.TextBox tbxAddress;
         private System.Windows.Forms.TextBox tbxLast;
         private System.Windows.Forms.TextBox tbxFirst;
-        private System.Windows.Forms.Label lblCata;
         private System.Windows.Forms.Label lblParent;
         private System.Windows.Forms.ComboBox cboParent;
         private System.Windows.Forms.TextBox tbxCompany;
         private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.Button btnLabels;
+        private System.Windows.Forms.ListBox lbxLabels;
     }
 }

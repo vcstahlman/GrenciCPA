@@ -38,5 +38,10 @@ namespace GrenciCPA
             AddClient form = new AddClient();
             form.ShowDialog();
         }
+
+        private void ClientList_Load(object sender, EventArgs e)
+        {
+            dgvClients.Rows.Add("Joe", "Smith", "", "123 Clari St", "Clarion", "PA", "Email", "View Client", "View Invoices", "View Returns", "Create Return");
+        }
     }
 }

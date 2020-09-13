@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jobs));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
@@ -239,6 +240,7 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.dgvClients);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Jobs";
             this.Text = "Jobs";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();

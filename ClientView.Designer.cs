@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientView));
             this.button3 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnEditClient = new System.Windows.Forms.Button();
@@ -47,8 +48,10 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNewJob = new System.Windows.Forms.Button();
             this.lblOverdue = new System.Windows.Forms.Label();
-            this.lblCatagory = new System.Windows.Forms.Label();
             this.btnActive = new System.Windows.Forms.Button();
+            this.lbxLabels = new System.Windows.Forms.ListBox();
+            this.lblLabel = new System.Windows.Forms.Label();
+            this.btnAddLabels = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
@@ -210,7 +213,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(278, 155);
+            this.btnSave.Location = new System.Drawing.Point(451, 154);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(125, 31);
             this.btnSave.TabIndex = 30;
@@ -237,15 +240,6 @@
             this.lblOverdue.TabIndex = 32;
             this.lblOverdue.Text = "Overdue: $100.00";
             // 
-            // lblCatagory
-            // 
-            this.lblCatagory.AutoSize = true;
-            this.lblCatagory.Location = new System.Drawing.Point(280, 23);
-            this.lblCatagory.Name = "lblCatagory";
-            this.lblCatagory.Size = new System.Drawing.Size(132, 17);
-            this.lblCatagory.TabIndex = 33;
-            this.lblCatagory.Text = "Catagory: Individual";
-            // 
             // btnActive
             // 
             this.btnActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -257,13 +251,46 @@
             this.btnActive.UseVisualStyleBackColor = true;
             this.btnActive.Click += new System.EventHandler(this.btnActive_Click);
             // 
+            // lbxLabels
+            // 
+            this.lbxLabels.FormattingEnabled = true;
+            this.lbxLabels.ItemHeight = 16;
+            this.lbxLabels.Items.AddRange(new object[] {
+            "Joint",
+            "Schedule C",
+            "Dependents"});
+            this.lbxLabels.Location = new System.Drawing.Point(283, 49);
+            this.lbxLabels.Name = "lbxLabels";
+            this.lbxLabels.Size = new System.Drawing.Size(293, 100);
+            this.lbxLabels.TabIndex = 35;
+            // 
+            // lblLabel
+            // 
+            this.lblLabel.AutoSize = true;
+            this.lblLabel.Location = new System.Drawing.Point(280, 29);
+            this.lblLabel.Name = "lblLabel";
+            this.lblLabel.Size = new System.Drawing.Size(93, 17);
+            this.lblLabel.TabIndex = 36;
+            this.lblLabel.Text = "Client Labels:";
+            // 
+            // btnAddLabels
+            // 
+            this.btnAddLabels.Location = new System.Drawing.Point(283, 155);
+            this.btnAddLabels.Name = "btnAddLabels";
+            this.btnAddLabels.Size = new System.Drawing.Size(120, 30);
+            this.btnAddLabels.TabIndex = 37;
+            this.btnAddLabels.Text = "Add/Edit Labels";
+            this.btnAddLabels.UseVisualStyleBackColor = true;
+            // 
             // ClientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 475);
+            this.Controls.Add(this.btnAddLabels);
+            this.Controls.Add(this.lblLabel);
+            this.Controls.Add(this.lbxLabels);
             this.Controls.Add(this.btnActive);
-            this.Controls.Add(this.lblCatagory);
             this.Controls.Add(this.lblOverdue);
             this.Controls.Add(this.btnNewJob);
             this.Controls.Add(this.btnSave);
@@ -277,6 +304,7 @@
             this.Controls.Add(this.lblAddressCSZ);
             this.Controls.Add(this.lblAddressSt);
             this.Controls.Add(this.lblName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientView";
             this.Text = "ClientView";
             this.Load += new System.EventHandler(this.ClientView_Load);
@@ -301,7 +329,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnNewJob;
         private System.Windows.Forms.Label lblOverdue;
-        private System.Windows.Forms.Label lblCatagory;
         private System.Windows.Forms.Button btnActive;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
@@ -309,5 +336,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountBilled;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountPaid;
         private System.Windows.Forms.DataGridViewButtonColumn ViewInvoice;
+        private System.Windows.Forms.ListBox lbxLabels;
+        private System.Windows.Forms.Label lblLabel;
+        private System.Windows.Forms.Button btnAddLabels;
     }
 }

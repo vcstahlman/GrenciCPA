@@ -37,7 +37,7 @@ namespace GrenciCPA
 
         private void ClientView_Load(object sender, EventArgs e)
         {
-
+            dgvClientPast.Rows.Add("Income Tax", "1/30/2021", "2/6/2021", "$200.00", "$175.00", "In 1232");
         }
 
         private void btnActive_Click(object sender, EventArgs e)

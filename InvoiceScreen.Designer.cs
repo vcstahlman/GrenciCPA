@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoiceScreen));
             this.btnEmail = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -133,6 +134,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnEmail);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InvoiceScreen";
             this.Text = "InvoiceScreen";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -16,5 +16,10 @@ namespace GrenciCPA
         {
             InitializeComponent();
         }
+
+        private void SplashScreen_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

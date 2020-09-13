@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceSelect));
             this.lblService = new System.Windows.Forms.Label();
             this.lblStaff = new System.Windows.Forms.Label();
             this.cboService = new System.Windows.Forms.ComboBox();
@@ -140,6 +141,7 @@
             this.Controls.Add(this.cboService);
             this.Controls.Add(this.lblStaff);
             this.Controls.Add(this.lblService);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ServiceSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ServiceSelect";
