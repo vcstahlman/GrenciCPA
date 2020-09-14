@@ -43,7 +43,7 @@
             // btnEmail
             // 
             this.btnEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEmail.Location = new System.Drawing.Point(784, 409);
+            this.btnEmail.Location = new System.Drawing.Point(869, 474);
             this.btnEmail.Name = "btnEmail";
             this.btnEmail.Size = new System.Drawing.Size(103, 43);
             this.btnEmail.TabIndex = 0;
@@ -53,7 +53,7 @@
             // btnPrint
             // 
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Location = new System.Drawing.Point(784, 458);
+            this.btnPrint.Location = new System.Drawing.Point(869, 523);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(103, 43);
             this.btnPrint.TabIndex = 1;
@@ -63,7 +63,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(784, 527);
+            this.btnClose.Location = new System.Drawing.Point(869, 592);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(103, 43);
             this.btnClose.TabIndex = 2;
@@ -106,7 +106,7 @@
             this.pictureBox1.Image = global::GrenciCPA.Properties.Resources.AA_invoice_2019_page_001;
             this.pictureBox1.Location = new System.Drawing.Point(343, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(435, 558);
+            this.pictureBox1.Size = new System.Drawing.Size(520, 623);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -114,7 +114,7 @@
             // btnMakeInvoice
             // 
             this.btnMakeInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMakeInvoice.Location = new System.Drawing.Point(12, 521);
+            this.btnMakeInvoice.Location = new System.Drawing.Point(12, 586);
             this.btnMakeInvoice.Name = "btnMakeInvoice";
             this.btnMakeInvoice.Size = new System.Drawing.Size(105, 49);
             this.btnMakeInvoice.TabIndex = 7;
@@ -125,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 582);
+            this.ClientSize = new System.Drawing.Size(984, 647);
             this.Controls.Add(this.btnMakeInvoice);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblService);

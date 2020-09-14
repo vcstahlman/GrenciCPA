@@ -19,7 +19,7 @@ namespace GrenciCPA
 
         private void Invoices_Load(object sender, EventArgs e)
         {
-
+            dgvInvoices.Rows.Add("View Invoice", "Smith", "Joe", "", "123-4323", "joe@smiths.com", "Due", "Pay");
         }
 
         private void cbxOverdue_CheckedChanged(object sender, EventArgs e)

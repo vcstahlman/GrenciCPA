@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceSelect));
-            this.lblService = new System.Windows.Forms.Label();
             this.lblStaff = new System.Windows.Forms.Label();
-            this.cboService = new System.Windows.Forms.ComboBox();
             this.cboStaff = new System.Windows.Forms.ComboBox();
             this.lblDate = new System.Windows.Forms.Label();
             this.tbxDate = new System.Windows.Forms.TextBox();
@@ -39,42 +37,15 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblService
-            // 
-            this.lblService.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblService.AutoSize = true;
-            this.lblService.Location = new System.Drawing.Point(31, 36);
-            this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(59, 17);
-            this.lblService.TabIndex = 0;
-            this.lblService.Text = "Service:";
-            // 
             // lblStaff
             // 
             this.lblStaff.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblStaff.AutoSize = true;
-            this.lblStaff.Location = new System.Drawing.Point(31, 76);
+            this.lblStaff.Location = new System.Drawing.Point(31, 34);
             this.lblStaff.Name = "lblStaff";
             this.lblStaff.Size = new System.Drawing.Size(41, 17);
             this.lblStaff.TabIndex = 1;
             this.lblStaff.Text = "Staff:";
-            // 
-            // cboService
-            // 
-            this.cboService.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cboService.FormattingEnabled = true;
-            this.cboService.Items.AddRange(new object[] {
-            "Income Tax",
-            "Payroll",
-            "Book Keeping",
-            "Audit",
-            "Sales Tax",
-            "Merchantile Tax"});
-            this.cboService.Location = new System.Drawing.Point(126, 33);
-            this.cboService.Name = "cboService";
-            this.cboService.Size = new System.Drawing.Size(181, 24);
-            this.cboService.TabIndex = 2;
-            this.cboService.SelectedIndexChanged += new System.EventHandler(this.cboService_SelectedIndexChanged);
             // 
             // cboStaff
             // 
@@ -83,7 +54,7 @@
             this.cboStaff.Items.AddRange(new object[] {
             "Dr. Grenci",
             "Mrs. Grenci"});
-            this.cboStaff.Location = new System.Drawing.Point(126, 73);
+            this.cboStaff.Location = new System.Drawing.Point(126, 31);
             this.cboStaff.Name = "cboStaff";
             this.cboStaff.Size = new System.Drawing.Size(181, 24);
             this.cboStaff.TabIndex = 3;
@@ -92,7 +63,7 @@
             // 
             this.lblDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(31, 116);
+            this.lblDate.Location = new System.Drawing.Point(31, 74);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(42, 17);
             this.lblDate.TabIndex = 4;
@@ -101,7 +72,7 @@
             // tbxDate
             // 
             this.tbxDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbxDate.Location = new System.Drawing.Point(126, 113);
+            this.tbxDate.Location = new System.Drawing.Point(126, 71);
             this.tbxDate.Name = "tbxDate";
             this.tbxDate.Size = new System.Drawing.Size(181, 22);
             this.tbxDate.TabIndex = 5;
@@ -109,7 +80,7 @@
             // btnContinue
             // 
             this.btnContinue.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnContinue.Location = new System.Drawing.Point(34, 158);
+            this.btnContinue.Location = new System.Drawing.Point(34, 121);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(132, 61);
             this.btnContinue.TabIndex = 6;
@@ -120,7 +91,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClose.Location = new System.Drawing.Point(172, 158);
+            this.btnClose.Location = new System.Drawing.Point(172, 121);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(135, 61);
             this.btnClose.TabIndex = 7;
@@ -138,9 +109,7 @@
             this.Controls.Add(this.tbxDate);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.cboStaff);
-            this.Controls.Add(this.cboService);
             this.Controls.Add(this.lblStaff);
-            this.Controls.Add(this.lblService);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ServiceSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -152,10 +121,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblService;
         private System.Windows.Forms.Label lblStaff;
-        private System.Windows.Forms.ComboBox cboService;
         private System.Windows.Forms.ComboBox cboStaff;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.TextBox tbxDate;

@@ -32,5 +32,10 @@ namespace GrenciCPA
             JobScreen form = new JobScreen();
             form.ShowDialog();
         }
+
+        private void Jobs_Load(object sender, EventArgs e)
+        {
+            dgvJobs.Rows.Add("Joe", "Smith", "", "", "Income Tax", "Tony Grenci", "View", "Invoice");
+        }
     }
 }

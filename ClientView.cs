@@ -15,7 +15,28 @@ namespace GrenciCPA
         public ClientView()
         {
             InitializeComponent();
+            int n = dgvClientPast.Rows.Add();
+            dgvClientPast.Rows[n].Cells[0].Value = "4/12/19";
+            dgvClientPast.Rows[n].Cells[1].Value = "Income Tax";
+            dgvClientPast.Rows[n].Cells[2].Value = "$125";
+            dgvClientPast.Rows[n].Cells[3].Value = "$125";
+            dgvClientPast.Rows[n].Cells[4].Value = "4/13/19";
+
+            int j = dgvClientPast.Rows.Add();
+            dgvClientPast.Rows[j].Cells[0].Value = "4/8/18";
+            dgvClientPast.Rows[j].Cells[1].Value = "Income Tax";
+            dgvClientPast.Rows[j].Cells[2].Value = "$125";
+            dgvClientPast.Rows[j].Cells[3].Value = "$125";
+            dgvClientPast.Rows[j].Cells[4].Value = "4/8/18";
+
+            int m = dgvClientPast.Rows.Add();
+            dgvClientPast.Rows[m].Cells[0].Value = "2/23/18";
+            dgvClientPast.Rows[m].Cells[1].Value = "Investments";
+            dgvClientPast.Rows[m].Cells[2].Value = "$100";
+            dgvClientPast.Rows[m].Cells[3].Value = "$100";
+            dgvClientPast.Rows[m].Cells[4].Value = "2/23/18";
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -37,7 +58,7 @@ namespace GrenciCPA
 
         private void ClientView_Load(object sender, EventArgs e)
         {
-            dgvClientPast.Rows.Add("Income Tax", "1/30/2021", "2/6/2021", "$200.00", "$175.00", "In 1232");
+
         }
 
         private void btnActive_Click(object sender, EventArgs e)
@@ -49,6 +70,21 @@ namespace GrenciCPA
         private void dgvClientPast_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnEditNotes_Click(object sender, EventArgs e)
+        {
+            rtbNotes.ReadOnly = false;
+            if (btnEditNotes.Text == "Edit Notes")
+            {
+                rtbNotes.ReadOnly = false;
+                btnEditNotes.Text = "Save Notes";
+            }
+            else if (btnEditNotes.Text == "Save Notes")
+            {
+                rtbNotes.ReadOnly = true;
+                btnEditNotes.Text = "Edit Notes";
+            }
         }
     }
 }

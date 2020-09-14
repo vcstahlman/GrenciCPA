@@ -20,6 +20,8 @@ namespace GrenciCPA
         private void Payments_Load(object sender, EventArgs e)
         {
             dgvPayments.Rows.Add("1232", "$200.00");
+            dgvPayments.Rows.Add("1237", "$500.00");
+            lblTotal.Text = "$700.00";
         }
 
         private void btnClose_Click(object sender, EventArgs e)

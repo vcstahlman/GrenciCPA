@@ -43,7 +43,7 @@ namespace GrenciCPA
 
         private void btnGlobals_Click(object sender, EventArgs e)
         {
-            Fees form = new Fees();
+            Globals form = new Globals();
             form.ShowDialog();
         }
     }

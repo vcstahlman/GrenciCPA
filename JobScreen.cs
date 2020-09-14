@@ -12,6 +12,9 @@ namespace GrenciCPA
 {
     public partial class JobScreen : Form
     {
+
+        public double time;
+        public double timestart;
         public JobScreen()
         {
             InitializeComponent();
@@ -24,7 +27,7 @@ namespace GrenciCPA
 
         private void JobScreen_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnEditClient_Click(object sender, EventArgs e)
@@ -40,12 +43,20 @@ namespace GrenciCPA
 
         private void btnTimer_Click(object sender, EventArgs e)
         {
+            
             if (btnTimer.Text == "Start Timer")
             {
                 btnTimer.Text = "Stop Timer";
-                lblTime.Text = "Timer: " + DateTime.Now.ToString();
+                timestart = DateTime.Now.Hour + (DateTime.Now.Minute / 60.0) + (DateTime.Now.Second / 3600.0);
             }
-            else btnTimer.Text = "Start Timer";
+            else
+            {
+                double timeend = DateTime.Now.Hour + (DateTime.Now.Minute / 60.0) + (DateTime.Now.Second / 3600.0);
+                btnTimer.Text = "Start Timer";
+                dgvTime.Rows.Add((timeend - timestart).ToString(), timestart.ToString(), timeend.ToString() , "Worked on Income Tax");
+                time += timeend - timestart;
+                lblTime.Text = "Total Elapsed Time: "+ (((int)time * 100 )/100).ToString();
+            }
         }
 
         private void btnComplete_Click(object sender, EventArgs e)

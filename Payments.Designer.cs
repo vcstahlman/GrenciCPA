@@ -36,17 +36,17 @@
             this.lblAddressCSZ = new System.Windows.Forms.Label();
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnProcess = new System.Windows.Forms.Button();
             this.txbOverride = new System.Windows.Forms.TextBox();
             this.lblOverride = new System.Windows.Forms.Label();
             this.dgvPayments = new System.Windows.Forms.DataGridView();
-            this.Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PayTo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtInvoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PayTo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,9 +59,9 @@
             "Cash",
             "Credit",
             "Debit"});
-            this.comboBox1.Location = new System.Drawing.Point(16, 316);
+            this.comboBox1.Location = new System.Drawing.Point(16, 288);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(442, 24);
+            this.comboBox1.Size = new System.Drawing.Size(398, 24);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.Text = "Method of Payment";
             // 
@@ -125,20 +125,20 @@
             this.lblName.TabIndex = 22;
             this.lblName.Text = "Joe and Joan Smith";
             // 
-            // label1
+            // lblTotal
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 343);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 17);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Amount Owed:";
+            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(13, 315);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(100, 17);
+            this.lblTotal.TabIndex = 28;
+            this.lblTotal.Text = "Amount Owed:";
             // 
             // btnClose
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClose.Location = new System.Drawing.Point(326, 398);
+            this.btnClose.Location = new System.Drawing.Point(282, 370);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);
             this.btnClose.TabIndex = 29;
@@ -149,7 +149,7 @@
             // btnProcess
             // 
             this.btnProcess.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnProcess.Location = new System.Drawing.Point(159, 398);
+            this.btnProcess.Location = new System.Drawing.Point(137, 370);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(132, 57);
             this.btnProcess.TabIndex = 30;
@@ -159,7 +159,7 @@
             // txbOverride
             // 
             this.txbOverride.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txbOverride.Location = new System.Drawing.Point(141, 366);
+            this.txbOverride.Location = new System.Drawing.Point(137, 338);
             this.txbOverride.Name = "txbOverride";
             this.txbOverride.Size = new System.Drawing.Size(132, 22);
             this.txbOverride.TabIndex = 31;
@@ -168,7 +168,7 @@
             // 
             this.lblOverride.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblOverride.AutoSize = true;
-            this.lblOverride.Location = new System.Drawing.Point(17, 369);
+            this.lblOverride.Location = new System.Drawing.Point(13, 341);
             this.lblOverride.Name = "lblOverride";
             this.lblOverride.Size = new System.Drawing.Size(118, 17);
             this.lblOverride.TabIndex = 32;
@@ -183,45 +183,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPayments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Invoice,
-            this.Amount,
+            this.txtInvoice,
+            this.txtAmount,
             this.PayTo});
             this.dgvPayments.Location = new System.Drawing.Point(16, 127);
             this.dgvPayments.Name = "dgvPayments";
             this.dgvPayments.ReadOnly = true;
             this.dgvPayments.RowHeadersWidth = 51;
             this.dgvPayments.RowTemplate.Height = 24;
-            this.dgvPayments.Size = new System.Drawing.Size(442, 178);
+            this.dgvPayments.Size = new System.Drawing.Size(398, 150);
             this.dgvPayments.TabIndex = 33;
-            // 
-            // Invoice
-            // 
-            this.Invoice.HeaderText = "Invoice";
-            this.Invoice.MinimumWidth = 6;
-            this.Invoice.Name = "Invoice";
-            this.Invoice.ReadOnly = true;
-            this.Invoice.Width = 90;
-            // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 80;
-            // 
-            // PayTo
-            // 
-            this.PayTo.HeaderText = "Pay towards";
-            this.PayTo.MinimumWidth = 6;
-            this.PayTo.Name = "PayTo";
-            this.PayTo.ReadOnly = true;
-            this.PayTo.Width = 125;
             // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(378, 366);
+            this.textBox1.Location = new System.Drawing.Point(334, 338);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(80, 22);
             this.textBox1.TabIndex = 34;
@@ -230,17 +206,44 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(297, 369);
+            this.label2.Location = new System.Drawing.Point(275, 341);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 17);
             this.label2.TabIndex = 35;
             this.label2.Text = "Check #";
             // 
+            // txtInvoice
+            // 
+            this.txtInvoice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txtInvoice.DataPropertyName = "Invoice";
+            this.txtInvoice.HeaderText = "Invoice";
+            this.txtInvoice.MinimumWidth = 40;
+            this.txtInvoice.Name = "txtInvoice";
+            this.txtInvoice.ReadOnly = true;
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txtAmount.DataPropertyName = "Amount";
+            this.txtAmount.HeaderText = "Amount";
+            this.txtAmount.MinimumWidth = 40;
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.ReadOnly = true;
+            // 
+            // PayTo
+            // 
+            this.PayTo.FillWeight = 125F;
+            this.PayTo.HeaderText = "Pay towards";
+            this.PayTo.MinimumWidth = 6;
+            this.PayTo.Name = "PayTo";
+            this.PayTo.ReadOnly = true;
+            this.PayTo.Width = 70;
+            // 
             // Payments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 471);
+            this.ClientSize = new System.Drawing.Size(426, 443);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgvPayments);
@@ -248,7 +251,7 @@
             this.Controls.Add(this.txbOverride);
             this.Controls.Add(this.btnProcess);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblSSN);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblPhone);
@@ -275,16 +278,16 @@
         private System.Windows.Forms.Label lblAddressCSZ;
         private System.Windows.Forms.Label lblAddressSt;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.TextBox txbOverride;
         private System.Windows.Forms.Label lblOverride;
         private System.Windows.Forms.DataGridView dgvPayments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Invoice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn PayTo;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtAmount;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn PayTo;
     }
 }
