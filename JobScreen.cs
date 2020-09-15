@@ -6,7 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
 using System.Windows.Forms;
+using System.Diagnostics;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace GrenciCPA
 {
@@ -61,8 +67,17 @@ namespace GrenciCPA
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            InvoiceScreen form = new InvoiceScreen();
-            form.ShowDialog();
+            //InvoiceScreen form = new InvoiceScreen();
+            //form.ShowDialog();
+
+            Document document = new Document();
+            PdfWriter.GetInstance(document, new FileStream("C:/SampleInvoice.pdf", FileMode.Create));
+            document.Open();
+            Paragraph p = new Paragraph("This is a sample invoice." + "\n" + "\n" + "Joe and Joan Smith" + "\n" + "\n" + "\n" + "\n"  + "Schedule C.............................................................................................................$100.00");
+            Paragraph p2 = new Paragraph("Total amount due: $100.00");
+            document.Add(p);
+            document.Add(p2);
+            document.Close();
         }
     }
 }
