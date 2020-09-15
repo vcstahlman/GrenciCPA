@@ -14,6 +14,7 @@ namespace GrenciCPA
     {
 
         public double time;
+        public DateTime timeStarted;
         public double timeStart;
         public JobScreen()
         {
@@ -27,7 +28,16 @@ namespace GrenciCPA
 
         private void JobScreen_Load(object sender, EventArgs e)
         {
+            int n = dgvFees.Rows.Add();
             
+            dgvFees.Rows[n].Cells[1].Value = "100";
+            dgvFees.Rows[n].Cells[2].Value = "2.5";
+            
+            dgvFees.Rows[n].Cells[4].Value = "10";
+            dgvFees.Rows[n].Cells[5].Value = "1";
+            dgvFees.Rows[n].Cells[6].Value = "165";
+            dgvFees.Rows[n].Cells[7].Value = "8/12/2020";
+            dgvFees.Rows[n].Cells[8].Value = "9/15/2020";
         }
 
         private void btnEditClient_Click(object sender, EventArgs e)
@@ -48,6 +58,7 @@ namespace GrenciCPA
             {
                 btnTimer.Text = "Stop Timer";
                 timeStart = DateTime.Now.Hour + (DateTime.Now.Minute / 60.0) + (DateTime.Now.Second / 3600.0);
+                timeStarted = DateTime.Now;
                 
             }
             else
@@ -55,7 +66,7 @@ namespace GrenciCPA
                 double timeend = DateTime.Now.Hour + (DateTime.Now.Minute / 60.0) + (DateTime.Now.Second / 3600.0);
                 btnTimer.Text = "Start Timer";
                 
-                dgvTime.Rows.Add((timeend - timeStart).ToString(), timeStart.ToString(), timeend.ToString() , "Worked on their taxes");
+                dgvTime.Rows.Add((DateTime.Now - timeStarted).ToString(), timeStarted.ToString(), DateTime.Now.ToString() , "Worked on their taxes");
                 time += timeend - timeStart;
                 txtDateTime.Text = "Total Elapsed Time: "+ (((int)time * 100 )/100).ToString() + " hours";
 

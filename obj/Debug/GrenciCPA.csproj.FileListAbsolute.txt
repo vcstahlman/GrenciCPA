@@ -100,3 +100,4 @@ C:\Users\CoveM\Downloads\GrenciCPA-master\GrenciCPA-master\obj\Debug\GrenciCPA.e
 C:\Users\CoveM\Downloads\GrenciCPA-master\GrenciCPA-master\obj\Debug\GrenciCPA.pdb
 C:\Users\CoveM\Downloads\GrenciCPA-master\GrenciCPA-master\obj\Debug\GrenciCPA.HOLDDATAHERE.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.HOLDDATAHERE.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Reports.resources

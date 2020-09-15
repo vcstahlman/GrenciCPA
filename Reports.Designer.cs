@@ -39,6 +39,14 @@
             this.lblMisc = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblReports = new System.Windows.Forms.Label();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalBilled = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,6 +124,11 @@
             // 
             this.lbxReport.FormattingEnabled = true;
             this.lbxReport.ItemHeight = 16;
+            this.lbxReport.Items.AddRange(new object[] {
+            "Names:",
+            "Total gains:",
+            "Date rand:",
+            "Active Labels:"});
             this.lbxReport.Location = new System.Drawing.Point(16, 608);
             this.lbxReport.Name = "lbxReport";
             this.lbxReport.Size = new System.Drawing.Size(650, 148);
@@ -133,6 +146,15 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FirstName,
+            this.LastName,
+            this.Company,
+            this.TotalBilled,
+            this.TotalPaid,
+            this.TotalOwed,
+            this.Invoice,
+            this.Date});
             this.dataGridView1.Location = new System.Drawing.Point(16, 141);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -145,9 +167,65 @@
             this.lblReports.AutoSize = true;
             this.lblReports.Location = new System.Drawing.Point(13, 588);
             this.lblReports.Name = "lblReports";
-            this.lblReports.Size = new System.Drawing.Size(46, 17);
+            this.lblReports.Size = new System.Drawing.Size(55, 17);
             this.lblReports.TabIndex = 10;
-            this.lblReports.Text = "label1";
+            this.lblReports.Text = "Report:";
+            // 
+            // FirstName
+            // 
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.MinimumWidth = 6;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.Width = 90;
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "LastName";
+            this.LastName.MinimumWidth = 6;
+            this.LastName.Name = "LastName";
+            this.LastName.Width = 90;
+            // 
+            // Company
+            // 
+            this.Company.HeaderText = "Company";
+            this.Company.MinimumWidth = 6;
+            this.Company.Name = "Company";
+            this.Company.Width = 90;
+            // 
+            // TotalBilled
+            // 
+            this.TotalBilled.HeaderText = "Billed";
+            this.TotalBilled.MinimumWidth = 6;
+            this.TotalBilled.Name = "TotalBilled";
+            this.TotalBilled.Width = 80;
+            // 
+            // TotalPaid
+            // 
+            this.TotalPaid.HeaderText = "Paid";
+            this.TotalPaid.MinimumWidth = 6;
+            this.TotalPaid.Name = "TotalPaid";
+            this.TotalPaid.Width = 80;
+            // 
+            // TotalOwed
+            // 
+            this.TotalOwed.HeaderText = "Owed";
+            this.TotalOwed.MinimumWidth = 6;
+            this.TotalOwed.Name = "TotalOwed";
+            this.TotalOwed.Width = 80;
+            // 
+            // Invoice
+            // 
+            this.Invoice.HeaderText = "Invoice";
+            this.Invoice.MinimumWidth = 6;
+            this.Invoice.Name = "Invoice";
+            this.Invoice.Width = 80;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.Width = 80;
             // 
             // Reports
             // 
@@ -167,6 +245,7 @@
             this.Controls.Add(this.btnClose);
             this.Name = "Reports";
             this.Text = "Reports";
+            this.Load += new System.EventHandler(this.Reports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -186,5 +265,13 @@
         private System.Windows.Forms.Label lblMisc;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblReports;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Company;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalBilled;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPaid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalOwed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
     }
 }
