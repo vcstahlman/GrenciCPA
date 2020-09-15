@@ -534,7 +534,7 @@
             this.rtbNotes.Name = "rtbNotes";
             this.rtbNotes.Size = new System.Drawing.Size(368, 140);
             this.rtbNotes.TabIndex = 68;
-            this.rtbNotes.Text = "Thier child Jake just graduated High School\nThey also have a child out of Collage" +
+            this.rtbNotes.Text = "Their child Jake just graduated High School\nThey also have a child out of Collage" +
     " and out of state\n\n";
             // 
             // txtDateTime
