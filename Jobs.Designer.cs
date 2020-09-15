@@ -145,71 +145,71 @@
             // 
             // FirstName
             // 
+            this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.FirstName.FillWeight = 125F;
             this.FirstName.HeaderText = "First Name";
-            this.FirstName.MinimumWidth = 6;
+            this.FirstName.MinimumWidth = 125;
             this.FirstName.Name = "FirstName";
             this.FirstName.ReadOnly = true;
             this.FirstName.Width = 125;
             // 
             // LastName
             // 
+            this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.LastName.FillWeight = 125F;
             this.LastName.HeaderText = "Last Name";
-            this.LastName.MinimumWidth = 6;
+            this.LastName.MinimumWidth = 125;
             this.LastName.Name = "LastName";
             this.LastName.ReadOnly = true;
             this.LastName.Width = 125;
             // 
             // Company
             // 
+            this.Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Company.FillWeight = 125F;
             this.Company.HeaderText = "Company";
-            this.Company.MinimumWidth = 6;
+            this.Company.MinimumWidth = 125;
             this.Company.Name = "Company";
             this.Company.ReadOnly = true;
-            this.Company.Width = 125;
             // 
             // ParentClient
             // 
             this.ParentClient.HeaderText = "Parent Client";
-            this.ParentClient.MinimumWidth = 6;
+            this.ParentClient.MinimumWidth = 100;
             this.ParentClient.Name = "ParentClient";
             this.ParentClient.ReadOnly = true;
-            this.ParentClient.Width = 125;
             // 
             // Service
             // 
             this.Service.HeaderText = "Services";
-            this.Service.MinimumWidth = 6;
+            this.Service.MinimumWidth = 100;
             this.Service.Name = "Service";
             this.Service.ReadOnly = true;
-            this.Service.Width = 80;
             // 
             // Staff
             // 
             this.Staff.HeaderText = "Staff";
-            this.Staff.MinimumWidth = 6;
+            this.Staff.MinimumWidth = 100;
             this.Staff.Name = "Staff";
             this.Staff.ReadOnly = true;
-            this.Staff.Width = 90;
             // 
             // View
             // 
             this.View.HeaderText = "View Job";
-            this.View.MinimumWidth = 6;
+            this.View.MinimumWidth = 100;
             this.View.Name = "View";
             this.View.ReadOnly = true;
             this.View.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.View.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.View.Width = 70;
             // 
             // Invoice
             // 
             this.Invoice.HeaderText = "Invoice";
-            this.Invoice.MinimumWidth = 6;
+            this.Invoice.MinimumWidth = 100;
             this.Invoice.Name = "Invoice";
             this.Invoice.ReadOnly = true;
             this.Invoice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Invoice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Invoice.Width = 70;
             // 
             // Jobs
             // 

@@ -70,6 +70,12 @@
     <Compile Include="Globals.Designer.cs">
       <DependentUpon>Globals.cs</DependentUpon>
     </Compile>
+    <Compile Include="HOLDDATAHERE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HOLDDATAHERE.Designer.cs">
+      <DependentUpon>HOLDDATAHERE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Invoices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Globals.resx">
       <DependentUpon>Globals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HOLDDATAHERE.resx">
+      <DependentUpon>HOLDDATAHERE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoices.resx">
       <DependentUpon>Invoices.cs</DependentUpon>

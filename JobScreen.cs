@@ -14,7 +14,7 @@ namespace GrenciCPA
     {
 
         public double time;
-        public double timestart;
+        public double timeStart;
         public JobScreen()
         {
             InitializeComponent();
@@ -43,26 +43,61 @@ namespace GrenciCPA
 
         private void btnTimer_Click(object sender, EventArgs e)
         {
-            
+
             if (btnTimer.Text == "Start Timer")
             {
                 btnTimer.Text = "Stop Timer";
-                timestart = DateTime.Now.Hour + (DateTime.Now.Minute / 60.0) + (DateTime.Now.Second / 3600.0);
+                timeStart = DateTime.Now.Hour + (DateTime.Now.Minute / 60.0) + (DateTime.Now.Second / 3600.0);
+                
             }
             else
             {
                 double timeend = DateTime.Now.Hour + (DateTime.Now.Minute / 60.0) + (DateTime.Now.Second / 3600.0);
                 btnTimer.Text = "Start Timer";
-                dgvTime.Rows.Add((timeend - timestart).ToString(), timestart.ToString(), timeend.ToString() , "Worked on Income Tax");
-                time += timeend - timestart;
-                lblTime.Text = "Total Elapsed Time: "+ (((int)time * 100 )/100).ToString();
+                
+                dgvTime.Rows.Add((timeend - timeStart).ToString(), timeStart.ToString(), timeend.ToString() , "Worked on their taxes");
+                time += timeend - timeStart;
+                txtDateTime.Text = "Total Elapsed Time: "+ (((int)time * 100 )/100).ToString() + " hours";
+
             }
+
+
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
             InvoiceScreen form = new InvoiceScreen();
             form.ShowDialog();
+        }
+
+        private void btnEditTime_Click(object sender, EventArgs e)
+        {
+            if (btnEditTime.Text == "Edit Time")
+            {
+                lblAddMinutes.Visible = true;
+                cmboAddTime.Visible = true;
+                lblAddTime.Visible = true;
+                txtAddTime.Visible = true;
+                lblSubtractTime.Visible = true;
+                txtSubtract.Visible = true;
+
+                btnEditTime.Text = "Finish Editing";
+            }
+
+            else
+            {
+                lblAddMinutes.Visible = false;
+                lblAddTime.Visible = false;
+                lblSubtractTime.Visible = false;
+                txtAddTime.Text = "";
+                txtAddTime.Visible = false;
+                txtSubtract.Text = "";
+                txtSubtract.Visible = false;
+                cmboAddTime.Items.Clear();
+                cmboAddTime.Visible = false;
+
+                btnEditTime.Text = "Edit Time";
+            }
         }
     }
 }

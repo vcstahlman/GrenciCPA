@@ -35,7 +35,7 @@ namespace GrenciCPA
 
         private void Jobs_Load(object sender, EventArgs e)
         {
-            dgvJobs.Rows.Add("Joe", "Smith", "", "", "Income Tax", "Tony Grenci", "View", "Invoice");
+            dgvJobs.Rows.Add("Joe", "Smith", "N/A", "N/A", "Income Tax", "Tony Grenci", "View", "Invoice");
         }
     }
 }
