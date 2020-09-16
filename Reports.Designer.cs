@@ -37,7 +37,11 @@
             this.tbxMisc = new System.Windows.Forms.TextBox();
             this.lbxReport = new System.Windows.Forms.ListBox();
             this.lblMisc = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+=======
+            this.dgvReports = new System.Windows.Forms.DataGridView();
+>>>>>>> pr/3
             this.lblReports = new System.Windows.Forms.Label();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +51,11 @@
             this.TotalOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).BeginInit();
+>>>>>>> pr/3
             this.SuspendLayout();
             // 
             // btnClose
@@ -143,10 +151,17 @@
             this.lblMisc.TabIndex = 8;
             this.lblMisc.Text = "Misc:";
             // 
+<<<<<<< HEAD
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+=======
+            // dgvReports
+            // 
+            this.dgvReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReports.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+>>>>>>> pr/3
             this.FirstName,
             this.LastName,
             this.Company,
@@ -155,12 +170,21 @@
             this.TotalOwed,
             this.Invoice,
             this.Date});
+<<<<<<< HEAD
             this.dataGridView1.Location = new System.Drawing.Point(16, 141);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(873, 431);
             this.dataGridView1.TabIndex = 9;
+=======
+            this.dgvReports.Location = new System.Drawing.Point(16, 141);
+            this.dgvReports.Name = "dgvReports";
+            this.dgvReports.RowHeadersWidth = 51;
+            this.dgvReports.RowTemplate.Height = 24;
+            this.dgvReports.Size = new System.Drawing.Size(873, 431);
+            this.dgvReports.TabIndex = 9;
+>>>>>>> pr/3
             // 
             // lblReports
             // 
@@ -233,7 +257,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 780);
             this.Controls.Add(this.lblReports);
+<<<<<<< HEAD
             this.Controls.Add(this.dataGridView1);
+=======
+            this.Controls.Add(this.dgvReports);
+>>>>>>> pr/3
             this.Controls.Add(this.lblMisc);
             this.Controls.Add(this.lbxReport);
             this.Controls.Add(this.tbxMisc);
@@ -246,7 +274,11 @@
             this.Name = "Reports";
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Reports_Load);
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).EndInit();
+>>>>>>> pr/3
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,7 +295,11 @@
         private System.Windows.Forms.TextBox tbxMisc;
         private System.Windows.Forms.ListBox lbxReport;
         private System.Windows.Forms.Label lblMisc;
+<<<<<<< HEAD
         private System.Windows.Forms.DataGridView dataGridView1;
+=======
+        private System.Windows.Forms.DataGridView dgvReports;
+>>>>>>> pr/3
         private System.Windows.Forms.Label lblReports;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
