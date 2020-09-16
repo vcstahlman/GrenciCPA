@@ -46,5 +46,11 @@ namespace GrenciCPA
             Globals form = new Globals();
             form.ShowDialog();
         }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            Reports form = new Reports();
+            form.ShowDialog();
+        }
     }
 }
