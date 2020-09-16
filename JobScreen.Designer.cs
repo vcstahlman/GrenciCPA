@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,9 +41,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JobScreen));
             this.button3 = new System.Windows.Forms.Button();
             this.btnEditClient = new System.Windows.Forms.Button();
@@ -51,15 +51,6 @@
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.dgvFees = new System.Windows.Forms.DataGridView();
-            this.FeeName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.FeeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Multiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtLabel = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.txtLabelCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtLabelMultiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MiniTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Started = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ended = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnComplete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblStaff = new System.Windows.Forms.Label();
@@ -82,6 +73,15 @@
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
             this.txtDateTime = new System.Windows.Forms.TextBox();
             this.lbxLabels = new System.Windows.Forms.ListBox();
+            this.FeeName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.FeeCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Multiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtLabel = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.txtLabelCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtLabelMultiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MiniTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Started = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ended = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTime)).BeginInit();
             this.SuspendLayout();
@@ -194,122 +194,6 @@
             this.dgvFees.Size = new System.Drawing.Size(1329, 374);
             this.dgvFees.TabIndex = 29;
             this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
-            // 
-            // FeeName
-            // 
-            this.FeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FeeName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FeeName.FillWeight = 125F;
-            this.FeeName.HeaderText = "Service";
-            this.FeeName.Items.AddRange(new object[] {
-            "Income Taxes",
-            "Payroll"});
-            this.FeeName.MinimumWidth = 125;
-            this.FeeName.Name = "FeeName";
-            this.FeeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.FeeName.Width = 125;
-            // 
-            // FeeCost
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.FeeCost.DefaultCellStyle = dataGridViewCellStyle3;
-            this.FeeCost.HeaderText = "Service Cost";
-            this.FeeCost.MinimumWidth = 100;
-            this.FeeCost.Name = "FeeCost";
-            this.FeeCost.Width = 125;
-            // 
-            // Multiplier
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Multiplier.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Multiplier.FillWeight = 75F;
-            this.Multiplier.HeaderText = "Multiplier";
-            this.Multiplier.MinimumWidth = 75;
-            this.Multiplier.Name = "Multiplier";
-            this.Multiplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Multiplier.Width = 75;
-            // 
-            // txtLabel
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.txtLabel.DefaultCellStyle = dataGridViewCellStyle5;
-            this.txtLabel.FillWeight = 125F;
-            this.txtLabel.HeaderText = "Label";
-            this.txtLabel.Items.AddRange(new object[] {
-            "Dependents",
-            "Dependents At College",
-            "Amended Return",
-            "Schedule C",
-            "Earned Income Credit",
-            "Employees",
-            "Tipped Employees",
-            "Payroll Tax Returns"});
-            this.txtLabel.MinimumWidth = 125;
-            this.txtLabel.Name = "txtLabel";
-            this.txtLabel.Width = 125;
-            // 
-            // txtLabelCost
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.txtLabelCost.DefaultCellStyle = dataGridViewCellStyle6;
-            this.txtLabelCost.HeaderText = "Label Cost";
-            this.txtLabelCost.MinimumWidth = 100;
-            this.txtLabelCost.Name = "txtLabelCost";
-            this.txtLabelCost.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.txtLabelCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.txtLabelCost.Width = 125;
-            // 
-            // txtLabelMultiplier
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Format = "N2";
-            this.txtLabelMultiplier.DefaultCellStyle = dataGridViewCellStyle7;
-            this.txtLabelMultiplier.HeaderText = "Label Multiplier";
-            this.txtLabelMultiplier.MinimumWidth = 100;
-            this.txtLabelMultiplier.Name = "txtLabelMultiplier";
-            this.txtLabelMultiplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.txtLabelMultiplier.Width = 125;
-            // 
-            // MiniTotal
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.MiniTotal.DefaultCellStyle = dataGridViewCellStyle8;
-            this.MiniTotal.HeaderText = "Min/Total";
-            this.MiniTotal.MinimumWidth = 100;
-            this.MiniTotal.Name = "MiniTotal";
-            this.MiniTotal.Width = 125;
-            // 
-            // Started
-            // 
-            this.Started.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Format = "t";
-            dataGridViewCellStyle9.NullValue = null;
-            this.Started.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Started.FillWeight = 125F;
-            this.Started.HeaderText = "Start Date";
-            this.Started.MinimumWidth = 125;
-            this.Started.Name = "Started";
-            this.Started.ReadOnly = true;
-            // 
-            // Ended
-            // 
-            this.Ended.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.Format = "t";
-            dataGridViewCellStyle10.NullValue = null;
-            this.Ended.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Ended.FillWeight = 125F;
-            this.Ended.HeaderText = "End Date";
-            this.Ended.MinimumWidth = 125;
-            this.Ended.Name = "Ended";
-            this.Ended.ReadOnly = true;
             // 
             // btnComplete
             // 
@@ -558,6 +442,126 @@
             this.lbxLabels.Size = new System.Drawing.Size(120, 132);
             this.lbxLabels.TabIndex = 71;
             // 
+            // FeeName
+            // 
+            this.FeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FeeName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FeeName.FillWeight = 125F;
+            this.FeeName.HeaderText = "Service";
+            this.FeeName.Items.AddRange(new object[] {
+            "Income Taxes",
+            "Payroll"});
+            this.FeeName.MinimumWidth = 125;
+            this.FeeName.Name = "FeeName";
+            this.FeeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.FeeName.Width = 125;
+            // 
+            // FeeCost
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.FeeCost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.FeeCost.FillWeight = 85F;
+            this.FeeCost.HeaderText = "Service Cost";
+            this.FeeCost.MinimumWidth = 85;
+            this.FeeCost.Name = "FeeCost";
+            this.FeeCost.Width = 85;
+            // 
+            // Multiplier
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Multiplier.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Multiplier.FillWeight = 75F;
+            this.Multiplier.HeaderText = "Multiplier";
+            this.Multiplier.MinimumWidth = 75;
+            this.Multiplier.Name = "Multiplier";
+            this.Multiplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Multiplier.Width = 75;
+            // 
+            // txtLabel
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.txtLabel.DefaultCellStyle = dataGridViewCellStyle5;
+            this.txtLabel.FillWeight = 125F;
+            this.txtLabel.HeaderText = "Label";
+            this.txtLabel.Items.AddRange(new object[] {
+            "Dependents",
+            "Dependents At College",
+            "Amended Return",
+            "Schedule C",
+            "Earned Income Credit",
+            "Employees",
+            "Tipped Employees",
+            "Payroll Tax Returns"});
+            this.txtLabel.MinimumWidth = 125;
+            this.txtLabel.Name = "txtLabel";
+            this.txtLabel.Width = 125;
+            // 
+            // txtLabelCost
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.txtLabelCost.DefaultCellStyle = dataGridViewCellStyle6;
+            this.txtLabelCost.FillWeight = 85F;
+            this.txtLabelCost.HeaderText = "Label Cost";
+            this.txtLabelCost.MinimumWidth = 85;
+            this.txtLabelCost.Name = "txtLabelCost";
+            this.txtLabelCost.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtLabelCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.txtLabelCost.Width = 85;
+            // 
+            // txtLabelMultiplier
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Format = "N2";
+            this.txtLabelMultiplier.DefaultCellStyle = dataGridViewCellStyle7;
+            this.txtLabelMultiplier.FillWeight = 75F;
+            this.txtLabelMultiplier.HeaderText = "Label Multiplier";
+            this.txtLabelMultiplier.MinimumWidth = 75;
+            this.txtLabelMultiplier.Name = "txtLabelMultiplier";
+            this.txtLabelMultiplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtLabelMultiplier.Width = 75;
+            // 
+            // MiniTotal
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.MiniTotal.DefaultCellStyle = dataGridViewCellStyle8;
+            this.MiniTotal.FillWeight = 75F;
+            this.MiniTotal.HeaderText = "Min/Total";
+            this.MiniTotal.MinimumWidth = 75;
+            this.MiniTotal.Name = "MiniTotal";
+            this.MiniTotal.Width = 75;
+            // 
+            // Started
+            // 
+            this.Started.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Format = "t";
+            dataGridViewCellStyle9.NullValue = null;
+            this.Started.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Started.FillWeight = 125F;
+            this.Started.HeaderText = "Start Date";
+            this.Started.MinimumWidth = 125;
+            this.Started.Name = "Started";
+            this.Started.ReadOnly = true;
+            // 
+            // Ended
+            // 
+            this.Ended.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Format = "t";
+            dataGridViewCellStyle10.NullValue = null;
+            this.Ended.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Ended.FillWeight = 125F;
+            this.Ended.HeaderText = "End Date";
+            this.Ended.MinimumWidth = 125;
+            this.Ended.Name = "Ended";
+            this.Ended.ReadOnly = true;
+            // 
             // JobScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -629,6 +633,12 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.RichTextBox rtbNotes;
+        private System.Windows.Forms.TextBox txtDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeLength;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartedTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndedTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
+        private System.Windows.Forms.ListBox lbxLabels;
         private System.Windows.Forms.DataGridViewComboBoxColumn FeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FeeCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Multiplier;
@@ -638,11 +648,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MiniTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Started;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ended;
-        private System.Windows.Forms.TextBox txtDateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeLength;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartedTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndedTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
-        private System.Windows.Forms.ListBox lbxLabels;
     }
 }

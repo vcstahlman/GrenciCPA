@@ -48,14 +48,7 @@ namespace GrenciCPA
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string message = "If you close now, any unsaved changes may be lost. Are you sure you want to continue?";
-            string title = "Confirm Window";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void btnTimer_Click(object sender, EventArgs e)

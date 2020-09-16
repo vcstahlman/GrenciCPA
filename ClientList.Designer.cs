@@ -33,13 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientList));
             this.dgvClients = new System.Windows.Forms.DataGridView();
-            this.btnAddClient = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnClientView = new System.Windows.Forms.Button();
-            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.cbxIsCompany = new System.Windows.Forms.CheckBox();
             this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +44,13 @@
             this.Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Invoices = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnAddClient = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnClientView = new System.Windows.Forms.Button();
+            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.cbxIsCompany = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,14 +90,126 @@
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersWidth = 51;
             this.dgvClients.RowTemplate.Height = 24;
-            this.dgvClients.Size = new System.Drawing.Size(1312, 396);
+            this.dgvClients.Size = new System.Drawing.Size(1677, 561);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.Active.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Active.FillWeight = 60F;
+            this.Active.HeaderText = "Active";
+            this.Active.MinimumWidth = 60;
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            this.Active.Width = 60;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "Last Name";
+            this.LastName.FillWeight = 125F;
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.MinimumWidth = 125;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Width = 125;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.FillWeight = 125F;
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.MinimumWidth = 125;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            this.FirstName.Width = 125;
+            // 
+            // txtCategory
+            // 
+            this.txtCategory.DataPropertyName = "Category";
+            this.txtCategory.FillWeight = 125F;
+            this.txtCategory.HeaderText = "Category";
+            this.txtCategory.MinimumWidth = 100;
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.ReadOnly = true;
+            this.txtCategory.Width = 125;
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.DataPropertyName = "Company";
+            this.txtCompany.FillWeight = 140F;
+            this.txtCompany.HeaderText = "Company";
+            this.txtCompany.MinimumWidth = 100;
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.ReadOnly = true;
+            this.txtCompany.Width = 140;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.FillWeight = 125F;
+            this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 125;
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            this.Address.Width = 125;
+            // 
+            // City
+            // 
+            this.City.DataPropertyName = "City";
+            this.City.FillWeight = 75F;
+            this.City.HeaderText = "City";
+            this.City.MinimumWidth = 75;
+            this.City.Name = "City";
+            this.City.ReadOnly = true;
+            this.City.Width = 75;
+            // 
+            // stateZip
+            // 
+            this.stateZip.DataPropertyName = "StateZip";
+            this.stateZip.FillWeight = 85F;
+            this.stateZip.HeaderText = "State, Zip";
+            this.stateZip.MinimumWidth = 85;
+            this.stateZip.Name = "stateZip";
+            this.stateZip.ReadOnly = true;
+            this.stateZip.Width = 85;
+            // 
+            // Contact
+            // 
+            this.Contact.DataPropertyName = "PrefContact";
+            this.Contact.FillWeight = 125F;
+            this.Contact.HeaderText = "Perferred Contact";
+            this.Contact.MinimumWidth = 100;
+            this.Contact.Name = "Contact";
+            this.Contact.ReadOnly = true;
+            this.Contact.Width = 125;
+            // 
+            // View
+            // 
+            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.View.DataPropertyName = "ViewClient";
+            this.View.HeaderText = "View";
+            this.View.MinimumWidth = 100;
+            this.View.Name = "View";
+            this.View.ReadOnly = true;
+            this.View.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.View.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Invoices
+            // 
+            this.Invoices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Invoices.DataPropertyName = "ViewInvoices";
+            this.Invoices.HeaderText = "Invoices";
+            this.Invoices.MinimumWidth = 100;
+            this.Invoices.Name = "Invoices";
+            this.Invoices.ReadOnly = true;
             // 
             // btnAddClient
             // 
             this.btnAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddClient.Location = new System.Drawing.Point(15, 484);
+            this.btnAddClient.Location = new System.Drawing.Point(15, 649);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.Size = new System.Drawing.Size(130, 57);
             this.btnAddClient.TabIndex = 4;
@@ -108,7 +220,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1192, 484);
+            this.btnClose.Location = new System.Drawing.Point(1557, 649);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);
             this.btnClose.TabIndex = 5;
@@ -119,7 +231,7 @@
             // btnClientView
             // 
             this.btnClientView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClientView.Location = new System.Drawing.Point(1025, 484);
+            this.btnClientView.Location = new System.Drawing.Point(1390, 649);
             this.btnClientView.Name = "btnClientView";
             this.btnClientView.Size = new System.Drawing.Size(161, 57);
             this.btnClientView.TabIndex = 6;
@@ -163,120 +275,12 @@
             this.cbxIsCompany.Text = "Company";
             this.cbxIsCompany.UseVisualStyleBackColor = true;
             // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.Active.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Active.FillWeight = 60F;
-            this.Active.HeaderText = "Active";
-            this.Active.MinimumWidth = 60;
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
-            this.Active.Width = 60;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "Last Name";
-            this.LastName.FillWeight = 125F;
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.MinimumWidth = 125;
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            this.LastName.Width = 125;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.FillWeight = 125F;
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.MinimumWidth = 125;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            this.FirstName.Width = 125;
-            // 
-            // txtCategory
-            // 
-            this.txtCategory.DataPropertyName = "Category";
-            this.txtCategory.FillWeight = 125F;
-            this.txtCategory.HeaderText = "Category";
-            this.txtCategory.MinimumWidth = 125;
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.ReadOnly = true;
-            this.txtCategory.Width = 125;
-            // 
-            // txtCompany
-            // 
-            this.txtCompany.DataPropertyName = "Company";
-            this.txtCompany.FillWeight = 180F;
-            this.txtCompany.HeaderText = "Company";
-            this.txtCompany.MinimumWidth = 120;
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.ReadOnly = true;
-            this.txtCompany.Width = 180;
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.FillWeight = 150F;
-            this.Address.HeaderText = "Address";
-            this.Address.MinimumWidth = 125;
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            this.Address.Width = 150;
-            // 
-            // City
-            // 
-            this.City.DataPropertyName = "City";
-            this.City.HeaderText = "City";
-            this.City.MinimumWidth = 100;
-            this.City.Name = "City";
-            this.City.ReadOnly = true;
-            // 
-            // stateZip
-            // 
-            this.stateZip.DataPropertyName = "StateZip";
-            this.stateZip.HeaderText = "State, Zip";
-            this.stateZip.MinimumWidth = 100;
-            this.stateZip.Name = "stateZip";
-            this.stateZip.ReadOnly = true;
-            // 
-            // Contact
-            // 
-            this.Contact.DataPropertyName = "PrefContact";
-            this.Contact.FillWeight = 150F;
-            this.Contact.HeaderText = "Perferred Contact";
-            this.Contact.MinimumWidth = 100;
-            this.Contact.Name = "Contact";
-            this.Contact.ReadOnly = true;
-            this.Contact.Width = 150;
-            // 
-            // View
-            // 
-            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.View.DataPropertyName = "ViewClient";
-            this.View.HeaderText = "View";
-            this.View.MinimumWidth = 100;
-            this.View.Name = "View";
-            this.View.ReadOnly = true;
-            this.View.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.View.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Invoices
-            // 
-            this.Invoices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Invoices.DataPropertyName = "ViewInvoices";
-            this.Invoices.HeaderText = "Invoices";
-            this.Invoices.MinimumWidth = 100;
-            this.Invoices.Name = "Invoices";
-            this.Invoices.ReadOnly = true;
-            // 
             // ClientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1342, 553);
+            this.ClientSize = new System.Drawing.Size(1707, 718);
             this.Controls.Add(this.cbxIsCompany);
             this.Controls.Add(this.cbxUnassigned);
             this.Controls.Add(this.btnSearch);
