@@ -30,6 +30,7 @@ namespace GrenciCPA
             dgvReports.Rows[n].Cells[6].Value = "25";
             dgvReports.Rows[n].Cells[7].Value = "1235";
             dgvReports.Rows[n].Cells[8].Value = "5/14/2020";
+
             n = dgvReports.Rows.Add();
 
             dgvReports.Rows[n].Cells[0].Value = "Joe";

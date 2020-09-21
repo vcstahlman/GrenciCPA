@@ -120,6 +120,7 @@
             this.btnMakeInvoice.TabIndex = 7;
             this.btnMakeInvoice.Text = "Create Invoice";
             this.btnMakeInvoice.UseVisualStyleBackColor = true;
+            this.btnMakeInvoice.Click += new System.EventHandler(this.btnMakeInvoice_Click);
             // 
             // InvoiceScreen
             // 

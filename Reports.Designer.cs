@@ -28,6 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.clbLabels = new System.Windows.Forms.CheckedListBox();
@@ -58,7 +67,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1450, 730);
+            this.btnClose.Location = new System.Drawing.Point(1308, 730);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(130, 44);
             this.btnClose.TabIndex = 0;
@@ -171,7 +180,7 @@
             this.dgvReports.Name = "dgvReports";
             this.dgvReports.RowHeadersWidth = 51;
             this.dgvReports.RowTemplate.Height = 24;
-            this.dgvReports.Size = new System.Drawing.Size(1564, 430);
+            this.dgvReports.Size = new System.Drawing.Size(1422, 430);
             this.dgvReports.TabIndex = 9;
             // 
             // lblReports
@@ -219,6 +228,8 @@
             // FirstName
             // 
             this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.FirstName.DefaultCellStyle = dataGridViewCellStyle1;
             this.FirstName.FillWeight = 125F;
             this.FirstName.HeaderText = "FirstName";
             this.FirstName.MinimumWidth = 125;
@@ -227,6 +238,8 @@
             // LastName
             // 
             this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.LastName.DefaultCellStyle = dataGridViewCellStyle2;
             this.LastName.FillWeight = 125F;
             this.LastName.HeaderText = "LastName";
             this.LastName.MinimumWidth = 125;
@@ -235,6 +248,8 @@
             // Company
             // 
             this.Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Company.DefaultCellStyle = dataGridViewCellStyle3;
             this.Company.FillWeight = 150F;
             this.Company.HeaderText = "Company";
             this.Company.MinimumWidth = 100;
@@ -243,12 +258,16 @@
             // Service
             // 
             this.Service.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Service.DefaultCellStyle = dataGridViewCellStyle4;
             this.Service.HeaderText = "Service";
             this.Service.MinimumWidth = 90;
             this.Service.Name = "Service";
             // 
             // TotalBilled
             // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalBilled.DefaultCellStyle = dataGridViewCellStyle5;
             this.TotalBilled.HeaderText = "Billed";
             this.TotalBilled.MinimumWidth = 70;
             this.TotalBilled.Name = "TotalBilled";
@@ -256,6 +275,8 @@
             // 
             // TotalPaid
             // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalPaid.DefaultCellStyle = dataGridViewCellStyle6;
             this.TotalPaid.HeaderText = "Paid";
             this.TotalPaid.MinimumWidth = 70;
             this.TotalPaid.Name = "TotalPaid";
@@ -263,6 +284,8 @@
             // 
             // TotalOwed
             // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalOwed.DefaultCellStyle = dataGridViewCellStyle7;
             this.TotalOwed.HeaderText = "Owed";
             this.TotalOwed.MinimumWidth = 70;
             this.TotalOwed.Name = "TotalOwed";
@@ -270,6 +293,8 @@
             // 
             // Invoice
             // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Invoice.DefaultCellStyle = dataGridViewCellStyle8;
             this.Invoice.HeaderText = "Invoice";
             this.Invoice.MinimumWidth = 100;
             this.Invoice.Name = "Invoice";
@@ -278,6 +303,8 @@
             // Date
             // 
             this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Date.DefaultCellStyle = dataGridViewCellStyle9;
             this.Date.FillWeight = 125F;
             this.Date.HeaderText = "Date";
             this.Date.MinimumWidth = 100;
@@ -287,7 +314,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1592, 786);
+            this.ClientSize = new System.Drawing.Size(1450, 786);
             this.Controls.Add(this.tbxFrom);
             this.Controls.Add(this.tbxTo);
             this.Controls.Add(this.lblTo);

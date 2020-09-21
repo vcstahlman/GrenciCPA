@@ -32,7 +32,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnAddEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -69,23 +70,33 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnAddEdit
+            // btnAdd
             // 
-            this.btnAddEdit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAddEdit.Location = new System.Drawing.Point(12, 106);
-            this.btnAddEdit.Name = "btnAddEdit";
-            this.btnAddEdit.Size = new System.Drawing.Size(127, 49);
-            this.btnAddEdit.TabIndex = 3;
-            this.btnAddEdit.Text = "Add/Edit Staff";
-            this.btnAddEdit.UseVisualStyleBackColor = true;
-            this.btnAddEdit.Click += new System.EventHandler(this.btnAddEdit_Click);
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAdd.Location = new System.Drawing.Point(12, 106);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(127, 49);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Add Staff";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAddEdit_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(12, 161);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(127, 43);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // StaffSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(313, 216);
-            this.Controls.Add(this.btnAddEdit);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.comboBox1);
@@ -101,6 +112,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnAddEdit;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
     }
 }

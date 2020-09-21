@@ -91,14 +91,9 @@ namespace GrenciCPA
             //InvoiceScreen form = new InvoiceScreen();
             //form.ShowDialog();
 
-            Document document = new Document();
-            PdfWriter.GetInstance(document, new FileStream("C:/SampleInvoice.pdf", FileMode.Create));
-            document.Open();
-            Paragraph p = new Paragraph("This is a sample invoice." + "\n" + "\n" + "Joe and Joan Smith" + "\n" + "\n" + "\n" + "\n"  + "Schedule C.............................................................................................................$100.00");
-            Paragraph p2 = new Paragraph("Total amount due: $100.00");
-            document.Add(p);
-            document.Add(p2);
-            document.Close();
+            
+            InvoiceScreen form = new InvoiceScreen();
+            form.ShowDialog();
         }
 
         private void btnEditTime_Click(object sender, EventArgs e)

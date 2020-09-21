@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -41,6 +38,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JobScreen));
             this.button3 = new System.Windows.Forms.Button();
             this.btnEditClient = new System.Windows.Forms.Button();
@@ -56,10 +56,6 @@
             this.lblStaff = new System.Windows.Forms.Label();
             this.btnClient = new System.Windows.Forms.Button();
             this.dgvTime = new System.Windows.Forms.DataGridView();
-            this.TimeLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSubtract = new System.Windows.Forms.TextBox();
             this.lblSubtractTime = new System.Windows.Forms.Label();
             this.btnEditTime = new System.Windows.Forms.Button();
@@ -82,6 +78,10 @@
             this.MiniTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Started = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ended = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTime)).BeginInit();
             this.SuspendLayout();
@@ -102,7 +102,7 @@
             this.btnEditClient.Location = new System.Drawing.Point(10, 185);
             this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditClient.Name = "btnEditClient";
-            this.btnEditClient.Size = new System.Drawing.Size(125, 28);
+            this.btnEditClient.Size = new System.Drawing.Size(172, 28);
             this.btnEditClient.TabIndex = 22;
             this.btnEditClient.Text = "Edit Client Info";
             this.btnEditClient.UseVisualStyleBackColor = true;
@@ -111,60 +111,66 @@
             // lblSSN
             // 
             this.lblSSN.AutoSize = true;
+            this.lblSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSSN.Location = new System.Drawing.Point(13, 153);
             this.lblSSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSSN.Name = "lblSSN";
-            this.lblSSN.Size = new System.Drawing.Size(90, 17);
+            this.lblSSN.Size = new System.Drawing.Size(101, 17);
             this.lblSSN.TabIndex = 21;
             this.lblSSN.Text = "200-14-3987";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.Location = new System.Drawing.Point(13, 137);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(131, 17);
+            this.lblEmail.Size = new System.Drawing.Size(147, 17);
             this.lblEmail.TabIndex = 20;
             this.lblEmail.Text = "smiths@yahoo.com";
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.Location = new System.Drawing.Point(13, 121);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(98, 17);
+            this.lblPhone.Size = new System.Drawing.Size(110, 17);
             this.lblPhone.TabIndex = 19;
             this.lblPhone.Text = "814-393-2500";
             // 
             // lblAddressCSZ
             // 
             this.lblAddressCSZ.AutoSize = true;
+            this.lblAddressCSZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddressCSZ.Location = new System.Drawing.Point(11, 93);
             this.lblAddressCSZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressCSZ.Name = "lblAddressCSZ";
-            this.lblAddressCSZ.Size = new System.Drawing.Size(122, 17);
+            this.lblAddressCSZ.Size = new System.Drawing.Size(139, 17);
             this.lblAddressCSZ.TabIndex = 18;
             this.lblAddressCSZ.Text = "Clarion, PA 16214";
             // 
             // lblAddressSt
             // 
             this.lblAddressSt.AutoSize = true;
+            this.lblAddressSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddressSt.Location = new System.Drawing.Point(11, 76);
             this.lblAddressSt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressSt.Name = "lblAddressSt";
-            this.lblAddressSt.Size = new System.Drawing.Size(108, 17);
+            this.lblAddressSt.Size = new System.Drawing.Size(123, 17);
             this.lblAddressSt.TabIndex = 17;
             this.lblAddressSt.Text = "123 Main Street";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(11, 48);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(133, 17);
+            this.lblName.Size = new System.Drawing.Size(151, 17);
             this.lblName.TabIndex = 16;
             this.lblName.Text = "Joe and Joan Smith";
             // 
@@ -187,11 +193,11 @@
             this.MiniTotal,
             this.Started,
             this.Ended});
-            this.dgvFees.Location = new System.Drawing.Point(157, 46);
+            this.dgvFees.Location = new System.Drawing.Point(259, 46);
             this.dgvFees.Name = "dgvFees";
             this.dgvFees.RowHeadersWidth = 51;
             this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(1329, 374);
+            this.dgvFees.Size = new System.Drawing.Size(1227, 374);
             this.dgvFees.TabIndex = 29;
             this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             // 
@@ -230,9 +236,9 @@
             // btnClient
             // 
             this.btnClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClient.Location = new System.Drawing.Point(41, 367);
+            this.btnClient.Location = new System.Drawing.Point(32, 367);
             this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(103, 53);
+            this.btnClient.Size = new System.Drawing.Size(150, 53);
             this.btnClient.TabIndex = 44;
             this.btnClient.Text = "Calculate";
             this.btnClient.UseVisualStyleBackColor = true;
@@ -253,49 +259,6 @@
             this.dgvTime.RowTemplate.Height = 24;
             this.dgvTime.Size = new System.Drawing.Size(629, 140);
             this.dgvTime.TabIndex = 58;
-            // 
-            // TimeLength
-            // 
-            this.TimeLength.DataPropertyName = "Time";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Format = "g";
-            dataGridViewCellStyle11.NullValue = null;
-            this.TimeLength.DefaultCellStyle = dataGridViewCellStyle11;
-            this.TimeLength.HeaderText = "Time";
-            this.TimeLength.MinimumWidth = 6;
-            this.TimeLength.Name = "TimeLength";
-            this.TimeLength.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TimeLength.Width = 70;
-            // 
-            // StartedTime
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Format = "t";
-            dataGridViewCellStyle12.NullValue = null;
-            this.StartedTime.DefaultCellStyle = dataGridViewCellStyle12;
-            this.StartedTime.HeaderText = "Start";
-            this.StartedTime.MinimumWidth = 6;
-            this.StartedTime.Name = "StartedTime";
-            this.StartedTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.StartedTime.Width = 110;
-            // 
-            // EndedTime
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Format = "t";
-            dataGridViewCellStyle13.NullValue = null;
-            this.EndedTime.DefaultCellStyle = dataGridViewCellStyle13;
-            this.EndedTime.HeaderText = "End";
-            this.EndedTime.MinimumWidth = 6;
-            this.EndedTime.Name = "EndedTime";
-            this.EndedTime.Width = 110;
-            // 
-            // Desc
-            // 
-            this.Desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Desc.HeaderText = "Description";
-            this.Desc.MinimumWidth = 90;
-            this.Desc.Name = "Desc";
             // 
             // txtSubtract
             // 
@@ -439,13 +402,13 @@
             "Joint"});
             this.lbxLabels.Location = new System.Drawing.Point(10, 220);
             this.lbxLabels.Name = "lbxLabels";
-            this.lbxLabels.Size = new System.Drawing.Size(120, 132);
+            this.lbxLabels.Size = new System.Drawing.Size(167, 132);
             this.lbxLabels.TabIndex = 71;
             // 
             // FeeName
             // 
             this.FeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.FeeName.DefaultCellStyle = dataGridViewCellStyle2;
             this.FeeName.FillWeight = 125F;
             this.FeeName.HeaderText = "Service";
@@ -460,7 +423,7 @@
             // 
             // FeeCost
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle3.Format = "C2";
             dataGridViewCellStyle3.NullValue = null;
             this.FeeCost.DefaultCellStyle = dataGridViewCellStyle3;
@@ -472,7 +435,7 @@
             // 
             // Multiplier
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Multiplier.DefaultCellStyle = dataGridViewCellStyle4;
             this.Multiplier.FillWeight = 75F;
             this.Multiplier.HeaderText = "Multiplier";
@@ -483,7 +446,7 @@
             // 
             // txtLabel
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.txtLabel.DefaultCellStyle = dataGridViewCellStyle5;
             this.txtLabel.FillWeight = 125F;
             this.txtLabel.HeaderText = "Label";
@@ -502,7 +465,7 @@
             // 
             // txtLabelCost
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.txtLabelCost.DefaultCellStyle = dataGridViewCellStyle6;
             this.txtLabelCost.FillWeight = 85F;
             this.txtLabelCost.HeaderText = "Label Cost";
@@ -514,7 +477,7 @@
             // 
             // txtLabelMultiplier
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.Format = "N2";
             this.txtLabelMultiplier.DefaultCellStyle = dataGridViewCellStyle7;
             this.txtLabelMultiplier.FillWeight = 75F;
@@ -526,7 +489,7 @@
             // 
             // MiniTotal
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle8.Format = "N2";
             dataGridViewCellStyle8.NullValue = null;
             this.MiniTotal.DefaultCellStyle = dataGridViewCellStyle8;
@@ -539,7 +502,7 @@
             // Started
             // 
             this.Started.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.Format = "t";
             dataGridViewCellStyle9.NullValue = null;
             this.Started.DefaultCellStyle = dataGridViewCellStyle9;
@@ -552,7 +515,7 @@
             // Ended
             // 
             this.Ended.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.Format = "t";
             dataGridViewCellStyle10.NullValue = null;
             this.Ended.DefaultCellStyle = dataGridViewCellStyle10;
@@ -561,6 +524,49 @@
             this.Ended.MinimumWidth = 125;
             this.Ended.Name = "Ended";
             this.Ended.ReadOnly = true;
+            // 
+            // TimeLength
+            // 
+            this.TimeLength.DataPropertyName = "Time";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.Format = "g";
+            dataGridViewCellStyle11.NullValue = null;
+            this.TimeLength.DefaultCellStyle = dataGridViewCellStyle11;
+            this.TimeLength.HeaderText = "Time";
+            this.TimeLength.MinimumWidth = 6;
+            this.TimeLength.Name = "TimeLength";
+            this.TimeLength.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TimeLength.Width = 70;
+            // 
+            // StartedTime
+            // 
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Format = "t";
+            dataGridViewCellStyle12.NullValue = null;
+            this.StartedTime.DefaultCellStyle = dataGridViewCellStyle12;
+            this.StartedTime.HeaderText = "Start";
+            this.StartedTime.MinimumWidth = 6;
+            this.StartedTime.Name = "StartedTime";
+            this.StartedTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.StartedTime.Width = 110;
+            // 
+            // EndedTime
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Format = "t";
+            dataGridViewCellStyle13.NullValue = null;
+            this.EndedTime.DefaultCellStyle = dataGridViewCellStyle13;
+            this.EndedTime.HeaderText = "End";
+            this.EndedTime.MinimumWidth = 6;
+            this.EndedTime.Name = "EndedTime";
+            this.EndedTime.Width = 110;
+            // 
+            // Desc
+            // 
+            this.Desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Desc.HeaderText = "Description";
+            this.Desc.MinimumWidth = 90;
+            this.Desc.Name = "Desc";
             // 
             // JobScreen
             // 
@@ -634,10 +640,6 @@
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.RichTextBox rtbNotes;
         private System.Windows.Forms.TextBox txtDateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeLength;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartedTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndedTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
         private System.Windows.Forms.ListBox lbxLabels;
         private System.Windows.Forms.DataGridViewComboBoxColumn FeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FeeCost;
@@ -648,5 +650,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MiniTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Started;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ended;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeLength;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartedTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndedTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
     }
 }

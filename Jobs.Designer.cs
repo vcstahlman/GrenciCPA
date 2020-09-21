@@ -57,7 +57,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1121, 727);
+            this.btnClose.Location = new System.Drawing.Point(1356, 727);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);
             this.btnClose.TabIndex = 14;
@@ -105,7 +105,7 @@
             this.dgvJobs.ReadOnly = true;
             this.dgvJobs.RowHeadersWidth = 51;
             this.dgvJobs.RowTemplate.Height = 24;
-            this.dgvJobs.Size = new System.Drawing.Size(1241, 637);
+            this.dgvJobs.Size = new System.Drawing.Size(1476, 637);
             this.dgvJobs.TabIndex = 11;
             // 
             // cbxToInvoice
@@ -131,7 +131,7 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(994, 727);
+            this.btnSelect.Location = new System.Drawing.Point(1229, 727);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(121, 57);
             this.btnSelect.TabIndex = 18;
@@ -152,7 +152,7 @@
             // FirstName
             // 
             this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.FirstName.DefaultCellStyle = dataGridViewCellStyle1;
             this.FirstName.FillWeight = 125F;
             this.FirstName.HeaderText = "First Name";
@@ -164,7 +164,7 @@
             // LastName
             // 
             this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.LastName.DefaultCellStyle = dataGridViewCellStyle2;
             this.LastName.FillWeight = 125F;
             this.LastName.HeaderText = "Last Name";
@@ -176,7 +176,7 @@
             // Company
             // 
             this.Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.Company.DefaultCellStyle = dataGridViewCellStyle3;
             this.Company.FillWeight = 125F;
             this.Company.HeaderText = "Company";
@@ -186,30 +186,33 @@
             // 
             // ParentClient
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.ParentClient.DefaultCellStyle = dataGridViewCellStyle4;
             this.ParentClient.HeaderText = "Parent Client";
             this.ParentClient.MinimumWidth = 100;
             this.ParentClient.Name = "ParentClient";
             this.ParentClient.ReadOnly = true;
+            this.ParentClient.Width = 125;
             // 
             // Service
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.Service.DefaultCellStyle = dataGridViewCellStyle5;
             this.Service.HeaderText = "Services";
             this.Service.MinimumWidth = 100;
             this.Service.Name = "Service";
             this.Service.ReadOnly = true;
+            this.Service.Width = 125;
             // 
             // AssignedTo
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.AssignedTo.DefaultCellStyle = dataGridViewCellStyle6;
             this.AssignedTo.HeaderText = "Assigned To";
             this.AssignedTo.MinimumWidth = 100;
             this.AssignedTo.Name = "AssignedTo";
             this.AssignedTo.ReadOnly = true;
+            this.AssignedTo.Width = 125;
             // 
             // View
             // 
@@ -237,7 +240,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1267, 795);
+            this.ClientSize = new System.Drawing.Size(1502, 795);
             this.Controls.Add(this.cbxProgress);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.cbxUnassigned);
