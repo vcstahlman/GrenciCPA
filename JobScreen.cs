@@ -12,6 +12,8 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 
+// Justin Bloss
+// The JobScreen form is where the user enters in services provided for a client and takes time of each service to calculate a total for the invoice
 namespace GrenciCPA
 {
     public partial class JobScreen : Form
@@ -32,6 +34,7 @@ namespace GrenciCPA
 
         private void JobScreen_Load(object sender, EventArgs e)
         {
+            // test data
             int n = dgvFees.Rows.Add();
             
             dgvFees.Rows[n].Cells[1].Value = "100";
@@ -44,12 +47,14 @@ namespace GrenciCPA
             dgvFees.Rows[n].Cells[8].Value = "9/15/2020";
         }
 
+        // this button allows the user to change client information, like home address or telephone number, and inputs the new info to the jobScreen
         private void btnEditClient_Click(object sender, EventArgs e)
         {
             AddClient form = new AddClient();
             form.ShowDialog();
         }
 
+        // To ensure user saves all information before completing a job, we have entered in this message prompt as a reminder
         private void button3_Click(object sender, EventArgs e)
         {
             string message = "If you close now, any unsaved changes may be lost. Are you sure you want to continue?";
@@ -62,6 +67,7 @@ namespace GrenciCPA
             }
         }
 
+        // Working timer, this is pivotal to the form as clients are charged for services based on an hourly rate
         private void btnTimer_Click(object sender, EventArgs e)
         {
 
@@ -86,16 +92,15 @@ namespace GrenciCPA
 
         }
 
+        // Once the Complete button is clicked, the user will be taken to the Invoice form with services and amount listed
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            //InvoiceScreen form = new InvoiceScreen();
-            //form.ShowDialog();
-
             
             InvoiceScreen form = new InvoiceScreen();
             form.ShowDialog();
         }
 
+        // Allows the user to edit the timer incase of user error (ex. forgot to click the Start Timer button or let it run for too long)
         private void btnEditTime_Click(object sender, EventArgs e)
         {
             if (btnEditTime.Text == "Edit Time")

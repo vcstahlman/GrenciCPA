@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Justin Bloss
+// The StaffSelect form is our solution to keeping track of WHO is working on an instance of the interface, Jobs on the active job form will have a column
+// for "assigned to" that will list whatever staff member we select from this page. The user is also allowed to add a new staff member in the event of
+// future employees.
 namespace GrenciCPA
 {
     public partial class StaffSelect : Form

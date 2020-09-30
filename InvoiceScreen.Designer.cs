@@ -37,6 +37,10 @@
             this.lblService = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMakeInvoice = new System.Windows.Forms.Button();
+            this.txtClient = new System.Windows.Forms.TextBox();
+            this.txtAmtOwed = new System.Windows.Forms.TextBox();
+            this.txtServices = new System.Windows.Forms.TextBox();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,29 +78,29 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(12, 34);
+            this.lblName.Location = new System.Drawing.Point(9, 36);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(125, 17);
+            this.lblName.Size = new System.Drawing.Size(47, 17);
             this.lblName.TabIndex = 3;
-            this.lblName.Text = "Joe and Jan Smith";
+            this.lblName.Text = "Client:";
             // 
             // lblAmount
             // 
             this.lblAmount.AutoSize = true;
-            this.lblAmount.Location = new System.Drawing.Point(12, 83);
+            this.lblAmount.Location = new System.Drawing.Point(9, 87);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(153, 17);
+            this.lblAmount.Size = new System.Drawing.Size(97, 17);
             this.lblAmount.TabIndex = 4;
-            this.lblAmount.Text = "Amount owed: $275.00";
+            this.lblAmount.Text = "Amount owed:";
             // 
             // lblService
             // 
             this.lblService.AutoSize = true;
-            this.lblService.Location = new System.Drawing.Point(12, 134);
+            this.lblService.Location = new System.Drawing.Point(9, 143);
             this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(236, 17);
+            this.lblService.Size = new System.Drawing.Size(66, 17);
             this.lblService.TabIndex = 5;
-            this.lblService.Text = "Services: Income Tax and Sales Tax";
+            this.lblService.Text = "Services:";
             // 
             // pictureBox1
             // 
@@ -122,11 +126,52 @@
             this.btnMakeInvoice.UseVisualStyleBackColor = true;
             this.btnMakeInvoice.Click += new System.EventHandler(this.btnMakeInvoice_Click);
             // 
+            // txtClient
+            // 
+            this.txtClient.Location = new System.Drawing.Point(49, 56);
+            this.txtClient.Name = "txtClient";
+            this.txtClient.ReadOnly = true;
+            this.txtClient.Size = new System.Drawing.Size(169, 22);
+            this.txtClient.TabIndex = 8;
+            this.txtClient.Text = "Joe and Jan Smith";
+            // 
+            // txtAmtOwed
+            // 
+            this.txtAmtOwed.Location = new System.Drawing.Point(49, 107);
+            this.txtAmtOwed.Name = "txtAmtOwed";
+            this.txtAmtOwed.ReadOnly = true;
+            this.txtAmtOwed.Size = new System.Drawing.Size(169, 22);
+            this.txtAmtOwed.TabIndex = 9;
+            this.txtAmtOwed.Text = "$275";
+            // 
+            // txtServices
+            // 
+            this.txtServices.Location = new System.Drawing.Point(49, 163);
+            this.txtServices.Name = "txtServices";
+            this.txtServices.ReadOnly = true;
+            this.txtServices.Size = new System.Drawing.Size(169, 22);
+            this.txtServices.TabIndex = 10;
+            this.txtServices.Text = "Income Tax, Sales Tax";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(12, 208);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(109, 36);
+            this.btnEdit.TabIndex = 12;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // InvoiceScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 647);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.txtServices);
+            this.Controls.Add(this.txtAmtOwed);
+            this.Controls.Add(this.txtClient);
             this.Controls.Add(this.btnMakeInvoice);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblService);
@@ -154,5 +199,9 @@
         private System.Windows.Forms.Label lblService;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnMakeInvoice;
+        private System.Windows.Forms.TextBox txtClient;
+        private System.Windows.Forms.TextBox txtAmtOwed;
+        private System.Windows.Forms.TextBox txtServices;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
