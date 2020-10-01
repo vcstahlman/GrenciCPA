@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientView));
             this.button3 = new System.Windows.Forms.Button();
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
@@ -46,11 +46,6 @@
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.dgvClientPast = new System.Windows.Forms.DataGridView();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtAmountCharged = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtAmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDateInvoiced = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditNotes = new System.Windows.Forms.Button();
             this.btnNewJob = new System.Windows.Forms.Button();
             this.btnActive = new System.Windows.Forms.Button();
@@ -60,6 +55,11 @@
             this.lbxLabels = new System.Windows.Forms.ListBox();
             this.lblOverdue = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtAmountCharged = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtAmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDateInvoiced = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,60 +99,66 @@
             // lblSSN
             // 
             this.lblSSN.AutoSize = true;
+            this.lblSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSSN.Location = new System.Drawing.Point(13, 134);
             this.lblSSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSSN.Name = "lblSSN";
-            this.lblSSN.Size = new System.Drawing.Size(90, 17);
+            this.lblSSN.Size = new System.Drawing.Size(101, 17);
             this.lblSSN.TabIndex = 21;
             this.lblSSN.Text = "200-14-3987";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.Location = new System.Drawing.Point(13, 117);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(131, 17);
+            this.lblEmail.Size = new System.Drawing.Size(147, 17);
             this.lblEmail.TabIndex = 20;
             this.lblEmail.Text = "smiths@yahoo.com";
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.Location = new System.Drawing.Point(15, 100);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(98, 17);
+            this.lblPhone.Size = new System.Drawing.Size(110, 17);
             this.lblPhone.TabIndex = 19;
             this.lblPhone.Text = "814-393-2500";
             // 
             // lblAddressCSZ
             // 
             this.lblAddressCSZ.AutoSize = true;
+            this.lblAddressCSZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddressCSZ.Location = new System.Drawing.Point(13, 74);
             this.lblAddressCSZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressCSZ.Name = "lblAddressCSZ";
-            this.lblAddressCSZ.Size = new System.Drawing.Size(122, 17);
+            this.lblAddressCSZ.Size = new System.Drawing.Size(139, 17);
             this.lblAddressCSZ.TabIndex = 18;
             this.lblAddressCSZ.Text = "Clarion, PA 16214";
             // 
             // lblAddressSt
             // 
             this.lblAddressSt.AutoSize = true;
+            this.lblAddressSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddressSt.Location = new System.Drawing.Point(13, 57);
             this.lblAddressSt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressSt.Name = "lblAddressSt";
-            this.lblAddressSt.Size = new System.Drawing.Size(108, 17);
+            this.lblAddressSt.Size = new System.Drawing.Size(123, 17);
             this.lblAddressSt.TabIndex = 17;
             this.lblAddressSt.Text = "123 Main Street";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(13, 23);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(133, 17);
+            this.lblName.Size = new System.Drawing.Size(151, 17);
             this.lblName.TabIndex = 16;
             this.lblName.Text = "Joe and Joan Smith";
             // 
@@ -172,88 +178,24 @@
             this.txtAmountCharged,
             this.txtAmountPaid,
             this.txtDateInvoiced});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientPast.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientPast.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvClientPast.Location = new System.Drawing.Point(10, 193);
             this.dgvClientPast.Name = "dgvClientPast";
             this.dgvClientPast.ReadOnly = true;
             this.dgvClientPast.RowHeadersWidth = 51;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvClientPast.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvClientPast.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvClientPast.RowTemplate.Height = 24;
-            this.dgvClientPast.Size = new System.Drawing.Size(617, 281);
+            this.dgvClientPast.Size = new System.Drawing.Size(787, 281);
             this.dgvClientPast.TabIndex = 0;
             this.dgvClientPast.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientPast_CellContentClick);
-            // 
-            // StartDate
-            // 
-            this.StartDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.StartDate.DataPropertyName = "StartDate";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Format = "d";
-            dataGridViewCellStyle8.NullValue = null;
-            this.StartDate.DefaultCellStyle = dataGridViewCellStyle8;
-            this.StartDate.HeaderText = "Start Date";
-            this.StartDate.MinimumWidth = 100;
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
-            this.StartDate.Width = 125;
-            // 
-            // Service
-            // 
-            this.Service.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Service.DataPropertyName = "Service";
-            dataGridViewCellStyle9.NullValue = null;
-            this.Service.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Service.HeaderText = "Service";
-            this.Service.MinimumWidth = 100;
-            this.Service.Name = "Service";
-            this.Service.ReadOnly = true;
-            // 
-            // txtAmountCharged
-            // 
-            this.txtAmountCharged.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.txtAmountCharged.DataPropertyName = "AmountCharged";
-            dataGridViewCellStyle10.Format = "C2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.txtAmountCharged.DefaultCellStyle = dataGridViewCellStyle10;
-            this.txtAmountCharged.HeaderText = "Amount Charged";
-            this.txtAmountCharged.MinimumWidth = 100;
-            this.txtAmountCharged.Name = "txtAmountCharged";
-            this.txtAmountCharged.ReadOnly = true;
-            this.txtAmountCharged.Width = 125;
-            // 
-            // txtAmountPaid
-            // 
-            this.txtAmountPaid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.txtAmountPaid.DataPropertyName = "AmountPaid";
-            dataGridViewCellStyle11.Format = "C2";
-            dataGridViewCellStyle11.NullValue = null;
-            this.txtAmountPaid.DefaultCellStyle = dataGridViewCellStyle11;
-            this.txtAmountPaid.HeaderText = "Amount Paid";
-            this.txtAmountPaid.MinimumWidth = 100;
-            this.txtAmountPaid.Name = "txtAmountPaid";
-            this.txtAmountPaid.ReadOnly = true;
-            this.txtAmountPaid.Width = 125;
-            // 
-            // txtDateInvoiced
-            // 
-            this.txtDateInvoiced.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.txtDateInvoiced.DataPropertyName = "DateInvoiced";
-            dataGridViewCellStyle12.Format = "d";
-            dataGridViewCellStyle12.NullValue = null;
-            this.txtDateInvoiced.DefaultCellStyle = dataGridViewCellStyle12;
-            this.txtDateInvoiced.HeaderText = "Date Invoiced";
-            this.txtDateInvoiced.MinimumWidth = 100;
-            this.txtDateInvoiced.Name = "txtDateInvoiced";
-            this.txtDateInvoiced.ReadOnly = true;
-            this.txtDateInvoiced.Width = 147;
             // 
             // btnEditNotes
             // 
@@ -300,9 +242,9 @@
             // 
             // btnAddLabels
             // 
-            this.btnAddLabels.Location = new System.Drawing.Point(247, 157);
+            this.btnAddLabels.Location = new System.Drawing.Point(313, 157);
             this.btnAddLabels.Name = "btnAddLabels";
-            this.btnAddLabels.Size = new System.Drawing.Size(120, 30);
+            this.btnAddLabels.Size = new System.Drawing.Size(90, 30);
             this.btnAddLabels.TabIndex = 42;
             this.btnAddLabels.Text = "Add/Edit Labels";
             this.btnAddLabels.UseVisualStyleBackColor = true;
@@ -310,7 +252,7 @@
             // lblLabel
             // 
             this.lblLabel.AutoSize = true;
-            this.lblLabel.Location = new System.Drawing.Point(244, 31);
+            this.lblLabel.Location = new System.Drawing.Point(310, 31);
             this.lblLabel.Name = "lblLabel";
             this.lblLabel.Size = new System.Drawing.Size(93, 17);
             this.lblLabel.TabIndex = 41;
@@ -324,15 +266,15 @@
             "Joint",
             "Schedule C",
             "Dependents"});
-            this.lbxLabels.Location = new System.Drawing.Point(247, 51);
+            this.lbxLabels.Location = new System.Drawing.Point(313, 51);
             this.lbxLabels.Name = "lbxLabels";
-            this.lbxLabels.Size = new System.Drawing.Size(293, 100);
+            this.lbxLabels.Size = new System.Drawing.Size(227, 100);
             this.lbxLabels.TabIndex = 40;
             // 
             // lblOverdue
             // 
             this.lblOverdue.AutoSize = true;
-            this.lblOverdue.Location = new System.Drawing.Point(244, 8);
+            this.lblOverdue.Location = new System.Drawing.Point(310, 8);
             this.lblOverdue.Name = "lblOverdue";
             this.lblOverdue.Size = new System.Drawing.Size(123, 17);
             this.lblOverdue.TabIndex = 39;
@@ -340,12 +282,81 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(415, 156);
+            this.btnSave.Location = new System.Drawing.Point(455, 156);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(125, 31);
+            this.btnSave.Size = new System.Drawing.Size(85, 31);
             this.btnSave.TabIndex = 38;
             this.btnSave.Text = "Save Notes";
             this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // StartDate
+            // 
+            this.StartDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.StartDate.DataPropertyName = "StartDate";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.StartDate.DefaultCellStyle = dataGridViewCellStyle1;
+            this.StartDate.HeaderText = "Start Date";
+            this.StartDate.MinimumWidth = 100;
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ReadOnly = true;
+            this.StartDate.Width = 125;
+            // 
+            // Service
+            // 
+            this.Service.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Service.DataPropertyName = "Service";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.NullValue = null;
+            this.Service.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Service.HeaderText = "Service";
+            this.Service.MinimumWidth = 100;
+            this.Service.Name = "Service";
+            this.Service.ReadOnly = true;
+            // 
+            // txtAmountCharged
+            // 
+            this.txtAmountCharged.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.txtAmountCharged.DataPropertyName = "AmountCharged";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.txtAmountCharged.DefaultCellStyle = dataGridViewCellStyle3;
+            this.txtAmountCharged.HeaderText = "Amount Charged";
+            this.txtAmountCharged.MinimumWidth = 100;
+            this.txtAmountCharged.Name = "txtAmountCharged";
+            this.txtAmountCharged.ReadOnly = true;
+            this.txtAmountCharged.Width = 125;
+            // 
+            // txtAmountPaid
+            // 
+            this.txtAmountPaid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.txtAmountPaid.DataPropertyName = "AmountPaid";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.txtAmountPaid.DefaultCellStyle = dataGridViewCellStyle4;
+            this.txtAmountPaid.HeaderText = "Amount Paid";
+            this.txtAmountPaid.MinimumWidth = 100;
+            this.txtAmountPaid.Name = "txtAmountPaid";
+            this.txtAmountPaid.ReadOnly = true;
+            this.txtAmountPaid.Width = 125;
+            // 
+            // txtDateInvoiced
+            // 
+            this.txtDateInvoiced.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.txtDateInvoiced.DataPropertyName = "DateInvoiced";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            this.txtDateInvoiced.DefaultCellStyle = dataGridViewCellStyle5;
+            this.txtDateInvoiced.HeaderText = "Date Invoiced";
+            this.txtDateInvoiced.MinimumWidth = 100;
+            this.txtDateInvoiced.Name = "txtDateInvoiced";
+            this.txtDateInvoiced.ReadOnly = true;
+            this.txtDateInvoiced.Width = 147;
             // 
             // ClientView
             // 
@@ -398,15 +409,15 @@
         private System.Windows.Forms.Button btnNewJob;
         private System.Windows.Forms.Button btnActive;
         private System.Windows.Forms.Label lblNotes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Service;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountCharged;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountPaid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtDateInvoiced;
         private System.Windows.Forms.Button btnAddLabels;
         private System.Windows.Forms.Label lblLabel;
         private System.Windows.Forms.ListBox lbxLabels;
         private System.Windows.Forms.Label lblOverdue;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountCharged;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountPaid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtDateInvoiced;
     }
 }

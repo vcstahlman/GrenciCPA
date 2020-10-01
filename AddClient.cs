@@ -33,7 +33,19 @@ namespace GrenciCPA
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            string message = "If you close now, any unsaved changes may be lost. Are you sure you want to continue?";
+            string title = "Confirm Window";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
 
         }
     }

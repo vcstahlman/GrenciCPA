@@ -28,5 +28,10 @@ namespace GrenciCPA
         {
             this.Close();
         }
+
+        private void dgvPayments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

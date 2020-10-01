@@ -41,12 +41,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblRate = new System.Windows.Forms.Label();
+            this.tbxRate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Location = new System.Drawing.Point(44, 194);
+            this.btnSave.Location = new System.Drawing.Point(44, 233);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(133, 55);
             this.btnSave.TabIndex = 0;
@@ -56,7 +58,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClose.Location = new System.Drawing.Point(196, 194);
+            this.btnClose.Location = new System.Drawing.Point(196, 233);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(145, 55);
             this.btnClose.TabIndex = 1;
@@ -154,11 +156,29 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "First Name";
             // 
+            // lblRate
+            // 
+            this.lblRate.AutoSize = true;
+            this.lblRate.Location = new System.Drawing.Point(41, 184);
+            this.lblRate.Name = "lblRate";
+            this.lblRate.Size = new System.Drawing.Size(38, 17);
+            this.lblRate.TabIndex = 51;
+            this.lblRate.Text = "Rate";
+            // 
+            // tbxRate
+            // 
+            this.tbxRate.Location = new System.Drawing.Point(137, 179);
+            this.tbxRate.Name = "tbxRate";
+            this.tbxRate.Size = new System.Drawing.Size(196, 22);
+            this.tbxRate.TabIndex = 52;
+            // 
             // StaffAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 261);
+            this.ClientSize = new System.Drawing.Size(387, 300);
+            this.Controls.Add(this.tbxRate);
+            this.Controls.Add(this.lblRate);
             this.Controls.Add(this.tbxFirst);
             this.Controls.Add(this.tbxLast);
             this.Controls.Add(this.textBox5);
@@ -193,5 +213,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblRate;
+        private System.Windows.Forms.TextBox tbxRate;
     }
 }
