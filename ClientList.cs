@@ -26,6 +26,8 @@ namespace GrenciCPA
             dgvClients.Rows[n].Cells[6].Value = "Clarion";
             dgvClients.Rows[n].Cells[7].Value = "PA, 16214";
             dgvClients.Rows[n].Cells[8].Value = "814-393-2500";
+            dgvClients.Rows[n].Cells[9].Value = "View Client";
+            dgvClients.Rows[n].Cells[10].Value = "View Invoices";
 
         }
 
@@ -55,7 +57,7 @@ namespace GrenciCPA
         private void ClientList_Load(object sender, EventArgs e)
         {
 
-            dgvClients.Rows.Add("Joe", "Smith", "", "123 Clari St", "Clarion", "PA", "Email", "View Client", "View Invoices", "View Returns", "Create Return");
+            //dgvClients.Rows.Add("Joe", "Smith", "", "123 Clari St", "Clarion", "PA", "Email", "View Client", "View Invoices", "View Returns", "Create Return");
 
         }
     }

@@ -35,6 +35,7 @@
             this.btnGlobals = new System.Windows.Forms.Button();
             this.btnStaff = new System.Windows.Forms.Button();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
+            this.btnReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,11 +106,23 @@
             this.pbxLogo.TabIndex = 5;
             this.pbxLogo.TabStop = false;
             // 
+            // btnReport
+            // 
+            this.btnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReport.Location = new System.Drawing.Point(448, 263);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(104, 64);
+            this.btnReport.TabIndex = 6;
+            this.btnReport.Text = "Reports";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 357);
+            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.btnStaff);
             this.Controls.Add(this.btnGlobals);
@@ -133,6 +146,7 @@
         private System.Windows.Forms.Button btnGlobals;
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.PictureBox pbxLogo;
+        private System.Windows.Forms.Button btnReport;
     }
 }
 
