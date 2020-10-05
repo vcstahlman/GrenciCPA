@@ -80,8 +80,9 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.lblNotes = new System.Windows.Forms.Label();
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
-            this.txtDateTime = new System.Windows.Forms.TextBox();
             this.lbxLabels = new System.Windows.Forms.ListBox();
+            this.btnPastCharges = new System.Windows.Forms.Button();
+            this.txtDateTime = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTime)).BeginInit();
             this.SuspendLayout();
@@ -89,9 +90,10 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(1383, 563);
+            this.button3.Location = new System.Drawing.Point(1129, 492);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 53);
+            this.button3.Size = new System.Drawing.Size(77, 43);
             this.button3.TabIndex = 28;
             this.button3.Text = "Close";
             this.button3.UseVisualStyleBackColor = true;
@@ -99,10 +101,9 @@
             // 
             // btnEditClient
             // 
-            this.btnEditClient.Location = new System.Drawing.Point(10, 185);
-            this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditClient.Location = new System.Drawing.Point(8, 150);
             this.btnEditClient.Name = "btnEditClient";
-            this.btnEditClient.Size = new System.Drawing.Size(172, 28);
+            this.btnEditClient.Size = new System.Drawing.Size(87, 23);
             this.btnEditClient.TabIndex = 22;
             this.btnEditClient.Text = "Edit Client Info";
             this.btnEditClient.UseVisualStyleBackColor = true;
@@ -112,10 +113,9 @@
             // 
             this.lblSSN.AutoSize = true;
             this.lblSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSSN.Location = new System.Drawing.Point(13, 153);
-            this.lblSSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSSN.Location = new System.Drawing.Point(10, 124);
             this.lblSSN.Name = "lblSSN";
-            this.lblSSN.Size = new System.Drawing.Size(101, 17);
+            this.lblSSN.Size = new System.Drawing.Size(78, 13);
             this.lblSSN.TabIndex = 21;
             this.lblSSN.Text = "200-14-3987";
             // 
@@ -123,10 +123,9 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(13, 137);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Location = new System.Drawing.Point(10, 111);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(147, 17);
+            this.lblEmail.Size = new System.Drawing.Size(115, 13);
             this.lblEmail.TabIndex = 20;
             this.lblEmail.Text = "smiths@yahoo.com";
             // 
@@ -134,10 +133,9 @@
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(13, 121);
-            this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPhone.Location = new System.Drawing.Point(10, 98);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(110, 17);
+            this.lblPhone.Size = new System.Drawing.Size(85, 13);
             this.lblPhone.TabIndex = 19;
             this.lblPhone.Text = "814-393-2500";
             // 
@@ -145,10 +143,9 @@
             // 
             this.lblAddressCSZ.AutoSize = true;
             this.lblAddressCSZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressCSZ.Location = new System.Drawing.Point(11, 93);
-            this.lblAddressCSZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddressCSZ.Location = new System.Drawing.Point(8, 76);
             this.lblAddressCSZ.Name = "lblAddressCSZ";
-            this.lblAddressCSZ.Size = new System.Drawing.Size(139, 17);
+            this.lblAddressCSZ.Size = new System.Drawing.Size(109, 13);
             this.lblAddressCSZ.TabIndex = 18;
             this.lblAddressCSZ.Text = "Clarion, PA 16214";
             // 
@@ -156,10 +153,9 @@
             // 
             this.lblAddressSt.AutoSize = true;
             this.lblAddressSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressSt.Location = new System.Drawing.Point(11, 76);
-            this.lblAddressSt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddressSt.Location = new System.Drawing.Point(8, 62);
             this.lblAddressSt.Name = "lblAddressSt";
-            this.lblAddressSt.Size = new System.Drawing.Size(123, 17);
+            this.lblAddressSt.Size = new System.Drawing.Size(97, 13);
             this.lblAddressSt.TabIndex = 17;
             this.lblAddressSt.Text = "123 Main Street";
             // 
@@ -167,10 +163,9 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(11, 48);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(8, 39);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(151, 17);
+            this.lblName.Size = new System.Drawing.Size(118, 13);
             this.lblName.TabIndex = 16;
             this.lblName.Text = "Joe and Joan Smith";
             // 
@@ -193,11 +188,12 @@
             this.MiniTotal,
             this.Started,
             this.Ended});
-            this.dgvFees.Location = new System.Drawing.Point(259, 46);
+            this.dgvFees.Location = new System.Drawing.Point(218, 37);
+            this.dgvFees.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvFees.Name = "dgvFees";
             this.dgvFees.RowHeadersWidth = 51;
             this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(1227, 374);
+            this.dgvFees.Size = new System.Drawing.Size(988, 339);
             this.dgvFees.TabIndex = 29;
             this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             // 
@@ -324,9 +320,10 @@
             // btnComplete
             // 
             this.btnComplete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnComplete.Location = new System.Drawing.Point(1383, 445);
+            this.btnComplete.Location = new System.Drawing.Point(1129, 397);
+            this.btnComplete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(103, 53);
+            this.btnComplete.Size = new System.Drawing.Size(77, 43);
             this.btnComplete.TabIndex = 30;
             this.btnComplete.Text = "Complete";
             this.btnComplete.UseVisualStyleBackColor = true;
@@ -335,9 +332,10 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(1383, 504);
+            this.btnSave.Location = new System.Drawing.Point(1129, 445);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(103, 53);
+            this.btnSave.Size = new System.Drawing.Size(77, 43);
             this.btnSave.TabIndex = 31;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -347,18 +345,20 @@
             this.lblStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStaff.AutoSize = true;
             this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaff.Location = new System.Drawing.Point(1266, 9);
+            this.lblStaff.Location = new System.Drawing.Point(1042, 7);
+            this.lblStaff.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(220, 17);
+            this.lblStaff.Size = new System.Drawing.Size(172, 13);
             this.lblStaff.TabIndex = 43;
             this.lblStaff.Text = "Assigned To: Anthony Grenci";
             // 
             // btnClient
             // 
             this.btnClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClient.Location = new System.Drawing.Point(32, 367);
+            this.btnClient.Location = new System.Drawing.Point(24, 333);
+            this.btnClient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(150, 53);
+            this.btnClient.Size = new System.Drawing.Size(112, 43);
             this.btnClient.TabIndex = 44;
             this.btnClient.Text = "Calculate";
             this.btnClient.UseVisualStyleBackColor = true;
@@ -373,11 +373,12 @@
             this.StartedTime,
             this.EndedTime,
             this.Desc});
-            this.dgvTime.Location = new System.Drawing.Point(673, 466);
+            this.dgvTime.Location = new System.Drawing.Point(505, 414);
+            this.dgvTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvTime.Name = "dgvTime";
             this.dgvTime.RowHeadersWidth = 51;
             this.dgvTime.RowTemplate.Height = 24;
-            this.dgvTime.Size = new System.Drawing.Size(629, 140);
+            this.dgvTime.Size = new System.Drawing.Size(564, 114);
             this.dgvTime.TabIndex = 58;
             // 
             // TimeLength
@@ -426,9 +427,10 @@
             // txtSubtract
             // 
             this.txtSubtract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSubtract.Location = new System.Drawing.Point(542, 582);
+            this.txtSubtract.Location = new System.Drawing.Point(406, 508);
+            this.txtSubtract.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSubtract.Name = "txtSubtract";
-            this.txtSubtract.Size = new System.Drawing.Size(94, 22);
+            this.txtSubtract.Size = new System.Drawing.Size(72, 20);
             this.txtSubtract.TabIndex = 67;
             this.txtSubtract.Visible = false;
             // 
@@ -436,9 +438,10 @@
             // 
             this.lblSubtractTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSubtractTime.AutoSize = true;
-            this.lblSubtractTime.Location = new System.Drawing.Point(436, 582);
+            this.lblSubtractTime.Location = new System.Drawing.Point(327, 508);
+            this.lblSubtractTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtractTime.Name = "lblSubtractTime";
-            this.lblSubtractTime.Size = new System.Drawing.Size(100, 17);
+            this.lblSubtractTime.Size = new System.Drawing.Size(76, 13);
             this.lblSubtractTime.TabIndex = 66;
             this.lblSubtractTime.Text = "Subtract Time:";
             this.lblSubtractTime.Visible = false;
@@ -446,9 +449,10 @@
             // btnEditTime
             // 
             this.btnEditTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditTime.Location = new System.Drawing.Point(438, 466);
+            this.btnEditTime.Location = new System.Drawing.Point(328, 414);
+            this.btnEditTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditTime.Name = "btnEditTime";
-            this.btnEditTime.Size = new System.Drawing.Size(107, 45);
+            this.btnEditTime.Size = new System.Drawing.Size(80, 37);
             this.btnEditTime.TabIndex = 65;
             this.btnEditTime.Text = "Edit Time";
             this.btnEditTime.UseVisualStyleBackColor = true;
@@ -458,9 +462,10 @@
             // 
             this.lblAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAddTime.AutoSize = true;
-            this.lblAddTime.Location = new System.Drawing.Point(464, 557);
+            this.lblAddTime.Location = new System.Drawing.Point(348, 488);
+            this.lblAddTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAddTime.Name = "lblAddTime";
-            this.lblAddTime.Size = new System.Drawing.Size(72, 17);
+            this.lblAddTime.Size = new System.Drawing.Size(55, 13);
             this.lblAddTime.TabIndex = 64;
             this.lblAddTime.Text = "Add Time:";
             this.lblAddTime.Visible = false;
@@ -468,9 +473,10 @@
             // txtAddTime
             // 
             this.txtAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAddTime.Location = new System.Drawing.Point(542, 554);
+            this.txtAddTime.Location = new System.Drawing.Point(406, 485);
+            this.txtAddTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAddTime.Name = "txtAddTime";
-            this.txtAddTime.Size = new System.Drawing.Size(94, 22);
+            this.txtAddTime.Size = new System.Drawing.Size(72, 20);
             this.txtAddTime.TabIndex = 63;
             this.txtAddTime.Visible = false;
             // 
@@ -485,9 +491,10 @@
             "40 minutes",
             "50 minutes",
             "1 hour"});
-            this.cmboAddTime.Location = new System.Drawing.Point(542, 524);
+            this.cmboAddTime.Location = new System.Drawing.Point(406, 461);
+            this.cmboAddTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmboAddTime.Name = "cmboAddTime";
-            this.cmboAddTime.Size = new System.Drawing.Size(94, 24);
+            this.cmboAddTime.Size = new System.Drawing.Size(72, 21);
             this.cmboAddTime.TabIndex = 61;
             this.cmboAddTime.Visible = false;
             // 
@@ -495,19 +502,22 @@
             // 
             this.lblAddMinutes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAddMinutes.AutoSize = true;
-            this.lblAddMinutes.Location = new System.Drawing.Point(446, 531);
+            this.lblAddMinutes.Location = new System.Drawing.Point(334, 466);
+            this.lblAddMinutes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAddMinutes.Name = "lblAddMinutes";
-            this.lblAddMinutes.Size = new System.Drawing.Size(90, 17);
+            this.lblAddMinutes.Size = new System.Drawing.Size(69, 13);
             this.lblAddMinutes.TabIndex = 60;
             this.lblAddMinutes.Text = "Add Minutes:";
             this.lblAddMinutes.Visible = false;
+            this.lblAddMinutes.Click += new System.EventHandler(this.lblAddMinutes_Click);
             // 
             // btnTimer
             // 
             this.btnTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTimer.Location = new System.Drawing.Point(551, 466);
+            this.btnTimer.Location = new System.Drawing.Point(413, 414);
+            this.btnTimer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTimer.Name = "btnTimer";
-            this.btnTimer.Size = new System.Drawing.Size(107, 45);
+            this.btnTimer.Size = new System.Drawing.Size(80, 37);
             this.btnTimer.TabIndex = 59;
             this.btnTimer.Text = "Start Timer";
             this.btnTimer.UseVisualStyleBackColor = true;
@@ -518,9 +528,10 @@
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(669, 440);
+            this.lblTime.Location = new System.Drawing.Point(502, 393);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(56, 20);
+            this.lblTime.Size = new System.Drawing.Size(48, 17);
             this.lblTime.TabIndex = 62;
             this.lblTime.Text = "Time:";
             // 
@@ -530,52 +541,64 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNotes.AutoSize = true;
             this.lblNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.Location = new System.Drawing.Point(7, 423);
+            this.lblNotes.Location = new System.Drawing.Point(5, 379);
+            this.lblNotes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(55, 17);
+            this.lblNotes.Size = new System.Drawing.Size(44, 13);
             this.lblNotes.TabIndex = 69;
             this.lblNotes.Text = "Notes:";
             // 
             // rtbNotes
             // 
             this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rtbNotes.Location = new System.Drawing.Point(14, 440);
-            this.rtbNotes.Margin = new System.Windows.Forms.Padding(4);
+            this.rtbNotes.Location = new System.Drawing.Point(10, 393);
             this.rtbNotes.Name = "rtbNotes";
-            this.rtbNotes.Size = new System.Drawing.Size(389, 166);
+            this.rtbNotes.Size = new System.Drawing.Size(293, 136);
             this.rtbNotes.TabIndex = 68;
             this.rtbNotes.Text = "Their child Jake just graduated High School\nThey also have a child out of Collage" +
     " and out of state\n\n";
             // 
-            // txtDateTime
-            // 
-            this.txtDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDateTime.Location = new System.Drawing.Point(793, 440);
-            this.txtDateTime.Name = "txtDateTime";
-            this.txtDateTime.ReadOnly = true;
-            this.txtDateTime.Size = new System.Drawing.Size(226, 22);
-            this.txtDateTime.TabIndex = 70;
-            // 
             // lbxLabels
             // 
             this.lbxLabels.FormattingEnabled = true;
-            this.lbxLabels.ItemHeight = 16;
             this.lbxLabels.Items.AddRange(new object[] {
             "Dependents",
             "Schedule C",
             "Joint"});
-            this.lbxLabels.Location = new System.Drawing.Point(10, 220);
+            this.lbxLabels.Location = new System.Drawing.Point(13, 207);
+            this.lbxLabels.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbxLabels.Name = "lbxLabels";
-            this.lbxLabels.Size = new System.Drawing.Size(167, 132);
+            this.lbxLabels.Size = new System.Drawing.Size(161, 108);
             this.lbxLabels.TabIndex = 71;
+            // 
+            // btnPastCharges
+            // 
+            this.btnPastCharges.Location = new System.Drawing.Point(8, 179);
+            this.btnPastCharges.Name = "btnPastCharges";
+            this.btnPastCharges.Size = new System.Drawing.Size(112, 23);
+            this.btnPastCharges.TabIndex = 72;
+            this.btnPastCharges.Text = "View Past Charges";
+            this.btnPastCharges.UseVisualStyleBackColor = true;
+            this.btnPastCharges.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtDateTime
+            // 
+            this.txtDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtDateTime.Location = new System.Drawing.Point(555, 393);
+            this.txtDateTime.Name = "txtDateTime";
+            this.txtDateTime.ReadOnly = true;
+            this.txtDateTime.Size = new System.Drawing.Size(135, 20);
+            this.txtDateTime.TabIndex = 73;
+            this.txtDateTime.TabStop = false;
             // 
             // JobScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1498, 619);
-            this.Controls.Add(this.lbxLabels);
+            this.ClientSize = new System.Drawing.Size(1216, 538);
             this.Controls.Add(this.txtDateTime);
+            this.Controls.Add(this.btnPastCharges);
+            this.Controls.Add(this.lbxLabels);
             this.Controls.Add(this.lblNotes);
             this.Controls.Add(this.rtbNotes);
             this.Controls.Add(this.txtSubtract);
@@ -602,6 +625,7 @@
             this.Controls.Add(this.lblAddressSt);
             this.Controls.Add(this.lblName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "JobScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobScreen";
@@ -640,7 +664,6 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.RichTextBox rtbNotes;
-        private System.Windows.Forms.TextBox txtDateTime;
         private System.Windows.Forms.ListBox lbxLabels;
         private System.Windows.Forms.DataGridViewComboBoxColumn FeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FeeCost;
@@ -655,5 +678,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StartedTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EndedTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
+        private System.Windows.Forms.Button btnPastCharges;
+        private System.Windows.Forms.TextBox txtDateTime;
     }
 }
