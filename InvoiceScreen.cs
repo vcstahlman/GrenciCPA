@@ -66,5 +66,10 @@ namespace GrenciCPA
                 btnEdit.Text = "Edit";
             }
         }
+
+        private void btnEmail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
