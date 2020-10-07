@@ -12,6 +12,8 @@ namespace GrenciCPA
 {
     public partial class ServiceSelect : Form
     {
+        System.Windows.Forms.Timer tmr = null;
+
         public ServiceSelect()
         {
             InitializeComponent();
@@ -36,6 +38,19 @@ namespace GrenciCPA
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void StartTimer()
+        {
+            tmr = new System.Windows.Forms.Timer();
+            tmr.Interval = 1000;
+            tmr.Tick += new EventHandler(tmr_Tick);
+            tmr.Enabled = true;
+        }
+
+        void tmr_Tick(object sender, EventArgs e)
+        {
+            tbxDate.Text = DateTime.Now.ToString();
         }
     }
 }

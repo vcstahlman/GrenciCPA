@@ -37,8 +37,7 @@
             this.lblZip = new System.Windows.Forms.Label();
             this.lblSchool = new System.Windows.Forms.Label();
             this.lblNotes = new System.Windows.Forms.Label();
-            this.lblCell = new System.Windows.Forms.Label();
-            this.lblHome = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblContact = new System.Windows.Forms.Label();
             this.cboCatagory = new System.Windows.Forms.ComboBox();
@@ -47,7 +46,6 @@
             this.cboContact = new System.Windows.Forms.ComboBox();
             this.tbxNotes = new System.Windows.Forms.TextBox();
             this.tbxEmail = new System.Windows.Forms.TextBox();
-            this.tbxHome = new System.Windows.Forms.TextBox();
             this.tbxCell = new System.Windows.Forms.TextBox();
             this.tbxSchool = new System.Windows.Forms.TextBox();
             this.tbxZip = new System.Windows.Forms.TextBox();
@@ -61,8 +59,9 @@
             this.cboParent = new System.Windows.Forms.ComboBox();
             this.tbxCompany = new System.Windows.Forms.TextBox();
             this.lblCompany = new System.Windows.Forms.Label();
-            this.lbxLabels = new System.Windows.Forms.ListBox();
             this.btnLabels = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.lblCharacteristics = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblFirst
@@ -137,31 +136,21 @@
             this.lblNotes.TabIndex = 7;
             this.lblNotes.Text = "Notes:";
             // 
-            // lblCell
+            // lblPhone
             // 
-            this.lblCell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCell.AutoSize = true;
-            this.lblCell.Location = new System.Drawing.Point(483, 23);
-            this.lblCell.Name = "lblCell";
-            this.lblCell.Size = new System.Drawing.Size(76, 17);
-            this.lblCell.TabIndex = 8;
-            this.lblCell.Text = "Cell Phone";
-            // 
-            // lblHome
-            // 
-            this.lblHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHome.AutoSize = true;
-            this.lblHome.Location = new System.Drawing.Point(483, 55);
-            this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(90, 17);
-            this.lblHome.TabIndex = 9;
-            this.lblHome.Text = "Home Phone";
+            this.lblPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Location = new System.Drawing.Point(483, 23);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(49, 17);
+            this.lblPhone.TabIndex = 8;
+            this.lblPhone.Text = "Phone";
             // 
             // lblEmail
             // 
             this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(483, 88);
+            this.lblEmail.Location = new System.Drawing.Point(483, 57);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(42, 17);
             this.lblEmail.TabIndex = 10;
@@ -171,7 +160,7 @@
             // 
             this.lblContact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblContact.AutoSize = true;
-            this.lblContact.Location = new System.Drawing.Point(483, 122);
+            this.lblContact.Location = new System.Drawing.Point(483, 91);
             this.lblContact.Name = "lblContact";
             this.lblContact.Size = new System.Drawing.Size(118, 17);
             this.lblContact.TabIndex = 11;
@@ -192,8 +181,9 @@
             "Nonprofit",
             "Schedule C",
             "Schedule E",
-            "Misc."});
-            this.cboCatagory.Location = new System.Drawing.Point(607, 152);
+            "Joint",
+            "Dependents"});
+            this.cboCatagory.Location = new System.Drawing.Point(607, 121);
             this.cboCatagory.Name = "cboCatagory";
             this.cboCatagory.Size = new System.Drawing.Size(195, 24);
             this.cboCatagory.TabIndex = 12;
@@ -230,7 +220,7 @@
             "Home Phone",
             "Email",
             "Mail"});
-            this.cboContact.Location = new System.Drawing.Point(607, 122);
+            this.cboContact.Location = new System.Drawing.Point(607, 91);
             this.cboContact.Name = "cboContact";
             this.cboContact.Size = new System.Drawing.Size(195, 24);
             this.cboContact.TabIndex = 16;
@@ -250,18 +240,10 @@
             // tbxEmail
             // 
             this.tbxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxEmail.Location = new System.Drawing.Point(607, 85);
+            this.tbxEmail.Location = new System.Drawing.Point(607, 54);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(195, 22);
             this.tbxEmail.TabIndex = 19;
-            // 
-            // tbxHome
-            // 
-            this.tbxHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxHome.Location = new System.Drawing.Point(607, 52);
-            this.tbxHome.Name = "tbxHome";
-            this.tbxHome.Size = new System.Drawing.Size(195, 22);
-            this.tbxHome.TabIndex = 20;
             // 
             // tbxCell
             // 
@@ -324,7 +306,7 @@
             // 
             this.lblCata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCata.AutoSize = true;
-            this.lblCata.Location = new System.Drawing.Point(483, 155);
+            this.lblCata.Location = new System.Drawing.Point(483, 124);
             this.lblCata.Name = "lblCata";
             this.lblCata.Size = new System.Drawing.Size(65, 17);
             this.lblCata.TabIndex = 29;
@@ -334,7 +316,7 @@
             // 
             this.lblParent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblParent.AutoSize = true;
-            this.lblParent.Location = new System.Drawing.Point(483, 188);
+            this.lblParent.Location = new System.Drawing.Point(483, 157);
             this.lblParent.Name = "lblParent";
             this.lblParent.Size = new System.Drawing.Size(105, 17);
             this.lblParent.TabIndex = 30;
@@ -344,7 +326,7 @@
             // 
             this.cboParent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboParent.FormattingEnabled = true;
-            this.cboParent.Location = new System.Drawing.Point(607, 185);
+            this.cboParent.Location = new System.Drawing.Point(607, 154);
             this.cboParent.Name = "cboParent";
             this.cboParent.Size = new System.Drawing.Size(195, 24);
             this.cboParent.TabIndex = 31;
@@ -352,7 +334,7 @@
             // tbxCompany
             // 
             this.tbxCompany.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxCompany.Location = new System.Drawing.Point(607, 218);
+            this.tbxCompany.Location = new System.Drawing.Point(607, 187);
             this.tbxCompany.Name = "tbxCompany";
             this.tbxCompany.Size = new System.Drawing.Size(195, 22);
             this.tbxCompany.TabIndex = 32;
@@ -361,42 +343,60 @@
             // 
             this.lblCompany.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Location = new System.Drawing.Point(483, 221);
+            this.lblCompany.Location = new System.Drawing.Point(483, 190);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(67, 17);
             this.lblCompany.TabIndex = 33;
             this.lblCompany.Text = "Company";
             // 
-            // lbxLabels
-            // 
-            this.lbxLabels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbxLabels.FormattingEnabled = true;
-            this.lbxLabels.ItemHeight = 16;
-            this.lbxLabels.Items.AddRange(new object[] {
-            "Joint",
-            "Schedule C",
-            "Dependents"});
-            this.lbxLabels.Location = new System.Drawing.Point(486, 263);
-            this.lbxLabels.Name = "lbxLabels";
-            this.lbxLabels.Size = new System.Drawing.Size(314, 68);
-            this.lbxLabels.TabIndex = 38;
-            // 
             // btnLabels
             // 
             this.btnLabels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLabels.Location = new System.Drawing.Point(484, 337);
+            this.btnLabels.Location = new System.Drawing.Point(484, 392);
             this.btnLabels.Name = "btnLabels";
             this.btnLabels.Size = new System.Drawing.Size(117, 38);
             this.btnLabels.TabIndex = 37;
             this.btnLabels.Text = "Add/Edit Labels";
             this.btnLabels.UseVisualStyleBackColor = true;
             // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Joint",
+            "Schedule C",
+            "Schedule E",
+            "Dependents",
+            "Individual",
+            "S corp",
+            "C corp",
+            "Partnership",
+            "Trust",
+            "Estate",
+            "Gift",
+            "Nonprofit",
+            "Misc."});
+            this.checkedListBox1.Location = new System.Drawing.Point(484, 246);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(316, 140);
+            this.checkedListBox1.TabIndex = 39;
+            // 
+            // lblCharacteristics
+            // 
+            this.lblCharacteristics.AutoSize = true;
+            this.lblCharacteristics.Location = new System.Drawing.Point(483, 226);
+            this.lblCharacteristics.Name = "lblCharacteristics";
+            this.lblCharacteristics.Size = new System.Drawing.Size(101, 17);
+            this.lblCharacteristics.TabIndex = 40;
+            this.lblCharacteristics.Text = "Characteristics";
+            // 
             // AddClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 501);
-            this.Controls.Add(this.lbxLabels);
+            this.Controls.Add(this.lblCharacteristics);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.btnLabels);
             this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.tbxCompany);
@@ -411,7 +411,6 @@
             this.Controls.Add(this.tbxZip);
             this.Controls.Add(this.tbxSchool);
             this.Controls.Add(this.tbxCell);
-            this.Controls.Add(this.tbxHome);
             this.Controls.Add(this.tbxEmail);
             this.Controls.Add(this.tbxNotes);
             this.Controls.Add(this.cboContact);
@@ -420,8 +419,7 @@
             this.Controls.Add(this.cboCatagory);
             this.Controls.Add(this.lblContact);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblHome);
-            this.Controls.Add(this.lblCell);
+            this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.lblNotes);
             this.Controls.Add(this.lblSchool);
             this.Controls.Add(this.lblZip);
@@ -449,8 +447,7 @@
         private System.Windows.Forms.Label lblZip;
         private System.Windows.Forms.Label lblSchool;
         private System.Windows.Forms.Label lblNotes;
-        private System.Windows.Forms.Label lblCell;
-        private System.Windows.Forms.Label lblHome;
+        private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblContact;
         private System.Windows.Forms.ComboBox cboCatagory;
@@ -459,7 +456,6 @@
         private System.Windows.Forms.ComboBox cboContact;
         private System.Windows.Forms.TextBox tbxNotes;
         private System.Windows.Forms.TextBox tbxEmail;
-        private System.Windows.Forms.TextBox tbxHome;
         private System.Windows.Forms.TextBox tbxCell;
         private System.Windows.Forms.TextBox tbxSchool;
         private System.Windows.Forms.TextBox tbxZip;
@@ -473,7 +469,8 @@
         private System.Windows.Forms.ComboBox cboParent;
         private System.Windows.Forms.TextBox tbxCompany;
         private System.Windows.Forms.Label lblCompany;
-        private System.Windows.Forms.ListBox lbxLabels;
         private System.Windows.Forms.Button btnLabels;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Label lblCharacteristics;
     }
 }
