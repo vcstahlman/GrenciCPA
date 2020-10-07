@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Reflection;
+using Outlook = Microsoft.Office.Interop.Outlook;
 using System.IO;
+using System.CodeDom;
 
 // Justin Bloss
 // The purpose of this form is to allow the user to create and either print or email an invoice to a client, amounts are generated based on what is entered
@@ -65,6 +67,25 @@ namespace GrenciCPA
                 txtServices.ReadOnly = true;
                 btnEdit.Text = "Edit";
             }
+        }
+
+        private void btnEmail_Click(object sender, EventArgs e)
+        {
+            CreateMailItem();
+        }
+
+        private void CreateMailItem()
+        {
+            Outlook.Application oApp = new Outlook.Application();
+            Outlook._MailItem oMailItem = (Outlook._MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
+            oMailItem.To = "whoffman21279@gmail.com";
+            oMailItem.Subject = "Grenci CPA Invoice";
+
+            List<string> attachments = new List<string>();
+            attachments.Add(@"C:\Users\hoffmanw\Documents\Tests\test.txt");
+
+            oMailItem.Attachments.Add(attachments[0]);
+            oMailItem.Display(true);
         }
     }
 }

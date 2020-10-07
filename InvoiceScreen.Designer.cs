@@ -35,12 +35,12 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblAmount = new System.Windows.Forms.Label();
             this.lblService = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMakeInvoice = new System.Windows.Forms.Button();
             this.txtClient = new System.Windows.Forms.TextBox();
             this.txtAmtOwed = new System.Windows.Forms.TextBox();
             this.txtServices = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,16 +48,19 @@
             // 
             this.btnEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEmail.Location = new System.Drawing.Point(869, 474);
+            this.btnEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEmail.Name = "btnEmail";
             this.btnEmail.Size = new System.Drawing.Size(103, 43);
             this.btnEmail.TabIndex = 0;
             this.btnEmail.Text = "Email Invoice";
             this.btnEmail.UseVisualStyleBackColor = true;
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
             // 
             // btnPrint
             // 
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.Location = new System.Drawing.Point(869, 523);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(103, 43);
             this.btnPrint.TabIndex = 1;
@@ -68,6 +71,7 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Location = new System.Drawing.Point(869, 592);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(103, 43);
             this.btnClose.TabIndex = 2;
@@ -102,23 +106,11 @@
             this.lblService.TabIndex = 5;
             this.lblService.Text = "Services:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::GrenciCPA.Properties.Resources.AA_invoice_2019_page_001;
-            this.pictureBox1.Location = new System.Drawing.Point(343, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(520, 623);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnMakeInvoice
             // 
             this.btnMakeInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnMakeInvoice.Location = new System.Drawing.Point(12, 586);
+            this.btnMakeInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMakeInvoice.Name = "btnMakeInvoice";
             this.btnMakeInvoice.Size = new System.Drawing.Size(105, 49);
             this.btnMakeInvoice.TabIndex = 7;
@@ -128,7 +120,8 @@
             // 
             // txtClient
             // 
-            this.txtClient.Location = new System.Drawing.Point(49, 56);
+            this.txtClient.Location = new System.Drawing.Point(49, 57);
+            this.txtClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClient.Name = "txtClient";
             this.txtClient.ReadOnly = true;
             this.txtClient.Size = new System.Drawing.Size(169, 22);
@@ -138,6 +131,7 @@
             // txtAmtOwed
             // 
             this.txtAmtOwed.Location = new System.Drawing.Point(49, 107);
+            this.txtAmtOwed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAmtOwed.Name = "txtAmtOwed";
             this.txtAmtOwed.ReadOnly = true;
             this.txtAmtOwed.Size = new System.Drawing.Size(169, 22);
@@ -146,7 +140,8 @@
             // 
             // txtServices
             // 
-            this.txtServices.Location = new System.Drawing.Point(49, 163);
+            this.txtServices.Location = new System.Drawing.Point(49, 162);
+            this.txtServices.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtServices.Name = "txtServices";
             this.txtServices.ReadOnly = true;
             this.txtServices.Size = new System.Drawing.Size(169, 22);
@@ -156,12 +151,27 @@
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(12, 208);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(109, 36);
             this.btnEdit.TabIndex = 12;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::GrenciCPA.Properties.Resources.AA_invoice_2019_page_001;
+            this.pictureBox1.Location = new System.Drawing.Point(343, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(520, 623);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // InvoiceScreen
             // 
@@ -181,6 +191,7 @@
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnEmail);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InvoiceScreen";
             this.Text = "InvoiceScreen";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

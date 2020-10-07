@@ -82,12 +82,8 @@ namespace GrenciCPA
             {
                 double timeend = DateTime.Now.Hour + (DateTime.Now.Minute / 60.0) + (DateTime.Now.Second / 3600.0);
                 btnTimer.Text = "Start Timer";
-
-                Description f1 = new Description();
-                f1.ShowDialog();
-                string timeDesc = f1.getDesc();
-
-                dgvTime.Rows.Add((DateTime.Now - timeStarted).ToString(), timeStarted.ToString(), DateTime.Now.ToString() , timeDesc);
+                
+                dgvTime.Rows.Add((DateTime.Now - timeStarted).ToString(), timeStarted.ToString(), DateTime.Now.ToString() , "Worked on their taxes");
                 time += timeend - timeStart;
                 txtDateTime.Text = "Total Elapsed Time: "+ (((int)time * 100 )/100).ToString() + " hours";
 
@@ -99,19 +95,9 @@ namespace GrenciCPA
         // Once the Complete button is clicked, the user will be taken to the Invoice form with services and amount listed
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            string message = "Are you sure you are ready to complete this job?";
-            string title = "Confirm Window";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.No)
-            {
-                
-            }
-            else
-            {
-                InvoiceScreen form = new InvoiceScreen();
-                form.ShowDialog();
-            }
+            
+            InvoiceScreen form = new InvoiceScreen();
+            form.ShowDialog();
         }
 
         // Allows the user to edit the timer incase of user error (ex. forgot to click the Start Timer button or let it run for too long)
@@ -127,7 +113,6 @@ namespace GrenciCPA
                 txtSubtract.Visible = true;
 
                 btnEditTime.Text = "Finish Editing";
-
             }
 
             else
@@ -144,17 +129,6 @@ namespace GrenciCPA
 
                 btnEditTime.Text = "Edit Time";
             }
-        }
-
-        private void lblAddMinutes_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form f1 = new ClientView();
-            f1.Show();
         }
     }
 }
