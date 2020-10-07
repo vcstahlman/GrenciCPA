@@ -80,13 +80,17 @@ namespace GrenciCPA
             }
             else
             {
+                
                 double timeend = DateTime.Now.Hour + (DateTime.Now.Minute / 60.0) + (DateTime.Now.Second / 3600.0);
                 btnTimer.Text = "Start Timer";
-                
-                dgvTime.Rows.Add((DateTime.Now - timeStarted).ToString(), timeStarted.ToString(), DateTime.Now.ToString() , "Worked on their taxes");
-                time += timeend - timeStart;
-                txtDateTime.Text = "Total Elapsed Time: "+ (((int)time * 100 )/100).ToString() + " hours";
 
+                Description f1 = new Description();
+                f1.ShowDialog();
+                string timeDesc = f1.getDesc();
+
+                dgvTime.Rows.Add((DateTime.Now - timeStarted).ToString(), timeStarted.ToString(), DateTime.Now.ToString(), timeDesc);
+                time += timeend - timeStart;
+                txtDateTime.Text = "Total Elapsed Time: " + (((int)time * 100) / 100).ToString() + " hours";
             }
 
 

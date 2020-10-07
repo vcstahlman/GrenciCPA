@@ -82,9 +82,9 @@ namespace GrenciCPA
             oMailItem.Subject = "Grenci CPA Invoice";
 
             List<string> attachments = new List<string>();
-            attachments.Add(@"C:\Users\hoffmanw\Documents\Tests\test.txt");
+            //attachments.Add(@"C:\Users\hoffmanw\Documents\Tests\test.txt");
 
-            oMailItem.Attachments.Add(attachments[0]);
+            //oMailItem.Attachments.Add(attachments[0]);
             oMailItem.Display(true);
         }
     }
