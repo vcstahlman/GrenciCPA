@@ -51,25 +51,22 @@
             this.txtAmountCharged = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDateInvoiced = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEditNotes = new System.Windows.Forms.Button();
             this.btnNewJob = new System.Windows.Forms.Button();
             this.btnActive = new System.Windows.Forms.Button();
             this.lblNotes = new System.Windows.Forms.Label();
-            this.btnAddLabels = new System.Windows.Forms.Button();
             this.lblLabel = new System.Windows.Forms.Label();
             this.lbxLabels = new System.Windows.Forms.ListBox();
             this.lblOverdue = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(697, 386);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Location = new System.Drawing.Point(929, 475);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 45);
+            this.button3.Size = new System.Drawing.Size(172, 55);
             this.button3.TabIndex = 28;
             this.button3.Text = "Close";
             this.button3.UseVisualStyleBackColor = true;
@@ -78,18 +75,20 @@
             // rtbNotes
             // 
             this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbNotes.Location = new System.Drawing.Point(507, 19);
+            this.rtbNotes.Location = new System.Drawing.Point(676, 23);
+            this.rtbNotes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rtbNotes.Name = "rtbNotes";
             this.rtbNotes.ReadOnly = true;
-            this.rtbNotes.Size = new System.Drawing.Size(320, 133);
+            this.rtbNotes.Size = new System.Drawing.Size(425, 163);
             this.rtbNotes.TabIndex = 23;
             this.rtbNotes.Text = ". Kids just left for college\n. Recently moved to 123 Main Street\n";
             // 
             // btnEditClient
             // 
-            this.btnEditClient.Location = new System.Drawing.Point(8, 126);
+            this.btnEditClient.Location = new System.Drawing.Point(976, 194);
+            this.btnEditClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditClient.Name = "btnEditClient";
-            this.btnEditClient.Size = new System.Drawing.Size(94, 23);
+            this.btnEditClient.Size = new System.Drawing.Size(125, 28);
             this.btnEditClient.TabIndex = 22;
             this.btnEditClient.Text = "Edit Client Info";
             this.btnEditClient.UseVisualStyleBackColor = true;
@@ -99,9 +98,10 @@
             // 
             this.lblSSN.AutoSize = true;
             this.lblSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSSN.Location = new System.Drawing.Point(10, 109);
+            this.lblSSN.Location = new System.Drawing.Point(13, 134);
+            this.lblSSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSSN.Name = "lblSSN";
-            this.lblSSN.Size = new System.Drawing.Size(78, 13);
+            this.lblSSN.Size = new System.Drawing.Size(101, 17);
             this.lblSSN.TabIndex = 21;
             this.lblSSN.Text = "200-14-3987";
             // 
@@ -109,9 +109,10 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(10, 95);
+            this.lblEmail.Location = new System.Drawing.Point(13, 117);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(115, 13);
+            this.lblEmail.Size = new System.Drawing.Size(147, 17);
             this.lblEmail.TabIndex = 20;
             this.lblEmail.Text = "smiths@yahoo.com";
             // 
@@ -119,9 +120,10 @@
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(11, 81);
+            this.lblPhone.Location = new System.Drawing.Point(15, 100);
+            this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(85, 13);
+            this.lblPhone.Size = new System.Drawing.Size(110, 17);
             this.lblPhone.TabIndex = 19;
             this.lblPhone.Text = "814-393-2500";
             // 
@@ -129,9 +131,10 @@
             // 
             this.lblAddressCSZ.AutoSize = true;
             this.lblAddressCSZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressCSZ.Location = new System.Drawing.Point(10, 60);
+            this.lblAddressCSZ.Location = new System.Drawing.Point(13, 74);
+            this.lblAddressCSZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressCSZ.Name = "lblAddressCSZ";
-            this.lblAddressCSZ.Size = new System.Drawing.Size(109, 13);
+            this.lblAddressCSZ.Size = new System.Drawing.Size(139, 17);
             this.lblAddressCSZ.TabIndex = 18;
             this.lblAddressCSZ.Text = "Clarion, PA 16214";
             // 
@@ -139,9 +142,10 @@
             // 
             this.lblAddressSt.AutoSize = true;
             this.lblAddressSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressSt.Location = new System.Drawing.Point(10, 46);
+            this.lblAddressSt.Location = new System.Drawing.Point(13, 57);
+            this.lblAddressSt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressSt.Name = "lblAddressSt";
-            this.lblAddressSt.Size = new System.Drawing.Size(97, 13);
+            this.lblAddressSt.Size = new System.Drawing.Size(123, 17);
             this.lblAddressSt.TabIndex = 17;
             this.lblAddressSt.Text = "123 Main Street";
             // 
@@ -149,9 +153,10 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(10, 19);
+            this.lblName.Location = new System.Drawing.Point(13, 23);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(118, 13);
+            this.lblName.Size = new System.Drawing.Size(151, 17);
             this.lblName.TabIndex = 16;
             this.lblName.Text = "Joe and Joan Smith";
             // 
@@ -179,15 +184,15 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvClientPast.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvClientPast.Location = new System.Drawing.Point(8, 157);
-            this.dgvClientPast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvClientPast.Location = new System.Drawing.Point(11, 193);
+            this.dgvClientPast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvClientPast.Name = "dgvClientPast";
             this.dgvClientPast.ReadOnly = true;
             this.dgvClientPast.RowHeadersWidth = 51;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvClientPast.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvClientPast.RowTemplate.Height = 24;
-            this.dgvClientPast.Size = new System.Drawing.Size(717, 228);
+            this.dgvClientPast.Size = new System.Drawing.Size(956, 281);
             this.dgvClientPast.TabIndex = 0;
             this.dgvClientPast.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientPast_CellContentClick);
             // 
@@ -260,25 +265,13 @@
             this.txtDateInvoiced.ReadOnly = true;
             this.txtDateInvoiced.Width = 147;
             // 
-            // btnEditNotes
-            // 
-            this.btnEditNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditNotes.Location = new System.Drawing.Point(729, 157);
-            this.btnEditNotes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnEditNotes.Name = "btnEditNotes";
-            this.btnEditNotes.Size = new System.Drawing.Size(94, 25);
-            this.btnEditNotes.TabIndex = 30;
-            this.btnEditNotes.Text = "Edit Notes";
-            this.btnEditNotes.UseVisualStyleBackColor = true;
-            this.btnEditNotes.Click += new System.EventHandler(this.btnEditNotes_Click);
-            // 
             // btnNewJob
             // 
             this.btnNewJob.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNewJob.Location = new System.Drawing.Point(8, 386);
-            this.btnNewJob.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewJob.Location = new System.Drawing.Point(11, 475);
+            this.btnNewJob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNewJob.Name = "btnNewJob";
-            this.btnNewJob.Size = new System.Drawing.Size(120, 45);
+            this.btnNewJob.Size = new System.Drawing.Size(160, 55);
             this.btnNewJob.TabIndex = 31;
             this.btnNewJob.Text = "New Job";
             this.btnNewJob.UseVisualStyleBackColor = true;
@@ -287,10 +280,10 @@
             // btnActive
             // 
             this.btnActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnActive.Location = new System.Drawing.Point(132, 386);
-            this.btnActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnActive.Location = new System.Drawing.Point(176, 475);
+            this.btnActive.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActive.Name = "btnActive";
-            this.btnActive.Size = new System.Drawing.Size(120, 45);
+            this.btnActive.Size = new System.Drawing.Size(160, 55);
             this.btnActive.TabIndex = 34;
             this.btnActive.Text = "Active Jobs";
             this.btnActive.UseVisualStyleBackColor = true;
@@ -300,80 +293,55 @@
             // 
             this.lblNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(505, 5);
-            this.lblNotes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNotes.Location = new System.Drawing.Point(673, 6);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(38, 13);
+            this.lblNotes.Size = new System.Drawing.Size(49, 17);
             this.lblNotes.TabIndex = 35;
             this.lblNotes.Text = "Notes:";
-            // 
-            // btnAddLabels
-            // 
-            this.btnAddLabels.Location = new System.Drawing.Point(235, 128);
-            this.btnAddLabels.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAddLabels.Name = "btnAddLabels";
-            this.btnAddLabels.Size = new System.Drawing.Size(68, 24);
-            this.btnAddLabels.TabIndex = 42;
-            this.btnAddLabels.Text = "Add/Edit Labels";
-            this.btnAddLabels.UseVisualStyleBackColor = true;
             // 
             // lblLabel
             // 
             this.lblLabel.AutoSize = true;
-            this.lblLabel.Location = new System.Drawing.Point(232, 25);
-            this.lblLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLabel.Location = new System.Drawing.Point(309, 31);
             this.lblLabel.Name = "lblLabel";
-            this.lblLabel.Size = new System.Drawing.Size(70, 13);
+            this.lblLabel.Size = new System.Drawing.Size(93, 17);
             this.lblLabel.TabIndex = 41;
             this.lblLabel.Text = "Client Labels:";
             // 
             // lbxLabels
             // 
             this.lbxLabels.FormattingEnabled = true;
+            this.lbxLabels.ItemHeight = 16;
             this.lbxLabels.Items.AddRange(new object[] {
             "Joint",
             "Schedule C",
             "Dependents"});
-            this.lbxLabels.Location = new System.Drawing.Point(235, 41);
-            this.lbxLabels.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbxLabels.Location = new System.Drawing.Point(313, 50);
+            this.lbxLabels.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbxLabels.Name = "lbxLabels";
-            this.lbxLabels.Size = new System.Drawing.Size(171, 82);
+            this.lbxLabels.Size = new System.Drawing.Size(227, 100);
             this.lbxLabels.TabIndex = 40;
             // 
             // lblOverdue
             // 
             this.lblOverdue.AutoSize = true;
-            this.lblOverdue.Location = new System.Drawing.Point(232, 6);
-            this.lblOverdue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOverdue.Location = new System.Drawing.Point(309, 7);
             this.lblOverdue.Name = "lblOverdue";
-            this.lblOverdue.Size = new System.Drawing.Size(93, 13);
+            this.lblOverdue.Size = new System.Drawing.Size(123, 17);
             this.lblOverdue.TabIndex = 39;
             this.lblOverdue.Text = "Overdue: $100.00";
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(341, 127);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(64, 25);
-            this.btnSave.TabIndex = 38;
-            this.btnSave.Text = "Save Notes";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
             // ClientView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 441);
-            this.Controls.Add(this.btnAddLabels);
+            this.ClientSize = new System.Drawing.Size(1109, 543);
             this.Controls.Add(this.lblLabel);
             this.Controls.Add(this.lbxLabels);
             this.Controls.Add(this.lblOverdue);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblNotes);
             this.Controls.Add(this.btnActive);
             this.Controls.Add(this.btnNewJob);
-            this.Controls.Add(this.btnEditNotes);
             this.Controls.Add(this.dgvClientPast);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.rtbNotes);
@@ -385,7 +353,7 @@
             this.Controls.Add(this.lblAddressSt);
             this.Controls.Add(this.lblName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ClientView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientView";
@@ -408,15 +376,12 @@
         private System.Windows.Forms.Label lblAddressSt;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.DataGridView dgvClientPast;
-        private System.Windows.Forms.Button btnEditNotes;
         private System.Windows.Forms.Button btnNewJob;
         private System.Windows.Forms.Button btnActive;
         private System.Windows.Forms.Label lblNotes;
-        private System.Windows.Forms.Button btnAddLabels;
         private System.Windows.Forms.Label lblLabel;
         private System.Windows.Forms.ListBox lbxLabels;
         private System.Windows.Forms.Label lblOverdue;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountCharged;
