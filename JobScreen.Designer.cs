@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JobScreen));
             this.button3 = new System.Windows.Forms.Button();
             this.btnEditClient = new System.Windows.Forms.Button();
@@ -56,33 +55,7 @@
             this.txtDateTime = new System.Windows.Forms.TextBox();
             this.lbxLabels = new System.Windows.Forms.ListBox();
             this.cmboStaff = new System.Windows.Forms.ComboBox();
-            this.grenciDBDataSet = new GrenciCPA.GrenciDBDataSet();
-            this.tIME_TABLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tIME_TABLETableAdapter = new GrenciCPA.GrenciDBDataSetTableAdapters.TIME_TABLETableAdapter();
-            this.tableAdapterManager = new GrenciCPA.GrenciDBDataSetTableAdapters.TableAdapterManager();
-            this.jOB_COMPONENT_TABLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jOB_COMPONENT_TABLETableAdapter = new GrenciCPA.GrenciDBDataSetTableAdapters.JOB_COMPONENT_TABLETableAdapter();
-            this.tIME_TABLEDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jOB_COMPONENT_TABLEDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnViewClient = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.grenciDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tIME_TABLEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jOB_COMPONENT_TABLEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tIME_TABLEDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jOB_COMPONENT_TABLEDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
@@ -372,193 +345,6 @@
             this.cmboStaff.Size = new System.Drawing.Size(121, 24);
             this.cmboStaff.TabIndex = 72;
             // 
-            // grenciDBDataSet
-            // 
-            this.grenciDBDataSet.DataSetName = "GrenciDBDataSet";
-            this.grenciDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tIME_TABLEBindingSource
-            // 
-            this.tIME_TABLEBindingSource.DataMember = "TIME_TABLE";
-            this.tIME_TABLEBindingSource.DataSource = this.grenciDBDataSet;
-            // 
-            // tIME_TABLETableAdapter
-            // 
-            this.tIME_TABLETableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CHARACTERISTIC_TABLETableAdapter = null;
-            this.tableAdapterManager.CLIENT_TABLETableAdapter = null;
-            this.tableAdapterManager.CTC_TABLETableAdapter = null;
-            this.tableAdapterManager.INVOICE_TABLETableAdapter = null;
-            this.tableAdapterManager.JOB_COMPONENT_TABLETableAdapter = this.jOB_COMPONENT_TABLETableAdapter;
-            this.tableAdapterManager.JOB_TABLETableAdapter = null;
-            this.tableAdapterManager.PAYMENT_TABLETableAdapter = null;
-            this.tableAdapterManager.SERVICE_TABLETableAdapter = null;
-            this.tableAdapterManager.STAFF_TABLETableAdapter = null;
-            this.tableAdapterManager.TIME_TABLETableAdapter = this.tIME_TABLETableAdapter;
-            this.tableAdapterManager.UpdateOrder = GrenciCPA.GrenciDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // jOB_COMPONENT_TABLEBindingSource
-            // 
-            this.jOB_COMPONENT_TABLEBindingSource.DataMember = "JOB_COMPONENT_TABLE";
-            this.jOB_COMPONENT_TABLEBindingSource.DataSource = this.grenciDBDataSet;
-            // 
-            // jOB_COMPONENT_TABLETableAdapter
-            // 
-            this.jOB_COMPONENT_TABLETableAdapter.ClearBeforeFill = true;
-            // 
-            // tIME_TABLEDataGridView
-            // 
-            this.tIME_TABLEDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tIME_TABLEDataGridView.AutoGenerateColumns = false;
-            this.tIME_TABLEDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tIME_TABLEDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.tIME_TABLEDataGridView.DataSource = this.tIME_TABLEBindingSource;
-            this.tIME_TABLEDataGridView.Location = new System.Drawing.Point(673, 720);
-            this.tIME_TABLEDataGridView.Name = "tIME_TABLEDataGridView";
-            this.tIME_TABLEDataGridView.RowHeadersWidth = 51;
-            this.tIME_TABLEDataGridView.RowTemplate.Height = 24;
-            this.tIME_TABLEDataGridView.Size = new System.Drawing.Size(710, 139);
-            this.tIME_TABLEDataGridView.TabIndex = 72;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TIME_ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TIME_ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "JOB_ID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "JOB_ID";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "START_TIME";
-            this.dataGridViewTextBoxColumn3.HeaderText = "START_TIME";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "END_TIME";
-            this.dataGridViewTextBoxColumn4.HeaderText = "END_TIME";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TIME_DESCRIPT";
-            this.dataGridViewTextBoxColumn5.HeaderText = "TIME_DESCRIPT";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // jOB_COMPONENT_TABLEDataGridView
-            // 
-            this.jOB_COMPONENT_TABLEDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.jOB_COMPONENT_TABLEDataGridView.AutoGenerateColumns = false;
-            this.jOB_COMPONENT_TABLEDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.jOB_COMPONENT_TABLEDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13});
-            this.jOB_COMPONENT_TABLEDataGridView.DataSource = this.jOB_COMPONENT_TABLEBindingSource;
-            this.jOB_COMPONENT_TABLEDataGridView.Location = new System.Drawing.Point(214, 48);
-            this.jOB_COMPONENT_TABLEDataGridView.Name = "jOB_COMPONENT_TABLEDataGridView";
-            this.jOB_COMPONENT_TABLEDataGridView.RowHeadersWidth = 51;
-            this.jOB_COMPONENT_TABLEDataGridView.RowTemplate.Height = 24;
-            this.jOB_COMPONENT_TABLEDataGridView.Size = new System.Drawing.Size(1304, 583);
-            this.jOB_COMPONENT_TABLEDataGridView.TabIndex = 72;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "JOB_COMPONENT_ID";
-            this.dataGridViewTextBoxColumn6.HeaderText = "JOB_COMPONENT_ID";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "JOB_ID";
-            this.dataGridViewTextBoxColumn7.HeaderText = "JOB_ID";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "SERV_ID";
-            this.dataGridViewTextBoxColumn8.HeaderText = "SERV_ID";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "CHAR_ID";
-            this.dataGridViewTextBoxColumn9.HeaderText = "CHAR_ID";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "CHAR_MULTI";
-            this.dataGridViewTextBoxColumn10.HeaderText = "CHAR_MULTI";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "TOTAL";
-            this.dataGridViewTextBoxColumn11.HeaderText = "TOTAL";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "START_TIME";
-            this.dataGridViewTextBoxColumn12.HeaderText = "START_TIME";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "END_TIME";
-            this.dataGridViewTextBoxColumn13.HeaderText = "END_TIME";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 125;
-            // 
             // btnViewClient
             // 
             this.btnViewClient.Location = new System.Drawing.Point(10, 220);
@@ -574,8 +360,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1530, 872);
             this.Controls.Add(this.btnViewClient);
-            this.Controls.Add(this.jOB_COMPONENT_TABLEDataGridView);
-            this.Controls.Add(this.tIME_TABLEDataGridView);
             this.Controls.Add(this.cmboStaff);
             this.Controls.Add(this.lbxLabels);
             this.Controls.Add(this.txtDateTime);
@@ -607,11 +391,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobScreen";
             this.Load += new System.EventHandler(this.JobScreen_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.grenciDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tIME_TABLEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jOB_COMPONENT_TABLEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tIME_TABLEDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jOB_COMPONENT_TABLEDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -645,27 +424,6 @@
         private System.Windows.Forms.TextBox txtDateTime;
         private System.Windows.Forms.ListBox lbxLabels;
         private System.Windows.Forms.ComboBox cmboStaff;
-        private GrenciDBDataSet grenciDBDataSet;
-        private System.Windows.Forms.BindingSource tIME_TABLEBindingSource;
-        private GrenciDBDataSetTableAdapters.TIME_TABLETableAdapter tIME_TABLETableAdapter;
-        private GrenciDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private GrenciDBDataSetTableAdapters.JOB_COMPONENT_TABLETableAdapter jOB_COMPONENT_TABLETableAdapter;
-        private System.Windows.Forms.BindingSource jOB_COMPONENT_TABLEBindingSource;
-        private System.Windows.Forms.DataGridView tIME_TABLEDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridView jOB_COMPONENT_TABLEDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.Button btnViewClient;
     }
 }

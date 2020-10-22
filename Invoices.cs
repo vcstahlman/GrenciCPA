@@ -19,9 +19,8 @@ namespace GrenciCPA
 
         private void Invoices_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'grenciDBDataSet.INVOICE_TABLE' table. You can move, or remove it, as needed.
-            this.iNVOICE_TABLETableAdapter.Fill(this.grenciDBDataSet.INVOICE_TABLE);
-            dgvInvoices.Rows.Add("View Invoice", "Smith", "Joe", "", "123-4323", "joe@smiths.com", "Due", "Pay");
+            
+
         }
 
         private void cbxOverdue_CheckedChanged(object sender, EventArgs e)
@@ -40,12 +39,6 @@ namespace GrenciCPA
             form.ShowDialog();
         }
 
-        private void iNVOICE_TABLEBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.iNVOICE_TABLEBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.grenciDBDataSet);
-
-        }
+        
     }
 }

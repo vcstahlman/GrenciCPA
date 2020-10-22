@@ -45,7 +45,7 @@ namespace GrenciCPA
         private void ClientList_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'grenciDBDataSet.CLIENT_TABLE' table. You can move, or remove it, as needed.
-            this.cLIENT_TABLETableAdapter.Fill(this.grenciDBDataSet.CLIENT_TABLE);
+            
 
             //dgvClients.Rows.Add("Joe", "Smith", "", "123 Clari St", "Clarion", "PA", "Email", "View Client", "View Invoices", "View Returns", "Create Return");
 

@@ -17,18 +17,17 @@ namespace GrenciCPA
             InitializeComponent();
         }
 
-        private void pAYMENT_TABLEBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.pAYMENT_TABLEBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.grenciDBDataSet);
-
-        }
+        
 
         private void PaymentList_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'grenciDBDataSet.PAYMENT_TABLE' table. You can move, or remove it, as needed.
-            this.pAYMENT_TABLETableAdapter.Fill(this.grenciDBDataSet.PAYMENT_TABLE);
+            
+
+        }
+
+        private void pAYMENT_TABLEBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
 
         }
     }

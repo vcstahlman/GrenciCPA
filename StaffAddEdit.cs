@@ -25,9 +25,6 @@ namespace GrenciCPA
             this.Close();
         }
 
-        private void textBox10_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
