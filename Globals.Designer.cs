@@ -28,34 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Globals));
             this.btnDone = new System.Windows.Forms.Button();
             this.lblServices = new System.Windows.Forms.Label();
             this.btnSaveFee = new System.Windows.Forms.Button();
-            this.dgvServices = new System.Windows.Forms.DataGridView();
-            this.lblCategorys = new System.Windows.Forms.Label();
-            this.dgvFees = new System.Windows.Forms.DataGridView();
-            this.txtServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InvoiceFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryLabel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BaseFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MinimumFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtAssociatedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
+            this.lblCharacteristics = new System.Windows.Forms.Label();
+            this.grenciDBDataSet = new GrenciCPA.GrenciDBDataSet();
+            this.cHARACTERISTIC_TABLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cHARACTERISTIC_TABLETableAdapter = new GrenciCPA.GrenciDBDataSetTableAdapters.CHARACTERISTIC_TABLETableAdapter();
+            this.tableAdapterManager = new GrenciCPA.GrenciDBDataSetTableAdapters.TableAdapterManager();
+            this.cHARACTERISTIC_TABLEDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.sERVICE_TABLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sERVICE_TABLETableAdapter = new GrenciCPA.GrenciDBDataSetTableAdapters.SERVICE_TABLETableAdapter();
+            this.sERVICE_TABLEDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.grenciDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cHARACTERISTIC_TABLEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cHARACTERISTIC_TABLEDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sERVICE_TABLEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sERVICE_TABLEDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDone
             // 
             this.btnDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDone.Location = new System.Drawing.Point(1080, 587);
+            this.btnDone.Location = new System.Drawing.Point(1096, 603);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(137, 34);
             this.btnDone.TabIndex = 27;
@@ -77,7 +84,7 @@
             // btnSaveFee
             // 
             this.btnSaveFee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSaveFee.Location = new System.Drawing.Point(937, 588);
+            this.btnSaveFee.Location = new System.Drawing.Point(937, 604);
             this.btnSaveFee.Name = "btnSaveFee";
             this.btnSaveFee.Size = new System.Drawing.Size(137, 33);
             this.btnSaveFee.TabIndex = 37;
@@ -85,146 +92,197 @@
             this.btnSaveFee.UseVisualStyleBackColor = true;
             this.btnSaveFee.Click += new System.EventHandler(this.btnSaveFee_Click);
             // 
-            // dgvServices
+            // lblCharacteristics
             // 
-            this.dgvServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvServices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.txtServiceName,
-            this.InvoiceFormat});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvServices.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvServices.Location = new System.Drawing.Point(12, 32);
-            this.dgvServices.Name = "dgvServices";
-            this.dgvServices.RowHeadersWidth = 51;
-            this.dgvServices.RowTemplate.Height = 24;
-            this.dgvServices.Size = new System.Drawing.Size(482, 548);
-            this.dgvServices.TabIndex = 36;
+            this.lblCharacteristics.AutoSize = true;
+            this.lblCharacteristics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCharacteristics.Location = new System.Drawing.Point(531, 9);
+            this.lblCharacteristics.Name = "lblCharacteristics";
+            this.lblCharacteristics.Size = new System.Drawing.Size(144, 20);
+            this.lblCharacteristics.TabIndex = 35;
+            this.lblCharacteristics.Text = "Characteristics:";
+            this.lblCharacteristics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCategorys
+            // grenciDBDataSet
             // 
-            this.lblCategorys.AutoSize = true;
-            this.lblCategorys.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategorys.Location = new System.Drawing.Point(513, 9);
-            this.lblCategorys.Name = "lblCategorys";
-            this.lblCategorys.Size = new System.Drawing.Size(100, 20);
-            this.lblCategorys.TabIndex = 35;
-            this.lblCategorys.Text = "Categorys:";
-            this.lblCategorys.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.grenciDBDataSet.DataSetName = "GrenciDBDataSet";
+            this.grenciDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dgvFees
+            // cHARACTERISTIC_TABLEBindingSource
             // 
-            this.dgvFees.AllowUserToOrderColumns = true;
-            this.dgvFees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.cHARACTERISTIC_TABLEBindingSource.DataMember = "CHARACTERISTIC_TABLE";
+            this.cHARACTERISTIC_TABLEBindingSource.DataSource = this.grenciDBDataSet;
+            // 
+            // cHARACTERISTIC_TABLETableAdapter
+            // 
+            this.cHARACTERISTIC_TABLETableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CHARACTERISTIC_TABLETableAdapter = this.cHARACTERISTIC_TABLETableAdapter;
+            this.tableAdapterManager.CLIENT_TABLETableAdapter = null;
+            this.tableAdapterManager.CTC_TABLETableAdapter = null;
+            this.tableAdapterManager.INVOICE_TABLETableAdapter = null;
+            this.tableAdapterManager.JOB_COMPONENT_TABLETableAdapter = null;
+            this.tableAdapterManager.JOB_TABLETableAdapter = null;
+            this.tableAdapterManager.PAYMENT_TABLETableAdapter = null;
+            this.tableAdapterManager.SERVICE_TABLETableAdapter = this.sERVICE_TABLETableAdapter;
+            this.tableAdapterManager.STAFF_TABLETableAdapter = null;
+            this.tableAdapterManager.TIME_TABLETableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = GrenciCPA.GrenciDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // cHARACTERISTIC_TABLEDataGridView
+            // 
+            this.cHARACTERISTIC_TABLEDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CategoryLabel,
-            this.BaseFee,
-            this.MinimumFee,
-            this.txtAssociatedService});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFees.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvFees.Location = new System.Drawing.Point(517, 31);
-            this.dgvFees.Name = "dgvFees";
-            this.dgvFees.RowHeadersWidth = 51;
-            this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(700, 549);
-            this.dgvFees.TabIndex = 32;
+            this.cHARACTERISTIC_TABLEDataGridView.AutoGenerateColumns = false;
+            this.cHARACTERISTIC_TABLEDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cHARACTERISTIC_TABLEDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewCheckBoxColumn1});
+            this.cHARACTERISTIC_TABLEDataGridView.DataSource = this.cHARACTERISTIC_TABLEBindingSource;
+            this.cHARACTERISTIC_TABLEDataGridView.Location = new System.Drawing.Point(535, 32);
+            this.cHARACTERISTIC_TABLEDataGridView.Name = "cHARACTERISTIC_TABLEDataGridView";
+            this.cHARACTERISTIC_TABLEDataGridView.RowHeadersWidth = 51;
+            this.cHARACTERISTIC_TABLEDataGridView.RowTemplate.Height = 24;
+            this.cHARACTERISTIC_TABLEDataGridView.Size = new System.Drawing.Size(698, 540);
+            this.cHARACTERISTIC_TABLEDataGridView.TabIndex = 38;
             // 
-            // txtServiceName
+            // dataGridViewTextBoxColumn1
             // 
-            this.txtServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtServiceName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.txtServiceName.FillWeight = 126.9036F;
-            this.txtServiceName.HeaderText = "Service";
-            this.txtServiceName.MinimumWidth = 100;
-            this.txtServiceName.Name = "txtServiceName";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CHAR_ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "CHAR_ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
-            // InvoiceFormat
+            // dataGridViewTextBoxColumn2
             // 
-            this.InvoiceFormat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InvoiceFormat.FillWeight = 150F;
-            this.InvoiceFormat.HeaderText = "Invoice Format";
-            this.InvoiceFormat.MinimumWidth = 150;
-            this.InvoiceFormat.Name = "InvoiceFormat";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CHAR_NAME";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CHAR_NAME";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
-            // CategoryLabel
+            // dataGridViewTextBoxColumn3
             // 
-            this.CategoryLabel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.CategoryLabel.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CategoryLabel.HeaderText = "Category";
-            this.CategoryLabel.MinimumWidth = 100;
-            this.CategoryLabel.Name = "CategoryLabel";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CHAR_COST";
+            this.dataGridViewTextBoxColumn3.HeaderText = "CHAR_COST";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
-            // BaseFee
+            // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.BaseFee.DefaultCellStyle = dataGridViewCellStyle4;
-            this.BaseFee.FillWeight = 75F;
-            this.BaseFee.HeaderText = "Base Fee";
-            this.BaseFee.MinimumWidth = 75;
-            this.BaseFee.Name = "BaseFee";
-            this.BaseFee.Width = 75;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CHAR_MIN";
+            this.dataGridViewTextBoxColumn4.HeaderText = "CHAR_MIN";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
-            // MinimumFee
+            // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.MinimumFee.DefaultCellStyle = dataGridViewCellStyle5;
-            this.MinimumFee.FillWeight = 85F;
-            this.MinimumFee.HeaderText = "Minimum";
-            this.MinimumFee.MinimumWidth = 85;
-            this.MinimumFee.Name = "MinimumFee";
-            this.MinimumFee.Width = 85;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "ASSOCIATED_SERVICE";
+            this.dataGridViewTextBoxColumn5.HeaderText = "ASSOCIATED_SERVICE";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 125;
             // 
-            // txtAssociatedService
+            // dataGridViewCheckBoxColumn1
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtAssociatedService.DefaultCellStyle = dataGridViewCellStyle6;
-            this.txtAssociatedService.FillWeight = 150F;
-            this.txtAssociatedService.HeaderText = "Associated Service";
-            this.txtAssociatedService.MinimumWidth = 150;
-            this.txtAssociatedService.Name = "txtAssociatedService";
-            this.txtAssociatedService.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.txtAssociatedService.Width = 150;
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "CHAR_ACTIVE";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "CHAR_ACTIVE";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.Width = 125;
+            // 
+            // sERVICE_TABLEBindingSource
+            // 
+            this.sERVICE_TABLEBindingSource.DataMember = "SERVICE_TABLE";
+            this.sERVICE_TABLEBindingSource.DataSource = this.grenciDBDataSet;
+            // 
+            // sERVICE_TABLETableAdapter
+            // 
+            this.sERVICE_TABLETableAdapter.ClearBeforeFill = true;
+            // 
+            // sERVICE_TABLEDataGridView
+            // 
+            this.sERVICE_TABLEDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.sERVICE_TABLEDataGridView.AutoGenerateColumns = false;
+            this.sERVICE_TABLEDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sERVICE_TABLEDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewCheckBoxColumn2});
+            this.sERVICE_TABLEDataGridView.DataSource = this.sERVICE_TABLEBindingSource;
+            this.sERVICE_TABLEDataGridView.Location = new System.Drawing.Point(12, 32);
+            this.sERVICE_TABLEDataGridView.Name = "sERVICE_TABLEDataGridView";
+            this.sERVICE_TABLEDataGridView.RowHeadersWidth = 51;
+            this.sERVICE_TABLEDataGridView.RowTemplate.Height = 24;
+            this.sERVICE_TABLEDataGridView.Size = new System.Drawing.Size(502, 540);
+            this.sERVICE_TABLEDataGridView.TabIndex = 38;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "SERV_ID";
+            this.dataGridViewTextBoxColumn6.HeaderText = "SERV_ID";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "SERV_NAME";
+            this.dataGridViewTextBoxColumn7.HeaderText = "SERV_NAME";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "SERV_SENTENCE";
+            this.dataGridViewTextBoxColumn8.HeaderText = "SERV_SENTENCE";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 125;
+            // 
+            // dataGridViewCheckBoxColumn2
+            // 
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "SERV_ACTIVE";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "SERV_ACTIVE";
+            this.dataGridViewCheckBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.Width = 125;
             // 
             // Globals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 633);
+            this.ClientSize = new System.Drawing.Size(1245, 649);
+            this.Controls.Add(this.sERVICE_TABLEDataGridView);
+            this.Controls.Add(this.cHARACTERISTIC_TABLEDataGridView);
             this.Controls.Add(this.btnSaveFee);
-            this.Controls.Add(this.dgvServices);
-            this.Controls.Add(this.lblCategorys);
-            this.Controls.Add(this.dgvFees);
+            this.Controls.Add(this.lblCharacteristics);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.lblServices);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Globals";
             this.Text = "Globals";
             this.Load += new System.EventHandler(this.Fees_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grenciDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cHARACTERISTIC_TABLEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cHARACTERISTIC_TABLEDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sERVICE_TABLEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sERVICE_TABLEDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,14 +292,24 @@
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.Label lblServices;
         private System.Windows.Forms.Button btnSaveFee;
-        private System.Windows.Forms.DataGridView dgvServices;
-        private System.Windows.Forms.Label lblCategorys;
-        private System.Windows.Forms.DataGridView dgvFees;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtServiceName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceFormat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BaseFee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MinimumFee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtAssociatedService;
+        private System.Windows.Forms.Label lblCharacteristics;
+        private GrenciDBDataSet grenciDBDataSet;
+        private System.Windows.Forms.BindingSource cHARACTERISTIC_TABLEBindingSource;
+        private GrenciDBDataSetTableAdapters.CHARACTERISTIC_TABLETableAdapter cHARACTERISTIC_TABLETableAdapter;
+        private GrenciDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private GrenciDBDataSetTableAdapters.SERVICE_TABLETableAdapter sERVICE_TABLETableAdapter;
+        private System.Windows.Forms.DataGridView cHARACTERISTIC_TABLEDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.BindingSource sERVICE_TABLEBindingSource;
+        private System.Windows.Forms.DataGridView sERVICE_TABLEDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
     }
 }

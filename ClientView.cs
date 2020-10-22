@@ -88,20 +88,5 @@ namespace GrenciCPA
 
         }
 
-        // Allows the user to edit client notes
-        private void btnEditNotes_Click(object sender, EventArgs e)
-        {
-            rtbNotes.ReadOnly = false;
-            if (btnEditNotes.Text == "Edit Notes")
-            {
-                rtbNotes.ReadOnly = false;
-                btnEditNotes.Text = "Save Notes";
-            }
-            else if (btnEditNotes.Text == "Save Notes")
-            {
-                rtbNotes.ReadOnly = true;
-                btnEditNotes.Text = "Edit Notes";
-            }
-        }
     }
 }

@@ -82,6 +82,11 @@
     <Compile Include="Globals.Designer.cs">
       <DependentUpon>Globals.cs</DependentUpon>
     </Compile>
+    <Compile Include="GrenciDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrenciDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Invoices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +118,12 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="GrenciApp.cs" />
+    <Compile Include="PaymentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentList.Designer.cs">
+      <DependentUpon>PaymentList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +191,9 @@
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PaymentList.resx">
+      <DependentUpon>PaymentList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Payments.resx">
       <DependentUpon>Payments.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +222,17 @@
     <EmbeddedResource Include="StaffSelect.resx">
       <DependentUpon>StaffSelect.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="GrenciDBDataSet.xsc">
+      <DependentUpon>GrenciDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GrenciDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GrenciDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GrenciDBDataSet.xss">
+      <DependentUpon>GrenciDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

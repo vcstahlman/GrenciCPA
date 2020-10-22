@@ -28,19 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientList));
-            this.dgvClients = new System.Windows.Forms.DataGridView();
             this.btnAddClient = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClientView = new System.Windows.Forms.Button();
@@ -48,64 +37,38 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cbxIsCompany = new System.Windows.Forms.CheckBox();
-            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtLabels = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateZip = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.View = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Invoices = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
+            this.grenciDBDataSet = new GrenciCPA.GrenciDBDataSet();
+            this.grenciDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cLIENT_TABLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cLIENT_TABLETableAdapter = new GrenciCPA.GrenciDBDataSetTableAdapters.CLIENT_TABLETableAdapter();
+            this.tableAdapterManager = new GrenciCPA.GrenciDBDataSetTableAdapters.TableAdapterManager();
+            this.cLIENT_TABLEDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.VIEW_CLIENT = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.grenciDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grenciDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENT_TABLEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENT_TABLEDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvClients
-            // 
-            this.dgvClients.AllowUserToAddRows = false;
-            this.dgvClients.AllowUserToDeleteRows = false;
-            this.dgvClients.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvClients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Active,
-            this.LastName,
-            this.FirstName,
-            this.txtLabels,
-            this.txtCompany,
-            this.Address,
-            this.City,
-            this.stateZip,
-            this.Contact,
-            this.View,
-            this.Invoices});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClients.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvClients.Location = new System.Drawing.Point(12, 57);
-            this.dgvClients.Name = "dgvClients";
-            this.dgvClients.ReadOnly = true;
-            this.dgvClients.RowHeadersWidth = 51;
-            this.dgvClients.RowTemplate.Height = 24;
-            this.dgvClients.Size = new System.Drawing.Size(1462, 596);
-            this.dgvClients.TabIndex = 0;
-            this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
             // 
             // btnAddClient
             // 
             this.btnAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddClient.Location = new System.Drawing.Point(15, 684);
+            this.btnAddClient.Location = new System.Drawing.Point(15, 692);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.Size = new System.Drawing.Size(130, 57);
             this.btnAddClient.TabIndex = 4;
@@ -116,7 +79,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1342, 684);
+            this.btnClose.Location = new System.Drawing.Point(1344, 692);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);
             this.btnClose.TabIndex = 5;
@@ -127,7 +90,7 @@
             // btnClientView
             // 
             this.btnClientView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClientView.Location = new System.Drawing.Point(1175, 684);
+            this.btnClientView.Location = new System.Drawing.Point(1177, 692);
             this.btnClientView.Name = "btnClientView";
             this.btnClientView.Size = new System.Drawing.Size(161, 57);
             this.btnClientView.TabIndex = 6;
@@ -171,141 +134,227 @@
             this.cbxIsCompany.Text = "Company";
             this.cbxIsCompany.UseVisualStyleBackColor = true;
             // 
-            // Active
+            // grenciDBDataSet
             // 
-            this.Active.DataPropertyName = "Active";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.Active.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Active.FillWeight = 60F;
-            this.Active.HeaderText = "Active";
-            this.Active.MinimumWidth = 60;
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
-            this.Active.Width = 60;
+            this.grenciDBDataSet.DataSetName = "GrenciDBDataSet";
+            this.grenciDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // LastName
+            // grenciDBDataSetBindingSource
             // 
-            this.LastName.DataPropertyName = "Last Name";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.LastName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.LastName.FillWeight = 125F;
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.MinimumWidth = 125;
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            this.LastName.Width = 125;
+            this.grenciDBDataSetBindingSource.DataSource = this.grenciDBDataSet;
+            this.grenciDBDataSetBindingSource.Position = 0;
             // 
-            // FirstName
+            // cLIENT_TABLEBindingSource
             // 
-            this.FirstName.DataPropertyName = "FirstName";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.FirstName.DefaultCellStyle = dataGridViewCellStyle4;
-            this.FirstName.FillWeight = 125F;
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.MinimumWidth = 125;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            this.FirstName.Width = 125;
+            this.cLIENT_TABLEBindingSource.DataMember = "CLIENT_TABLE";
+            this.cLIENT_TABLEBindingSource.DataSource = this.grenciDBDataSet;
             // 
-            // txtLabels
+            // cLIENT_TABLETableAdapter
             // 
-            this.txtLabels.DataPropertyName = "Labels";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtLabels.DefaultCellStyle = dataGridViewCellStyle5;
-            this.txtLabels.FillWeight = 125F;
-            this.txtLabels.HeaderText = "Labels";
-            this.txtLabels.MinimumWidth = 100;
-            this.txtLabels.Name = "txtLabels";
-            this.txtLabels.ReadOnly = true;
-            this.txtLabels.Width = 125;
+            this.cLIENT_TABLETableAdapter.ClearBeforeFill = true;
             // 
-            // txtCompany
+            // tableAdapterManager
             // 
-            this.txtCompany.DataPropertyName = "Company";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtCompany.DefaultCellStyle = dataGridViewCellStyle6;
-            this.txtCompany.FillWeight = 140F;
-            this.txtCompany.HeaderText = "Company";
-            this.txtCompany.MinimumWidth = 100;
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.ReadOnly = true;
-            this.txtCompany.Width = 140;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CHARACTERISTIC_TABLETableAdapter = null;
+            this.tableAdapterManager.CLIENT_TABLETableAdapter = this.cLIENT_TABLETableAdapter;
+            this.tableAdapterManager.CTC_TABLETableAdapter = null;
+            this.tableAdapterManager.INVOICE_TABLETableAdapter = null;
+            this.tableAdapterManager.JOB_COMPONENT_TABLETableAdapter = null;
+            this.tableAdapterManager.JOB_TABLETableAdapter = null;
+            this.tableAdapterManager.PAYMENT_TABLETableAdapter = null;
+            this.tableAdapterManager.SERVICE_TABLETableAdapter = null;
+            this.tableAdapterManager.STAFF_TABLETableAdapter = null;
+            this.tableAdapterManager.TIME_TABLETableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = GrenciCPA.GrenciDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // Address
+            // cLIENT_TABLEDataGridView
             // 
-            this.Address.DataPropertyName = "Address";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Address.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Address.FillWeight = 125F;
-            this.Address.HeaderText = "Address";
-            this.Address.MinimumWidth = 125;
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            this.Address.Width = 125;
+            this.cLIENT_TABLEDataGridView.AllowUserToAddRows = false;
+            this.cLIENT_TABLEDataGridView.AllowUserToDeleteRows = false;
+            this.cLIENT_TABLEDataGridView.AllowUserToOrderColumns = true;
+            this.cLIENT_TABLEDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cLIENT_TABLEDataGridView.AutoGenerateColumns = false;
+            this.cLIENT_TABLEDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cLIENT_TABLEDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewCheckBoxColumn2,
+            this.VIEW_CLIENT,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewCheckBoxColumn1,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14});
+            this.cLIENT_TABLEDataGridView.DataSource = this.cLIENT_TABLEBindingSource;
+            this.cLIENT_TABLEDataGridView.Location = new System.Drawing.Point(15, 52);
+            this.cLIENT_TABLEDataGridView.Name = "cLIENT_TABLEDataGridView";
+            this.cLIENT_TABLEDataGridView.ReadOnly = true;
+            this.cLIENT_TABLEDataGridView.RowHeadersWidth = 51;
+            this.cLIENT_TABLEDataGridView.RowTemplate.Height = 24;
+            this.cLIENT_TABLEDataGridView.Size = new System.Drawing.Size(1447, 613);
+            this.cLIENT_TABLEDataGridView.TabIndex = 25;
             // 
-            // City
+            // dataGridViewTextBoxColumn1
             // 
-            this.City.DataPropertyName = "City";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.City.DefaultCellStyle = dataGridViewCellStyle8;
-            this.City.FillWeight = 75F;
-            this.City.HeaderText = "City";
-            this.City.MinimumWidth = 75;
-            this.City.Name = "City";
-            this.City.ReadOnly = true;
-            this.City.Width = 75;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CLIENT_ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "CLIENT_ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
-            // stateZip
+            // dataGridViewCheckBoxColumn2
             // 
-            this.stateZip.DataPropertyName = "StateZip";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.stateZip.DefaultCellStyle = dataGridViewCellStyle9;
-            this.stateZip.FillWeight = 85F;
-            this.stateZip.HeaderText = "State, Zip";
-            this.stateZip.MinimumWidth = 85;
-            this.stateZip.Name = "stateZip";
-            this.stateZip.ReadOnly = true;
-            this.stateZip.Width = 85;
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "ACTIVE";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "ACTIVE";
+            this.dataGridViewCheckBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn2.Width = 125;
             // 
-            // Contact
+            // VIEW_CLIENT
             // 
-            this.Contact.DataPropertyName = "PrefContact";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Contact.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Contact.FillWeight = 125F;
-            this.Contact.HeaderText = "Perferred Contact";
-            this.Contact.MinimumWidth = 100;
-            this.Contact.Name = "Contact";
-            this.Contact.ReadOnly = true;
-            this.Contact.Width = 125;
+            this.VIEW_CLIENT.DataPropertyName = "CLIENT_ID";
+            this.VIEW_CLIENT.HeaderText = "View Client";
+            this.VIEW_CLIENT.MinimumWidth = 6;
+            this.VIEW_CLIENT.Name = "VIEW_CLIENT";
+            this.VIEW_CLIENT.ReadOnly = true;
+            this.VIEW_CLIENT.Width = 125;
             // 
-            // View
+            // dataGridViewTextBoxColumn2
             // 
-            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.View.DataPropertyName = "ViewClient";
-            this.View.HeaderText = "View";
-            this.View.MinimumWidth = 100;
-            this.View.Name = "View";
-            this.View.ReadOnly = true;
-            this.View.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.View.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "FIRST_NAME";
+            this.dataGridViewTextBoxColumn2.HeaderText = "FIRST_NAME";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
-            // Invoices
+            // dataGridViewTextBoxColumn3
             // 
-            this.Invoices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Invoices.DataPropertyName = "ViewInvoices";
-            this.Invoices.HeaderText = "Invoices";
-            this.Invoices.MinimumWidth = 100;
-            this.Invoices.Name = "Invoices";
-            this.Invoices.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "LAST_NAME";
+            this.dataGridViewTextBoxColumn3.HeaderText = "LAST_NAME";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "ST_ADDRESS";
+            this.dataGridViewTextBoxColumn4.HeaderText = "ST_ADDRESS";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "CITY";
+            this.dataGridViewTextBoxColumn5.HeaderText = "CITY";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "STATE_AB";
+            this.dataGridViewTextBoxColumn6.HeaderText = "STATE_AB";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "ZIP";
+            this.dataGridViewTextBoxColumn7.HeaderText = "ZIP";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "EMAIL";
+            this.dataGridViewTextBoxColumn8.HeaderText = "EMAIL";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "PHONE";
+            this.dataGridViewTextBoxColumn9.HeaderText = "PHONE";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 125;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IS_BUSINESS";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "IS_BUSINESS";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "NOTES";
+            this.dataGridViewTextBoxColumn11.HeaderText = "NOTES";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "COMPANY_NAME";
+            this.dataGridViewTextBoxColumn12.HeaderText = "COMPANY_NAME";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "PARENT_CLIENT";
+            this.dataGridViewTextBoxColumn13.HeaderText = "PARENT_CLIENT";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "OWED_BALANCE";
+            this.dataGridViewTextBoxColumn14.HeaderText = "OWED_BALANCE";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 125;
             // 
             // ClientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1492, 753);
+            this.ClientSize = new System.Drawing.Size(1494, 761);
+            this.Controls.Add(this.cLIENT_TABLEDataGridView);
             this.Controls.Add(this.cbxIsCompany);
             this.Controls.Add(this.cbxUnassigned);
             this.Controls.Add(this.btnSearch);
@@ -313,21 +362,21 @@
             this.Controls.Add(this.btnClientView);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddClient);
-            this.Controls.Add(this.dgvClients);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientList";
             this.Load += new System.EventHandler(this.ClientList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grenciDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grenciDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENT_TABLEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENT_TABLEDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvClients;
         private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnClientView;
@@ -335,16 +384,27 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.CheckBox cbxIsCompany;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Active;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtLabels;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtCompany;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn City;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stateZip;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Contact;
-        private System.Windows.Forms.DataGridViewButtonColumn View;
-        private System.Windows.Forms.DataGridViewButtonColumn Invoices;
+        private GrenciDBDataSet grenciDBDataSet;
+        private System.Windows.Forms.BindingSource grenciDBDataSetBindingSource;
+        private System.Windows.Forms.BindingSource cLIENT_TABLEBindingSource;
+        private GrenciDBDataSetTableAdapters.CLIENT_TABLETableAdapter cLIENT_TABLETableAdapter;
+        private GrenciDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridView cLIENT_TABLEDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
+        private System.Windows.Forms.DataGridViewButtonColumn VIEW_CLIENT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
     }
 }

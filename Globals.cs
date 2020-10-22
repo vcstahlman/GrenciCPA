@@ -73,6 +73,16 @@ namespace GrenciCPA
 
         private void Fees_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'grenciDBDataSet.SERVICE_TABLE' table. You can move, or remove it, as needed.
+            this.sERVICE_TABLETableAdapter.Fill(this.grenciDBDataSet.SERVICE_TABLE);
+            // TODO: This line of code loads data into the 'grenciDBDataSet.CHARACTERISTIC_TABLE' table. You can move, or remove it, as needed.
+            this.cHARACTERISTIC_TABLETableAdapter.Fill(this.grenciDBDataSet.CHARACTERISTIC_TABLE);
+            // TODO: This line of code loads data into the 'grenciDBDataSet.CHARACTERISTIC_TABLE' table. You can move, or remove it, as needed.
+            this.cHARACTERISTIC_TABLETableAdapter.Fill(this.grenciDBDataSet.CHARACTERISTIC_TABLE);
+            // TODO: This line of code loads data into the 'grenciDBDataSet.SERVICE_TABLE' table. You can move, or remove it, as needed.
+            this.sERVICE_TABLETableAdapter.Fill(this.grenciDBDataSet.SERVICE_TABLE);
+            // TODO: This line of code loads data into the 'grenciDBDataSet.SERVICE_TABLE' table. You can move, or remove it, as needed.
+            this.sERVICE_TABLETableAdapter.Fill(this.grenciDBDataSet.SERVICE_TABLE);
             // work in progress
         }
 
@@ -97,6 +107,38 @@ namespace GrenciCPA
         private void btnSaveServ_Click(object sender, EventArgs e)
         {
             // work in progress
+        }
+
+        private void sERVICE_TABLEBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.sERVICE_TABLEBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.grenciDBDataSet);
+
+        }
+
+        private void sERVICE_TABLEBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.sERVICE_TABLEBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.grenciDBDataSet);
+
+        }
+
+        private void cHARACTERISTIC_TABLEBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.cHARACTERISTIC_TABLEBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.grenciDBDataSet);
+
+        }
+
+        private void cHARACTERISTIC_TABLEBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.cHARACTERISTIC_TABLEBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.grenciDBDataSet);
+
         }
     }
 }

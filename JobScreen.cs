@@ -34,17 +34,18 @@ namespace GrenciCPA
 
         private void JobScreen_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'grenciDBDataSet.JOB_COMPONENT_TABLE' table. You can move, or remove it, as needed.
+            this.jOB_COMPONENT_TABLETableAdapter.Fill(this.grenciDBDataSet.JOB_COMPONENT_TABLE);
+            // TODO: This line of code loads data into the 'grenciDBDataSet.TIME_TABLE' table. You can move, or remove it, as needed.
+            this.tIME_TABLETableAdapter.Fill(this.grenciDBDataSet.TIME_TABLE);
             // test data
             int n = dgvFees.Rows.Add();
             
-            dgvFees.Rows[n].Cells[1].Value = "100";
-            dgvFees.Rows[n].Cells[2].Value = "2.5";
-            
-            dgvFees.Rows[n].Cells[4].Value = "10";
-            dgvFees.Rows[n].Cells[5].Value = "1";
-            dgvFees.Rows[n].Cells[6].Value = "165";
-            dgvFees.Rows[n].Cells[7].Value = "8/12/2020";
-            dgvFees.Rows[n].Cells[8].Value = "9/15/2020";
+            dgvFees.Rows[n].Cells[2].Value = "100";
+            dgvFees.Rows[n].Cells[3].Value = "2.5";
+            dgvFees.Rows[n].Cells[4].Value = "165";
+            dgvFees.Rows[n].Cells[5].Value = "8/12/2020";
+            dgvFees.Rows[n].Cells[6].Value = "9/15/2020";
         }
 
         // this button allows the user to change client information, like home address or telephone number, and inputs the new info to the jobScreen
@@ -133,6 +134,14 @@ namespace GrenciCPA
 
                 btnEditTime.Text = "Edit Time";
             }
+        }
+
+        private void tIME_TABLEBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tIME_TABLEBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.grenciDBDataSet);
+
         }
     }
 }
