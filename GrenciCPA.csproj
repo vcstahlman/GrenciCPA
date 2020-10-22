@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AClient.cs" />
     <Compile Include="AddClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,12 +119,6 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="GrenciApp.cs" />
-    <Compile Include="PaymentList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PaymentList.Designer.cs">
-      <DependentUpon>PaymentList.cs</DependentUpon>
-    </Compile>
     <Compile Include="Payments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,9 +185,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PaymentList.resx">
-      <DependentUpon>PaymentList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payments.resx">
       <DependentUpon>Payments.cs</DependentUpon>

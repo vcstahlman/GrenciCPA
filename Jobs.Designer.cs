@@ -28,20 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jobs));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
+            this.dgvJobs = new System.Windows.Forms.DataGridView();
             this.cbxToInvoice = new System.Windows.Forms.CheckBox();
             this.cbxUnassigned = new System.Windows.Forms.CheckBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.cbxProgress = new System.Windows.Forms.CheckBox();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParentClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AssignedTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.View = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Invoice = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1362, 736);
+            this.btnClose.Location = new System.Drawing.Point(1356, 727);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);
             this.btnClose.TabIndex = 14;
@@ -66,6 +82,32 @@
             this.tbxSearch.Size = new System.Drawing.Size(167, 22);
             this.tbxSearch.TabIndex = 12;
             // 
+            // dgvJobs
+            // 
+            this.dgvJobs.AllowUserToAddRows = false;
+            this.dgvJobs.AllowUserToDeleteRows = false;
+            this.dgvJobs.AllowUserToOrderColumns = true;
+            this.dgvJobs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvJobs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvJobs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FirstName,
+            this.LastName,
+            this.Company,
+            this.ParentClient,
+            this.Service,
+            this.AssignedTo,
+            this.View,
+            this.Invoice});
+            this.dgvJobs.Location = new System.Drawing.Point(12, 59);
+            this.dgvJobs.Name = "dgvJobs";
+            this.dgvJobs.ReadOnly = true;
+            this.dgvJobs.RowHeadersWidth = 51;
+            this.dgvJobs.RowTemplate.Height = 24;
+            this.dgvJobs.Size = new System.Drawing.Size(1476, 637);
+            this.dgvJobs.TabIndex = 11;
+            // 
             // cbxToInvoice
             // 
             this.cbxToInvoice.AutoSize = true;
@@ -89,7 +131,7 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(1235, 736);
+            this.btnSelect.Location = new System.Drawing.Point(1229, 727);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(121, 57);
             this.btnSelect.TabIndex = 18;
@@ -107,11 +149,98 @@
             this.cbxProgress.Text = "In Progress";
             this.cbxProgress.UseVisualStyleBackColor = true;
             // 
+            // FirstName
+            // 
+            this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.FirstName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.FirstName.FillWeight = 125F;
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.MinimumWidth = 125;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            this.FirstName.Width = 125;
+            // 
+            // LastName
+            // 
+            this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.LastName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.LastName.FillWeight = 125F;
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.MinimumWidth = 125;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Width = 125;
+            // 
+            // Company
+            // 
+            this.Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Company.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Company.FillWeight = 125F;
+            this.Company.HeaderText = "Company";
+            this.Company.MinimumWidth = 125;
+            this.Company.Name = "Company";
+            this.Company.ReadOnly = true;
+            // 
+            // ParentClient
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.ParentClient.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ParentClient.HeaderText = "Parent Client";
+            this.ParentClient.MinimumWidth = 100;
+            this.ParentClient.Name = "ParentClient";
+            this.ParentClient.ReadOnly = true;
+            this.ParentClient.Width = 125;
+            // 
+            // Service
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Service.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Service.HeaderText = "Services";
+            this.Service.MinimumWidth = 100;
+            this.Service.Name = "Service";
+            this.Service.ReadOnly = true;
+            this.Service.Width = 125;
+            // 
+            // AssignedTo
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.AssignedTo.DefaultCellStyle = dataGridViewCellStyle6;
+            this.AssignedTo.HeaderText = "Assigned To";
+            this.AssignedTo.MinimumWidth = 100;
+            this.AssignedTo.Name = "AssignedTo";
+            this.AssignedTo.ReadOnly = true;
+            this.AssignedTo.Width = 125;
+            // 
+            // View
+            // 
+            this.View.FillWeight = 95F;
+            this.View.HeaderText = "View Job";
+            this.View.MinimumWidth = 95;
+            this.View.Name = "View";
+            this.View.ReadOnly = true;
+            this.View.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.View.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.View.Width = 95;
+            // 
+            // Invoice
+            // 
+            this.Invoice.FillWeight = 95F;
+            this.Invoice.HeaderText = "Invoice";
+            this.Invoice.MinimumWidth = 95;
+            this.Invoice.Name = "Invoice";
+            this.Invoice.ReadOnly = true;
+            this.Invoice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Invoice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Invoice.Width = 95;
+            // 
             // Jobs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1508, 804);
+            this.ClientSize = new System.Drawing.Size(1502, 795);
             this.Controls.Add(this.cbxProgress);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.cbxUnassigned);
@@ -119,11 +248,13 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbxSearch);
+            this.Controls.Add(this.dgvJobs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Jobs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Jobs";
             this.Load += new System.EventHandler(this.Jobs_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,9 +265,18 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbxSearch;
+        private System.Windows.Forms.DataGridView dgvJobs;
         private System.Windows.Forms.CheckBox cbxToInvoice;
         private System.Windows.Forms.CheckBox cbxUnassigned;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.CheckBox cbxProgress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Company;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParentClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssignedTo;
+        private System.Windows.Forms.DataGridViewButtonColumn View;
+        private System.Windows.Forms.DataGridViewButtonColumn Invoice;
     }
 }

@@ -166,4 +166,3 @@ C:\Users\CoveM\Desktop\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\GrenciCPA-V
 C:\Users\CoveM\Desktop\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\obj\Debug\GrenciCPA.pdb
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.ResolveComReference.cache
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Description.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.PaymentList.resources

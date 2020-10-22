@@ -34,9 +34,17 @@ namespace GrenciCPA
 
         private void JobScreen_Load(object sender, EventArgs e)
         {
-            
             // test data
+            int n = dgvFees.Rows.Add();
             
+            dgvFees.Rows[n].Cells[1].Value = "100";
+            dgvFees.Rows[n].Cells[2].Value = "2.5";
+            
+            dgvFees.Rows[n].Cells[4].Value = "10";
+            dgvFees.Rows[n].Cells[5].Value = "1";
+            dgvFees.Rows[n].Cells[6].Value = "165";
+            dgvFees.Rows[n].Cells[7].Value = "8/12/2020";
+            dgvFees.Rows[n].Cells[8].Value = "9/15/2020";
         }
 
         // this button allows the user to change client information, like home address or telephone number, and inputs the new info to the jobScreen
@@ -80,7 +88,7 @@ namespace GrenciCPA
                 f1.ShowDialog();
                 string timeDesc = f1.getDesc();
 
-                //dgvTime.Rows.Add((DateTime.Now - timeStarted).ToString(), timeStarted.ToString(), DateTime.Now.ToString(), timeDesc);
+                dgvTime.Rows.Add((DateTime.Now - timeStarted).ToString(), timeStarted.ToString(), DateTime.Now.ToString(), timeDesc);
                 time += timeend - timeStart;
                 txtDateTime.Text = "Total Elapsed Time: " + (((int)time * 100) / 100).ToString() + " hours";
             }
