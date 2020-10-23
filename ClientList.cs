@@ -20,19 +20,22 @@ namespace GrenciCPA
         private SqlConnection connection;
 
         private List<AClient> ClientsObjList;
+
         public ClientList()
         {
             InitializeComponent();
-
+            ClientsObjList = new List<AClient>();
+            CreateClientList();
+            FillDGV();
         }
 
         private void CreateClientList()
         {
-            string GetClientsSQL = "SELECT CLIENT_ID, CLIENT_ACTIVE, FIRST_NAME, LAST_NAME, ST_ADDRESS, " +
-                "CITY, STATE_AB, ZIP, EMAIL, PHONE, IS_BUSINESS, COMPANY_NAME, PARENT_CLIENT, " +
+            string GetClientsSQL = "SELECT CLIENT_ID, CLIENT_ACTIVE, FIRST_NAME, LAST_NAME, SS, BIRTHDATE, ST_ADDRESS, " +
+                "CITY, STATE_AB, ZIP, COUNTY, SCHOOL, EMAIL, PHONE, IS_BUSINESS, COMPANY_NAME, PARENT_CLIENT, NOTES, OWED_BALANCE " +
                 "FROM CLIENT_TABLE;";
 
-            string GetParentSQL = "SELECT FIRST_NAME, LAST_NAME FROM CLIENT_TABLE WHERE CLIENT_ID = ";
+            
             //Pulled from App.config
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
@@ -49,7 +52,7 @@ namespace GrenciCPA
 
                 while (reader.Read())
                 {
-                    //Create a temporary candy object to hold our data
+                    
 
 
                     AClient tempClient = new AClient();
@@ -58,28 +61,76 @@ namespace GrenciCPA
 
                     if (reader["CLIENT_ID"] != DBNull.Value)
                     {
-                        tempClient.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;//"PlotInfo.Section"
+                        tempClient.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;
                     }
                     if (reader["FIRST_NAME"] != DBNull.Value)
                     {
-                        tempClient.FirstName = reader["FIRST_NAME"] as string;//"PlotInfo.Row"
+                        tempClient.FirstName = reader["FIRST_NAME"] as string;
                     }
                     if (reader["LAST_NAME"] != DBNull.Value)
                     {
-                        tempClient.LastName = reader["LAST_NAME"] as string;//"PlotInfo.Row"
+                        tempClient.LastName = reader["LAST_NAME"] as string;
                     }
                     if (reader["BIRTHDATE"] != DBNull.Value)
                     {
-                        tempClient.Birthdate = reader["BIRTHDATE"] as string;//"PlotInfo.Row"
+                        tempClient.Birthdate = reader["BIRTHDATE"] as string;
+                    }
+                    if (reader["ST_ADDRESS"] != DBNull.Value)
+                    {
+                        tempClient.Address = reader["ST_ADDRESS"] as string;
+                    }
+                    if (reader["CITY"] != DBNull.Value)
+                    {
+                        tempClient.City = reader["CITY"] as string;
+                    }
+                    if (reader["STATE_AB"] != DBNull.Value)
+                    {
+                        tempClient.State = reader["STATE_AB"] as string;
+                    }
+                    if (reader["ZIP"] != DBNull.Value)
+                    {
+                        tempClient.Zip = reader["ZIP"] as string;
+                    }
+                    if (reader["COUNTY"] != DBNull.Value)
+                    {
+                        tempClient.County = reader["COUNTY"] as string;
+                    }
+                    if (reader["SCHOOL"] != DBNull.Value)
+                    {
+                        tempClient.School = reader["SCHOOL"] as string;
+                    }
+                    if (reader["EMAIL"] != DBNull.Value)
+                    {
+                        tempClient.Email = reader["EMAIL"] as string;
+                    }
+                    if (reader["SS"] != DBNull.Value)
+                    {
+                        tempClient.SSN1 = reader["SS"] as string;
+                    }
+                    if (reader["IS_BUSINESS"] != DBNull.Value)
+                    {
+                        tempClient.IsBusiness = reader.GetBoolean(reader.GetOrdinal("IS_BUSINESS"));
+                    }
+                    if (reader["NOTES"] != DBNull.Value)
+                    {
+                        tempClient.Notes = reader["NOTES"] as string;
+                    }
+                    if (reader["COMPANY_NAME"] != DBNull.Value)
+                    {
+                        tempClient.Company = reader["COMPANY_NAME"] as string;
+                    }
+                    if (reader["PARENT_CLIENT"] != DBNull.Value)
+                    {
+                        tempClient.ParentID = (reader["PARENT_CLIENT"] as int?) ?? 0;
+                    }
+                    if (reader["CLIENT_ACTIVE"] != DBNull.Value)
+                    {
+                        tempClient.Active = reader.GetBoolean(reader.GetOrdinal("CLIENT_ACTIVE"));
                     }
 
-                    if (reader["DatePurchased"] != DBNull.Value)
+                    if (reader["OWED_BALANCE"] != DBNull.Value)
                     {
-                        tempPlot.PDate1 = reader["DatePurchased"] as string;//"PlotInfo.DatePurchased"
-                    }
-                    if (reader["PurchasedAmount"] != DBNull.Value)
-                    {
-                        tempPlot.PAmount1 = (reader["PurchasedAmount"] as double?) ?? 0.0;//"PlotInfo.AmountPurchased"
+                        tempClient.Balance = (reader["OWED_BALANCE"] as double?) ?? 0.0;
                     }
 
 
@@ -89,12 +140,113 @@ namespace GrenciCPA
                     tempClient = null;
                 }
                 connection.Close();
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Could not retrieve plots from Database.! \n Error reads: " + ex.Message);
+                MessageBox.Show("Could not retrieve clients from Database.! \n Error reads: " + ex.Message);
             }
 
+
+
+        }
+
+        private string GetParent(int aClientID)
+        {
+            string returning = "";
+            string GetParentSQL = "SELECT FIRST_NAME, LAST_NAME FROM CLIENT_TABLE WHERE CLIENT_ID =" + aClientID + ";";
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(GetParentSQL, connection);
+                //Open the connection
+                connection.Open();
+                //Create a SQL Data Reader object
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                //Keep reading as long as I have data from the database to read
+
+
+
+                while (reader.Read())
+                {
+                   
+                    AClient tempClient = new AClient();
+
+
+                    if (reader["FIRST_NAME"] != DBNull.Value)
+                    {
+                        tempClient.FirstName = reader["FIRST_NAME"] as string;
+                    }
+                    if (reader["LAST_NAME"] != DBNull.Value)
+                    {
+                        tempClient.LastName = reader["LAST_NAME"] as string;
+                    }
+
+
+                    returning = tempClient.FirstName + " " + tempClient.LastName;
+                    tempClient = null;
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not retrieve parent client from Database.! \n Error reads: " + ex.Message);
+            }
+            return returning;
+        }
+
+        private string GetChar(int aClientID)
+        {
+            string ret = "";
+            string GetCharSQL = "SELECT CHARACTERISTIC_TABLE.CHAR_NAME FROM CHARACTERISTIC_TABLE " +
+                "INNER JOIN CTC_TABLE ON CHARACTERISTIC_TABLE.CHAR_ID = CTC_TABLE.CHAR_ID WHERE CTC_TABLE.CLIENT_ID = " + aClientID + ";";
+
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(GetCharSQL, connection);
+                //Open the connection
+                connection.Open();
+                //Create a SQL Data Reader object
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                //Keep reading as long as I have data from the database to read
+
+
+
+                while (reader.Read())
+                {
+                    
+                    if (reader["CHAR_NAME"] != DBNull.Value)
+                    {
+                        ret += reader["CHAR_NAME"] as string + " ";
+                    }
+                    
+
+
+                    
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not retrieve characteristics from Database.! \n Error reads: " + ex.Message);
+            }
+
+            return ret;
+        }
+
+        private void FillDGV()//fills in the Datagridview via the list of objects
+        {
+            foreach (AClient aClient in ClientsObjList)
+            {
+                dgvClients.Rows.Add(aClient.Active, aClient.FirstName, aClient.LastName, GetChar(aClient.ClientID), 
+                    aClient.Company, aClient.Address, aClient.City, aClient.State + " " + aClient.Zip, "View Client", 
+                    "View Invoice", aClient.ClientID );
+            }
         }
 
 
@@ -106,8 +258,7 @@ namespace GrenciCPA
 
         private void btnClientView_Click(object sender, EventArgs e)
         {
-            ClientView form = new ClientView();
-            form.ShowDialog();
+            
         }
 
         private void btnAddClient_Click(object sender, EventArgs e)
@@ -118,7 +269,22 @@ namespace GrenciCPA
 
         private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+                
+            try
+            {
+                if (e.ColumnIndex == dgvClients.Columns["View"].Index)
+                {
+                    int IDtoPass = int.Parse(dgvClients.Rows[e.RowIndex].Cells[e.ColumnIndex + 2].Value.ToString());//gets the ID
 
+                    ClientView form = new ClientView(IDtoPass);
+                    form.ShowDialog();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You tried to click the button that was not in a row with data. \n This is the error: " + ex.Message);
+            }
         }
 
         private void ClientList_Load(object sender, EventArgs e)

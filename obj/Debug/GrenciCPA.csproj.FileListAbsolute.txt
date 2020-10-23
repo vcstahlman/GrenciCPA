@@ -1,27 +1,3 @@
-C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\GrenciCPA.exe.config
-C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\GrenciCPA.exe
-C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\GrenciCPA.pdb
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csprojAssemblyReference.cache
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.AddClient.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ClientList.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Invoices.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.MainMenu.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Properties.Resources.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.GenerateResource.cache
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.CoreCompileInputs.cache
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.exe
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.pdb
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Jobs.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.JobScreen.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.SplashScreen.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.StaffSelect.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ClientView.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Payments.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.StaffAddEdit.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ServiceSelect.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.InvoiceScreen.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\AA invoice 2019-page-001.jpg
-C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\AFG Logo.JPG
 C:\Users\CoveM\Downloads\GrenciCPA-VictorBranch (2)\GrenciCPA-VictorBranch\bin\Debug\AA invoice 2019-page-001.jpg
 C:\Users\CoveM\Downloads\GrenciCPA-VictorBranch (2)\GrenciCPA-VictorBranch\bin\Debug\AFG Logo.JPG
 C:\Users\CoveM\Downloads\GrenciCPA-VictorBranch (2)\GrenciCPA-VictorBranch\bin\Debug\GrenciCPA.exe.config
@@ -72,7 +48,6 @@ C:\Users\CoveM\Downloads\GrenciCPA-VictorBranch (1)\GrenciCPA-VictorBranch\obj\D
 C:\Users\CoveM\Downloads\GrenciCPA-VictorBranch (1)\GrenciCPA-VictorBranch\obj\Debug\GrenciCPA.csproj.CoreCompileInputs.cache
 C:\Users\CoveM\Downloads\GrenciCPA-VictorBranch (1)\GrenciCPA-VictorBranch\obj\Debug\GrenciCPA.exe
 C:\Users\CoveM\Downloads\GrenciCPA-VictorBranch (1)\GrenciCPA-VictorBranch\obj\Debug\GrenciCPA.pdb
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Globals.resources
 C:\Users\CoveM\Downloads\GrenciCPA-master\GrenciCPA-master\bin\Debug\AA invoice 2019-page-001.jpg
 C:\Users\CoveM\Downloads\GrenciCPA-master\GrenciCPA-master\bin\Debug\AFG Logo.JPG
 C:\Users\CoveM\Downloads\GrenciCPA-master\GrenciCPA-master\bin\Debug\GrenciCPA.exe.config
@@ -99,11 +74,6 @@ C:\Users\CoveM\Downloads\GrenciCPA-master\GrenciCPA-master\obj\Debug\GrenciCPA.c
 C:\Users\CoveM\Downloads\GrenciCPA-master\GrenciCPA-master\obj\Debug\GrenciCPA.exe
 C:\Users\CoveM\Downloads\GrenciCPA-master\GrenciCPA-master\obj\Debug\GrenciCPA.pdb
 C:\Users\CoveM\Downloads\GrenciCPA-master\GrenciCPA-master\obj\Debug\GrenciCPA.HOLDDATAHERE.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Reports.resources
-C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\itextsharp.dll
-C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\itextsharp.xml
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.CopyComplete
 C:\Users\CoveM\Downloads\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\bin\Debug\AA invoice 2019-page-001.jpg
 C:\Users\CoveM\Downloads\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\bin\Debug\AFG Logo.JPG
 C:\Users\CoveM\Downloads\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\bin\Debug\GrenciCPA.exe.config
@@ -164,5 +134,35 @@ C:\Users\CoveM\Desktop\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\GrenciCPA-V
 C:\Users\CoveM\Desktop\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\obj\Debug\GrenciCPA.csproj.CopyComplete
 C:\Users\CoveM\Desktop\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\obj\Debug\GrenciCPA.exe
 C:\Users\CoveM\Desktop\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\GrenciCPA-VictorBranch\obj\Debug\GrenciCPA.pdb
+C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\AA invoice 2019-page-001.jpg
+C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\AFG Logo.JPG
+C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\GrenciCPA.exe.config
+C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\GrenciCPA.exe
+C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\GrenciCPA.pdb
+C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\itextsharp.dll
+C:\Users\vicst\Desktop\411\GrenciCPA\bin\Debug\itextsharp.xml
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.ResolveComReference.cache
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.AddClient.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ClientList.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ClientView.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Description.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Globals.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Invoices.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.InvoiceScreen.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Jobs.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.JobScreen.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.MainMenu.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Payments.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Properties.Resources.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Reports.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ServiceSelect.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.SplashScreen.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.StaffAddEdit.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.StaffSelect.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.GenerateResource.cache
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.CoreCompileInputs.cache
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.CopyComplete
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.exe
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.pdb
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csprojAssemblyReference.cache

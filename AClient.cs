@@ -35,8 +35,10 @@ namespace GrenciCPA
 
         //misc
         private bool active;
-        private float balence;
+        private double balance;
         private string notes;
+        private List<string> characteristics;
+        private string preferred;
 
 
         //accessors and mutators for the class.
@@ -57,7 +59,9 @@ namespace GrenciCPA
         public string Phone { get => phone; set => phone = value; }
         public string Email { get => email; set => email = value; }
         public bool Active { get => active; set => active = value; }
-        public float Balence { get => balence; set => balence = value; }
+        public double Balance { get => balance; set => balance = value; }
         public string Notes { get => notes; set => notes = value; }
+        public List<string> Characteristics { get => characteristics; set => characteristics = value; }
+        public string Preferred { get => preferred; set => preferred = value; }
     }
 }

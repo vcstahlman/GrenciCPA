@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,8 +39,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientList));
             this.dgvClients = new System.Windows.Forms.DataGridView();
+            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtChar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateZip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.View = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Invoices = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddClient = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClientView = new System.Windows.Forms.Button();
@@ -48,17 +60,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cbxIsCompany = new System.Windows.Forms.CheckBox();
-            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtLabels = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateZip = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.View = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Invoices = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +68,9 @@
             this.dgvClients.AllowUserToAddRows = false;
             this.dgvClients.AllowUserToDeleteRows = false;
             this.dgvClients.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgvClients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -75,101 +78,33 @@
             this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Active,
-            this.LastName,
             this.FirstName,
-            this.txtLabels,
+            this.LastName,
+            this.txtChar,
             this.txtCompany,
             this.Address,
             this.City,
             this.stateZip,
-            this.Contact,
             this.View,
-            this.Invoices});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClients.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvClients.Location = new System.Drawing.Point(12, 57);
+            this.Invoices,
+            this.ID});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClients.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvClients.Location = new System.Drawing.Point(9, 46);
+            this.dgvClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersWidth = 51;
             this.dgvClients.RowTemplate.Height = 24;
-            this.dgvClients.Size = new System.Drawing.Size(1462, 596);
+            this.dgvClients.Size = new System.Drawing.Size(1156, 484);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
-            // 
-            // btnAddClient
-            // 
-            this.btnAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddClient.Location = new System.Drawing.Point(15, 684);
-            this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(130, 57);
-            this.btnAddClient.TabIndex = 4;
-            this.btnAddClient.Text = "Add New Client";
-            this.btnAddClient.UseVisualStyleBackColor = true;
-            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1342, 684);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(132, 57);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnClientView
-            // 
-            this.btnClientView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClientView.Location = new System.Drawing.Point(1175, 684);
-            this.btnClientView.Name = "btnClientView";
-            this.btnClientView.Size = new System.Drawing.Size(161, 57);
-            this.btnClientView.TabIndex = 6;
-            this.btnClientView.Text = "View Client";
-            this.btnClientView.UseVisualStyleBackColor = true;
-            this.btnClientView.Click += new System.EventHandler(this.btnClientView_Click);
-            // 
-            // cbxUnassigned
-            // 
-            this.cbxUnassigned.AutoSize = true;
-            this.cbxUnassigned.Location = new System.Drawing.Point(246, 14);
-            this.cbxUnassigned.Name = "cbxUnassigned";
-            this.cbxUnassigned.Size = new System.Drawing.Size(105, 21);
-            this.cbxUnassigned.TabIndex = 23;
-            this.cbxUnassigned.Text = "Unassigned";
-            this.cbxUnassigned.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(456, 5);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(99, 37);
-            this.btnSearch.TabIndex = 21;
-            this.btnSearch.Text = "Search ";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(15, 12);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(225, 22);
-            this.txtSearch.TabIndex = 20;
-            // 
-            // cbxIsCompany
-            // 
-            this.cbxIsCompany.AutoSize = true;
-            this.cbxIsCompany.Location = new System.Drawing.Point(357, 14);
-            this.cbxIsCompany.Name = "cbxIsCompany";
-            this.cbxIsCompany.Size = new System.Drawing.Size(89, 21);
-            this.cbxIsCompany.TabIndex = 25;
-            this.cbxIsCompany.Text = "Company";
-            this.cbxIsCompany.UseVisualStyleBackColor = true;
             // 
             // Active
             // 
@@ -184,23 +119,11 @@
             this.Active.ReadOnly = true;
             this.Active.Width = 60;
             // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "Last Name";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.LastName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.LastName.FillWeight = 125F;
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.MinimumWidth = 125;
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            this.LastName.Width = 125;
-            // 
             // FirstName
             // 
             this.FirstName.DataPropertyName = "FirstName";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.FirstName.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.FirstName.DefaultCellStyle = dataGridViewCellStyle3;
             this.FirstName.FillWeight = 125F;
             this.FirstName.HeaderText = "First Name";
             this.FirstName.MinimumWidth = 125;
@@ -208,17 +131,29 @@
             this.FirstName.ReadOnly = true;
             this.FirstName.Width = 125;
             // 
-            // txtLabels
+            // LastName
             // 
-            this.txtLabels.DataPropertyName = "Labels";
+            this.LastName.DataPropertyName = "Last Name";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.LastName.DefaultCellStyle = dataGridViewCellStyle4;
+            this.LastName.FillWeight = 125F;
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.MinimumWidth = 125;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Width = 125;
+            // 
+            // txtChar
+            // 
+            this.txtChar.DataPropertyName = "Labels";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtLabels.DefaultCellStyle = dataGridViewCellStyle5;
-            this.txtLabels.FillWeight = 125F;
-            this.txtLabels.HeaderText = "Labels";
-            this.txtLabels.MinimumWidth = 100;
-            this.txtLabels.Name = "txtLabels";
-            this.txtLabels.ReadOnly = true;
-            this.txtLabels.Width = 125;
+            this.txtChar.DefaultCellStyle = dataGridViewCellStyle5;
+            this.txtChar.FillWeight = 125F;
+            this.txtChar.HeaderText = "Characteristics";
+            this.txtChar.MinimumWidth = 100;
+            this.txtChar.Name = "txtChar";
+            this.txtChar.ReadOnly = true;
+            this.txtChar.Width = 125;
             // 
             // txtCompany
             // 
@@ -268,22 +203,12 @@
             this.stateZip.ReadOnly = true;
             this.stateZip.Width = 85;
             // 
-            // Contact
-            // 
-            this.Contact.DataPropertyName = "PrefContact";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Contact.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Contact.FillWeight = 125F;
-            this.Contact.HeaderText = "Perferred Contact";
-            this.Contact.MinimumWidth = 100;
-            this.Contact.Name = "Contact";
-            this.Contact.ReadOnly = true;
-            this.Contact.Width = 125;
-            // 
             // View
             // 
             this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.View.DataPropertyName = "ViewClient";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.View.DefaultCellStyle = dataGridViewCellStyle10;
             this.View.HeaderText = "View";
             this.View.MinimumWidth = 100;
             this.View.Name = "View";
@@ -295,17 +220,104 @@
             // 
             this.Invoices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Invoices.DataPropertyName = "ViewInvoices";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Invoices.DefaultCellStyle = dataGridViewCellStyle11;
             this.Invoices.HeaderText = "Invoices";
             this.Invoices.MinimumWidth = 100;
             this.Invoices.Name = "Invoices";
             this.Invoices.ReadOnly = true;
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 125;
+            // 
+            // btnAddClient
+            // 
+            this.btnAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddClient.Location = new System.Drawing.Point(11, 556);
+            this.btnAddClient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(98, 46);
+            this.btnAddClient.TabIndex = 4;
+            this.btnAddClient.Text = "Add New Client";
+            this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1066, 556);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(99, 46);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnClientView
+            // 
+            this.btnClientView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClientView.Location = new System.Drawing.Point(941, 556);
+            this.btnClientView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClientView.Name = "btnClientView";
+            this.btnClientView.Size = new System.Drawing.Size(121, 46);
+            this.btnClientView.TabIndex = 6;
+            this.btnClientView.Text = "View Client";
+            this.btnClientView.UseVisualStyleBackColor = true;
+            this.btnClientView.Click += new System.EventHandler(this.btnClientView_Click);
+            // 
+            // cbxUnassigned
+            // 
+            this.cbxUnassigned.AutoSize = true;
+            this.cbxUnassigned.Location = new System.Drawing.Point(184, 11);
+            this.cbxUnassigned.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxUnassigned.Name = "cbxUnassigned";
+            this.cbxUnassigned.Size = new System.Drawing.Size(82, 17);
+            this.cbxUnassigned.TabIndex = 23;
+            this.cbxUnassigned.Text = "Unassigned";
+            this.cbxUnassigned.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(342, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(74, 30);
+            this.btnSearch.TabIndex = 21;
+            this.btnSearch.Text = "Search ";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(11, 10);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(170, 20);
+            this.txtSearch.TabIndex = 20;
+            // 
+            // cbxIsCompany
+            // 
+            this.cbxIsCompany.AutoSize = true;
+            this.cbxIsCompany.Location = new System.Drawing.Point(268, 11);
+            this.cbxIsCompany.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxIsCompany.Name = "cbxIsCompany";
+            this.cbxIsCompany.Size = new System.Drawing.Size(70, 17);
+            this.cbxIsCompany.TabIndex = 25;
+            this.cbxIsCompany.Text = "Company";
+            this.cbxIsCompany.UseVisualStyleBackColor = true;
+            // 
             // ClientList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1492, 753);
+            this.ClientSize = new System.Drawing.Size(1179, 612);
             this.Controls.Add(this.cbxIsCompany);
             this.Controls.Add(this.cbxUnassigned);
             this.Controls.Add(this.btnSearch);
@@ -315,6 +327,7 @@
             this.Controls.Add(this.btnAddClient);
             this.Controls.Add(this.dgvClients);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ClientList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientList";
@@ -336,15 +349,15 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.CheckBox cbxIsCompany;
         private System.Windows.Forms.DataGridViewTextBoxColumn Active;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtLabels;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtChar;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtCompany;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn City;
         private System.Windows.Forms.DataGridViewTextBoxColumn stateZip;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Contact;
         private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.DataGridViewButtonColumn Invoices;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }
