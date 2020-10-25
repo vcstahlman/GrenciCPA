@@ -22,7 +22,7 @@ namespace GrenciCPA
         private SqlCommand command;
         private SqlConnection connection;
 
-        private List<AClient> ClientsObjList;
+        private AClient ClientsObj;
         private int parentID;
         private int clientID;
 
@@ -55,7 +55,7 @@ namespace GrenciCPA
         {
             InitializeComponent();
             clientID = pClientID;
-            ClientsObjList = new List<AClient>();
+            ClientsObj = new AClient();
             CreateClientList();
 
             FillClientInfo();
@@ -170,7 +170,7 @@ namespace GrenciCPA
 
 
                     //Add the temporary plot stuff from list.
-                    ClientsObjList.Add(tempClient);
+                    ClientsObj = tempClient;
 
                     tempClient = null;
                 }
@@ -284,28 +284,28 @@ namespace GrenciCPA
 
         private void FillClientInfo()
         {
-            foreach( AClient aClient in ClientsObjList)
-            {
-                if (aClient.IsBusiness) lblName.Text = aClient.Company;
-                else lblName.Text = aClient.FirstName + " " + aClient.LastName;
+            AClient aClient = ClientsObj;
 
-                lblAddressSt.Text = aClient.Address;
-                lblAddressCSZ.Text = aClient.City + ", " + aClient.State + " " + aClient.Zip;
-                lblCounty.Text =  "County: " + aClient.County ;
-                lblSchool.Text = "School Distict: "+ aClient.School;
+            if (aClient.IsBusiness) lblName.Text = aClient.Company;
+            else lblName.Text = aClient.FirstName + " " + aClient.LastName;
 
-                lblBirthdate.Text = "Birthday: " + aClient.Birthdate;
+            lblAddressSt.Text = aClient.Address;
+            lblAddressCSZ.Text = aClient.City + ", " + aClient.State + " " + aClient.Zip;
+            lblCounty.Text =  "County: " + aClient.County ;
+            lblSchool.Text = "School Distict: "+ aClient.School;
 
-                lblPhone.Text = "Phone: " + aClient.Phone;
-                lblEmail.Text = "Email: " + aClient.Email;
-                lblSSN.Text = "SSN: " + aClient.SSN1;
+            lblBirthdate.Text = "Birthday: " + aClient.Birthdate;
 
-                GetChar(clientID);
-                rtbNotes.Text = aClient.Notes;
+            lblPhone.Text = "Phone: " + aClient.Phone;
+            lblEmail.Text = "Email: " + aClient.Email;
+            lblSSN.Text = "SSN: " + aClient.SSN1;
 
-                lblParent.Text = GetParent(aClient.ParentID);
-                lblBalance.Text = "Balance: " + aClient.Balance;
-            }
+            GetChar(clientID);
+            rtbNotes.Text = aClient.Notes;
+
+            lblParent.Text = GetParent(aClient.ParentID);
+            lblBalance.Text = "Balance: " + aClient.Balance;
+            
             
         }
 

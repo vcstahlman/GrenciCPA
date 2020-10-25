@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing.Drawing2D;
 
 namespace GrenciCPA
 {
@@ -27,6 +28,10 @@ namespace GrenciCPA
             ClientsObjList = new List<AClient>();
             CreateClientList();
             FillDGV();
+
+            //this allows multiple lines for the char
+            dgvClients.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvClients.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void CreateClientList()
@@ -151,51 +156,7 @@ namespace GrenciCPA
 
         }
 
-        private string GetParent(int aClientID)
-        {
-            string returning = "";
-            string GetParentSQL = "SELECT FIRST_NAME, LAST_NAME FROM CLIENT_TABLE WHERE CLIENT_ID =" + aClientID + ";";
-            //Pulled from App.config
-            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-            try
-            {
-                connection = new SqlConnection(connectionString);
-                command = new SqlCommand(GetParentSQL, connection);
-                //Open the connection
-                connection.Open();
-                //Create a SQL Data Reader object
-                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-                //Keep reading as long as I have data from the database to read
-
-
-
-                while (reader.Read())
-                {
-                   
-                    AClient tempClient = new AClient();
-
-
-                    if (reader["FIRST_NAME"] != DBNull.Value)
-                    {
-                        tempClient.FirstName = reader["FIRST_NAME"] as string;
-                    }
-                    if (reader["LAST_NAME"] != DBNull.Value)
-                    {
-                        tempClient.LastName = reader["LAST_NAME"] as string;
-                    }
-
-
-                    returning = tempClient.FirstName + " " + tempClient.LastName;
-                    tempClient = null;
-                }
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Could not retrieve parent client from Database.! \n Error reads: " + ex.Message);
-            }
-            return returning;
-        }
+        
 
         private string GetChar(int aClientID)
         {
@@ -222,7 +183,7 @@ namespace GrenciCPA
                     
                     if (reader["CHAR_NAME"] != DBNull.Value)
                     {
-                        ret += reader["CHAR_NAME"] as string + " ";
+                        ret += reader["CHAR_NAME"] as string + " \n";
                     }
                     
 
@@ -254,11 +215,6 @@ namespace GrenciCPA
         {
             this.Close();
 
-        }
-
-        private void btnClientView_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnAddClient_Click(object sender, EventArgs e)

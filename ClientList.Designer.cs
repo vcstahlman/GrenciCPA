@@ -55,7 +55,6 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddClient = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnClientView = new System.Windows.Forms.Button();
             this.cbxUnassigned = new System.Windows.Forms.CheckBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -96,13 +95,13 @@
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvClients.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvClients.Location = new System.Drawing.Point(9, 46);
-            this.dgvClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvClients.Location = new System.Drawing.Point(12, 57);
+            this.dgvClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersWidth = 51;
             this.dgvClients.RowTemplate.Height = 24;
-            this.dgvClients.Size = new System.Drawing.Size(1156, 484);
+            this.dgvClients.Size = new System.Drawing.Size(1541, 596);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
             // 
@@ -239,10 +238,10 @@
             // btnAddClient
             // 
             this.btnAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddClient.Location = new System.Drawing.Point(11, 556);
-            this.btnAddClient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddClient.Location = new System.Drawing.Point(15, 684);
+            this.btnAddClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(98, 46);
+            this.btnAddClient.Size = new System.Drawing.Size(131, 57);
             this.btnAddClient.TabIndex = 4;
             this.btnAddClient.Text = "Add New Client";
             this.btnAddClient.UseVisualStyleBackColor = true;
@@ -251,83 +250,70 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1066, 556);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Location = new System.Drawing.Point(1421, 684);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(99, 46);
+            this.btnClose.Size = new System.Drawing.Size(132, 57);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnClientView
-            // 
-            this.btnClientView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClientView.Location = new System.Drawing.Point(941, 556);
-            this.btnClientView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnClientView.Name = "btnClientView";
-            this.btnClientView.Size = new System.Drawing.Size(121, 46);
-            this.btnClientView.TabIndex = 6;
-            this.btnClientView.Text = "View Client";
-            this.btnClientView.UseVisualStyleBackColor = true;
-            this.btnClientView.Click += new System.EventHandler(this.btnClientView_Click);
-            // 
             // cbxUnassigned
             // 
             this.cbxUnassigned.AutoSize = true;
-            this.cbxUnassigned.Location = new System.Drawing.Point(184, 11);
-            this.cbxUnassigned.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxUnassigned.Location = new System.Drawing.Point(245, 14);
+            this.cbxUnassigned.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxUnassigned.Name = "cbxUnassigned";
-            this.cbxUnassigned.Size = new System.Drawing.Size(82, 17);
+            this.cbxUnassigned.Size = new System.Drawing.Size(105, 21);
             this.cbxUnassigned.TabIndex = 23;
             this.cbxUnassigned.Text = "Unassigned";
             this.cbxUnassigned.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(342, 4);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Location = new System.Drawing.Point(456, 5);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(74, 30);
+            this.btnSearch.Size = new System.Drawing.Size(99, 37);
             this.btnSearch.TabIndex = 21;
             this.btnSearch.Text = "Search ";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(11, 10);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Location = new System.Drawing.Point(15, 12);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(170, 20);
+            this.txtSearch.Size = new System.Drawing.Size(225, 22);
             this.txtSearch.TabIndex = 20;
             // 
             // cbxIsCompany
             // 
             this.cbxIsCompany.AutoSize = true;
-            this.cbxIsCompany.Location = new System.Drawing.Point(268, 11);
-            this.cbxIsCompany.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxIsCompany.Location = new System.Drawing.Point(357, 14);
+            this.cbxIsCompany.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxIsCompany.Name = "cbxIsCompany";
-            this.cbxIsCompany.Size = new System.Drawing.Size(70, 17);
+            this.cbxIsCompany.Size = new System.Drawing.Size(89, 21);
             this.cbxIsCompany.TabIndex = 25;
             this.cbxIsCompany.Text = "Company";
             this.cbxIsCompany.UseVisualStyleBackColor = true;
             // 
             // ClientList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1179, 612);
+            this.ClientSize = new System.Drawing.Size(1572, 753);
             this.Controls.Add(this.cbxIsCompany);
             this.Controls.Add(this.cbxUnassigned);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.btnClientView);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddClient);
             this.Controls.Add(this.dgvClients);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ClientList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientList";
@@ -343,7 +329,6 @@
         private System.Windows.Forms.DataGridView dgvClients;
         private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnClientView;
         private System.Windows.Forms.CheckBox cbxUnassigned;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;

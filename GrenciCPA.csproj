@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AChar.cs" />
     <Compile Include="AClient.cs" />
     <Compile Include="AddClient.cs">
       <SubType>Form</SubType>
