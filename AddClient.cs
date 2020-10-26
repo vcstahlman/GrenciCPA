@@ -21,7 +21,7 @@ namespace GrenciCPA
         private SqlCommand command;
         private SqlConnection connection;
 
-        private bool isEdit = false;
+        private bool isEdit = true;
         private int clientID = 0;
 
         //these are for the saving and editing of the characteristics tied to the client.
@@ -34,6 +34,7 @@ namespace GrenciCPA
             InitializeComponent();
 
             GetChar();
+            isEdit = false;
 
         }
 
@@ -44,7 +45,7 @@ namespace GrenciCPA
             clientID = pClientID;
             CreateClientList();
             FillClientInfo();
-            isEdit = true;
+            
         }
 
         private void CreateClientList()
@@ -202,7 +203,46 @@ namespace GrenciCPA
         {
             clbChar.Items.Clear();
 
-            string GetCharSQL = "SELECT CHARACTERISTIC_TABLE.CHAR_ID, CHARACTERISTIC_TABLE.CHAR_NAME, CTC_TABLE.CTC_ID, CTC_TABLE.CLIENT_ID " +
+            string GetCharSQL = "SELECT * FROM CHARACTERISTIC_TABLE;";
+
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(GetCharSQL, connection);
+                //Open the connection
+                connection.Open();
+                //Create a SQL Data Reader object
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                //Keep reading as long as I have data from the database to read
+
+                while (reader.Read())// this will read through all the info in the char table and add them to the checked list box
+                {
+                    AChar tempchar = new AChar();
+
+                    if (reader["CHAR_NAME"] != DBNull.Value)
+                    {
+
+                        
+                            clbChar.Items.Add(reader["CHAR_NAME"] as string);
+
+                            tempchar.CharName = reader["CHAR_NAME"] as string;
+                            tempchar.CharID = (reader["CHAR_ID"] as int?) ?? 0;
+
+
+                            charList.Add(tempchar);
+                    }
+
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not retrieve characteristics from Database.! \n Error reads: " + ex.Message);
+            }
+
+            //changes the string to go into the char table and CTC table. this will allow us to read in and check the items in the checked list box
+            GetCharSQL = "SELECT CHARACTERISTIC_TABLE.CHAR_NAME, CTC_TABLE.CTC_ID, CTC_TABLE.CLIENT_ID " +
                 "FROM CHARACTERISTIC_TABLE LEFT OUTER JOIN CTC_TABLE ON CHARACTERISTIC_TABLE.CHAR_ID = CTC_TABLE.CHAR_ID" ;
 
             //Pulled from App.config
@@ -217,60 +257,33 @@ namespace GrenciCPA
                 SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
                 //Keep reading as long as I have data from the database to read
 
-                
-
-                while (reader.Read())// this will read through all the info in the char table and add them to the checked list box
-                                    // if it is a id 0 0  it is ment to be recycled into the system again.
+                int i = -1; //this is used to keep track of what index in the clb we are working on
+                string storedName = "nothing";
+                while (reader.Read())// this will read through all the info in the char table and then it will check the box if it is 
                 {
-                    AChar tempchar = new AChar();
-
-                    if (reader["CHAR_NAME"] != DBNull.Value)
+                    if (reader["CHAR_NAME"] != DBNull.Value && reader["CHAR_NAME"] as string != storedName)//if not a repeat
                     {
-                        if (clbChar.Items.Count == 0)
+                        i++;
+                        storedName = reader["CHAR_NAME"] as string;
+                    }
+                    foreach (AChar aChar in charList)
+                    {
+                        if (clbChar.Items[i].ToString() == aChar.CharName)//these are the ones selected that came in with the inport
                         {
-                            clbChar.Items.Add(reader["CHAR_NAME"] as string);
-
-                            tempchar.CharName = reader["CHAR_NAME"] as string;
-                            tempchar.CharID = (reader["CHAR_ID"] as int?) ?? 0;
-
-                            if (reader["CLIENT_ID"] != DBNull.Value)
-                            //if there is a char that has a ctc connection that is for the present client
+                            if (reader["CLIENT_ID"].ToString() == clientID.ToString())//marked as being incoming to save
                             {
-                                if (reader["CLIENT_ID"].ToString() == clientID.ToString())//marked as being incoming
-                                {
-                                    tempchar.CharClient = clientID;//puts in the client id for the sorting and checking process
-                                    tempchar.CharMini = (reader["CTC_ID"] as int?) ?? 0; //arbitrary but it marks it for recycling first 
-                                }
+                                charList[i].CharClient = clientID;//puts in the client id for the sorting and checking process
+                                charList[i].CharMini = (reader["CTC_ID"] as int?) ?? 0; //arbitrary but it marks it for recycling first 
+
+                                clbChar.SetItemChecked(i, true);//this will check the ones that have the relation correct.
                             }
-                            charList.Add(tempchar);
+
                         }
-
-                        else if (reader["CHAR_NAME"] as string != charList[charList.Count - 1].CharName ) 
-                            //if the new char name is the same as the last item then it is a repeat and does not need read in
-                        {
-                            clbChar.Items.Add(reader["CHAR_NAME"] as string);
-                            tempchar.CharName = reader["CHAR_NAME"] as string;
-                            tempchar.CharID = (reader["CHAR_ID"] as int?) ?? 0;
-
-                            if (reader["CLIENT_ID"] != DBNull.Value)
-                            //if there is a char that has a ctc connection that is for the present client
-                            {
-                                if (reader["CLIENT_ID"].ToString() == clientID.ToString())//marked as being incoming
-                                {
-                                    tempchar.CharClient = clientID;//puts in the client id for the sorting and checking process
-                                    tempchar.CharMini = (reader["CTC_ID"] as int?) ?? 0; //arbitrary but it marks it for recycling first 
-                                }
-                            }
-                            charList.Add(tempchar);
-                        }
-
-                        
 
                     }
                     
-                    
-
                 }
+                
                 connection.Close();
             }
             catch (Exception ex)
@@ -278,20 +291,6 @@ namespace GrenciCPA
                 MessageBox.Show("Could not retrieve characteristics from Database.! \n Error reads: " + ex.Message);
             }
 
-            //goes through the clb and checks the boxes of the charactoristics that are set on the client.
-            
-            for (int i = 0; i < clbChar.Items.Count; i++)
-            {
-                foreach (AChar aChar in charList)
-                {
-                    if (clbChar.Items[i].ToString() == aChar.CharName && aChar.CharClient == clientID && clientID != 0)
-                    {
-                        clbChar.SetItemChecked(i, true);//this will check the ones that have the relation correct.
-                    }
-                }
-            }
-
-            
         }
 
         private void SaveChar()
@@ -310,7 +309,7 @@ namespace GrenciCPA
                                            //  of that specific one to be commited into a change to the database.
 
                     }
-                    //else charList.Remove(aChar);//removes from the list due to it not being something that
+                    
                 }
             }
             
@@ -333,6 +332,7 @@ namespace GrenciCPA
             }
 
             //this section saves the char relations between this client and the id of the char. It updates ones that were used or are now ready to be reused.
+            int affectedrows = 0; //this is to keep track of what all was deleted row wise
 
             foreach (AChar achar in charList)// loops through and updates the ones set up 
             {
@@ -416,6 +416,7 @@ namespace GrenciCPA
 
                     //charmini is CTCID in a random var to store as a flag and if asso is 9 then it is flagged for deletion
 
+                    
                     //Pulled from App.config
                     connectionString = Properties.Settings.Default.GrenciDBConnectionString;
                     try
@@ -425,13 +426,10 @@ namespace GrenciCPA
                         //Open the connection
                         connection.Open();
 
-                        int affectedrows = command.ExecuteNonQuery();//stores the number which should always be one or 0 in the var after deletion
+                        affectedrows += command.ExecuteNonQuery() - 1;//stores the number which should always be one or 0 in the var after deletion
 
                         connection.Close();
-                        if (affectedrows != 0)
-                        {
-                            MessageBox.Show(affectedrows + " rows were Deleted from the system");
-                        }
+                        
                     }
                     catch (Exception ex)
                     {
@@ -439,6 +437,10 @@ namespace GrenciCPA
                     }
                     //end deletion
                 }
+            }
+            if (affectedrows != 0)
+            {
+                MessageBox.Show(affectedrows + " rows were Deleted from the system");
             }
         }
 

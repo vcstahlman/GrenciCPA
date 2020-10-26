@@ -53,18 +53,38 @@ namespace GrenciCPA
             // button to show the user is in edit mode
             if (btnEdit.Text == "Edit")
             {
-                txtClient.ReadOnly = false;
+                txtClientName.ReadOnly = false;
                 txtAmtOwed.ReadOnly = false;
-                txtServices.ReadOnly = false;
+                txtSrvDS1.ReadOnly = false;
+                txtSrvAmt1.ReadOnly = false;
+                txtSrvLabel1.ReadOnly = false;
+                txtSrvLabel2.ReadOnly = false;
+                txtSrvDS2.ReadOnly = false;
+                txtSrvAmt2.ReadOnly = false;
+                txtSrvLabel3.ReadOnly = false;
+                txtSrvAmt3.ReadOnly = false;
+                txtSrvDS3.ReadOnly = false;
+
+
                 btnEdit.Text = "Stop Edit";
             }
-            
+
             // upon a second button click, all textboxes are set back to readonly mode, and the button text is set to the default string "Edit"
             else
             {
-                txtClient.ReadOnly = true;
+                txtClientName.ReadOnly = true;
                 txtAmtOwed.ReadOnly = true;
-                txtServices.ReadOnly = true;
+                txtSrvDS1.ReadOnly = true;
+                txtSrvAmt1.ReadOnly = true;
+                txtSrvLabel1.ReadOnly = true;
+                txtSrvLabel2.ReadOnly = true;
+                txtSrvDS2.ReadOnly = true;
+                txtSrvAmt2.ReadOnly = true;
+                txtSrvLabel3.ReadOnly = true;
+                txtSrvAmt3.ReadOnly = true;
+                txtSrvDS3.ReadOnly = true;
+
+
                 btnEdit.Text = "Edit";
             }
         }

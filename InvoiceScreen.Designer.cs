@@ -29,135 +29,150 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoiceScreen));
-            this.btnEmail = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblAmount = new System.Windows.Forms.Label();
-            this.lblService = new System.Windows.Forms.Label();
-            this.btnMakeInvoice = new System.Windows.Forms.Button();
-            this.txtClient = new System.Windows.Forms.TextBox();
-            this.txtAmtOwed = new System.Windows.Forms.TextBox();
-            this.txtServices = new System.Windows.Forms.TextBox();
+            this.txtSrvAmt3 = new System.Windows.Forms.TextBox();
+            this.txtSrvAmt2 = new System.Windows.Forms.TextBox();
+            this.txtSrvAmt1 = new System.Windows.Forms.TextBox();
+            this.txtSrvLabel1 = new System.Windows.Forms.TextBox();
+            this.txtSrvLabel2 = new System.Windows.Forms.TextBox();
+            this.txtSrvLabel3 = new System.Windows.Forms.TextBox();
+            this.txtSrvDS2 = new System.Windows.Forms.TextBox();
+            this.txtSrvDS3 = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.txtSrvDS1 = new System.Windows.Forms.TextBox();
+            this.txtAmtOwed = new System.Windows.Forms.TextBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
+            this.btnMakeInvoice = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblService = new System.Windows.Forms.Label();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnEmail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnEmail
+            // txtSrvAmt3
             // 
-            this.btnEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEmail.Location = new System.Drawing.Point(869, 474);
-            this.btnEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEmail.Name = "btnEmail";
-            this.btnEmail.Size = new System.Drawing.Size(103, 43);
-            this.btnEmail.TabIndex = 0;
-            this.btnEmail.Text = "Email Invoice";
-            this.btnEmail.UseVisualStyleBackColor = true;
-            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
+            this.txtSrvAmt3.Location = new System.Drawing.Point(206, 258);
+            this.txtSrvAmt3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSrvAmt3.Name = "txtSrvAmt3";
+            this.txtSrvAmt3.ReadOnly = true;
+            this.txtSrvAmt3.Size = new System.Drawing.Size(69, 22);
+            this.txtSrvAmt3.TabIndex = 41;
             // 
-            // btnPrint
+            // txtSrvAmt2
             // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Location = new System.Drawing.Point(869, 523);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(103, 43);
-            this.btnPrint.TabIndex = 1;
-            this.btnPrint.Text = "Print Invoice";
-            this.btnPrint.UseVisualStyleBackColor = true;
+            this.txtSrvAmt2.Location = new System.Drawing.Point(206, 188);
+            this.txtSrvAmt2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSrvAmt2.Name = "txtSrvAmt2";
+            this.txtSrvAmt2.ReadOnly = true;
+            this.txtSrvAmt2.Size = new System.Drawing.Size(69, 22);
+            this.txtSrvAmt2.TabIndex = 40;
             // 
-            // btnClose
+            // txtSrvAmt1
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(869, 592);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(103, 43);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.Text = "Cancel";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.txtSrvAmt1.Location = new System.Drawing.Point(206, 124);
+            this.txtSrvAmt1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSrvAmt1.Name = "txtSrvAmt1";
+            this.txtSrvAmt1.ReadOnly = true;
+            this.txtSrvAmt1.Size = new System.Drawing.Size(69, 22);
+            this.txtSrvAmt1.TabIndex = 39;
             // 
-            // lblName
+            // txtSrvLabel1
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(9, 36);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(47, 17);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Client:";
+            this.txtSrvLabel1.Location = new System.Drawing.Point(51, 124);
+            this.txtSrvLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSrvLabel1.Name = "txtSrvLabel1";
+            this.txtSrvLabel1.ReadOnly = true;
+            this.txtSrvLabel1.Size = new System.Drawing.Size(149, 22);
+            this.txtSrvLabel1.TabIndex = 38;
             // 
-            // lblAmount
+            // txtSrvLabel2
             // 
-            this.lblAmount.AutoSize = true;
-            this.lblAmount.Location = new System.Drawing.Point(9, 87);
-            this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(97, 17);
-            this.lblAmount.TabIndex = 4;
-            this.lblAmount.Text = "Amount owed:";
+            this.txtSrvLabel2.Location = new System.Drawing.Point(51, 188);
+            this.txtSrvLabel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSrvLabel2.Name = "txtSrvLabel2";
+            this.txtSrvLabel2.ReadOnly = true;
+            this.txtSrvLabel2.Size = new System.Drawing.Size(149, 22);
+            this.txtSrvLabel2.TabIndex = 37;
             // 
-            // lblService
+            // txtSrvLabel3
             // 
-            this.lblService.AutoSize = true;
-            this.lblService.Location = new System.Drawing.Point(9, 143);
-            this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(66, 17);
-            this.lblService.TabIndex = 5;
-            this.lblService.Text = "Services:";
+            this.txtSrvLabel3.Location = new System.Drawing.Point(51, 258);
+            this.txtSrvLabel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSrvLabel3.Name = "txtSrvLabel3";
+            this.txtSrvLabel3.ReadOnly = true;
+            this.txtSrvLabel3.Size = new System.Drawing.Size(149, 22);
+            this.txtSrvLabel3.TabIndex = 36;
             // 
-            // btnMakeInvoice
+            // txtSrvDS2
             // 
-            this.btnMakeInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMakeInvoice.Location = new System.Drawing.Point(12, 586);
-            this.btnMakeInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnMakeInvoice.Name = "btnMakeInvoice";
-            this.btnMakeInvoice.Size = new System.Drawing.Size(105, 49);
-            this.btnMakeInvoice.TabIndex = 7;
-            this.btnMakeInvoice.Text = "Create Invoice";
-            this.btnMakeInvoice.UseVisualStyleBackColor = true;
-            this.btnMakeInvoice.Click += new System.EventHandler(this.btnMakeInvoice_Click);
+            this.txtSrvDS2.Location = new System.Drawing.Point(51, 214);
+            this.txtSrvDS2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSrvDS2.Name = "txtSrvDS2";
+            this.txtSrvDS2.ReadOnly = true;
+            this.txtSrvDS2.Size = new System.Drawing.Size(288, 22);
+            this.txtSrvDS2.TabIndex = 35;
             // 
-            // txtClient
+            // txtSrvDS3
             // 
-            this.txtClient.Location = new System.Drawing.Point(49, 57);
-            this.txtClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtClient.Name = "txtClient";
-            this.txtClient.ReadOnly = true;
-            this.txtClient.Size = new System.Drawing.Size(169, 22);
-            this.txtClient.TabIndex = 8;
-            this.txtClient.Text = "Joe and Jan Smith";
+            this.txtSrvDS3.Location = new System.Drawing.Point(51, 284);
+            this.txtSrvDS3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSrvDS3.Name = "txtSrvDS3";
+            this.txtSrvDS3.ReadOnly = true;
+            this.txtSrvDS3.Size = new System.Drawing.Size(288, 22);
+            this.txtSrvDS3.TabIndex = 34;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(14, 400);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(109, 36);
+            this.btnEdit.TabIndex = 33;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // txtSrvDS1
+            // 
+            this.txtSrvDS1.Location = new System.Drawing.Point(51, 150);
+            this.txtSrvDS1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSrvDS1.Name = "txtSrvDS1";
+            this.txtSrvDS1.ReadOnly = true;
+            this.txtSrvDS1.Size = new System.Drawing.Size(288, 22);
+            this.txtSrvDS1.TabIndex = 32;
             // 
             // txtAmtOwed
             // 
-            this.txtAmtOwed.Location = new System.Drawing.Point(49, 107);
+            this.txtAmtOwed.Location = new System.Drawing.Point(62, 355);
             this.txtAmtOwed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAmtOwed.Name = "txtAmtOwed";
             this.txtAmtOwed.ReadOnly = true;
             this.txtAmtOwed.Size = new System.Drawing.Size(169, 22);
-            this.txtAmtOwed.TabIndex = 9;
+            this.txtAmtOwed.TabIndex = 31;
             this.txtAmtOwed.Text = "$275";
             // 
-            // txtServices
+            // txtClientName
             // 
-            this.txtServices.Location = new System.Drawing.Point(49, 162);
-            this.txtServices.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtServices.Name = "txtServices";
-            this.txtServices.ReadOnly = true;
-            this.txtServices.Size = new System.Drawing.Size(169, 22);
-            this.txtServices.TabIndex = 10;
-            this.txtServices.Text = "Income Tax, Sales Tax";
+            this.txtClientName.Location = new System.Drawing.Point(51, 57);
+            this.txtClientName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.ReadOnly = true;
+            this.txtClientName.Size = new System.Drawing.Size(169, 22);
+            this.txtClientName.TabIndex = 30;
+            this.txtClientName.Text = "Joe and Jan Smith";
             // 
-            // btnEdit
+            // btnMakeInvoice
             // 
-            this.btnEdit.Location = new System.Drawing.Point(12, 208);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(109, 36);
-            this.btnEdit.TabIndex = 12;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnMakeInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnMakeInvoice.Location = new System.Drawing.Point(14, 586);
+            this.btnMakeInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMakeInvoice.Name = "btnMakeInvoice";
+            this.btnMakeInvoice.Size = new System.Drawing.Size(105, 49);
+            this.btnMakeInvoice.TabIndex = 29;
+            this.btnMakeInvoice.Text = "Create Invoice";
+            this.btnMakeInvoice.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -165,23 +180,93 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::GrenciCPA.Properties.Resources.AA_invoice_2019_page_001;
-            this.pictureBox1.Location = new System.Drawing.Point(343, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(345, 12);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(520, 623);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
+            // 
+            // lblService
+            // 
+            this.lblService.AutoSize = true;
+            this.lblService.Location = new System.Drawing.Point(11, 105);
+            this.lblService.Name = "lblService";
+            this.lblService.Size = new System.Drawing.Size(66, 17);
+            this.lblService.TabIndex = 27;
+            this.lblService.Text = "Services:";
+            // 
+            // lblAmount
+            // 
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.Location = new System.Drawing.Point(22, 335);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(97, 17);
+            this.lblAmount.TabIndex = 26;
+            this.lblAmount.Text = "Amount owed:";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(11, 36);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(47, 17);
+            this.lblName.TabIndex = 25;
+            this.lblName.Text = "Client:";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(871, 592);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(103, 43);
+            this.btnClose.TabIndex = 24;
+            this.btnClose.Text = "Cancel";
+            this.btnClose.UseVisualStyleBackColor = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Location = new System.Drawing.Point(871, 523);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(103, 43);
+            this.btnPrint.TabIndex = 23;
+            this.btnPrint.Text = "Print Invoice";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            // 
+            // btnEmail
+            // 
+            this.btnEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEmail.Location = new System.Drawing.Point(871, 474);
+            this.btnEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Size = new System.Drawing.Size(103, 43);
+            this.btnEmail.TabIndex = 22;
+            this.btnEmail.Text = "Email Invoice";
+            this.btnEmail.UseVisualStyleBackColor = true;
             // 
             // InvoiceScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 647);
+            this.Controls.Add(this.txtSrvAmt3);
+            this.Controls.Add(this.txtSrvAmt2);
+            this.Controls.Add(this.txtSrvAmt1);
+            this.Controls.Add(this.txtSrvLabel1);
+            this.Controls.Add(this.txtSrvLabel2);
+            this.Controls.Add(this.txtSrvLabel3);
+            this.Controls.Add(this.txtSrvDS2);
+            this.Controls.Add(this.txtSrvDS3);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.txtServices);
+            this.Controls.Add(this.txtSrvDS1);
             this.Controls.Add(this.txtAmtOwed);
-            this.Controls.Add(this.txtClient);
+            this.Controls.Add(this.txtClientName);
             this.Controls.Add(this.btnMakeInvoice);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblService);
@@ -202,17 +287,25 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnEmail;
-        private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblAmount;
-        private System.Windows.Forms.Label lblService;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnMakeInvoice;
-        private System.Windows.Forms.TextBox txtClient;
-        private System.Windows.Forms.TextBox txtAmtOwed;
-        private System.Windows.Forms.TextBox txtServices;
+        private System.Windows.Forms.TextBox txtSrvAmt3;
+        private System.Windows.Forms.TextBox txtSrvAmt2;
+        private System.Windows.Forms.TextBox txtSrvAmt1;
+        private System.Windows.Forms.TextBox txtSrvLabel1;
+        private System.Windows.Forms.TextBox txtSrvLabel2;
+        private System.Windows.Forms.TextBox txtSrvLabel3;
+        private System.Windows.Forms.TextBox txtSrvDS2;
+        private System.Windows.Forms.TextBox txtSrvDS3;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.TextBox txtSrvDS1;
+        private System.Windows.Forms.TextBox txtAmtOwed;
+        private System.Windows.Forms.TextBox txtClientName;
+        private System.Windows.Forms.Button btnMakeInvoice;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblService;
+        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnEmail;
     }
 }

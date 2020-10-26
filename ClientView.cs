@@ -338,6 +338,7 @@ namespace GrenciCPA
         {
             AddClient form = new AddClient(clientID);
             form.ShowDialog();
+            this.Close();
         }
 
         private void ClientView_Load(object sender, EventArgs e)
