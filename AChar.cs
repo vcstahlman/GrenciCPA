@@ -16,6 +16,7 @@ namespace GrenciCPA
         private double charMini;
         private int charAsso;
         private int charClient;
+        private int charActive;
 
         public int CharID { get => charID; set => charID = value; }
         public string CharName { get => charName; set => charName = value; }
@@ -23,5 +24,6 @@ namespace GrenciCPA
         public double CharMini { get => charMini; set => charMini = value; }
         public int CharAsso { get => charAsso; set => charAsso = value; }
         public int CharClient { get => charClient; set => charClient = value; }
+        public int CharActive { get => charActive; set => charActive = value; }
     }
 }

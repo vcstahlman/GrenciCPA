@@ -101,7 +101,7 @@
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersWidth = 51;
             this.dgvClients.RowTemplate.Height = 24;
-            this.dgvClients.Size = new System.Drawing.Size(1541, 596);
+            this.dgvClients.Size = new System.Drawing.Size(1521, 596);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
             // 
@@ -250,7 +250,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1421, 684);
+            this.btnClose.Location = new System.Drawing.Point(1401, 684);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(132, 57);

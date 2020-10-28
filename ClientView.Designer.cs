@@ -67,7 +67,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(929, 517);
+            this.button3.Location = new System.Drawing.Point(808, 520);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(172, 55);
@@ -79,7 +79,7 @@
             // rtbNotes
             // 
             this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbNotes.Location = new System.Drawing.Point(676, 23);
+            this.rtbNotes.Location = new System.Drawing.Point(555, 23);
             this.rtbNotes.Margin = new System.Windows.Forms.Padding(4);
             this.rtbNotes.Name = "rtbNotes";
             this.rtbNotes.ReadOnly = true;
@@ -89,7 +89,7 @@
             // 
             // btnEditClient
             // 
-            this.btnEditClient.Location = new System.Drawing.Point(976, 229);
+            this.btnEditClient.Location = new System.Drawing.Point(312, 181);
             this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditClient.Name = "btnEditClient";
             this.btnEditClient.Size = new System.Drawing.Size(125, 28);
@@ -202,7 +202,7 @@
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvClientPast.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvClientPast.RowTemplate.Height = 24;
-            this.dgvClientPast.Size = new System.Drawing.Size(956, 287);
+            this.dgvClientPast.Size = new System.Drawing.Size(743, 272);
             this.dgvClientPast.TabIndex = 0;
             this.dgvClientPast.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientPast_CellContentClick);
             // 
@@ -278,7 +278,7 @@
             // btnNewJob
             // 
             this.btnNewJob.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNewJob.Location = new System.Drawing.Point(11, 517);
+            this.btnNewJob.Location = new System.Drawing.Point(11, 520);
             this.btnNewJob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNewJob.Name = "btnNewJob";
             this.btnNewJob.Size = new System.Drawing.Size(160, 55);
@@ -290,7 +290,7 @@
             // btnActive
             // 
             this.btnActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnActive.Location = new System.Drawing.Point(176, 517);
+            this.btnActive.Location = new System.Drawing.Point(177, 520);
             this.btnActive.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActive.Name = "btnActive";
             this.btnActive.Size = new System.Drawing.Size(160, 55);
@@ -303,7 +303,7 @@
             // 
             this.lblNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(673, 6);
+            this.lblNotes.Location = new System.Drawing.Point(552, 6);
             this.lblNotes.Name = "lblNotes";
             this.lblNotes.Size = new System.Drawing.Size(49, 17);
             this.lblNotes.TabIndex = 35;
@@ -390,7 +390,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 585);
+            this.ClientSize = new System.Drawing.Size(988, 585);
             this.Controls.Add(this.lblParent);
             this.Controls.Add(this.lblBirthdate);
             this.Controls.Add(this.lblCounty);

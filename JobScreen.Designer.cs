@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,16 +36,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JobScreen));
             this.button3 = new System.Windows.Forms.Button();
             this.btnEditClient = new System.Windows.Forms.Button();
-            this.lblSSN = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblPhone = new System.Windows.Forms.Label();
-            this.lblAddressCSZ = new System.Windows.Forms.Label();
-            this.lblAddressSt = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.dgvFees = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FeeName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.txtCharacteristics = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.txtCharCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCharMultiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMiniTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnComplete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblStaff = new System.Windows.Forms.Label();
@@ -70,15 +68,20 @@
             this.lblNotes = new System.Windows.Forms.Label();
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
             this.txtDateTime = new System.Windows.Forms.TextBox();
-            this.lbxLabels = new System.Windows.Forms.ListBox();
             this.cmboStaff = new System.Windows.Forms.ComboBox();
-            this.FeeName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.txtCategory = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.txtCatCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtCatMultiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MiniTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Started = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ended = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblParent = new System.Windows.Forms.Label();
+            this.lblBirthdate = new System.Windows.Forms.Label();
+            this.lblCounty = new System.Windows.Forms.Label();
+            this.lblSchool = new System.Windows.Forms.Label();
+            this.lblChar = new System.Windows.Forms.Label();
+            this.lbxChar = new System.Windows.Forms.ListBox();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.lblSSN = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.lblAddressCSZ = new System.Windows.Forms.Label();
+            this.lblAddressSt = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTime)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +89,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(1383, 563);
+            this.button3.Location = new System.Drawing.Point(1391, 563);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(103, 53);
             this.button3.TabIndex = 28;
@@ -96,80 +99,14 @@
             // 
             // btnEditClient
             // 
-            this.btnEditClient.Location = new System.Drawing.Point(10, 185);
+            this.btnEditClient.Location = new System.Drawing.Point(231, 400);
             this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditClient.Name = "btnEditClient";
             this.btnEditClient.Size = new System.Drawing.Size(172, 28);
             this.btnEditClient.TabIndex = 22;
-            this.btnEditClient.Text = "Edit Client Info";
+            this.btnEditClient.Text = "View Client Info";
             this.btnEditClient.UseVisualStyleBackColor = true;
             this.btnEditClient.Click += new System.EventHandler(this.btnEditClient_Click);
-            // 
-            // lblSSN
-            // 
-            this.lblSSN.AutoSize = true;
-            this.lblSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSSN.Location = new System.Drawing.Point(13, 153);
-            this.lblSSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSSN.Name = "lblSSN";
-            this.lblSSN.Size = new System.Drawing.Size(101, 17);
-            this.lblSSN.TabIndex = 21;
-            this.lblSSN.Text = "200-14-3987";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(13, 137);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(147, 17);
-            this.lblEmail.TabIndex = 20;
-            this.lblEmail.Text = "smiths@yahoo.com";
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(13, 121);
-            this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(110, 17);
-            this.lblPhone.TabIndex = 19;
-            this.lblPhone.Text = "814-393-2500";
-            // 
-            // lblAddressCSZ
-            // 
-            this.lblAddressCSZ.AutoSize = true;
-            this.lblAddressCSZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressCSZ.Location = new System.Drawing.Point(11, 93);
-            this.lblAddressCSZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAddressCSZ.Name = "lblAddressCSZ";
-            this.lblAddressCSZ.Size = new System.Drawing.Size(139, 17);
-            this.lblAddressCSZ.TabIndex = 18;
-            this.lblAddressCSZ.Text = "Clarion, PA 16214";
-            // 
-            // lblAddressSt
-            // 
-            this.lblAddressSt.AutoSize = true;
-            this.lblAddressSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressSt.Location = new System.Drawing.Point(11, 76);
-            this.lblAddressSt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAddressSt.Name = "lblAddressSt";
-            this.lblAddressSt.Size = new System.Drawing.Size(123, 17);
-            this.lblAddressSt.TabIndex = 17;
-            this.lblAddressSt.Text = "123 Main Street";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(11, 48);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(151, 17);
-            this.lblName.TabIndex = 16;
-            this.lblName.Text = "Joe and Joan Smith";
             // 
             // dgvFees
             // 
@@ -181,25 +118,91 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.FeeName,
-            this.txtCategory,
-            this.txtCatCost,
-            this.txtCatMultiplier,
-            this.MiniTotal,
-            this.Started,
-            this.Ended});
-            this.dgvFees.Location = new System.Drawing.Point(259, 46);
+            this.txtCharacteristics,
+            this.txtCharCost,
+            this.txtCharMultiplier,
+            this.txtMiniTotal});
+            this.dgvFees.Location = new System.Drawing.Point(311, 39);
             this.dgvFees.Name = "dgvFees";
             this.dgvFees.RowHeadersWidth = 51;
             this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(1227, 374);
+            this.dgvFees.Size = new System.Drawing.Size(1183, 306);
             this.dgvFees.TabIndex = 29;
             this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
+            this.dgvFees.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvFees_RowsAdded);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            this.ID.Width = 125;
+            // 
+            // FeeName
+            // 
+            this.FeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.FeeName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FeeName.FillWeight = 125F;
+            this.FeeName.HeaderText = "Service";
+            this.FeeName.MinimumWidth = 125;
+            this.FeeName.Name = "FeeName";
+            this.FeeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // txtCharacteristics
+            // 
+            this.txtCharacteristics.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.txtCharacteristics.DefaultCellStyle = dataGridViewCellStyle3;
+            this.txtCharacteristics.FillWeight = 125F;
+            this.txtCharacteristics.HeaderText = "Characteristics";
+            this.txtCharacteristics.MinimumWidth = 125;
+            this.txtCharacteristics.Name = "txtCharacteristics";
+            // 
+            // txtCharCost
+            // 
+            this.txtCharCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.txtCharCost.DefaultCellStyle = dataGridViewCellStyle4;
+            this.txtCharCost.FillWeight = 85F;
+            this.txtCharCost.HeaderText = "Cost";
+            this.txtCharCost.MinimumWidth = 85;
+            this.txtCharCost.Name = "txtCharCost";
+            this.txtCharCost.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtCharCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // txtCharMultiplier
+            // 
+            this.txtCharMultiplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Format = "N2";
+            this.txtCharMultiplier.DefaultCellStyle = dataGridViewCellStyle5;
+            this.txtCharMultiplier.FillWeight = 75F;
+            this.txtCharMultiplier.HeaderText = "Multiplier";
+            this.txtCharMultiplier.MinimumWidth = 75;
+            this.txtCharMultiplier.Name = "txtCharMultiplier";
+            this.txtCharMultiplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // txtMiniTotal
+            // 
+            this.txtMiniTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.txtMiniTotal.DefaultCellStyle = dataGridViewCellStyle6;
+            this.txtMiniTotal.FillWeight = 75F;
+            this.txtMiniTotal.HeaderText = "Min/Total";
+            this.txtMiniTotal.MinimumWidth = 75;
+            this.txtMiniTotal.Name = "txtMiniTotal";
             // 
             // btnComplete
             // 
             this.btnComplete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnComplete.Location = new System.Drawing.Point(1383, 445);
+            this.btnComplete.Location = new System.Drawing.Point(1391, 445);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(103, 53);
             this.btnComplete.TabIndex = 30;
@@ -210,19 +213,20 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(1383, 504);
+            this.btnSave.Location = new System.Drawing.Point(1391, 504);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(103, 53);
             this.btnSave.TabIndex = 31;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblStaff
             // 
             this.lblStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStaff.AutoSize = true;
             this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaff.Location = new System.Drawing.Point(1256, 12);
+            this.lblStaff.Location = new System.Drawing.Point(1264, 12);
             this.lblStaff.Name = "lblStaff";
             this.lblStaff.Size = new System.Drawing.Size(103, 17);
             this.lblStaff.TabIndex = 43;
@@ -230,10 +234,10 @@
             // 
             // btnClient
             // 
-            this.btnClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClient.Location = new System.Drawing.Point(32, 367);
+            this.btnClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClient.Location = new System.Drawing.Point(1391, 388);
             this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(150, 53);
+            this.btnClient.Size = new System.Drawing.Size(103, 52);
             this.btnClient.TabIndex = 44;
             this.btnClient.Text = "Calculate";
             this.btnClient.UseVisualStyleBackColor = true;
@@ -252,16 +256,16 @@
             this.dgvTime.Name = "dgvTime";
             this.dgvTime.RowHeadersWidth = 51;
             this.dgvTime.RowTemplate.Height = 24;
-            this.dgvTime.Size = new System.Drawing.Size(629, 140);
+            this.dgvTime.Size = new System.Drawing.Size(637, 140);
             this.dgvTime.TabIndex = 58;
             // 
             // TimeLength
             // 
             this.TimeLength.DataPropertyName = "Time";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Format = "g";
-            dataGridViewCellStyle9.NullValue = null;
-            this.TimeLength.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Format = "g";
+            dataGridViewCellStyle7.NullValue = null;
+            this.TimeLength.DefaultCellStyle = dataGridViewCellStyle7;
             this.TimeLength.HeaderText = "Time";
             this.TimeLength.MinimumWidth = 6;
             this.TimeLength.Name = "TimeLength";
@@ -270,10 +274,10 @@
             // 
             // StartedTime
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.Format = "t";
-            dataGridViewCellStyle10.NullValue = null;
-            this.StartedTime.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Format = "t";
+            dataGridViewCellStyle8.NullValue = null;
+            this.StartedTime.DefaultCellStyle = dataGridViewCellStyle8;
             this.StartedTime.HeaderText = "Start";
             this.StartedTime.MinimumWidth = 6;
             this.StartedTime.Name = "StartedTime";
@@ -282,10 +286,10 @@
             // 
             // EndedTime
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Format = "t";
-            dataGridViewCellStyle11.NullValue = null;
-            this.EndedTime.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Format = "t";
+            dataGridViewCellStyle9.NullValue = null;
+            this.EndedTime.DefaultCellStyle = dataGridViewCellStyle9;
             this.EndedTime.HeaderText = "End";
             this.EndedTime.MinimumWidth = 6;
             this.EndedTime.Name = "EndedTime";
@@ -414,6 +418,7 @@
             // rtbNotes
             // 
             this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rtbNotes.Enabled = false;
             this.rtbNotes.Location = new System.Drawing.Point(14, 440);
             this.rtbNotes.Margin = new System.Windows.Forms.Padding(4);
             this.rtbNotes.Name = "rtbNotes";
@@ -425,24 +430,11 @@
             // txtDateTime
             // 
             this.txtDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDateTime.Location = new System.Drawing.Point(793, 440);
+            this.txtDateTime.Location = new System.Drawing.Point(801, 440);
             this.txtDateTime.Name = "txtDateTime";
             this.txtDateTime.ReadOnly = true;
             this.txtDateTime.Size = new System.Drawing.Size(226, 22);
             this.txtDateTime.TabIndex = 70;
-            // 
-            // lbxLabels
-            // 
-            this.lbxLabels.FormattingEnabled = true;
-            this.lbxLabels.ItemHeight = 16;
-            this.lbxLabels.Items.AddRange(new object[] {
-            "Dependents",
-            "Schedule C",
-            "Joint"});
-            this.lbxLabels.Location = new System.Drawing.Point(10, 220);
-            this.lbxLabels.Name = "lbxLabels";
-            this.lbxLabels.Size = new System.Drawing.Size(167, 132);
-            this.lbxLabels.TabIndex = 71;
             // 
             // cmboStaff
             // 
@@ -455,110 +447,175 @@
             this.cmboStaff.Size = new System.Drawing.Size(121, 24);
             this.cmboStaff.TabIndex = 72;
             // 
-            // FeeName
+            // lblParent
             // 
-            this.FeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.FeeName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FeeName.FillWeight = 125F;
-            this.FeeName.HeaderText = "Service";
-            this.FeeName.Items.AddRange(new object[] {
-            "Income Taxes",
-            "Payroll"});
-            this.FeeName.MinimumWidth = 125;
-            this.FeeName.Name = "FeeName";
-            this.FeeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.FeeName.Width = 125;
+            this.lblParent.AutoSize = true;
+            this.lblParent.Location = new System.Drawing.Point(13, 244);
+            this.lblParent.Name = "lblParent";
+            this.lblParent.Size = new System.Drawing.Size(86, 17);
+            this.lblParent.TabIndex = 85;
+            this.lblParent.Text = "Juana Smith";
             // 
-            // txtCategory
+            // lblBirthdate
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtCategory.DefaultCellStyle = dataGridViewCellStyle3;
-            this.txtCategory.FillWeight = 125F;
-            this.txtCategory.HeaderText = "Category";
-            this.txtCategory.Items.AddRange(new object[] {
-            "Dependents",
-            "Dependents At College",
-            "Amended Return",
+            this.lblBirthdate.AutoSize = true;
+            this.lblBirthdate.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBirthdate.Location = new System.Drawing.Point(13, 150);
+            this.lblBirthdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBirthdate.Name = "lblBirthdate";
+            this.lblBirthdate.Size = new System.Drawing.Size(92, 17);
+            this.lblBirthdate.TabIndex = 84;
+            this.lblBirthdate.Text = "1997-10-01";
+            // 
+            // lblCounty
+            // 
+            this.lblCounty.AutoSize = true;
+            this.lblCounty.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblCounty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCounty.Location = new System.Drawing.Point(13, 99);
+            this.lblCounty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCounty.Name = "lblCounty";
+            this.lblCounty.Size = new System.Drawing.Size(51, 17);
+            this.lblCounty.TabIndex = 83;
+            this.lblCounty.Text = "Butler";
+            // 
+            // lblSchool
+            // 
+            this.lblSchool.AutoSize = true;
+            this.lblSchool.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSchool.Location = new System.Drawing.Point(12, 116);
+            this.lblSchool.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSchool.Name = "lblSchool";
+            this.lblSchool.Size = new System.Drawing.Size(73, 17);
+            this.lblSchool.TabIndex = 82;
+            this.lblSchool.Text = "North BC";
+            // 
+            // lblChar
+            // 
+            this.lblChar.AutoSize = true;
+            this.lblChar.Location = new System.Drawing.Point(13, 267);
+            this.lblChar.Name = "lblChar";
+            this.lblChar.Size = new System.Drawing.Size(144, 17);
+            this.lblChar.TabIndex = 81;
+            this.lblChar.Text = "Client Characteristics:";
+            // 
+            // lbxChar
+            // 
+            this.lbxChar.Enabled = false;
+            this.lbxChar.FormattingEnabled = true;
+            this.lbxChar.ItemHeight = 16;
+            this.lbxChar.Items.AddRange(new object[] {
+            "Joint",
             "Schedule C",
-            "Earned Income Credit",
-            "Employees",
-            "Tipped Employees",
-            "Payroll Tax Returns"});
-            this.txtCategory.MinimumWidth = 125;
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Width = 125;
+            "Dependents"});
+            this.lbxChar.Location = new System.Drawing.Point(16, 286);
+            this.lbxChar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbxChar.Name = "lbxChar";
+            this.lbxChar.Size = new System.Drawing.Size(263, 100);
+            this.lbxChar.TabIndex = 80;
             // 
-            // txtCatCost
+            // lblBalance
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtCatCost.DefaultCellStyle = dataGridViewCellStyle4;
-            this.txtCatCost.FillWeight = 85F;
-            this.txtCatCost.HeaderText = "Category Cost";
-            this.txtCatCost.MinimumWidth = 85;
-            this.txtCatCost.Name = "txtCatCost";
-            this.txtCatCost.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.txtCatCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.txtCatCost.Width = 85;
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Location = new System.Drawing.Point(14, 229);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(119, 17);
+            this.lblBalance.TabIndex = 79;
+            this.lblBalance.Text = "Balance: $100.00";
             // 
-            // txtCatMultiplier
+            // lblSSN
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Format = "N2";
-            this.txtCatMultiplier.DefaultCellStyle = dataGridViewCellStyle5;
-            this.txtCatMultiplier.FillWeight = 75F;
-            this.txtCatMultiplier.HeaderText = "Category Multiplier";
-            this.txtCatMultiplier.MinimumWidth = 75;
-            this.txtCatMultiplier.Name = "txtCatMultiplier";
-            this.txtCatMultiplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.txtCatMultiplier.Width = 75;
+            this.lblSSN.AutoSize = true;
+            this.lblSSN.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSSN.Location = new System.Drawing.Point(12, 201);
+            this.lblSSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSSN.Name = "lblSSN";
+            this.lblSSN.Size = new System.Drawing.Size(101, 17);
+            this.lblSSN.TabIndex = 78;
+            this.lblSSN.Text = "200-14-3987";
             // 
-            // MiniTotal
+            // lblEmail
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.MiniTotal.DefaultCellStyle = dataGridViewCellStyle6;
-            this.MiniTotal.FillWeight = 75F;
-            this.MiniTotal.HeaderText = "Min/Total";
-            this.MiniTotal.MinimumWidth = 75;
-            this.MiniTotal.Name = "MiniTotal";
-            this.MiniTotal.Width = 75;
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(12, 184);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(147, 17);
+            this.lblEmail.TabIndex = 77;
+            this.lblEmail.Text = "smiths@yahoo.com";
             // 
-            // Started
+            // lblPhone
             // 
-            this.Started.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.Format = "t";
-            dataGridViewCellStyle7.NullValue = null;
-            this.Started.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Started.FillWeight = 125F;
-            this.Started.HeaderText = "Start Date";
-            this.Started.MinimumWidth = 125;
-            this.Started.Name = "Started";
-            this.Started.ReadOnly = true;
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(12, 167);
+            this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(110, 17);
+            this.lblPhone.TabIndex = 76;
+            this.lblPhone.Text = "814-393-2500";
             // 
-            // Ended
+            // lblAddressCSZ
             // 
-            this.Ended.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.Format = "t";
-            dataGridViewCellStyle8.NullValue = null;
-            this.Ended.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Ended.FillWeight = 125F;
-            this.Ended.HeaderText = "End Date";
-            this.Ended.MinimumWidth = 125;
-            this.Ended.Name = "Ended";
-            this.Ended.ReadOnly = true;
+            this.lblAddressCSZ.AutoSize = true;
+            this.lblAddressCSZ.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblAddressCSZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddressCSZ.Location = new System.Drawing.Point(12, 71);
+            this.lblAddressCSZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddressCSZ.Name = "lblAddressCSZ";
+            this.lblAddressCSZ.Size = new System.Drawing.Size(139, 17);
+            this.lblAddressCSZ.TabIndex = 75;
+            this.lblAddressCSZ.Text = "Clarion, PA 16214";
+            // 
+            // lblAddressSt
+            // 
+            this.lblAddressSt.AutoSize = true;
+            this.lblAddressSt.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblAddressSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddressSt.Location = new System.Drawing.Point(12, 54);
+            this.lblAddressSt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddressSt.Name = "lblAddressSt";
+            this.lblAddressSt.Size = new System.Drawing.Size(123, 17);
+            this.lblAddressSt.TabIndex = 74;
+            this.lblAddressSt.Text = "123 Main Street";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(12, 20);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(151, 17);
+            this.lblName.TabIndex = 73;
+            this.lblName.Text = "Joe and Joan Smith";
             // 
             // JobScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1498, 619);
+            this.ClientSize = new System.Drawing.Size(1506, 619);
+            this.Controls.Add(this.lblParent);
+            this.Controls.Add(this.lblBirthdate);
+            this.Controls.Add(this.lblCounty);
+            this.Controls.Add(this.lblSchool);
+            this.Controls.Add(this.lblChar);
+            this.Controls.Add(this.lbxChar);
+            this.Controls.Add(this.lblBalance);
+            this.Controls.Add(this.lblSSN);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.lblPhone);
+            this.Controls.Add(this.lblAddressCSZ);
+            this.Controls.Add(this.lblAddressSt);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.cmboStaff);
-            this.Controls.Add(this.lbxLabels);
             this.Controls.Add(this.txtDateTime);
             this.Controls.Add(this.lblNotes);
             this.Controls.Add(this.rtbNotes);
@@ -579,12 +636,6 @@
             this.Controls.Add(this.dgvFees);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnEditClient);
-            this.Controls.Add(this.lblSSN);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblPhone);
-            this.Controls.Add(this.lblAddressCSZ);
-            this.Controls.Add(this.lblAddressSt);
-            this.Controls.Add(this.lblName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "JobScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -601,12 +652,6 @@
 
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnEditClient;
-        private System.Windows.Forms.Label lblSSN;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.Label lblAddressCSZ;
-        private System.Windows.Forms.Label lblAddressSt;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.DataGridView dgvFees;
         private System.Windows.Forms.Button btnComplete;
         private System.Windows.Forms.Button btnSave;
@@ -625,18 +670,29 @@
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.RichTextBox rtbNotes;
         private System.Windows.Forms.TextBox txtDateTime;
-        private System.Windows.Forms.ListBox lbxLabels;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeLength;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartedTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EndedTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
         private System.Windows.Forms.ComboBox cmboStaff;
+        private System.Windows.Forms.Label lblParent;
+        private System.Windows.Forms.Label lblBirthdate;
+        private System.Windows.Forms.Label lblCounty;
+        private System.Windows.Forms.Label lblSchool;
+        private System.Windows.Forms.Label lblChar;
+        private System.Windows.Forms.ListBox lbxChar;
+        private System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label lblSSN;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.Label lblAddressCSZ;
+        private System.Windows.Forms.Label lblAddressSt;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn FeeName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn txtCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtCatCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtCatMultiplier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MiniTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Started;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ended;
+        private System.Windows.Forms.DataGridViewComboBoxColumn txtCharacteristics;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtCharCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtCharMultiplier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtMiniTotal;
     }
 }

@@ -41,7 +41,6 @@
             this.dgvJobs = new System.Windows.Forms.DataGridView();
             this.cbxToInvoice = new System.Windows.Forms.CheckBox();
             this.cbxUnassigned = new System.Windows.Forms.CheckBox();
-            this.btnSelect = new System.Windows.Forms.Button();
             this.cbxProgress = new System.Windows.Forms.CheckBox();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +49,8 @@
             this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AssignedTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JobID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Invoice = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             this.SuspendLayout();
@@ -99,6 +100,8 @@
             this.Service,
             this.AssignedTo,
             this.View,
+            this.ClientID,
+            this.JobID,
             this.Invoice});
             this.dgvJobs.Location = new System.Drawing.Point(12, 59);
             this.dgvJobs.Name = "dgvJobs";
@@ -107,6 +110,7 @@
             this.dgvJobs.RowTemplate.Height = 24;
             this.dgvJobs.Size = new System.Drawing.Size(1476, 637);
             this.dgvJobs.TabIndex = 11;
+            this.dgvJobs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJobs_CellContentClick);
             // 
             // cbxToInvoice
             // 
@@ -127,17 +131,6 @@
             this.cbxUnassigned.TabIndex = 17;
             this.cbxUnassigned.Text = "Unassigned";
             this.cbxUnassigned.UseVisualStyleBackColor = true;
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(1229, 727);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(121, 57);
-            this.btnSelect.TabIndex = 18;
-            this.btnSelect.Text = "Take To Job Screen";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // cbxProgress
             // 
@@ -225,6 +218,24 @@
             this.View.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.View.Width = 95;
             // 
+            // ClientID
+            // 
+            this.ClientID.HeaderText = "ClientID";
+            this.ClientID.MinimumWidth = 6;
+            this.ClientID.Name = "ClientID";
+            this.ClientID.ReadOnly = true;
+            this.ClientID.Visible = false;
+            this.ClientID.Width = 125;
+            // 
+            // JobID
+            // 
+            this.JobID.HeaderText = "JobID";
+            this.JobID.MinimumWidth = 6;
+            this.JobID.Name = "JobID";
+            this.JobID.ReadOnly = true;
+            this.JobID.Visible = false;
+            this.JobID.Width = 125;
+            // 
             // Invoice
             // 
             this.Invoice.FillWeight = 95F;
@@ -242,7 +253,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1502, 795);
             this.Controls.Add(this.cbxProgress);
-            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.cbxUnassigned);
             this.Controls.Add(this.cbxToInvoice);
             this.Controls.Add(this.btnClose);
@@ -268,7 +278,6 @@
         private System.Windows.Forms.DataGridView dgvJobs;
         private System.Windows.Forms.CheckBox cbxToInvoice;
         private System.Windows.Forms.CheckBox cbxUnassigned;
-        private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.CheckBox cbxProgress;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
@@ -277,6 +286,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Service;
         private System.Windows.Forms.DataGridViewTextBoxColumn AssignedTo;
         private System.Windows.Forms.DataGridViewButtonColumn View;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JobID;
         private System.Windows.Forms.DataGridViewButtonColumn Invoice;
     }
 }

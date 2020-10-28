@@ -54,12 +54,14 @@
   <ItemGroup>
     <Compile Include="AChar.cs" />
     <Compile Include="AClient.cs" />
+    <Compile Include="AComp.cs" />
     <Compile Include="AddClient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddClient.Designer.cs">
       <DependentUpon>AddClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="AServ.cs" />
     <Compile Include="ClientList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +85,9 @@
     </Compile>
     <Compile Include="Globals.Designer.cs">
       <DependentUpon>Globals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrenciDBDataSet.cs">
+      <DependentUpon>GrenciDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GrenciDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

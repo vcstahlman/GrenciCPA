@@ -176,7 +176,7 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(163, 53);
-            this.btnSave.TabIndex = 13;
+            this.btnSave.TabIndex = 18;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -188,7 +188,7 @@
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(165, 53);
-            this.btnClose.TabIndex = 14;
+            this.btnClose.TabIndex = 19;
             this.btnClose.Text = "Cancel";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -206,7 +206,7 @@
             this.cboContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboContact.Name = "cboContact";
             this.cboContact.Size = new System.Drawing.Size(195, 24);
-            this.cboContact.TabIndex = 16;
+            this.cboContact.TabIndex = 11;
             this.cboContact.Text = "Select Contact";
             // 
             // tbxNotes
@@ -219,7 +219,7 @@
             this.tbxNotes.Multiline = true;
             this.tbxNotes.Name = "tbxNotes";
             this.tbxNotes.Size = new System.Drawing.Size(617, 291);
-            this.tbxNotes.TabIndex = 18;
+            this.tbxNotes.TabIndex = 17;
             // 
             // tbxEmail
             // 
@@ -228,7 +228,7 @@
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(195, 22);
-            this.tbxEmail.TabIndex = 19;
+            this.tbxEmail.TabIndex = 10;
             // 
             // tbxCell
             // 
@@ -237,7 +237,7 @@
             this.tbxCell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxCell.Name = "tbxCell";
             this.tbxCell.Size = new System.Drawing.Size(195, 22);
-            this.tbxCell.TabIndex = 21;
+            this.tbxCell.TabIndex = 9;
             // 
             // tbxSchool
             // 
@@ -245,7 +245,7 @@
             this.tbxSchool.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxSchool.Name = "tbxSchool";
             this.tbxSchool.Size = new System.Drawing.Size(176, 22);
-            this.tbxSchool.TabIndex = 22;
+            this.tbxSchool.TabIndex = 7;
             // 
             // tbxZip
             // 
@@ -253,7 +253,7 @@
             this.tbxZip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxZip.Name = "tbxZip";
             this.tbxZip.Size = new System.Drawing.Size(145, 22);
-            this.tbxZip.TabIndex = 23;
+            this.tbxZip.TabIndex = 6;
             // 
             // tbxState
             // 
@@ -261,7 +261,7 @@
             this.tbxState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxState.Name = "tbxState";
             this.tbxState.Size = new System.Drawing.Size(60, 22);
-            this.tbxState.TabIndex = 24;
+            this.tbxState.TabIndex = 5;
             // 
             // tbxCity
             // 
@@ -269,7 +269,7 @@
             this.tbxCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxCity.Name = "tbxCity";
             this.tbxCity.Size = new System.Drawing.Size(196, 22);
-            this.tbxCity.TabIndex = 25;
+            this.tbxCity.TabIndex = 4;
             // 
             // tbxAddress
             // 
@@ -277,7 +277,7 @@
             this.tbxAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxAddress.Name = "tbxAddress";
             this.tbxAddress.Size = new System.Drawing.Size(196, 22);
-            this.tbxAddress.TabIndex = 26;
+            this.tbxAddress.TabIndex = 3;
             // 
             // tbxLast
             // 
@@ -285,7 +285,7 @@
             this.tbxLast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxLast.Name = "tbxLast";
             this.tbxLast.Size = new System.Drawing.Size(196, 22);
-            this.tbxLast.TabIndex = 27;
+            this.tbxLast.TabIndex = 2;
             // 
             // tbxFirst
             // 
@@ -293,7 +293,7 @@
             this.tbxFirst.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxFirst.Name = "tbxFirst";
             this.tbxFirst.Size = new System.Drawing.Size(196, 22);
-            this.tbxFirst.TabIndex = 28;
+            this.tbxFirst.TabIndex = 1;
             // 
             // lblParent
             // 
@@ -313,7 +313,7 @@
             this.cboParent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboParent.Name = "cboParent";
             this.cboParent.Size = new System.Drawing.Size(195, 24);
-            this.cboParent.TabIndex = 31;
+            this.cboParent.TabIndex = 12;
             // 
             // tbxCompany
             // 
@@ -322,7 +322,7 @@
             this.tbxCompany.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxCompany.Name = "tbxCompany";
             this.tbxCompany.Size = new System.Drawing.Size(195, 22);
-            this.tbxCompany.TabIndex = 32;
+            this.tbxCompany.TabIndex = 13;
             // 
             // lblCompany
             // 
@@ -342,7 +342,7 @@
             this.clbChar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clbChar.Name = "clbChar";
             this.clbChar.Size = new System.Drawing.Size(316, 123);
-            this.clbChar.TabIndex = 39;
+            this.clbChar.TabIndex = 20;
             // 
             // lblCharacteristics
             // 
@@ -360,7 +360,7 @@
             this.tbxCounty.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxCounty.Name = "tbxCounty";
             this.tbxCounty.Size = new System.Drawing.Size(176, 22);
-            this.tbxCounty.TabIndex = 42;
+            this.tbxCounty.TabIndex = 8;
             // 
             // lblCounty
             // 
@@ -388,7 +388,7 @@
             this.tbxBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxBirth.Name = "tbxBirth";
             this.tbxBirth.Size = new System.Drawing.Size(195, 22);
-            this.tbxBirth.TabIndex = 43;
+            this.tbxBirth.TabIndex = 14;
             // 
             // lblSSN
             // 
@@ -407,7 +407,7 @@
             this.tbxSSN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxSSN.Name = "tbxSSN";
             this.tbxSSN.Size = new System.Drawing.Size(195, 22);
-            this.tbxSSN.TabIndex = 45;
+            this.tbxSSN.TabIndex = 15;
             // 
             // AddClient
             // 

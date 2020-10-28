@@ -19,6 +19,8 @@ namespace GrenciCPA
             InitializeComponent();
         }
 
+        
+
         private void ServiceSelect_Load(object sender, EventArgs e)
         {
             tbxDate.Text = DateTime.Now.ToString();
@@ -31,8 +33,8 @@ namespace GrenciCPA
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            JobScreen form = new JobScreen();
-            form.ShowDialog();
+            //JobScreen form = new JobScreen();
+            //form.ShowDialog();
         }
 
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)

@@ -21,9 +21,16 @@ namespace GrenciCPA
 {
     public partial class InvoiceScreen : Form
     {
+        private int jobID;
+
         public InvoiceScreen()
         {
             InitializeComponent();
+        }
+        public InvoiceScreen(int pJob)
+        {
+            InitializeComponent();
+            jobID = pJob;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

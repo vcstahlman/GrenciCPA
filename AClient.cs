@@ -39,6 +39,7 @@ namespace GrenciCPA
         private string notes;
         private List<string> characteristics;
         private string preferred;
+        private int jobID;
 
 
         //accessors and mutators for the class.
@@ -63,5 +64,6 @@ namespace GrenciCPA
         public string Notes { get => notes; set => notes = value; }
         public List<string> Characteristics { get => characteristics; set => characteristics = value; }
         public string Preferred { get => preferred; set => preferred = value; }
+        public int JobID { get => jobID; set => jobID = value; }
     }
 }

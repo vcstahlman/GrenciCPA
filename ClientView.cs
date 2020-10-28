@@ -29,27 +29,27 @@ namespace GrenciCPA
         public ClientView()
         {
             // test data
-            InitializeComponent();
-            int n = dgvClientPast.Rows.Add();
-            dgvClientPast.Rows[n].Cells[0].Value = "4/12/19";
-            dgvClientPast.Rows[n].Cells[1].Value = "Income Tax";
-            dgvClientPast.Rows[n].Cells[2].Value = "$125";
-            dgvClientPast.Rows[n].Cells[3].Value = "$125";
-            dgvClientPast.Rows[n].Cells[4].Value = "4/13/19";
+            //InitializeComponent();
+            //int n = dgvClientPast.Rows.Add();
+            //dgvClientPast.Rows[n].Cells[0].Value = "4/12/19";
+            //dgvClientPast.Rows[n].Cells[1].Value = "Income Tax";
+            //dgvClientPast.Rows[n].Cells[2].Value = "$125";
+            //dgvClientPast.Rows[n].Cells[3].Value = "$125";
+            //dgvClientPast.Rows[n].Cells[4].Value = "4/13/19";
 
-            int j = dgvClientPast.Rows.Add();
-            dgvClientPast.Rows[j].Cells[0].Value = "4/8/18";
-            dgvClientPast.Rows[j].Cells[1].Value = "Income Tax";
-            dgvClientPast.Rows[j].Cells[2].Value = "$125";
-            dgvClientPast.Rows[j].Cells[3].Value = "$125";
-            dgvClientPast.Rows[j].Cells[4].Value = "4/8/18";
+            //int j = dgvClientPast.Rows.Add();
+            //dgvClientPast.Rows[j].Cells[0].Value = "4/8/18";
+            //dgvClientPast.Rows[j].Cells[1].Value = "Income Tax";
+            //dgvClientPast.Rows[j].Cells[2].Value = "$125";
+            //dgvClientPast.Rows[j].Cells[3].Value = "$125";
+            //dgvClientPast.Rows[j].Cells[4].Value = "4/8/18";
 
-            int m = dgvClientPast.Rows.Add();
-            dgvClientPast.Rows[m].Cells[0].Value = "2/23/18";
-            dgvClientPast.Rows[m].Cells[1].Value = "Investments";
-            dgvClientPast.Rows[m].Cells[2].Value = "$100";
-            dgvClientPast.Rows[m].Cells[3].Value = "$100";
-            dgvClientPast.Rows[m].Cells[4].Value = "2/23/18";
+            //int m = dgvClientPast.Rows.Add();
+            //dgvClientPast.Rows[m].Cells[0].Value = "2/23/18";
+            //dgvClientPast.Rows[m].Cells[1].Value = "Investments";
+            //dgvClientPast.Rows[m].Cells[2].Value = "$100";
+            //dgvClientPast.Rows[m].Cells[3].Value = "$100";
+            //dgvClientPast.Rows[m].Cells[4].Value = "2/23/18";
         }
         public ClientView(int pClientID)
         {
@@ -309,6 +309,42 @@ namespace GrenciCPA
             
         }
 
+        private int CreateJob()
+        {
+            int jobID = 0;
+            string SetOtherSQL = "INSERT INTO JOB_TABLE (CLIENT_ID, JOB_ACTIVE) " +
+                "OUTPUT INSERTED.JOB_ID " +
+                "VALUES (@CLIENT_ID, @JOB_ACTIVE); ";
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(SetOtherSQL, connection);
+                //Open the connection
+                connection.Open();
+
+
+                command.Parameters.AddWithValue("@CLIENT_ID", clientID);
+                command.Parameters.AddWithValue("@JOB_ACTIVE", 1);
+                                
+                var lastID = command.ExecuteScalar(); //this gets the data of the client that was just added into the system
+                jobID = Convert.ToInt32(lastID);
+                
+
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Could not open or insert data! \nError: " + ex.Message);
+            }
+        
+            return jobID;
+        }
+
 
         //Prompt to ensure the user saves all changes made to form before closing
         private void button3_Click(object sender, EventArgs e)
@@ -328,7 +364,7 @@ namespace GrenciCPA
         // for a new job.
         private void btnNewJob_Click(object sender, EventArgs e)
         {
-            ServiceSelect form = new ServiceSelect();
+            JobScreen form = new JobScreen(clientID, CreateJob());
             form.ShowDialog();
 
         }
@@ -349,7 +385,7 @@ namespace GrenciCPA
         // this button will show all Active Jobs for the given client on the Active Job form
         private void btnActive_Click(object sender, EventArgs e)
         {
-            Jobs form = new Jobs();
+            Jobs form = new Jobs(clientID);
             form.ShowDialog();
         }
 
