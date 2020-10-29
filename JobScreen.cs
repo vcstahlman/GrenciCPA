@@ -65,40 +65,46 @@ namespace GrenciCPA
         {
             try
             {
-                if (e.ColumnIndex == dgvFees.Columns["Characteristics"].Index)
+                if (e.ColumnIndex == 2 && dgvFees.Rows[e.RowIndex].Cells[1].Value != null)
                 {
-                    string selectedChar = dgvFees.Rows[e.RowIndex].Cells[2].Selected.ToString() ;
+                    string selectedChar = dgvFees.Rows[e.RowIndex].Cells[1].Value.ToString() ;
                     foreach (AChar achar in characteristicList)
                     {
                         if(achar.CharName == selectedChar)
                         {
-                            dgvFees.Rows[e.RowIndex].Cells[3].Value = achar.CharCost;
-                            if (dgvFees.Rows[e.RowIndex].Cells[5].Value == null) dgvFees.Rows[e.RowIndex].Cells[5].Value = achar.CharMini;
+                            if (dgvFees.Rows[e.RowIndex].Cells[3].Value != null)
+                            {
+                                dgvFees.Rows[e.RowIndex].Cells[3].Value = achar.CharCost;
+                                if (dgvFees.Rows[e.RowIndex].Cells[5].Value == null) dgvFees.Rows[e.RowIndex].Cells[5].Value = achar.CharMini;
+                            }
                         }
                     }
 
                 }
-                if (e.ColumnIndex == dgvFees.Columns["Multiplier"].Index)
+                if (e.ColumnIndex == 3)
                 {
-                    string selectedChar = dgvFees.Rows[e.RowIndex].Cells[2].Selected.ToString();
-                    foreach (AChar achar in characteristicList)
+                    if (dgvFees.Rows[e.RowIndex].Cells[2].Value != null)
                     {
-                        if (achar.CharName == selectedChar)
+                        string selectedChar = dgvFees.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        foreach (AChar achar in characteristicList)
                         {
-                            double total = 0;
-                            if (dgvFees.Rows[e.RowIndex].Cells[4].Value != null)
+                            if (achar.CharName == selectedChar)
                             {
-                                double multi = 0;
-                                double.TryParse(dgvFees.Rows[e.RowIndex].Cells[4].Value.ToString(), out multi);
+                                double total = 0;
+                                if (dgvFees.Rows[e.RowIndex].Cells[4].Value != null)
+                                {
+                                    double multi = 0;
+                                    double.TryParse(dgvFees.Rows[e.RowIndex].Cells[4].Value.ToString(), out multi);
 
-                                total = achar.CharCost * multi;
-                            }
+                                    total = achar.CharCost * multi;
+                                }
 
-                            if (dgvFees.Rows[e.RowIndex].Cells[5].Value != null ) 
-                            {
-                                
-                                if (achar.CharMini <= total)    dgvFees.Rows[e.RowIndex].Cells[5].Value = total;
+                                if (dgvFees.Rows[e.RowIndex].Cells[5].Value != null)
+                                {
+
+                                    if (achar.CharMini <= total) dgvFees.Rows[e.RowIndex].Cells[5].Value = total;
                                     //if the total is now more mini then it will overwrite
+                                }
                             }
                         }
                     }
@@ -115,6 +121,19 @@ namespace GrenciCPA
         private void JobScreen_Load(object sender, EventArgs e)
         {
             // test data
+            AComp temp = new AComp();
+            temp.SortInt = 1; //this will tag it to be added to the list.
+            temp.Row = dgvFees.Rows.Count;//the count should be updated so this should give the comp a new rowrelated id.
+
+            componentList.Add(temp);
+            (dgvFees.Columns[1] as DataGridViewComboBoxColumn).DataSource = serivceList;
+            (dgvFees.Columns[1] as DataGridViewComboBoxColumn).DisplayMember = "ServName";
+            (dgvFees.Columns[1] as DataGridViewComboBoxColumn).ValueMember = "ServID";
+            (dgvFees.Columns[2] as DataGridViewComboBoxColumn).DataSource = characteristicList;
+            (dgvFees.Columns[2] as DataGridViewComboBoxColumn).DisplayMember = "CharName";
+            (dgvFees.Columns[2] as DataGridViewComboBoxColumn).ValueMember = "CharID";
+
+
 
         }
 
@@ -697,16 +716,16 @@ namespace GrenciCPA
 
             componentList.Add(temp);
 
-            DataGridViewComboBoxCell cboServ = (DataGridViewComboBoxCell)dgvFees[dgvFees.Rows.Count, 1];
-            foreach(AServ serv in serivceList) { 
-                cboServ.Items.AddRange(serv.ServName); 
-            }
+            //DataGridViewComboBoxCell cboServ = (DataGridViewComboBoxCell)dgvFees[dgvFees.Rows.Count, 1];
+            //foreach(AServ serv in serivceList) { 
+            //    cboServ.Items.AddRange(serv.ServName); 
+            //}
 
-            DataGridViewComboBoxCell cboChar = (DataGridViewComboBoxCell)dgvFees[dgvFees.Rows.Count, 2];
-            foreach (AChar achar in characteristicList)
-            {
-                cboChar.Items.AddRange(achar.CharName);
-            }
+            //DataGridViewComboBoxCell cboChar = (DataGridViewComboBoxCell)dgvFees[dgvFees.Rows.Count, 2];
+            //foreach (AChar achar in characteristicList)
+            //{
+            //    cboChar.Items.AddRange(achar.CharName);
+            //}
 
         }
 

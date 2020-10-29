@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,10 +40,10 @@
             this.lblServices = new System.Windows.Forms.Label();
             this.btnSaveFee = new System.Windows.Forms.Button();
             this.dgvServices = new System.Windows.Forms.DataGridView();
-            this.lblCategorys = new System.Windows.Forms.Label();
-            this.dgvFees = new System.Windows.Forms.DataGridView();
             this.txtServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InvoiceFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblCategorys = new System.Windows.Forms.Label();
+            this.dgvFees = new System.Windows.Forms.DataGridView();
             this.CategoryLabel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BaseFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MinimumFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@
             // btnDone
             // 
             this.btnDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDone.Location = new System.Drawing.Point(1080, 587);
+            this.btnDone.Location = new System.Drawing.Point(1201, 586);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(137, 34);
             this.btnDone.TabIndex = 27;
@@ -76,8 +76,8 @@
             // 
             // btnSaveFee
             // 
-            this.btnSaveFee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSaveFee.Location = new System.Drawing.Point(937, 588);
+            this.btnSaveFee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveFee.Location = new System.Drawing.Point(1026, 588);
             this.btnSaveFee.Name = "btnSaveFee";
             this.btnSaveFee.Size = new System.Drawing.Size(137, 33);
             this.btnSaveFee.TabIndex = 37;
@@ -107,6 +107,24 @@
             this.dgvServices.RowTemplate.Height = 24;
             this.dgvServices.Size = new System.Drawing.Size(482, 548);
             this.dgvServices.TabIndex = 36;
+            // 
+            // txtServiceName
+            // 
+            this.txtServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.txtServiceName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.txtServiceName.FillWeight = 126.9036F;
+            this.txtServiceName.HeaderText = "Service";
+            this.txtServiceName.MinimumWidth = 100;
+            this.txtServiceName.Name = "txtServiceName";
+            // 
+            // InvoiceFormat
+            // 
+            this.InvoiceFormat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InvoiceFormat.FillWeight = 150F;
+            this.InvoiceFormat.HeaderText = "Invoice Format";
+            this.InvoiceFormat.MinimumWidth = 150;
+            this.InvoiceFormat.Name = "InvoiceFormat";
             // 
             // lblCategorys
             // 
@@ -143,26 +161,8 @@
             this.dgvFees.Name = "dgvFees";
             this.dgvFees.RowHeadersWidth = 51;
             this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(700, 549);
+            this.dgvFees.Size = new System.Drawing.Size(821, 549);
             this.dgvFees.TabIndex = 32;
-            // 
-            // txtServiceName
-            // 
-            this.txtServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtServiceName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.txtServiceName.FillWeight = 126.9036F;
-            this.txtServiceName.HeaderText = "Service";
-            this.txtServiceName.MinimumWidth = 100;
-            this.txtServiceName.Name = "txtServiceName";
-            // 
-            // InvoiceFormat
-            // 
-            this.InvoiceFormat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InvoiceFormat.FillWeight = 150F;
-            this.InvoiceFormat.HeaderText = "Invoice Format";
-            this.InvoiceFormat.MinimumWidth = 150;
-            this.InvoiceFormat.Name = "InvoiceFormat";
             // 
             // CategoryLabel
             // 
@@ -212,7 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 633);
+            this.ClientSize = new System.Drawing.Size(1383, 633);
             this.Controls.Add(this.btnSaveFee);
             this.Controls.Add(this.dgvServices);
             this.Controls.Add(this.lblCategorys);

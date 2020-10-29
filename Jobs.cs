@@ -24,6 +24,7 @@ namespace GrenciCPA
 
         private List<AClient> ClientsObjList;
         private int clientID = 0 ;
+        private int staffID = 0;
 
         public Jobs()
         {
@@ -36,6 +37,12 @@ namespace GrenciCPA
             InitializeComponent();
             ClientsObjList = new List<AClient>();
             clientID = pclient;
+        }
+        public Jobs(int pStaff, string useless)
+        {
+            InitializeComponent();
+            ClientsObjList = new List<AClient>();
+            staffID = pStaff;
         }
 
 
@@ -76,6 +83,17 @@ namespace GrenciCPA
                 "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                 "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                 "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE JOB_TABLE.CLIENT_ID = " + clientID + ";";
+            }
+
+            if (staffID != 0)//if there is a passed id for the client then it will make only the clients info come in for now.
+
+            //need to auto put in the name when the filtering is a thing.
+
+            {
+                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
+                "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
+                "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE JOB_TABLE.STAFF_ID = " + staffID + ";";
             }
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
 

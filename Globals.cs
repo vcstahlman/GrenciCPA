@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 // Justin Bloss
 // The Globals form is what the user will use to enter in service and fee information, this information will be pulled over to the JobScreen form
@@ -17,58 +18,166 @@ namespace GrenciCPA
 {
     public partial class Globals : Form
     {
+
+        private string connectionString;
+        private SqlCommand command;
+        private SqlConnection connection;
+
+        private List<AServ> ServiceObjList;
+        private List<AFee> FeeObjList;
+
         public Globals()
         {
-            // test data
             InitializeComponent();
-            int n = dgvServices.Rows.Add();
-            dgvServices.Rows[n].Cells[0].Value = "Income Taxes";
-            dgvServices.Rows[n].Cells[1].Value = "$100";
+            ServiceObjList = new List<AServ>();
+            FeeObjList = new List<AFee>();
+            CreateServiceList();
+            CreateFeeList();
+            FillDGV();
 
-            int x = dgvServices.Rows.Add();
-            dgvServices.Rows[x].Cells[0].Value = "Payroll";
-            dgvServices.Rows[x].Cells[1].Value = "$150";
+            //this allows multiple lines for the char
+            dgvFees.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvServices.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvFees.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvServices.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        }
+
+        private void CreateServiceList()
+        {
+            string GetServicesSQL = "SELECT SERV_ID, SERV_NAME, SERV_SENTENCE, SERV_ACTIVE " + "FROM SERVICE_TABLE";
+            //string GetFeesSQL = "SELECT CHAR_ID, CHAR_NAME, CHAR_COST, CHAR_MIN, SERV_ID " + "FROM CHARACTERISTIC_TABLE";
+
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(GetServicesSQL, connection);
+                //Open the connection
+                connection.Open();
+                //Create a SQL Data Reader object
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                //Keep reading as long as I have data from the database to read
 
 
-            int m = dgvFees.Rows.Add();
-            dgvFees.Rows[m].Cells[0].Value = "Dependents";
-            dgvFees.Rows[m].Cells[1].Value = "$5";
-            dgvFees.Rows[m].Cells[3].Value = "Income Taxes";
 
-            int j = dgvFees.Rows.Add();
-            dgvFees.Rows[j].Cells[0].Value = "Dependents Attending College";
-            dgvFees.Rows[j].Cells[1].Value = "$5";
-            dgvFees.Rows[j].Cells[3].Value = "Income Taxes";
+                while (reader.Read())
+                {
 
-            int l = dgvFees.Rows.Add();
-            dgvFees.Rows[l].Cells[0].Value = "Amended Return";
-            dgvFees.Rows[l].Cells[1].Value = "$2";
-            dgvFees.Rows[l].Cells[3].Value = "Income Taxes";
 
-            int k = dgvFees.Rows.Add();
-            dgvFees.Rows[k].Cells[0].Value = "Schedule C";
-            dgvFees.Rows[k].Cells[1].Value = "$2";
-            dgvFees.Rows[k].Cells[3].Value = "Income Taxes";
+                    AServ tempService = new AServ();
 
-            int v = dgvFees.Rows.Add();
-            dgvFees.Rows[v].Cells[0].Value = "Earned Income Credit";
-            dgvFees.Rows[v].Cells[1].Value = "$1";
-            dgvFees.Rows[v].Cells[3].Value = "Income Taxes";
 
-            int a = dgvFees.Rows.Add();
-            dgvFees.Rows[a].Cells[0].Value = "Employees";
-            dgvFees.Rows[a].Cells[1].Value = "$5";
-            dgvFees.Rows[a].Cells[3].Value = "Payroll";
 
-            int b = dgvFees.Rows.Add();
-            dgvFees.Rows[b].Cells[0].Value = "Tipped Employees";
-            dgvFees.Rows[b].Cells[1].Value = "$1";
-            dgvFees.Rows[b].Cells[3].Value = "Payroll";
+                    if (reader["SERV_ID"] != DBNull.Value)
+                    {
+                        tempService.ServID = (reader["SERV_ID"] as int?) ?? 0;
+                    }
+                    if (reader["SERV_NAME"] != DBNull.Value)
+                    {
+                        tempService.ServName = reader["SERV_NAME"] as string;
+                    }
+                    if (reader["SERV_SENTENCE"] != DBNull.Value)
+                    {
+                        tempService.ServSent = reader["SERV_SENTENCE"] as string;
+                    }
+                    if (reader["SERV_ACTIVE"] != DBNull.Value)
+                    {
+                        tempService.Active = reader.GetBoolean(reader.GetOrdinal("SERV_ACTIVE"));
+                    }
 
-            int c = dgvFees.Rows.Add();
-            dgvFees.Rows[c].Cells[0].Value = "Payroll Tax Returns";
-            dgvFees.Rows[c].Cells[1].Value = "$150";
-            dgvFees.Rows[c].Cells[3].Value = "Payroll";
+
+                    //Add the temporary plot stuff from list.
+                    ServiceObjList.Add(tempService);
+
+                    tempService = null;
+                }
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not retrieve clients from Database.! \n Error reads: " + ex.Message);
+            }
+        }
+
+        private void CreateFeeList()
+        {
+
+            string GetFeesSQL = "SELECT CHAR_ID, CHAR_NAME, CHAR_COST, CHAR_MIN, SERV_ID, CHAR_ACTIVE " + "FROM CHARACTERISTIC_TABLE";
+
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(GetFeesSQL, connection);
+                //Open the connection
+                connection.Open();
+                //Create a SQL Data Reader object
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                //Keep reading as long as I have data from the database to read
+
+
+
+                while (reader.Read())
+                {
+
+
+                    AFee tempFee = new AFee();
+
+
+
+                    if (reader["CHAR_ID"] != DBNull.Value)
+                    {
+                        tempFee.FeeID = (reader["CHAR_ID"] as int?) ?? 0;
+                    }
+                    if (reader["CHAR_NAME"] != DBNull.Value)
+                    {
+                        tempFee.FeeName = reader["CHAR_NAME"] as string;
+                    }
+                    if (reader["CHAR_COST"] != DBNull.Value)
+                    {
+                        tempFee.FeeCost = (reader["CHAR_COST"] as decimal?) ?? 0.00m;
+                    }
+                    if (reader["CHAR_MIN"] != DBNull.Value)
+                    {
+                        tempFee.FeeMin = (reader["CHAR_MIN"] as decimal?) ?? 0.00m;
+                    }
+                    if (reader["SERV_ID"] != DBNull.Value)
+                    {
+                        tempFee.ServID = (reader["SERV_ID"] as int?) ?? 0;
+                    }
+                    if (reader["CHAR_ACTIVE"] != DBNull.Value)
+                    {
+                        tempFee.Active = reader.GetBoolean(reader.GetOrdinal("CHAR_ACTIVE"));
+                    }
+
+
+                    //Add the temporary plot stuff from list.
+                    FeeObjList.Add(tempFee);
+
+                    tempFee = null;
+                }
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not retrieve clients from Database.! \n Error reads: " + ex.Message);
+            }
+        }
+
+        private void FillDGV()//fills in the Datagridview via the list of objects
+        {
+            foreach (AServ aService in ServiceObjList)
+            {
+                dgvServices.Rows.Add(aService.ServName, aService.ServSent);
+            }
+            foreach (AFee aFee in FeeObjList)
+            {
+                dgvFees.Rows.Add(aFee.FeeName, aFee.FeeCost, aFee.FeeMin, aFee.ServID);
+            }
         }
 
         private void Fees_Load(object sender, EventArgs e)

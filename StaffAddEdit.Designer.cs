@@ -37,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblRate = new System.Windows.Forms.Label();
             this.tbxRate = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSave
@@ -49,6 +48,7 @@
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // btnClose
             // 
@@ -115,22 +115,11 @@
             this.tbxRate.Size = new System.Drawing.Size(196, 22);
             this.tbxRate.TabIndex = 2;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDelete.Location = new System.Drawing.Point(170, 167);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(119, 55);
-            this.btnDelete.TabIndex = 52;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // StaffAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 234);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.tbxRate);
             this.Controls.Add(this.lblRate);
             this.Controls.Add(this.tbxFirst);
@@ -157,6 +146,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblRate;
         private System.Windows.Forms.TextBox tbxRate;
-        private System.Windows.Forms.Button btnDelete;
     }
 }

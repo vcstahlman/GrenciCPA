@@ -131,6 +131,7 @@
             this.dgvFees.Size = new System.Drawing.Size(1183, 306);
             this.dgvFees.TabIndex = 29;
             this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
+            this.dgvFees.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             this.dgvFees.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvFees_RowsAdded);
             // 
             // ID
@@ -226,7 +227,7 @@
             this.lblStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStaff.AutoSize = true;
             this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaff.Location = new System.Drawing.Point(1264, 12);
+            this.lblStaff.Location = new System.Drawing.Point(1241, 12);
             this.lblStaff.Name = "lblStaff";
             this.lblStaff.Size = new System.Drawing.Size(103, 17);
             this.lblStaff.TabIndex = 43;
@@ -438,6 +439,7 @@
             // 
             // cmboStaff
             // 
+            this.cmboStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmboStaff.FormattingEnabled = true;
             this.cmboStaff.Items.AddRange(new object[] {
             "Dr. Grenci",
