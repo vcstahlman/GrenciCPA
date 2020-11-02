@@ -162,16 +162,10 @@ namespace GrenciCPA
                     var lastID = command.ExecuteScalar(); //this gets the data of the client that was just added into the system
                     staffID = Convert.ToInt32(lastID);
                 }
-
-
-                int rowsAffected = command.ExecuteNonQuery();
+                else command.ExecuteNonQuery();
 
                 connection.Close();
             }
-
-
-
-
 
 
             catch (Exception ex)

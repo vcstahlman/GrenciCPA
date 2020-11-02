@@ -64,6 +64,7 @@
     <Compile Include="AFee.cs" />
     <Compile Include="AServ.cs" />
     <Compile Include="AStaff.cs" />
+    <Compile Include="ATime.cs" />
     <Compile Include="ClientList.cs">
       <SubType>Form</SubType>
     </Compile>

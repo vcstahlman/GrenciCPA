@@ -455,7 +455,8 @@ namespace GrenciCPA
 
             if (isEdit) SetOtherSQL = " UPDATE CLIENT_TABLE SET FIRST_NAME = @FIRST_NAME, LAST_NAME = @LAST_NAME, BIRTHDATE = @BIRTHDATE, " +
                     "ST_ADDRESS = @ST_ADDRESS, CITY = @CITY, STATE_AB = @STATE_AB, ZIP = @ZIP, " +
-                "COUNTY = @COUNTY, SCHOOL = @SCHOOL, EMAIL = @EMAIL, PHONE = @PHONE, PREFERRED_CON = @PREFERRED_CON " +
+                "COUNTY = @COUNTY, SCHOOL = @SCHOOL, EMAIL = @EMAIL, PHONE = @PHONE, SS= @SS, IS_BUSINESS = @IS_BUSINESS, NOTES = @NOTES, COMPANY_NAME = @COMPANY_NAME," +
+                "CLIENT_ACTIVE = @CLIENT_ACTIVE, PREFERRED_CON = @PREFERRED_CON " +
                         "WHERE CLIENT_ID= " + clientID + " ; ";
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
@@ -485,40 +486,40 @@ namespace GrenciCPA
                 command.Parameters.AddWithValue("@CLIENT_ACTIVE", 1);
                 command.Parameters.AddWithValue("@PREFERRED_CON", 1 );
 
-
+                int rowsAffected = 0;
                 if (!isEdit)
                 {
                     var lastID = command.ExecuteScalar(); //this gets the data of the client that was just added into the system
                     clientID = Convert.ToInt32(lastID);
                 }
-
-
-                int rowsAffected = command.ExecuteNonQuery();
+                else rowsAffected = command.ExecuteNonQuery();
 
                 connection.Close();
 
-                if (isEdit)
-                {
-                    if (rowsAffected > 0)//if added it will say it did, if not it said it will not
-                    {
-                        MessageBox.Show("Client was Updated! \n Close Client View and re-enter to see changes.!!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No Client was Updated!!");
-                    }
-                }
-                else
-                {
-                    if (rowsAffected > 0)//if added it will say it did, if not it said it will not
-                    {
-                        MessageBox.Show("New Client added! \nClose Client View and re-enter to see changes.!!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No Client was added!!");
-                    }
-                }
+                //if (isEdit)
+                //{
+                //    if (rowsAffected > 0)//if added it will say it did, if not it said it will not
+                //    {
+                //        MessageBox.Show("Client was Updated! \n Close Client View and re-enter to see changes.!!");
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("No Client was Updated!!");
+                //    }
+                //}
+                //else
+                //{
+                //    if (rowsAffected > 0)//if added it will say it did, if not it said it will not
+                //    {
+                //        MessageBox.Show("New Client added! \nClose Client View and re-enter to see changes.!!");
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("No Client was added!!");
+                //    }
+                //}
+
+                this.Close();
 
                 
             }

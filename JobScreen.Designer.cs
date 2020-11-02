@@ -42,8 +42,8 @@
             this.btnEditClient = new System.Windows.Forms.Button();
             this.dgvFees = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FeeName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.txtCharacteristics = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cboService = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cboCharacteristics = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.txtCharCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCharMultiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtMiniTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +67,6 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.lblNotes = new System.Windows.Forms.Label();
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
-            this.txtDateTime = new System.Windows.Forms.TextBox();
             this.cmboStaff = new System.Windows.Forms.ComboBox();
             this.lblParent = new System.Windows.Forms.Label();
             this.lblBirthdate = new System.Windows.Forms.Label();
@@ -82,6 +81,7 @@
             this.lblAddressCSZ = new System.Windows.Forms.Label();
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTime)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +89,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(1391, 563);
+            this.button3.Location = new System.Drawing.Point(1541, 665);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(103, 53);
             this.button3.TabIndex = 28;
@@ -99,7 +99,7 @@
             // 
             // btnEditClient
             // 
-            this.btnEditClient.Location = new System.Drawing.Point(231, 400);
+            this.btnEditClient.Location = new System.Drawing.Point(107, 392);
             this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditClient.Name = "btnEditClient";
             this.btnEditClient.Size = new System.Drawing.Size(172, 28);
@@ -110,8 +110,10 @@
             // 
             // dgvFees
             // 
+            this.dgvFees.AllowUserToDeleteRows = false;
             this.dgvFees.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvFees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -119,18 +121,19 @@
             this.dgvFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.FeeName,
-            this.txtCharacteristics,
+            this.cboService,
+            this.cboCharacteristics,
             this.txtCharCost,
             this.txtCharMultiplier,
             this.txtMiniTotal});
             this.dgvFees.Location = new System.Drawing.Point(311, 39);
+            this.dgvFees.MultiSelect = false;
             this.dgvFees.Name = "dgvFees";
             this.dgvFees.RowHeadersWidth = 51;
             this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(1183, 306);
+            this.dgvFees.Size = new System.Drawing.Size(1333, 408);
             this.dgvFees.TabIndex = 29;
-            this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
+            this.dgvFees.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             this.dgvFees.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             this.dgvFees.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvFees_RowsAdded);
             // 
@@ -142,27 +145,26 @@
             this.ID.Visible = false;
             this.ID.Width = 125;
             // 
-            // FeeName
+            // cboService
             // 
-            this.FeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cboService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.FeeName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FeeName.FillWeight = 125F;
-            this.FeeName.HeaderText = "Service";
-            this.FeeName.MinimumWidth = 125;
-            this.FeeName.Name = "FeeName";
-            this.FeeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cboService.DefaultCellStyle = dataGridViewCellStyle2;
+            this.cboService.HeaderText = "Service";
+            this.cboService.MaxDropDownItems = 100;
+            this.cboService.MinimumWidth = 100;
+            this.cboService.Name = "cboService";
+            this.cboService.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // txtCharacteristics
+            // cboCharacteristics
             // 
-            this.txtCharacteristics.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cboCharacteristics.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtCharacteristics.DefaultCellStyle = dataGridViewCellStyle3;
-            this.txtCharacteristics.FillWeight = 125F;
-            this.txtCharacteristics.HeaderText = "Characteristics";
-            this.txtCharacteristics.MinimumWidth = 125;
-            this.txtCharacteristics.Name = "txtCharacteristics";
+            this.cboCharacteristics.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cboCharacteristics.HeaderText = "Characteristics";
+            this.cboCharacteristics.MaxDropDownItems = 100;
+            this.cboCharacteristics.MinimumWidth = 100;
+            this.cboCharacteristics.Name = "cboCharacteristics";
             // 
             // txtCharCost
             // 
@@ -199,11 +201,12 @@
             this.txtMiniTotal.HeaderText = "Min/Total";
             this.txtMiniTotal.MinimumWidth = 75;
             this.txtMiniTotal.Name = "txtMiniTotal";
+            this.txtMiniTotal.ReadOnly = true;
             // 
             // btnComplete
             // 
             this.btnComplete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnComplete.Location = new System.Drawing.Point(1391, 445);
+            this.btnComplete.Location = new System.Drawing.Point(1541, 547);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(103, 53);
             this.btnComplete.TabIndex = 30;
@@ -214,7 +217,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(1391, 504);
+            this.btnSave.Location = new System.Drawing.Point(1541, 606);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(103, 53);
             this.btnSave.TabIndex = 31;
@@ -227,7 +230,7 @@
             this.lblStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStaff.AutoSize = true;
             this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaff.Location = new System.Drawing.Point(1241, 12);
+            this.lblStaff.Location = new System.Drawing.Point(1391, 12);
             this.lblStaff.Name = "lblStaff";
             this.lblStaff.Size = new System.Drawing.Size(103, 17);
             this.lblStaff.TabIndex = 43;
@@ -235,10 +238,11 @@
             // 
             // btnClient
             // 
-            this.btnClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClient.Location = new System.Drawing.Point(1391, 388);
+            this.btnClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClient.Location = new System.Drawing.Point(994, 536);
             this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(103, 52);
+            this.btnClient.Size = new System.Drawing.Size(102, 34);
             this.btnClient.TabIndex = 44;
             this.btnClient.Text = "Calculate";
             this.btnClient.UseVisualStyleBackColor = true;
@@ -253,11 +257,11 @@
             this.StartedTime,
             this.EndedTime,
             this.Desc});
-            this.dgvTime.Location = new System.Drawing.Point(673, 466);
+            this.dgvTime.Location = new System.Drawing.Point(673, 568);
             this.dgvTime.Name = "dgvTime";
             this.dgvTime.RowHeadersWidth = 51;
             this.dgvTime.RowTemplate.Height = 24;
-            this.dgvTime.Size = new System.Drawing.Size(637, 140);
+            this.dgvTime.Size = new System.Drawing.Size(787, 140);
             this.dgvTime.TabIndex = 58;
             // 
             // TimeLength
@@ -306,7 +310,7 @@
             // txtSubtract
             // 
             this.txtSubtract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSubtract.Location = new System.Drawing.Point(542, 582);
+            this.txtSubtract.Location = new System.Drawing.Point(542, 684);
             this.txtSubtract.Name = "txtSubtract";
             this.txtSubtract.Size = new System.Drawing.Size(94, 22);
             this.txtSubtract.TabIndex = 67;
@@ -316,7 +320,7 @@
             // 
             this.lblSubtractTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSubtractTime.AutoSize = true;
-            this.lblSubtractTime.Location = new System.Drawing.Point(436, 582);
+            this.lblSubtractTime.Location = new System.Drawing.Point(436, 684);
             this.lblSubtractTime.Name = "lblSubtractTime";
             this.lblSubtractTime.Size = new System.Drawing.Size(100, 17);
             this.lblSubtractTime.TabIndex = 66;
@@ -326,7 +330,7 @@
             // btnEditTime
             // 
             this.btnEditTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditTime.Location = new System.Drawing.Point(438, 466);
+            this.btnEditTime.Location = new System.Drawing.Point(438, 568);
             this.btnEditTime.Name = "btnEditTime";
             this.btnEditTime.Size = new System.Drawing.Size(107, 45);
             this.btnEditTime.TabIndex = 65;
@@ -338,7 +342,7 @@
             // 
             this.lblAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAddTime.AutoSize = true;
-            this.lblAddTime.Location = new System.Drawing.Point(464, 557);
+            this.lblAddTime.Location = new System.Drawing.Point(464, 659);
             this.lblAddTime.Name = "lblAddTime";
             this.lblAddTime.Size = new System.Drawing.Size(72, 17);
             this.lblAddTime.TabIndex = 64;
@@ -348,7 +352,7 @@
             // txtAddTime
             // 
             this.txtAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAddTime.Location = new System.Drawing.Point(542, 554);
+            this.txtAddTime.Location = new System.Drawing.Point(542, 656);
             this.txtAddTime.Name = "txtAddTime";
             this.txtAddTime.Size = new System.Drawing.Size(94, 22);
             this.txtAddTime.TabIndex = 63;
@@ -365,7 +369,7 @@
             "40 minutes",
             "50 minutes",
             "1 hour"});
-            this.cmboAddTime.Location = new System.Drawing.Point(542, 524);
+            this.cmboAddTime.Location = new System.Drawing.Point(542, 626);
             this.cmboAddTime.Name = "cmboAddTime";
             this.cmboAddTime.Size = new System.Drawing.Size(94, 24);
             this.cmboAddTime.TabIndex = 61;
@@ -375,7 +379,7 @@
             // 
             this.lblAddMinutes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAddMinutes.AutoSize = true;
-            this.lblAddMinutes.Location = new System.Drawing.Point(446, 531);
+            this.lblAddMinutes.Location = new System.Drawing.Point(446, 633);
             this.lblAddMinutes.Name = "lblAddMinutes";
             this.lblAddMinutes.Size = new System.Drawing.Size(90, 17);
             this.lblAddMinutes.TabIndex = 60;
@@ -385,7 +389,7 @@
             // btnTimer
             // 
             this.btnTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTimer.Location = new System.Drawing.Point(551, 466);
+            this.btnTimer.Location = new System.Drawing.Point(551, 568);
             this.btnTimer.Name = "btnTimer";
             this.btnTimer.Size = new System.Drawing.Size(107, 45);
             this.btnTimer.TabIndex = 59;
@@ -398,7 +402,7 @@
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(669, 440);
+            this.lblTime.Location = new System.Drawing.Point(669, 542);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(56, 20);
             this.lblTime.TabIndex = 62;
@@ -410,7 +414,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNotes.AutoSize = true;
             this.lblNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.Location = new System.Drawing.Point(7, 423);
+            this.lblNotes.Location = new System.Drawing.Point(7, 525);
             this.lblNotes.Name = "lblNotes";
             this.lblNotes.Size = new System.Drawing.Size(55, 17);
             this.lblNotes.TabIndex = 69;
@@ -420,22 +424,13 @@
             // 
             this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rtbNotes.Enabled = false;
-            this.rtbNotes.Location = new System.Drawing.Point(14, 440);
+            this.rtbNotes.Location = new System.Drawing.Point(14, 542);
             this.rtbNotes.Margin = new System.Windows.Forms.Padding(4);
             this.rtbNotes.Name = "rtbNotes";
             this.rtbNotes.Size = new System.Drawing.Size(389, 166);
             this.rtbNotes.TabIndex = 68;
             this.rtbNotes.Text = "Their child Jake just graduated High School\nThey also have a child out of Collage" +
     " and out of state\n\n";
-            // 
-            // txtDateTime
-            // 
-            this.txtDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDateTime.Location = new System.Drawing.Point(801, 440);
-            this.txtDateTime.Name = "txtDateTime";
-            this.txtDateTime.ReadOnly = true;
-            this.txtDateTime.Size = new System.Drawing.Size(226, 22);
-            this.txtDateTime.TabIndex = 70;
             // 
             // cmboStaff
             // 
@@ -444,7 +439,7 @@
             this.cmboStaff.Items.AddRange(new object[] {
             "Dr. Grenci",
             "Mrs. Grenci"});
-            this.cmboStaff.Location = new System.Drawing.Point(1365, 9);
+            this.cmboStaff.Location = new System.Drawing.Point(1515, 9);
             this.cmboStaff.Name = "cmboStaff";
             this.cmboStaff.Size = new System.Drawing.Size(121, 24);
             this.cmboStaff.TabIndex = 72;
@@ -599,11 +594,24 @@
             this.lblName.TabIndex = 73;
             this.lblName.Text = "Joe and Joan Smith";
             // 
+            // lblTotal
+            // 
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(1103, 542);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(57, 20);
+            this.lblTotal.TabIndex = 86;
+            this.lblTotal.Text = "Total:";
+            // 
             // JobScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1506, 619);
+            this.ClientSize = new System.Drawing.Size(1656, 721);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblParent);
             this.Controls.Add(this.lblBirthdate);
             this.Controls.Add(this.lblCounty);
@@ -618,7 +626,6 @@
             this.Controls.Add(this.lblAddressSt);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.cmboStaff);
-            this.Controls.Add(this.txtDateTime);
             this.Controls.Add(this.lblNotes);
             this.Controls.Add(this.rtbNotes);
             this.Controls.Add(this.txtSubtract);
@@ -671,7 +678,6 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.RichTextBox rtbNotes;
-        private System.Windows.Forms.TextBox txtDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeLength;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartedTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EndedTime;
@@ -691,10 +697,11 @@
         private System.Windows.Forms.Label lblAddressSt;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn FeeName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn txtCharacteristics;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cboService;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cboCharacteristics;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtCharCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtCharMultiplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtMiniTotal;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

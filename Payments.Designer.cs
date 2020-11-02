@@ -61,7 +61,7 @@
             this.comboBox1.Location = new System.Drawing.Point(33, 288);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(414, 24);
+            this.comboBox1.Size = new System.Drawing.Size(415, 24);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.Text = "Method of Payment";
             // 
@@ -129,7 +129,7 @@
             // 
             this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(30, 315);
+            this.lblTotal.Location = new System.Drawing.Point(29, 315);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(100, 17);
             this.lblTotal.TabIndex = 28;
@@ -145,12 +145,12 @@
             this.btnClose.TabIndex = 29;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
             // btnProcess
             // 
             this.btnProcess.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnProcess.Location = new System.Drawing.Point(154, 370);
+            this.btnProcess.Location = new System.Drawing.Point(155, 370);
             this.btnProcess.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(132, 57);
@@ -161,7 +161,7 @@
             // txbOverride
             // 
             this.txbOverride.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txbOverride.Location = new System.Drawing.Point(154, 338);
+            this.txbOverride.Location = new System.Drawing.Point(155, 338);
             this.txbOverride.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbOverride.Name = "txbOverride";
             this.txbOverride.Size = new System.Drawing.Size(132, 22);
@@ -171,7 +171,7 @@
             // 
             this.lblOverride.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblOverride.AutoSize = true;
-            this.lblOverride.Location = new System.Drawing.Point(30, 341);
+            this.lblOverride.Location = new System.Drawing.Point(29, 341);
             this.lblOverride.Name = "lblOverride";
             this.lblOverride.Size = new System.Drawing.Size(118, 17);
             this.lblOverride.TabIndex = 32;
@@ -196,7 +196,6 @@
             this.dgvPayments.RowTemplate.Height = 24;
             this.dgvPayments.Size = new System.Drawing.Size(431, 150);
             this.dgvPayments.TabIndex = 33;
-            this.dgvPayments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayments_CellContentClick);
             // 
             // txtInvoice
             // 
@@ -259,7 +258,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Payments";
             this.Text = "Payments";
-            this.Load += new System.EventHandler(this.Payments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
