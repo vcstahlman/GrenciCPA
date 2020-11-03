@@ -1287,11 +1287,11 @@ namespace GrenciCPA {
             public CLIENT_TABLERow AddCLIENT_TABLERow(
                         string FIRST_NAME, 
                         string LAST_NAME, 
-                        System.DateTime BIRTHDATE, 
+                        string BIRTHDATE, 
                         string ST_ADDRESS, 
                         string CITY, 
                         string STATE_AB, 
-                        int ZIP, 
+                        string ZIP, 
                         string COUNTY, 
                         string SCHOOL, 
                         string EMAIL, 
@@ -1389,7 +1389,7 @@ namespace GrenciCPA {
                 base.Columns.Add(this.columnFIRST_NAME);
                 this.columnLAST_NAME = new global::System.Data.DataColumn("LAST_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLAST_NAME);
-                this.columnBIRTHDATE = new global::System.Data.DataColumn("BIRTHDATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnBIRTHDATE = new global::System.Data.DataColumn("BIRTHDATE", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBIRTHDATE);
                 this.columnST_ADDRESS = new global::System.Data.DataColumn("ST_ADDRESS", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnST_ADDRESS);
@@ -1397,7 +1397,7 @@ namespace GrenciCPA {
                 base.Columns.Add(this.columnCITY);
                 this.columnSTATE_AB = new global::System.Data.DataColumn("STATE_AB", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSTATE_AB);
-                this.columnZIP = new global::System.Data.DataColumn("ZIP", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnZIP = new global::System.Data.DataColumn("ZIP", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnZIP);
                 this.columnCOUNTY = new global::System.Data.DataColumn("COUNTY", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCOUNTY);
@@ -1433,9 +1433,11 @@ namespace GrenciCPA {
                 this.columnCLIENT_ID.Unique = true;
                 this.columnFIRST_NAME.MaxLength = 50;
                 this.columnLAST_NAME.MaxLength = 50;
+                this.columnBIRTHDATE.MaxLength = 50;
                 this.columnST_ADDRESS.MaxLength = 100;
                 this.columnCITY.MaxLength = 50;
                 this.columnSTATE_AB.MaxLength = 2;
+                this.columnZIP.MaxLength = 10;
                 this.columnCOUNTY.MaxLength = 50;
                 this.columnSCHOOL.MaxLength = 100;
                 this.columnEMAIL.MaxLength = 50;
@@ -3985,7 +3987,7 @@ namespace GrenciCPA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TIME_TABLERow AddTIME_TABLERow(JOB_TABLERow parentJOB_TABLERowByTIME_JOB_FK, System.TimeSpan START_TIME, System.TimeSpan END_TIME, string TIME_DESCRIPT) {
+            public TIME_TABLERow AddTIME_TABLERow(JOB_TABLERow parentJOB_TABLERowByTIME_JOB_FK, System.DateTime START_TIME, System.DateTime END_TIME, string TIME_DESCRIPT) {
                 TIME_TABLERow rowTIME_TABLERow = ((TIME_TABLERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4039,9 +4041,9 @@ namespace GrenciCPA {
                 base.Columns.Add(this.columnTIME_ID);
                 this.columnJOB_ID = new global::System.Data.DataColumn("JOB_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnJOB_ID);
-                this.columnSTART_TIME = new global::System.Data.DataColumn("START_TIME", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                this.columnSTART_TIME = new global::System.Data.DataColumn("START_TIME", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSTART_TIME);
-                this.columnEND_TIME = new global::System.Data.DataColumn("END_TIME", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                this.columnEND_TIME = new global::System.Data.DataColumn("END_TIME", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEND_TIME);
                 this.columnTIME_DESCRIPT = new global::System.Data.DataColumn("TIME_DESCRIPT", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTIME_DESCRIPT);
@@ -4438,10 +4440,10 @@ namespace GrenciCPA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime BIRTHDATE {
+            public string BIRTHDATE {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableCLIENT_TABLE.BIRTHDATEColumn]));
+                        return ((string)(this[this.tableCLIENT_TABLE.BIRTHDATEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'BIRTHDATE\' in table \'CLIENT_TABLE\' is DBNull.", e);
@@ -4502,10 +4504,10 @@ namespace GrenciCPA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ZIP {
+            public string ZIP {
                 get {
                     try {
-                        return ((int)(this[this.tableCLIENT_TABLE.ZIPColumn]));
+                        return ((string)(this[this.tableCLIENT_TABLE.ZIPColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'ZIP\' in table \'CLIENT_TABLE\' is DBNull.", e);
@@ -6222,10 +6224,10 @@ namespace GrenciCPA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.TimeSpan START_TIME {
+            public System.DateTime START_TIME {
                 get {
                     try {
-                        return ((global::System.TimeSpan)(this[this.tableTIME_TABLE.START_TIMEColumn]));
+                        return ((global::System.DateTime)(this[this.tableTIME_TABLE.START_TIMEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'START_TIME\' in table \'TIME_TABLE\' is DBNull.", e);
@@ -6238,10 +6240,10 @@ namespace GrenciCPA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.TimeSpan END_TIME {
+            public System.DateTime END_TIME {
                 get {
                     try {
-                        return ((global::System.TimeSpan)(this[this.tableTIME_TABLE.END_TIMEColumn]));
+                        return ((global::System.DateTime)(this[this.tableTIME_TABLE.END_TIMEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'END_TIME\' in table \'TIME_TABLE\' is DBNull.", e);
@@ -7309,7 +7311,7 @@ SELECT CHAR_ID, CHAR_NAME, CHAR_COST, CHAR_MIN, SERV_ID, CHAR_ACTIVE FROM CHARAC
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LAST_NAME", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LAST_NAME", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LAST_NAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LAST_NAME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BIRTHDATE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BIRTHDATE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BIRTHDATE", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BIRTHDATE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BIRTHDATE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BIRTHDATE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ST_ADDRESS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ST_ADDRESS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ST_ADDRESS", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ST_ADDRESS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CITY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CITY", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -7317,7 +7319,7 @@ SELECT CHAR_ID, CHAR_NAME, CHAR_COST, CHAR_MIN, SERV_ID, CHAR_ACTIVE FROM CHARAC
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STATE_AB", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STATE_AB", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STATE_AB", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STATE_AB", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ZIP", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ZIP", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ZIP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_COUNTY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COUNTY", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_COUNTY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COUNTY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SCHOOL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SCHOOL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -7349,11 +7351,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FIRST_NAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FIRST_NAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LAST_NAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LAST_NAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BIRTHDATE", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BIRTHDATE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BIRTHDATE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BIRTHDATE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ST_ADDRESS", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ST_ADDRESS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CITY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CITY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STATE_AB", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STATE_AB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZIP", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZIP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@COUNTY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COUNTY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SCHOOL", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SCHOOL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EMAIL", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EMAIL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7403,11 +7405,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FIRST_NAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FIRST_NAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LAST_NAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LAST_NAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BIRTHDATE", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BIRTHDATE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BIRTHDATE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BIRTHDATE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ST_ADDRESS", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ST_ADDRESS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CITY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CITY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STATE_AB", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STATE_AB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZIP", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZIP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@COUNTY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COUNTY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SCHOOL", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SCHOOL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EMAIL", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EMAIL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7426,7 +7428,7 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LAST_NAME", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LAST_NAME", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LAST_NAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LAST_NAME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BIRTHDATE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BIRTHDATE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BIRTHDATE", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BIRTHDATE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BIRTHDATE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BIRTHDATE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ST_ADDRESS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ST_ADDRESS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ST_ADDRESS", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ST_ADDRESS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CITY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CITY", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -7434,7 +7436,7 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STATE_AB", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STATE_AB", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STATE_AB", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STATE_AB", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ZIP", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ZIP", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ZIP", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_COUNTY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COUNTY", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_COUNTY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COUNTY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SCHOOL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SCHOOL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -7542,11 +7544,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
                     int Original_CLIENT_ID, 
                     string Original_FIRST_NAME, 
                     string Original_LAST_NAME, 
-                    global::System.Nullable<global::System.DateTime> Original_BIRTHDATE, 
+                    string Original_BIRTHDATE, 
                     string Original_ST_ADDRESS, 
                     string Original_CITY, 
                     string Original_STATE_AB, 
-                    global::System.Nullable<int> Original_ZIP, 
+                    string Original_ZIP, 
                     string Original_COUNTY, 
                     string Original_SCHOOL, 
                     string Original_EMAIL, 
@@ -7576,13 +7578,13 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_LAST_NAME));
             }
-            if ((Original_BIRTHDATE.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_BIRTHDATE.Value));
-            }
-            else {
+            if ((Original_BIRTHDATE == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_BIRTHDATE));
             }
             if ((Original_ST_ADDRESS == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
@@ -7608,13 +7610,13 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_STATE_AB));
             }
-            if ((Original_ZIP.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_ZIP.Value));
-            }
-            else {
+            if ((Original_ZIP == null)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_ZIP));
             }
             if ((Original_COUNTY == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
@@ -7735,11 +7737,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
         public virtual int Insert(
                     string FIRST_NAME, 
                     string LAST_NAME, 
-                    global::System.Nullable<global::System.DateTime> BIRTHDATE, 
+                    string BIRTHDATE, 
                     string ST_ADDRESS, 
                     string CITY, 
                     string STATE_AB, 
-                    global::System.Nullable<int> ZIP, 
+                    string ZIP, 
                     string COUNTY, 
                     string SCHOOL, 
                     string EMAIL, 
@@ -7764,11 +7766,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(LAST_NAME));
             }
-            if ((BIRTHDATE.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(BIRTHDATE.Value));
+            if ((BIRTHDATE == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(BIRTHDATE));
             }
             if ((ST_ADDRESS == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -7788,11 +7790,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(STATE_AB));
             }
-            if ((ZIP.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(ZIP.Value));
+            if ((ZIP == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(ZIP));
             }
             if ((COUNTY == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
@@ -7889,11 +7891,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
         public virtual int Update(
                     string FIRST_NAME, 
                     string LAST_NAME, 
-                    global::System.Nullable<global::System.DateTime> BIRTHDATE, 
+                    string BIRTHDATE, 
                     string ST_ADDRESS, 
                     string CITY, 
                     string STATE_AB, 
-                    global::System.Nullable<int> ZIP, 
+                    string ZIP, 
                     string COUNTY, 
                     string SCHOOL, 
                     string EMAIL, 
@@ -7909,11 +7911,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
                     int Original_CLIENT_ID, 
                     string Original_FIRST_NAME, 
                     string Original_LAST_NAME, 
-                    global::System.Nullable<global::System.DateTime> Original_BIRTHDATE, 
+                    string Original_BIRTHDATE, 
                     string Original_ST_ADDRESS, 
                     string Original_CITY, 
                     string Original_STATE_AB, 
-                    global::System.Nullable<int> Original_ZIP, 
+                    string Original_ZIP, 
                     string Original_COUNTY, 
                     string Original_SCHOOL, 
                     string Original_EMAIL, 
@@ -7939,11 +7941,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(LAST_NAME));
             }
-            if ((BIRTHDATE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(BIRTHDATE.Value));
+            if ((BIRTHDATE == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(BIRTHDATE));
             }
             if ((ST_ADDRESS == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -7963,11 +7965,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(STATE_AB));
             }
-            if ((ZIP.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(ZIP.Value));
+            if ((ZIP == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(ZIP));
             }
             if ((COUNTY == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
@@ -8058,13 +8060,13 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_LAST_NAME));
             }
-            if ((Original_BIRTHDATE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_BIRTHDATE.Value));
-            }
-            else {
+            if ((Original_BIRTHDATE == null)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_BIRTHDATE));
             }
             if ((Original_ST_ADDRESS == null)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
@@ -8090,13 +8092,13 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_STATE_AB));
             }
-            if ((Original_ZIP.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_ZIP.Value));
-            }
-            else {
+            if ((Original_ZIP == null)) {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_ZIP));
             }
             if ((Original_COUNTY == null)) {
                 this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
@@ -8218,11 +8220,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
         public virtual int Update(
                     string FIRST_NAME, 
                     string LAST_NAME, 
-                    global::System.Nullable<global::System.DateTime> BIRTHDATE, 
+                    string BIRTHDATE, 
                     string ST_ADDRESS, 
                     string CITY, 
                     string STATE_AB, 
-                    global::System.Nullable<int> ZIP, 
+                    string ZIP, 
                     string COUNTY, 
                     string SCHOOL, 
                     string EMAIL, 
@@ -8238,11 +8240,11 @@ SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, BIRTHDATE, ST_ADDRESS, CITY, STATE_AB, 
                     int Original_CLIENT_ID, 
                     string Original_FIRST_NAME, 
                     string Original_LAST_NAME, 
-                    global::System.Nullable<global::System.DateTime> Original_BIRTHDATE, 
+                    string Original_BIRTHDATE, 
                     string Original_ST_ADDRESS, 
                     string Original_CITY, 
                     string Original_STATE_AB, 
-                    global::System.Nullable<int> Original_ZIP, 
+                    string Original_ZIP, 
                     string Original_COUNTY, 
                     string Original_SCHOOL, 
                     string Original_EMAIL, 
@@ -11463,9 +11465,9 @@ SELECT STAFF_ID, STAFF_FIRST_NAME, STAFF_LAST_NAME, STAFF_RATE_PER_HR, STAFF_ACT
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_JOB_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JOB_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JOB_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JOB_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_START_TIME", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_TIME", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_START_TIME", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_TIME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_START_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_TIME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_END_TIME", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_TIME", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_END_TIME", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_TIME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_END_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_TIME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TIME_DESCRIPT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIME_DESCRIPT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TIME_DESCRIPT", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIME_DESCRIPT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -11476,8 +11478,8 @@ SELECT STAFF_ID, STAFF_FIRST_NAME, STAFF_LAST_NAME, STAFF_RATE_PER_HR, STAFF_ACT
                 "E_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JOB_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JOB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@START_TIME", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_TIME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@END_TIME", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_TIME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@START_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_TIME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@END_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_TIME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIME_DESCRIPT", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIME_DESCRIPT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -11485,16 +11487,16 @@ SELECT STAFF_ID, STAFF_FIRST_NAME, STAFF_LAST_NAME, STAFF_RATE_PER_HR, STAFF_ACT
 SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHERE (TIME_ID = @TIME_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JOB_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JOB_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@START_TIME", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_TIME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@END_TIME", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_TIME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@START_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_TIME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@END_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_TIME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIME_DESCRIPT", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIME_DESCRIPT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TIME_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIME_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_JOB_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JOB_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JOB_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JOB_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_START_TIME", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_TIME", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_START_TIME", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_TIME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_START_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_TIME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_END_TIME", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_TIME", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_END_TIME", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_TIME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_END_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_TIME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TIME_DESCRIPT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIME_DESCRIPT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TIME_DESCRIPT", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIME_DESCRIPT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIME_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TIME_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11574,7 +11576,7 @@ SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_TIME_ID, global::System.Nullable<int> Original_JOB_ID, global::System.Nullable<global::System.TimeSpan> Original_START_TIME, global::System.Nullable<global::System.TimeSpan> Original_END_TIME, string Original_TIME_DESCRIPT) {
+        public virtual int Delete(int Original_TIME_ID, global::System.Nullable<int> Original_JOB_ID, global::System.Nullable<global::System.DateTime> Original_START_TIME, global::System.Nullable<global::System.DateTime> Original_END_TIME, string Original_TIME_DESCRIPT) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_TIME_ID));
             if ((Original_JOB_ID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -11586,7 +11588,7 @@ SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHER
             }
             if ((Original_START_TIME.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.TimeSpan)(Original_START_TIME.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_START_TIME.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
@@ -11594,7 +11596,7 @@ SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHER
             }
             if ((Original_END_TIME.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.TimeSpan)(Original_END_TIME.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_END_TIME.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
@@ -11628,7 +11630,7 @@ SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> JOB_ID, global::System.Nullable<global::System.TimeSpan> START_TIME, global::System.Nullable<global::System.TimeSpan> END_TIME, string TIME_DESCRIPT) {
+        public virtual int Insert(global::System.Nullable<int> JOB_ID, global::System.Nullable<global::System.DateTime> START_TIME, global::System.Nullable<global::System.DateTime> END_TIME, string TIME_DESCRIPT) {
             if ((JOB_ID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(JOB_ID.Value));
             }
@@ -11636,13 +11638,13 @@ SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHER
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             if ((START_TIME.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((System.TimeSpan)(START_TIME.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(START_TIME.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             if ((END_TIME.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((System.TimeSpan)(END_TIME.Value));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(END_TIME.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -11673,7 +11675,7 @@ SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> JOB_ID, global::System.Nullable<global::System.TimeSpan> START_TIME, global::System.Nullable<global::System.TimeSpan> END_TIME, string TIME_DESCRIPT, int Original_TIME_ID, global::System.Nullable<int> Original_JOB_ID, global::System.Nullable<global::System.TimeSpan> Original_START_TIME, global::System.Nullable<global::System.TimeSpan> Original_END_TIME, string Original_TIME_DESCRIPT, int TIME_ID) {
+        public virtual int Update(global::System.Nullable<int> JOB_ID, global::System.Nullable<global::System.DateTime> START_TIME, global::System.Nullable<global::System.DateTime> END_TIME, string TIME_DESCRIPT, int Original_TIME_ID, global::System.Nullable<int> Original_JOB_ID, global::System.Nullable<global::System.DateTime> Original_START_TIME, global::System.Nullable<global::System.DateTime> Original_END_TIME, string Original_TIME_DESCRIPT, int TIME_ID) {
             if ((JOB_ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(JOB_ID.Value));
             }
@@ -11681,13 +11683,13 @@ SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHER
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             if ((START_TIME.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.TimeSpan)(START_TIME.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(START_TIME.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             if ((END_TIME.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.TimeSpan)(END_TIME.Value));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(END_TIME.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -11709,7 +11711,7 @@ SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHER
             }
             if ((Original_START_TIME.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.TimeSpan)(Original_START_TIME.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_START_TIME.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
@@ -11717,7 +11719,7 @@ SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHER
             }
             if ((Original_END_TIME.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.TimeSpan)(Original_END_TIME.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_END_TIME.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
@@ -11752,7 +11754,7 @@ SELECT TIME_ID, JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT FROM TIME_TABLE WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> JOB_ID, global::System.Nullable<global::System.TimeSpan> START_TIME, global::System.Nullable<global::System.TimeSpan> END_TIME, string TIME_DESCRIPT, int Original_TIME_ID, global::System.Nullable<int> Original_JOB_ID, global::System.Nullable<global::System.TimeSpan> Original_START_TIME, global::System.Nullable<global::System.TimeSpan> Original_END_TIME, string Original_TIME_DESCRIPT) {
+        public virtual int Update(global::System.Nullable<int> JOB_ID, global::System.Nullable<global::System.DateTime> START_TIME, global::System.Nullable<global::System.DateTime> END_TIME, string TIME_DESCRIPT, int Original_TIME_ID, global::System.Nullable<int> Original_JOB_ID, global::System.Nullable<global::System.DateTime> Original_START_TIME, global::System.Nullable<global::System.DateTime> Original_END_TIME, string Original_TIME_DESCRIPT) {
             return this.Update(JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT, Original_TIME_ID, Original_JOB_ID, Original_START_TIME, Original_END_TIME, Original_TIME_DESCRIPT, Original_TIME_ID);
         }
     }

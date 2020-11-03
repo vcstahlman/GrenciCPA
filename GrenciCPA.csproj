@@ -89,9 +89,6 @@
     <Compile Include="Globals.Designer.cs">
       <DependentUpon>Globals.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrenciDBDataSet.cs">
-      <DependentUpon>GrenciDBDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="GrenciDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -12,9 +12,8 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using System.Data.SqlClient;
-using Org.BouncyCastle.Crypto.Agreement.Srp;
-using Org.BouncyCastle.Asn1.Cms;
-using System.Data.SqlTypes;
+
+
 
 // Justin Bloss
 // The JobScreen form is where the user enters in services provided for a client and takes time of each service to calculate a total for the invoice
@@ -38,7 +37,7 @@ namespace GrenciCPA
         private int parentID;
         private int staffID = 0;
 
-        private int jobTotal;
+        private double jobTotal;
 
         private List<AComp> componentList = new List<AComp>();
         private List<AServ> serviceList = new List<AServ>();
@@ -186,82 +185,12 @@ namespace GrenciCPA
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).DisplayMember = "ServName";
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).ValueMember = "ServID";
 
-            // Create new combobox column and set it's data source
-            DataGridViewComboBoxColumn cbc = new DataGridViewComboBoxColumn();
             
-            cbc.DisplayMember = "ServName";
-            cbc.ValueMember = "ServID";
-            cbc.DataSource = serviceList;
-            cbc.HeaderText = "Services";
-            cbc.MinimumWidth = 100;
-
-            // Replace the third column of the grid view with the combobox column
-            dgvFees.Columns.RemoveAt(2);
-            dgvFees.Columns.Insert(2, cbc);
-
-
-            cbc = new DataGridViewComboBoxColumn();//refresh cbc
-            cbc.DisplayMember = "CharName";
-            cbc.ValueMember = "CharID";
-            cbc.DataSource = characteristicList;
-            cbc.HeaderText = "Characteristics";
-            cbc.MinimumWidth = 100;
-
-            // Replace the third column of the grid view with the combobox column
-            dgvFees.Columns.RemoveAt(1);
-            dgvFees.Columns.Insert(1, cbc);
-
-            // We will handle these events of the DataGridView
-            dgvFees.CellEndEdit += new DataGridViewCellEventHandler(dgvFees_CellEndEdit);
-            dgvFees.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dgvFees_EditingControlShowing);
-
         }
 
-        private ComboBox cbm;
-        private DataGridViewCell currentCell;     
 
-        private void dgvFees_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (cbm != null)
-            {
-                // Here we will remove the subscription for selected index changed
-                cbm.SelectedIndexChanged -= new EventHandler(cbm_SelectedIndexChanged);
-            }
-        }
+        //\\\\\\\\\\\\\\\\\\\\BUTTONS\\\\\\\\\\\\\\\\
 
-        private void dgvFees_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            // Here try to add subscription for selected index changed event
-            if (e.Control is ComboBox)
-            {
-                cbm = (ComboBox)e.Control;
-                if (cbm != null)
-                {
-                    cbm.SelectedIndexChanged += new EventHandler(cbm_SelectedIndexChanged);
-                }
-                currentCell = this.dgvFees.CurrentCell;
-            }
-        }
-
-        private void cbm_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Invoke method if the selection changed event occurs
-            BeginInvoke(new MethodInvoker(EndEdit));
-        }
-
-        private void EndEdit()
-        {
-            // Change the content of appropriate cell when selected index changes
-            if (cbm != null)
-            {
-                DataRowView drv = cbm.SelectedItem as DataRowView;
-                if (drv != null)
-                {
-                    this.dgvFees[currentCell.ColumnIndex + 1, currentCell.RowIndex].Value = drv[2].ToString();
-                    this.dgvFees.EndEdit();
-                }
-            }
-        }
 
         // this button allows the user to change client information, like home address or telephone number, and inputs the new info to the jobScreen
         private void btnEditClient_Click(object sender, EventArgs e)
@@ -325,6 +254,8 @@ namespace GrenciCPA
         }
 
         // Allows the user to edit the timer incase of user error (ex. forgot to click the Start Timer button or let it run for too long)
+
+        //******************** needs functionality
         private void btnEditTime_Click(object sender, EventArgs e)
         {
             if (btnEditTime.Text == "Edit Time")
@@ -357,28 +288,151 @@ namespace GrenciCPA
             }
         }
 
-        private void SaveTime(string ptimedesc)
+
+        //\\\\\\\\\\\\\\MAIN SAVE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            string GetClientsSQL = "INSERT INTO TIME_TABLE (JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT)  " +
-                        " VALUES (@pJobID, @pStart, @pEnd, @pDescript) ;";
+            for (int i = 0; i < dgvFees.Rows.Count; i++)
+            {
+                foreach (AComp aComp in componentList)
+                {
+                    if (i == aComp.Row && aComp.SortInt == 1)//if it is new and if it is in the correct row
+                    {
+                        if (dgvFees.Rows[i].Cells[1].Value != null)
+                            aComp.Serv_Name = Convert.ToString((dgvFees.Rows[i].Cells[1] as DataGridViewComboBoxCell).FormattedValue.ToString());
+                        //reads in the string for the serv
+                        if (dgvFees.Rows[i].Cells[2].Value != null)
+                            aComp.Char_Name = Convert.ToString((dgvFees.Rows[i].Cells[2] as DataGridViewComboBoxCell).FormattedValue.ToString());
+                        //readsin the string for the char
+
+                        int cost = 0;
+                        int.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out cost);
+                        aComp.Char_cost = cost;
+                        int multi = 0;
+                        int.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out multi);
+                        aComp.Char_multi = multi;
+
+                    }
+
+                }
+            }
+
+            //this travels through the datagridview and checks if the current row is saved at all
+            for (int i = 0; i < dgvFees.Rows.Count; i++)
+            {
+                foreach (AComp aComp in componentList)
+                {
+                    if (dgvFees.Rows[i].Cells[0].ToString() == aComp.Component_ID.ToString())
+                    {
+                        //this means that it was put into the fill command and needs updating
+                        aComp.SortInt = 2; //sorting index that will be for updating past 
+                    }
+
+                }
+            }
 
 
-            //Pulled from App.config
-            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            //this section saves the char relations between this client and the id of the char. It updates ones that were used or are now ready to be reused.
+            //int affectedrows = 0; //this is to keep track of what all was deleted row wise
+
+            foreach (AComp aComp in componentList)// loops through and updates the ones set up 
+            {
+                if (aComp.SortInt == 2) // this is set to be the CTC id for the ones that are being used
+                {
+
+                    string SetCharSQL = "UPDATE JOB_COMPONENT_TABLE SET JOB_ID = @pJOB_ID,  " +
+                        "CHAR_ID = @pCharID, SERV_ID = @pSERV_ID, CHAR_MULTI = @pMULTI, TOTAL = " +
+                        "@pTOTAL WHERE JOB_COMPONENT_ID = " + aComp.Component_ID + ";";
+                    //Pulled from App.config
+                    connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+                    try
+                    {
+                        connection = new SqlConnection(connectionString);
+                        command = new SqlCommand(SetCharSQL, connection);
+                        //Open the connection
+                        connection.Open();
+
+                        command.Parameters.AddWithValue("@pJOB_ID", jobID);
+                        command.Parameters.AddWithValue("@pCharID", aComp.Char_ID);
+                        command.Parameters.AddWithValue("@pSERV_ID", aComp.Serv_ID);
+                        command.Parameters.AddWithValue("@pMULTI", aComp.Char_multi);
+                        command.Parameters.AddWithValue("@pTOTAL", aComp.Total);
+
+
+                        int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
+
+                        connection.Close();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Could not update the table " + ex.Message);
+                    }//end recycle
+                }
+                else if (aComp.SortInt == 1) // adding to the db
+                {
+
+                    string SetCharSQL = "INSERT INTO JOB_COMPONENT_TABLE (JOB_ID, CHAR_ID, SERV_ID, CHAR_MULTI, TOTAL)  " +
+                        " VALUES (@JOB_ID, @CHAR_ID, @SERV_ID, @CHAR_MULTI, @TOTAL ) ;";
+                    //Pulled from App.config
+                    connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+                    try
+                    {
+                        connection = new SqlConnection(connectionString);
+                        command = new SqlCommand(SetCharSQL, connection);
+                        //Open the connection
+                        connection.Open();
+
+                        command.Parameters.AddWithValue("@JOB_ID", jobID);
+                        command.Parameters.AddWithValue("@CHAR_ID", aComp.Char_ID);
+                        command.Parameters.AddWithValue("@SERV_ID", aComp.Serv_ID);
+                        command.Parameters.AddWithValue("@CHAR_MULTI", aComp.Char_multi);
+                        command.Parameters.AddWithValue("@TOTAL", aComp.Total);
+
+
+
+                        int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
+
+                        connection.Close();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Could not add job component row to the table. \n" + ex.Message);
+                    }//end creation
+
+
+                }
+            }
+
             try
             {
+                foreach (AStaff staff in staffList)//little loop to get the updated staff if there is one.
+                {
+                    if (cmboStaff.Text != "")
+                    {
+                        if (staff.StaffFirstName + " " + staff.StaffLastName == cmboStaff.SelectedItem.ToString())
+                        {
+                            staffID = staff.StaffID;
+                        }
+                    }
+                }
+                string SetJobSQL = "UPDATE JOB_TABLE SET JOB_ID = @pJOB_ID, TOTAL_BILL = @pTOTAL, STAFF_ID = @pSTAFF_ID " +
+                    "WHERE JOB_ID = " + jobID + ";";
+                //Pulled from App.config
+                connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+
                 connection = new SqlConnection(connectionString);
-                command = new SqlCommand(GetClientsSQL, connection);
+                command = new SqlCommand(SetJobSQL, connection);
                 //Open the connection
                 connection.Open();
-                //Create a SQL Data Reader object
 
-                //Keep reading as long as I have data from the database to read
-
-                command.Parameters.AddWithValue("@pJobID", jobID);
-                command.Parameters.AddWithValue("@pStart", timeStart);
-                command.Parameters.AddWithValue("@pEnd", DateTime.Now);
-                command.Parameters.AddWithValue("@pDescript", ptimedesc);
+                command.Parameters.AddWithValue("@pJOB_ID", jobID);
+                command.Parameters.AddWithValue("@pTOTAL", jobTotal);
+                if (staffID != 0) command.Parameters.AddWithValue("@pSTAFF_ID", staffID);
+                else command.Parameters.AddWithValue("@pSTAFF_ID", null);
 
 
                 int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
@@ -388,11 +442,13 @@ namespace GrenciCPA
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Could not add time.! \n Error reads: " + ex.Message);
+                MessageBox.Show("Could not save the job information. \n" + ex.Message);
             }
-
         }
 
+
+
+        //\\\\\\\\\\\\\\\\\\TIME\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         private void GetTime()
         {
             string GetTimeSQL = "SELECT * FROM TIME_TABLE WHERE JOB_ID = " + jobID + ";";
@@ -462,6 +518,45 @@ namespace GrenciCPA
                 lblTime.Text = "Total Elapsed Time: " + String.Format("{0:0.00}",time.TotalHours) + " hours";
             }
         }
+
+        private void SaveTime(string ptimedesc)
+        {
+            string GetClientsSQL = "INSERT INTO TIME_TABLE (JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT)  " +
+                        " VALUES (@pJobID, @pStart, @pEnd, @pDescript) ;";
+
+
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(GetClientsSQL, connection);
+                //Open the connection
+                connection.Open();
+                //Create a SQL Data Reader object
+
+                //Keep reading as long as I have data from the database to read
+
+                command.Parameters.AddWithValue("@pJobID", jobID);
+                command.Parameters.AddWithValue("@pStart", timeStart);
+                command.Parameters.AddWithValue("@pEnd", DateTime.Now);
+                command.Parameters.AddWithValue("@pDescript", ptimedesc);
+
+
+                int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not add time.! \n Error reads: " + ex.Message);
+            }
+
+        }
+
+
+        //\\\\\\\\\\\\\\\\\CLIENT\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
         private void CreateClientList()
         {
@@ -643,7 +738,7 @@ namespace GrenciCPA
             return returning;
         }
 
-        private void GetChar(int aClientID)
+        private void GetChar(int aClientID) //client charlist
         {
             lbxChar.Items.Clear();
 
@@ -710,264 +805,7 @@ namespace GrenciCPA
             
         }
 
-
-        private void FillComponents()
-        {
-
-
-            string GetCompSQL = "SELECT CHARACTERISTIC_TABLE.CHAR_NAME, SERVICE_TABLE.SERV_NAME, JOB_COMPONENT_TABLE.* " +
-                "FROM JOB_COMPONENT_TABLE INNER JOIN SERVICE_TABLE ON JOB_COMPONENT_TABLE.SERV_ID = SERVICE_TABLE.SERV_ID " +
-                "INNER JOIN CHARACTERISTIC_TABLE ON JOB_COMPONENT_TABLE.CHAR_ID = CHARACTERISTIC_TABLE.CHAR_ID AND " +
-                "SERVICE_TABLE.SERV_ID = CHARACTERISTIC_TABLE.SERV_ID " + //CHARACTERISTIC_TABLE.CHAR_ID   SERVICE_TABLE.SERV_ID,
-                "WHERE JOB_ID = " + jobID + ";";
-
-            //Pulled from App.config
-            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-            try
-            {
-                connection = new SqlConnection(connectionString);
-                command = new SqlCommand(GetCompSQL, connection);
-                //Open the connection
-                connection.Open();
-                //Create a SQL Data Reader object
-                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-                //Keep reading as long as I have data from the database to read
-
-
-                int i = 0;
-                while (reader.Read())//reads in all the data assotiated with the 
-                {
-                    AComp tempComp = new AComp();
-
-                    if (reader["JOB_COMPONENT_ID"] != DBNull.Value)
-                    {
-                        tempComp.Component_ID = (reader["JOB_COMPONENT_ID"] as int?) ?? 0;
-                    }
-                    if (reader["SERV_ID"] != DBNull.Value)
-                    {
-                        tempComp.Serv_ID = (reader["SERV_ID"] as int?) ?? 0;
-                    }
-                    if (reader["SERV_NAME"] != DBNull.Value)
-                    {
-                        tempComp.Serv_Name = (reader["SERV_NAME"] as string);
-                    }
-                    if (reader["CHAR_ID"] != DBNull.Value)
-                    {
-                        tempComp.Char_ID = (reader["CHAR_ID"] as int?) ?? 0;
-                    }
-                    if (reader["CHAR_NAME"] != DBNull.Value)
-                    {
-                        tempComp.Char_Name = (reader["CHAR_NAME"] as string);
-                    }
-                    if (reader["CHAR_COST"] != DBNull.Value)
-                    {
-                        tempComp.Char_cost = (reader["CHAR_COST"] as double?) ?? 0.0;
-                    }
-                    if (reader["CHAR_MINI"] != DBNull.Value)
-                    {
-                        tempComp.Char_multi = (reader["CHAR_MIN"] as double?) ?? 0.0;
-                    }
-                    if (reader["CHAR_MULTI"] != DBNull.Value)
-                    {
-                        tempComp.Char_multi = (reader["CHAR_MULTI"] as double?) ?? 0.0;
-                    }
-                    if (reader["TOTAL"] != DBNull.Value)
-                    {
-                        tempComp.Total = (reader["TOTAL"] as double?) ?? 0.0;
-                    }
-
-                    //this is used for a comparason for in the save function
-                    tempComp.Row = i;
-                    i++;
-                    componentList.Add(tempComp);
-                }
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Could not retrieve characteristics from Database.! \n Error reads: " + ex.Message);
-            }
-
-            
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < dgvFees.Rows.Count; i++)
-            {
-                foreach (AComp aComp in componentList)
-                {
-                    if (i == aComp.Row && aComp.SortInt == 1)//if it is new and if it is in the correct row
-                    {
-                        aComp.Serv_Name = dgvFees.Rows[i].Cells[1].Value.ToString();//reads in the string for the serv
-                        aComp.Char_Name = dgvFees.Rows[i].Cells[2].Value.ToString();//readsin the string for the char
-                        int cost = 0;
-                        int.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out cost);
-                        aComp.Char_cost = cost;
-                        int multi = 0;
-                        int.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out multi);
-                        aComp.Char_multi = multi;
-
-                    }
-
-                }
-            }
-
-
-
-
-            //this travels through the datagridview and checks if the current row is saved at all
-            for (int i = 0; i < dgvFees.Rows.Count; i++)
-            {
-                foreach (AComp aComp in componentList)
-                {
-                    if (dgvFees.Rows[i].Cells[0].ToString() == aComp.Component_ID.ToString())
-                    {
-                        //this means that it was put into the fill command and needs updating
-                        aComp.SortInt = 2; //sorting index that will be for updating past 
-                    }
-
-                }
-            }
-
-
-            //this section saves the char relations between this client and the id of the char. It updates ones that were used or are now ready to be reused.
-            //int affectedrows = 0; //this is to keep track of what all was deleted row wise
-
-            foreach (AComp aComp in componentList)// loops through and updates the ones set up 
-            {
-                if (aComp.SortInt == 2) // this is set to be the CTC id for the ones that are being used
-                {
-
-                    string SetCharSQL = "UPDATE JOB_COMPONENT_TABLE SET JOB_ID = @pJOB_ID,  " +
-                        "CHAR_ID = @pCharID, SERV_ID = @pSERV_ID, CHAR_MULTI = @pMULTI, TOTAL = " +
-                        "@pTOTAL WHERE JOB_COMPONENT_ID = " + aComp.Component_ID + ";";
-                    //Pulled from App.config
-                    connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-                    try
-                    {
-                        connection = new SqlConnection(connectionString);
-                        command = new SqlCommand(SetCharSQL, connection);
-                        //Open the connection
-                        connection.Open();
-
-                        command.Parameters.AddWithValue("@pJOB_ID", jobID);
-                        command.Parameters.AddWithValue("@pCharID", aComp.Char_ID);
-                        command.Parameters.AddWithValue("@pSERV_ID", aComp.Serv_ID);
-                        command.Parameters.AddWithValue("@pMULTI", aComp.Char_multi);
-                        command.Parameters.AddWithValue("@pTotal", aComp.Total);
-
-
-                        int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
-
-                        connection.Close();
-
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Could not update the table " + ex.Message);
-                    }//end recycle
-                }
-                else if (aComp.SortInt == 1) // adding to the db
-                {
-
-                    string SetCharSQL = "INSERT INTO JOB_COMPONENT_TABLE (JOB_ID, CHAR_ID, SERV_ID, CHAR_COST, CHAR_MULTI, TOTAL)  " +
-                        " VALUES (@JOB_ID, @CHAR_ID, @SERV_ID, @CHAR_COST, @CHAR_MULTI, @TOTAL ) ;";
-                    //Pulled from App.config
-                    connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-                    try
-                    {
-                        connection = new SqlConnection(connectionString);
-                        command = new SqlCommand(SetCharSQL, connection);
-                        //Open the connection
-                        connection.Open();
-
-                        command.Parameters.AddWithValue("@JOB_ID", jobID);
-                        command.Parameters.AddWithValue("@CharID", aComp.Char_ID);
-                        command.Parameters.AddWithValue("@SERV_ID", aComp.Serv_ID);
-                        command.Parameters.AddWithValue("@MULTI", aComp.Char_multi);
-                        command.Parameters.AddWithValue("@Total", aComp.Total);
-
-
-
-                        int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
-
-                        connection.Close();
-
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Could not add characteristics to the table " + ex.Message);
-                    }//end creation
-
-
-                }
-            }
-
-            try
-            {
-                foreach (AStaff staff in staffList)//little loop to get the updated staff if there is one.
-                { 
-                    if(staff.StaffFirstName + " "+ staff.StaffLastName == cmboStaff.SelectedItem.ToString())
-                    {
-                        staffID = staff.StaffID;
-                    }
-                }
-                string SetCharSQL = "UPDATE JOB_TABLE SET JOB_ID = @pJOB_ID,  " +
-                    "TOTAL = @pTOTAL, SERV_ID = @pSERV_ID, CHAR_MULTI = @pMULTI, TOTAL = " +
-                    "@pTOTAL WHERE JOB_ID = " + jobID + ";";
-                //Pulled from App.config
-                connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-                
-                    connection = new SqlConnection(connectionString);
-                    command = new SqlCommand(SetCharSQL, connection);
-                    //Open the connection
-                    connection.Open();
-
-                    command.Parameters.AddWithValue("@pJOB_ID", jobID);
-                    command.Parameters.AddWithValue("@pTOTAL", jobTotal);
-                    if (staffID != 0) command.Parameters.AddWithValue("@pSTAFF_ID", staffID);
-                    
-
-
-                    int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
-
-                    connection.Close();
-
-
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Could not save the job information. \n" + ex.Message);
-            }
-        }
-
-        private void dgvFees_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)//if a new row is added this will pop up and make a new acomp for it
-        {
-            AComp temp = new AComp();
-            temp.SortInt = 1; //this will tag it to be added to the list.
-            temp.Row = dgvFees.Rows.Count;//the count should be updated so this should give the comp a new rowrelated id.
-            dgvFees.Rows[e.RowIndex].Cells[4].Value = 0.00;
-            dgvFees.Rows[e.RowIndex].Cells[3].Value = 0.0;
-            dgvFees.Rows[e.RowIndex].Cells[5].Value = 0.00;
-            componentList.Add(temp);
-
-            //DataGridViewComboBoxCell cboServ = (DataGridViewComboBoxCell)dgvFees[dgvFees.Rows.Count, 1];
-            //foreach(AServ serv in serivceList) { 
-            //    cboServ.Items.AddRange(serv.ServName); 
-            //}
-
-            //DataGridViewComboBoxCell cboChar = (DataGridViewComboBoxCell)dgvFees[dgvFees.Rows.Count, 2];
-            //foreach (AChar achar in characteristicList)
-            //{
-            //    cboChar.Items.AddRange(achar.CharName);
-            //}
-
-        }
-
+        //\\\\\\\\\\\\\\\\\\\Page/dgvFiller\\\\\\\\\\\\\\\\\\\\
         private void GetServChar() //this makes a list of the char and serv at the begining of the
         {
 
@@ -995,15 +833,6 @@ namespace GrenciCPA
                     if (reader["SERV_ID"] != DBNull.Value)
                     {
                         tempServ.ServID = (reader["SERV_ID"] as int?) ?? 0;
-                    }
-                    if (reader["SERV_NAME"] != DBNull.Value)
-                    {
-                        tempServ.ServName = (reader["SERV_NAME"] as string);
-
-                    }
-                    if (reader["SERV_SENTENCE"] != DBNull.Value)
-                    {
-                        tempServ.ServID = (reader["SERV_SENTENCE"] as int?) ?? 0;
                     }
                     if (reader["SERV_NAME"] != DBNull.Value)
                     {
@@ -1113,17 +942,17 @@ namespace GrenciCPA
 
                     if (reader["STAFF_ID"] != DBNull.Value)
                     {
-                       tempStaff.StaffID = (reader["STAFF_ID"] as int?) ?? 0;
+                        tempStaff.StaffID = (reader["STAFF_ID"] as int?) ?? 0;
                     }
                     if (reader["STAFF_FIRST_NAME"] != DBNull.Value)
                     {
-                        tempStaff.StaffFirstName= (reader["STAFF_FIRST_NAME"] as string);
+                        tempStaff.StaffFirstName = (reader["STAFF_FIRST_NAME"] as string);
                     }
                     if (reader["STAFF_LAST_NAME"] != DBNull.Value)
                     {
                         tempStaff.StaffFirstName = (reader["STAFF_LAST_NAME"] as string);
                     }
-                    
+
 
 
                     //this is used for a comparason for in the save function
@@ -1152,17 +981,17 @@ namespace GrenciCPA
                 //Keep reading as long as I have data from the database to read
 
 
-                
+
                 while (reader.Read())//reads in all the data assotiated with the 
                 {
-                    
-                    
+
+
 
                     if (reader["STAFF_ID"] != DBNull.Value)
                     {
-                        staffID= (reader["STAFF_ID"] as int?) ?? 0;
+                        staffID = (reader["STAFF_ID"] as int?) ?? 0;
                     }
-                    
+
 
 
                 }
@@ -1173,38 +1002,149 @@ namespace GrenciCPA
                 MessageBox.Show("Could not retrieve staff from Database.! \n Error reads: " + ex.Message);
             }
 
-            foreach(AStaff staff in staffList)
+            foreach (AStaff staff in staffList)
             {
                 cmboStaff.Items.Add(staff.StaffFirstName + " " + staff.StaffLastName);
-                if(staffID == staff.StaffID)
+                if (staffID == staff.StaffID)
                 {
                     cmboStaff.Text = staff.StaffFirstName + " " + staff.StaffLastName;
                 }
             }
         }
 
-        
 
-        private void dgvFees_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+
+        //\\\\\\\\\\\\\\\\\\\\\COMPONENTS\\\\\\\\\\\\\\\\\\\
+        private void FillComponents()
         {
-            // My combobox column is the second one so I hard coded a 1, flavor to taste
-            DataGridViewComboBoxCell cb;
-            if (e.RowIndex == -1)  cb = (DataGridViewComboBoxCell)dgvFees.Rows[0].Cells[1];
-            else cb = (DataGridViewComboBoxCell)dgvFees.Rows[e.RowIndex].Cells[1];
-            if (cb.Value != null)
+
+
+            string GetCompSQL = "SELECT CHARACTERISTIC_TABLE.CHAR_NAME, SERVICE_TABLE.SERV_NAME, JOB_COMPONENT_TABLE.* " +
+                "FROM JOB_COMPONENT_TABLE INNER JOIN SERVICE_TABLE ON JOB_COMPONENT_TABLE.SERV_ID = SERVICE_TABLE.SERV_ID " +
+                "INNER JOIN CHARACTERISTIC_TABLE ON JOB_COMPONENT_TABLE.CHAR_ID = CHARACTERISTIC_TABLE.CHAR_ID AND " +
+                "SERVICE_TABLE.SERV_ID = CHARACTERISTIC_TABLE.SERV_ID " + //CHARACTERISTIC_TABLE.CHAR_ID   SERVICE_TABLE.SERV_ID,
+                "WHERE JOB_ID = " + jobID + ";";
+
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
             {
-                // do stuff
-                dgvFees.Invalidate();
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(GetCompSQL, connection);
+                //Open the connection
+                connection.Open();
+                //Create a SQL Data Reader object
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                //Keep reading as long as I have data from the database to read
+
+
+                int i = 0;
+                while (reader.Read())//reads in all the data assotiated with the 
+                {
+                    AComp tempComp = new AComp();
+
+                    if (reader["JOB_COMPONENT_ID"] != DBNull.Value)
+                    {
+                        tempComp.Component_ID = (reader["JOB_COMPONENT_ID"] as int?) ?? 0;
+                    }
+                    if (reader["SERV_ID"] != DBNull.Value)
+                    {
+                        tempComp.Serv_ID = (reader["SERV_ID"] as int?) ?? 0;
+                    }
+                    if (reader["SERV_NAME"] != DBNull.Value)
+                    {
+                        tempComp.Serv_Name = (reader["SERV_NAME"] as string);
+                    }
+                    if (reader["CHAR_ID"] != DBNull.Value)
+                    {
+                        tempComp.Char_ID = (reader["CHAR_ID"] as int?) ?? 0;
+                    }
+                    if (reader["CHAR_NAME"] != DBNull.Value)
+                    {
+                        tempComp.Char_Name = (reader["CHAR_NAME"] as string);
+                    }
+                    if (reader["CHAR_COST"] != DBNull.Value)
+                    {
+                        tempComp.Char_cost = (reader["CHAR_COST"] as double?) ?? 0.0;
+                    }
+                    if (reader["CHAR_MINI"] != DBNull.Value)
+                    {
+                        tempComp.Char_multi = (reader["CHAR_MIN"] as double?) ?? 0.0;
+                    }
+                    if (reader["CHAR_MULTI"] != DBNull.Value)
+                    {
+                        tempComp.Char_multi = (reader["CHAR_MULTI"] as double?) ?? 0.0;
+                    }
+                    if (reader["TOTAL"] != DBNull.Value)
+                    {
+                        tempComp.Total = (reader["TOTAL"] as double?) ?? 0.0;
+                    }
+
+                    //this is used for a comparason for in the save function
+                    tempComp.Row = i;
+                    i++;
+                    componentList.Add(tempComp);
+                }
+                connection.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not retrieve characteristics from Database.! \n Error reads: " + ex.Message);
+            }
+
+            foreach(AComp comp in componentList)
+            {
+
+            }
+            
         }
 
-        private void dgvFees_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+
+        //\\\\\\\\\DGV FEATURES
+       
+        private void dgvFees_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)//if a new row is added this will pop up and make a new acomp for it
         {
-            if (dgvFees.IsCurrentCellDirty)
-            {
-                // This fires the cell value changed handler below
-                dgvFees.CommitEdit(DataGridViewDataErrorContexts.Commit);
-            }
+            AComp temp = new AComp();
+            temp.SortInt = 1; //this will tag it to be added to the list.
+            temp.Row = dgvFees.Rows.Count;//the count should be updated so this should give the comp a new rowrelated id.
+            dgvFees.Rows[e.RowIndex].Cells[4].Value = 0.00;
+            dgvFees.Rows[e.RowIndex].Cells[3].Value = 0.0;
+            dgvFees.Rows[e.RowIndex].Cells[5].Value = 0.00;
+            componentList.Add(temp);
+
+            //DataGridViewComboBoxCell cboServ = (DataGridViewComboBoxCell)dgvFees[dgvFees.Rows.Count, 1];
+            //foreach(AServ serv in serivceList) { 
+            //    cboServ.Items.AddRange(serv.ServName); 
+            //}
+
+            //DataGridViewComboBoxCell cboChar = (DataGridViewComboBoxCell)dgvFees[dgvFees.Rows.Count, 2];
+            //foreach (AChar achar in characteristicList)
+            //{
+            //    cboChar.Items.AddRange(achar.CharName);
+            //}
+
         }
+
+
+        private void dgvFees_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            jobTotal = 0;// retotal every move 
+            for (int i = 0; i < dgvFees.RowCount; i++)
+            {
+                double newcost = 0;
+                double newmulti = 0;
+                double newtotal = 0;
+                if (dgvFees.Rows[i].Cells[3].Value != null) double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out newcost);
+                if (dgvFees.Rows[i].Cells[4].Value != null) double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out newmulti);
+
+                newtotal = newcost * newmulti;//if it is less it will be overwriten, if not it will be fine.
+                dgvFees.Rows[i].Cells[5].Value = newtotal;//if the new total is more than the one in there it will rewrite.
+
+
+                jobTotal += newtotal;
+            }
+            lblTotal.Text = "Total: $" + String.Format("{0:0.00}", jobTotal);
+        }
+
     }
 }
