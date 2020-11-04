@@ -38,16 +38,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Globals));
             this.btnDone = new System.Windows.Forms.Button();
             this.lblServices = new System.Windows.Forms.Label();
-            this.btnSaveFee = new System.Windows.Forms.Button();
             this.dgvServices = new System.Windows.Forms.DataGridView();
+            this.Service_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InvoiceFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblCategorys = new System.Windows.Forms.Label();
+            this.SaveService = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DeleteService = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lblCharacteristics = new System.Windows.Forms.Label();
             this.dgvFees = new System.Windows.Forms.DataGridView();
-            this.CategoryLabel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CharacteristicID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CharacteristicLabel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BaseFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MinimumFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtAssociatedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtAssociatedService = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.AssociatedServName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaveFee = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DeleteFee = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
             this.SuspendLayout();
@@ -55,9 +61,10 @@
             // btnDone
             // 
             this.btnDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDone.Location = new System.Drawing.Point(1201, 586);
+            this.btnDone.Location = new System.Drawing.Point(1162, 503);
+            this.btnDone.Margin = new System.Windows.Forms.Padding(2);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(137, 34);
+            this.btnDone.Size = new System.Drawing.Size(103, 28);
             this.btnDone.TabIndex = 27;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
@@ -67,33 +74,27 @@
             // 
             this.lblServices.AutoSize = true;
             this.lblServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServices.Location = new System.Drawing.Point(8, 9);
+            this.lblServices.Location = new System.Drawing.Point(2, 13);
+            this.lblServices.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblServices.Name = "lblServices";
-            this.lblServices.Size = new System.Drawing.Size(88, 20);
+            this.lblServices.Size = new System.Drawing.Size(75, 17);
             this.lblServices.TabIndex = 17;
             this.lblServices.Text = "Services:";
             this.lblServices.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnSaveFee
-            // 
-            this.btnSaveFee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveFee.Location = new System.Drawing.Point(1026, 588);
-            this.btnSaveFee.Name = "btnSaveFee";
-            this.btnSaveFee.Size = new System.Drawing.Size(137, 33);
-            this.btnSaveFee.TabIndex = 37;
-            this.btnSaveFee.Text = "Save";
-            this.btnSaveFee.UseVisualStyleBackColor = true;
-            this.btnSaveFee.Click += new System.EventHandler(this.btnSaveFee_Click);
-            // 
             // dgvServices
             // 
-            this.dgvServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvServices.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvServices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Service_ID,
             this.txtServiceName,
-            this.InvoiceFormat});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.InvoiceFormat,
+            this.SaveService,
+            this.DeleteService});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -101,22 +102,33 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvServices.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvServices.Location = new System.Drawing.Point(12, 32);
+            this.dgvServices.Location = new System.Drawing.Point(5, 32);
+            this.dgvServices.Margin = new System.Windows.Forms.Padding(2);
             this.dgvServices.Name = "dgvServices";
+            this.dgvServices.RowHeadersVisible = false;
             this.dgvServices.RowHeadersWidth = 51;
             this.dgvServices.RowTemplate.Height = 24;
-            this.dgvServices.Size = new System.Drawing.Size(482, 548);
+            this.dgvServices.Size = new System.Drawing.Size(631, 459);
             this.dgvServices.TabIndex = 36;
+            this.dgvServices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServices_CellContentClick);
+            this.dgvServices.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvServices_DefaultValuesNeeded);
+            // 
+            // Service_ID
+            // 
+            this.Service_ID.HeaderText = "Service_ID";
+            this.Service_ID.Name = "Service_ID";
+            this.Service_ID.Visible = false;
             // 
             // txtServiceName
             // 
-            this.txtServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txtServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.txtServiceName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.txtServiceName.FillWeight = 126.9036F;
+            this.txtServiceName.FillWeight = 125F;
             this.txtServiceName.HeaderText = "Service";
-            this.txtServiceName.MinimumWidth = 100;
+            this.txtServiceName.MinimumWidth = 125;
             this.txtServiceName.Name = "txtServiceName";
+            this.txtServiceName.Width = 125;
             // 
             // InvoiceFormat
             // 
@@ -126,29 +138,50 @@
             this.InvoiceFormat.MinimumWidth = 150;
             this.InvoiceFormat.Name = "InvoiceFormat";
             // 
-            // lblCategorys
+            // SaveService
             // 
-            this.lblCategorys.AutoSize = true;
-            this.lblCategorys.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategorys.Location = new System.Drawing.Point(513, 9);
-            this.lblCategorys.Name = "lblCategorys";
-            this.lblCategorys.Size = new System.Drawing.Size(100, 20);
-            this.lblCategorys.TabIndex = 35;
-            this.lblCategorys.Text = "Categorys:";
-            this.lblCategorys.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SaveService.FillWeight = 85F;
+            this.SaveService.HeaderText = "Save";
+            this.SaveService.MinimumWidth = 85;
+            this.SaveService.Name = "SaveService";
+            this.SaveService.Width = 85;
+            // 
+            // DeleteService
+            // 
+            this.DeleteService.FillWeight = 85F;
+            this.DeleteService.HeaderText = "Delete";
+            this.DeleteService.MinimumWidth = 85;
+            this.DeleteService.Name = "DeleteService";
+            this.DeleteService.Width = 85;
+            // 
+            // lblCharacteristics
+            // 
+            this.lblCharacteristics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCharacteristics.AutoSize = true;
+            this.lblCharacteristics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCharacteristics.Location = new System.Drawing.Point(637, 13);
+            this.lblCharacteristics.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCharacteristics.Name = "lblCharacteristics";
+            this.lblCharacteristics.Size = new System.Drawing.Size(121, 17);
+            this.lblCharacteristics.TabIndex = 35;
+            this.lblCharacteristics.Text = "Characteristics:";
+            this.lblCharacteristics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dgvFees
             // 
             this.dgvFees.AllowUserToOrderColumns = true;
-            this.dgvFees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvFees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CategoryLabel,
+            this.CharacteristicID,
+            this.CharacteristicLabel,
             this.BaseFee,
             this.MinimumFee,
-            this.txtAssociatedService});
+            this.txtAssociatedService,
+            this.AssociatedServName,
+            this.SaveFee,
+            this.DeleteFee});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -157,25 +190,35 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFees.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvFees.Location = new System.Drawing.Point(517, 31);
+            this.dgvFees.Location = new System.Drawing.Point(640, 32);
+            this.dgvFees.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFees.Name = "dgvFees";
+            this.dgvFees.RowHeadersVisible = false;
             this.dgvFees.RowHeadersWidth = 51;
             this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(821, 549);
+            this.dgvFees.ShowEditingIcon = false;
+            this.dgvFees.Size = new System.Drawing.Size(630, 459);
             this.dgvFees.TabIndex = 32;
+            this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
+            this.dgvFees.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvFees_DefaultValuesNeeded);
             // 
-            // CategoryLabel
+            // CharacteristicID
             // 
-            this.CategoryLabel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CharacteristicID.HeaderText = "CharacteristicID";
+            this.CharacteristicID.Name = "CharacteristicID";
+            this.CharacteristicID.Visible = false;
+            // 
+            // CharacteristicLabel
+            // 
+            this.CharacteristicLabel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.CategoryLabel.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CategoryLabel.HeaderText = "Category";
-            this.CategoryLabel.MinimumWidth = 100;
-            this.CategoryLabel.Name = "CategoryLabel";
+            this.CharacteristicLabel.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CharacteristicLabel.HeaderText = "Characteristic";
+            this.CharacteristicLabel.MinimumWidth = 100;
+            this.CharacteristicLabel.Name = "CharacteristicLabel";
             // 
             // BaseFee
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle4.Format = "C2";
             dataGridViewCellStyle4.NullValue = null;
             this.BaseFee.DefaultCellStyle = dataGridViewCellStyle4;
@@ -187,7 +230,6 @@
             // 
             // MinimumFee
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle5.Format = "N2";
             dataGridViewCellStyle5.NullValue = null;
             this.MinimumFee.DefaultCellStyle = dataGridViewCellStyle5;
@@ -199,27 +241,54 @@
             // 
             // txtAssociatedService
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtAssociatedService.DefaultCellStyle = dataGridViewCellStyle6;
             this.txtAssociatedService.FillWeight = 150F;
             this.txtAssociatedService.HeaderText = "Associated Service";
             this.txtAssociatedService.MinimumWidth = 150;
             this.txtAssociatedService.Name = "txtAssociatedService";
             this.txtAssociatedService.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtAssociatedService.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.txtAssociatedService.Width = 150;
+            // 
+            // AssociatedServName
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.AssociatedServName.DefaultCellStyle = dataGridViewCellStyle6;
+            this.AssociatedServName.FillWeight = 150F;
+            this.AssociatedServName.HeaderText = "AssociatedServName";
+            this.AssociatedServName.MinimumWidth = 150;
+            this.AssociatedServName.Name = "AssociatedServName";
+            this.AssociatedServName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.AssociatedServName.Visible = false;
+            this.AssociatedServName.Width = 150;
+            // 
+            // SaveFee
+            // 
+            this.SaveFee.FillWeight = 85F;
+            this.SaveFee.HeaderText = "Save";
+            this.SaveFee.MinimumWidth = 85;
+            this.SaveFee.Name = "SaveFee";
+            this.SaveFee.Width = 85;
+            // 
+            // DeleteFee
+            // 
+            this.DeleteFee.FillWeight = 85F;
+            this.DeleteFee.HeaderText = "Delete";
+            this.DeleteFee.MinimumWidth = 85;
+            this.DeleteFee.Name = "DeleteFee";
+            this.DeleteFee.Width = 85;
             // 
             // Globals
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1383, 633);
-            this.Controls.Add(this.btnSaveFee);
+            this.ClientSize = new System.Drawing.Size(1276, 539);
             this.Controls.Add(this.dgvServices);
-            this.Controls.Add(this.lblCategorys);
+            this.Controls.Add(this.lblCharacteristics);
             this.Controls.Add(this.dgvFees);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.lblServices);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Globals";
             this.Text = "Globals";
             this.Load += new System.EventHandler(this.Fees_Load);
@@ -233,15 +302,21 @@
         #endregion
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.Label lblServices;
-        private System.Windows.Forms.Button btnSaveFee;
         private System.Windows.Forms.DataGridView dgvServices;
-        private System.Windows.Forms.Label lblCategorys;
+        private System.Windows.Forms.Label lblCharacteristics;
         private System.Windows.Forms.DataGridView dgvFees;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtServiceName;
         private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceFormat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryLabel;
+        private System.Windows.Forms.DataGridViewButtonColumn SaveService;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteService;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CharacteristicID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CharacteristicLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn BaseFee;
         private System.Windows.Forms.DataGridViewTextBoxColumn MinimumFee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtAssociatedService;
+        private System.Windows.Forms.DataGridViewComboBoxColumn txtAssociatedService;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssociatedServName;
+        private System.Windows.Forms.DataGridViewButtonColumn SaveFee;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteFee;
     }
 }

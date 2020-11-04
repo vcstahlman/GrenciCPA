@@ -331,9 +331,6 @@ namespace GrenciCPA
                 jobID = Convert.ToInt32(lastID);
                 
 
-
-                int rowsAffected = command.ExecuteNonQuery();
-
                 connection.Close();
             }
             catch (Exception ex)

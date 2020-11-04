@@ -96,12 +96,12 @@
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvClients.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvClients.Location = new System.Drawing.Point(9, 46);
-            this.dgvClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvClients.Margin = new System.Windows.Forms.Padding(2);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersWidth = 51;
             this.dgvClients.RowTemplate.Height = 24;
-            this.dgvClients.Size = new System.Drawing.Size(1141, 484);
+            this.dgvClients.Size = new System.Drawing.Size(1544, 467);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
             // 
@@ -238,8 +238,8 @@
             // btnAddClient
             // 
             this.btnAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddClient.Location = new System.Drawing.Point(11, 556);
-            this.btnAddClient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddClient.Location = new System.Drawing.Point(11, 539);
+            this.btnAddClient.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.Size = new System.Drawing.Size(98, 46);
             this.btnAddClient.TabIndex = 4;
@@ -250,8 +250,8 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1051, 556);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Location = new System.Drawing.Point(1454, 539);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 46);
             this.btnClose.TabIndex = 5;
@@ -263,7 +263,7 @@
             // 
             this.cbxUnassigned.AutoSize = true;
             this.cbxUnassigned.Location = new System.Drawing.Point(184, 11);
-            this.cbxUnassigned.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxUnassigned.Margin = new System.Windows.Forms.Padding(2);
             this.cbxUnassigned.Name = "cbxUnassigned";
             this.cbxUnassigned.Size = new System.Drawing.Size(82, 17);
             this.cbxUnassigned.TabIndex = 23;
@@ -273,7 +273,7 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(342, 4);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(74, 30);
             this.btnSearch.TabIndex = 21;
@@ -284,7 +284,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(11, 10);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(170, 20);
             this.txtSearch.TabIndex = 20;
@@ -293,7 +293,7 @@
             // 
             this.cbxIsCompany.AutoSize = true;
             this.cbxIsCompany.Location = new System.Drawing.Point(268, 11);
-            this.cbxIsCompany.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxIsCompany.Margin = new System.Windows.Forms.Padding(2);
             this.cbxIsCompany.Name = "cbxIsCompany";
             this.cbxIsCompany.Size = new System.Drawing.Size(70, 17);
             this.cbxIsCompany.TabIndex = 25;
@@ -305,7 +305,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1028, 609);
+            this.ClientSize = new System.Drawing.Size(1564, 592);
             this.Controls.Add(this.cbxIsCompany);
             this.Controls.Add(this.cbxUnassigned);
             this.Controls.Add(this.btnSearch);
@@ -314,7 +314,7 @@
             this.Controls.Add(this.btnAddClient);
             this.Controls.Add(this.dgvClients);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ClientList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientList";
