@@ -154,7 +154,7 @@ namespace GrenciCPA
         {
             SavePage();
 
-            InvoiceScreen form = new InvoiceScreen(jobID);//pass the jobID and the total
+            InvoiceScreen form = new InvoiceScreen(jobID, jobTotal);//pass the jobID and the total
             form.ShowDialog();
         }
 
@@ -180,16 +180,51 @@ namespace GrenciCPA
                 lblAddMinutes.Visible = false;
                 lblAddTime.Visible = false;
                 lblSubtractTime.Visible = false;
+                int tadd = 0;
+                int.TryParse(txtAddTime.Text, out tadd);
                 txtAddTime.Text = "";
                 txtAddTime.Visible = false;
+                int tsub = 0;
+                int.TryParse(txtSubtract.Text, out tsub);
                 txtSubtract.Text = "";
                 txtSubtract.Visible = false;
                 cmboAddTime.Items.Clear();
                 cmboAddTime.Visible = false;
 
-                btnEditTime.Text = "Edit Time";
+                //int tedit = tadd - tsub;
 
-                //SaveTime("edit of time");
+                //string = "Edit Time";
+
+
+
+                //string SetEditSQL = "INSERT INTO TIME_TABLE(JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT)  " +
+                //        " VALUES (@pJobID, @pStart, @pEnd, @pDescript)";
+                ////Pulled from App.config
+                //connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+                //try
+                //{
+                //    connection = new SqlConnection(connectionString);
+                //    command = new SqlCommand(SetEditSQL, connection);
+                //    //Open the connection
+                //    connection.Open();
+
+
+                //    command.Parameters.AddWithValue("@pJobID", jobID);
+                //    command.Parameters.AddWithValue("@pStart", );
+                //    command.Parameters.AddWithValue("@pEnd", DateTime.Now);
+                //    command.Parameters.AddWithValue("@pDescript", ptimedesc);
+
+
+                //    int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
+
+                //    connection.Close();
+
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show("Could not add time.! \n Error reads: " + ex.Message);
+                //}
+                
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -547,7 +582,7 @@ namespace GrenciCPA
 
         private void SaveTime(string ptimedesc)
         {
-            string GetClientsSQL = "INSERT INTO TIME_TABLE (JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT)  " +
+            string SetTimeSQL = "INSERT INTO TIME_TABLE (JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT)  " +
                         " VALUES (@pJobID, @pStart, @pEnd, @pDescript) ;";
 
 
@@ -556,7 +591,7 @@ namespace GrenciCPA
             try
             {
                 connection = new SqlConnection(connectionString);
-                command = new SqlCommand(GetClientsSQL, connection);
+                command = new SqlCommand(SetTimeSQL, connection);
                 //Open the connection
                 connection.Open();
                 //Create a SQL Data Reader object
@@ -835,7 +870,7 @@ namespace GrenciCPA
         private void GetServChar() //this makes a list of the char and serv at the begining of the
         {
 
-            string GetServSQL = "SELECT * FROM SERVICE_TABLE";
+            string GetServSQL = "SELECT * FROM SERVICE_TABLE ORDER BY SERV_NAME";
 
             //Pulled from App.config
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
@@ -869,7 +904,7 @@ namespace GrenciCPA
                         if (!reader.GetBoolean(reader.GetOrdinal("SERV_ACTIVE"))) tempServ = null;//if not active then it will delete the temp so it is not added
                     }
 
-
+                    tempServ.Chars = new List<AChar>();
                     //this is used for a comparason for in the save function
 
                     i++;
@@ -883,7 +918,8 @@ namespace GrenciCPA
             }
 
 
-            string GetCharSQL = "SELECT * FROM CHARACTERISTIC_TABLE";
+            string GetCharSQL = "select * from SERVICE_TABLE st inner join CHARACTERISTIC_TABLE ct on " +
+                "st.SERV_ID = ct.SERV_ID  order by st.SERV_NAME, ct.CHAR_NAME";
 
             //Pulled from App.config
 
@@ -923,6 +959,7 @@ namespace GrenciCPA
                     if (reader["SERV_ID"] != DBNull.Value)
                     {
                         tempChar.CharAsso = (reader["SERV_ID"] as int?) ?? 0;
+                        
                     }
                     if (reader["CHAR_ACTIVE"] != DBNull.Value)
                     {
@@ -931,6 +968,13 @@ namespace GrenciCPA
 
 
                     //this is used for a comparason for in the save function
+                    foreach (AServ aserv in serviceList)
+                            {
+                                if (aserv.ServID == tempChar.CharAsso && tempChar.CharAsso != 0)
+                                {
+                                    aserv.Chars.Add(tempChar);
+                                }
+                            }
 
                     i++;
                     characteristicList.Add(tempChar);
@@ -1215,6 +1259,29 @@ namespace GrenciCPA
                         }
                     }
                 }
+                if (dgvFees.Rows[e.RowIndex].Cells[1].Value != null)
+                //if the user selects the  row, it is saved into the current component
+                {
+                    if (e.ColumnIndex == 1)
+                    {
+                        int selectedServ = (int)dgvFees.Rows[e.RowIndex].Cells[1].Value;
+                        foreach (AServ aserv in serviceList)
+                        {
+                            if (aserv.ServID == selectedServ)
+                            {
+
+
+                                DataGridViewComboBoxCell cbo = new DataGridViewComboBoxCell();
+                                cbo.DataSource = aserv.Chars;
+                                cbo.DisplayMember = "CharName";
+                                cbo.ValueMember = "CharID";
+                                dgvFees.Rows[e.RowIndex].Cells[2] = cbo;
+                                //gets the list of chars for each serv in the second combo box if the first one is used.
+                            }
+                        }
+                    }
+                }
+                
             }
             catch (Exception ex)
             {

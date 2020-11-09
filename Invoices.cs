@@ -42,7 +42,7 @@ namespace GrenciCPA
 
                 try
                 {
-                    ClientsObjList = null;//resets the client list
+                    ClientsObjList.Clear();//resets the client list
 
                     connection = new SqlConnection(connectionString);
                     command = new SqlCommand(GetClientsSQL, connection);
@@ -345,7 +345,7 @@ namespace GrenciCPA
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvInvoices.Rows.Clear();
-            ClientsObjList.Clear();
+            if(ClientsObjList.Count != 0)ClientsObjList.Clear();
 
             if (cbxOverdue.Checked == true)
             {

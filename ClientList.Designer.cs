@@ -265,14 +265,14 @@
             this.cbxUnassigned.Location = new System.Drawing.Point(184, 11);
             this.cbxUnassigned.Margin = new System.Windows.Forms.Padding(2);
             this.cbxUnassigned.Name = "cbxUnassigned";
-            this.cbxUnassigned.Size = new System.Drawing.Size(82, 17);
+            this.cbxUnassigned.Size = new System.Drawing.Size(106, 17);
             this.cbxUnassigned.TabIndex = 23;
-            this.cbxUnassigned.Text = "Unassigned";
+            this.cbxUnassigned.Text = "Unassigned Only";
             this.cbxUnassigned.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(342, 4);
+            this.btnSearch.Location = new System.Drawing.Point(401, 4);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(74, 30);
@@ -292,12 +292,12 @@
             // cbxIsCompany
             // 
             this.cbxIsCompany.AutoSize = true;
-            this.cbxIsCompany.Location = new System.Drawing.Point(268, 11);
+            this.cbxIsCompany.Location = new System.Drawing.Point(294, 11);
             this.cbxIsCompany.Margin = new System.Windows.Forms.Padding(2);
             this.cbxIsCompany.Name = "cbxIsCompany";
-            this.cbxIsCompany.Size = new System.Drawing.Size(70, 17);
+            this.cbxIsCompany.Size = new System.Drawing.Size(92, 17);
             this.cbxIsCompany.TabIndex = 25;
-            this.cbxIsCompany.Text = "Company";
+            this.cbxIsCompany.Text = "Company only";
             this.cbxIsCompany.UseVisualStyleBackColor = true;
             // 
             // ClientList

@@ -10,6 +10,7 @@ namespace GrenciCPA
     {
         private int component_ID;
         private int serv_ID;
+        private string serv_Sentence;
         private string serv_Name;
         private int char_ID;
         private string char_Name;
@@ -38,5 +39,6 @@ namespace GrenciCPA
         public double Total { get => total; set => total = value; }
         public int SortInt { get => sortInt; set => sortInt = value; }
         public int Row { get => row; set => row = value; }
+        public string Serv_Sentence { get => serv_Sentence; set => serv_Sentence = value; }
     }
 }

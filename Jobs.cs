@@ -48,8 +48,15 @@ namespace GrenciCPA
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            ClientsObjList.Clear();
-            if (cbxUnassigned.Checked == true && cbxToInvoice.Checked == true && cbxProgress.Checked == true)
+            dgvJobs.Rows.Clear();
+            if (ClientsObjList.Count != 0) ClientsObjList.Clear();
+            
+            if(tbxSearch.Text != "")
+            {
+                CreateJobList();                
+                FillDGV();
+            }
+            else if (cbxUnassigned.Checked == true && cbxToInvoice.Checked == true && cbxProgress.Checked == true)
             {
                 var GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
                 "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
@@ -532,6 +539,7 @@ namespace GrenciCPA
                 }
                 FillDGV();
             }
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -552,91 +560,164 @@ namespace GrenciCPA
 
         private void CreateJobList()
         {
-            var GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
-                "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
-                "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
-                "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID";
+            if (tbxSearch.Text != "")
+            {
+                string search = tbxSearch.Text;
+                string GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
+                    "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
+                    "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
+                    "WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') ";
 
-            if (clientID != 0)//if there is a passed id for the client then it will make only the clients info come in for now.
+               
+                connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+
+                try
+                {
+
+                    connection = new SqlConnection(connectionString);
+                    command = new SqlCommand(GetClientsSQL, connection);
+                    //Open the connection
+                    connection.Open();
+                    //Create a SQL Data Reader object
+                    SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                    //Keep reading as long as I have data from the database to read
+                    while (reader.Read())
+                    {
+
+
+                        AClient tempClient = new AClient();
+
+                        if (reader["CLIENT_ID"] != DBNull.Value)
+                        {
+                            tempClient.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;
+                        }
+                        if (reader["FIRST_NAME"] != DBNull.Value)
+                        {
+                            tempClient.FirstName = reader["FIRST_NAME"] as string;
+                        }
+                        if (reader["LAST_NAME"] != DBNull.Value)
+                        {
+                            tempClient.LastName = reader["LAST_NAME"] as string;
+                        }
+                        if (reader["COMPANY_NAME"] != DBNull.Value)
+                        {
+                            tempClient.Company = reader["COMPANY_NAME"] as string;
+                        }
+                        //if (reader["PARENT_CLIENT"] != DBNull.Value)
+                        //{
+                        //    tempClient.Balance = (reader["PARENT_CLIENT"] as int?) ?? 0.0;
+                        //}
+                        if (reader["JOB_ID"] != DBNull.Value)
+                        {
+                            tempClient.JobID = (reader["JOB_ID"] as int?) ?? 0;
+                        }
+                        if (reader["JOB_ACTIVE"] != DBNull.Value)
+                        {
+                            if (!reader.GetBoolean(reader.GetOrdinal("JOB_ACTIVE"))) tempClient = null;//if not active then it will delete the temp so it is not added
+                        }
+
+
+                        //Add the temporary plot stuff from list.
+                        ClientsObjList.Add(tempClient);
+
+                        tempClient = null;
+                    }
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Could not retrieve clients from Database.! \n Error reads: " + ex.Message);
+                }
+            }
+            else {
+                var GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
+                    "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
+                    "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID";
+
+                if (clientID != 0)//if there is a passed id for the client then it will make only the clients info come in for now.
 
                 //need to auto put in the name when the filtering is a thing.
 
-            {
-                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
-                "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
-                "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
-                "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE JOB_TABLE.CLIENT_ID = " + clientID + ";";
-            }
+                {
+                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
+                    "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
+                    "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE JOB_TABLE.CLIENT_ID = " + clientID + ";";
+                }
 
-            if (staffID != 0)//if there is a passed id for the client then it will make only the clients info come in for now.
+                if (staffID != 0)//if there is a passed id for the client then it will make only the clients info come in for now.
 
-            //need to auto put in the name when the filtering is a thing.
+                //need to auto put in the name when the filtering is a thing.
 
-            {
-                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
-                "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
-                "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
-                "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE JOB_TABLE.STAFF_ID = " + staffID + ";";
-            }
-            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+                {
+                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
+                    "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
+                    "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE JOB_TABLE.STAFF_ID = " + staffID + ";";
+                }
+                connectionString = Properties.Settings.Default.GrenciDBConnectionString;
 
-            try
-            {
-
-                connection = new SqlConnection(connectionString);
-                command = new SqlCommand(GetClientsSQL, connection);
-                //Open the connection
-                connection.Open();
-                //Create a SQL Data Reader object
-                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-                //Keep reading as long as I have data from the database to read
-                while (reader.Read())
+                try
                 {
 
-
-                    AClient tempClient = new AClient();
-
-                    if (reader["CLIENT_ID"] != DBNull.Value)
+                    connection = new SqlConnection(connectionString);
+                    command = new SqlCommand(GetClientsSQL, connection);
+                    //Open the connection
+                    connection.Open();
+                    //Create a SQL Data Reader object
+                    SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                    //Keep reading as long as I have data from the database to read
+                    while (reader.Read())
                     {
-                        tempClient.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;
-                    }
-                    if (reader["FIRST_NAME"] != DBNull.Value)
-                    {
-                        tempClient.FirstName = reader["FIRST_NAME"] as string;
-                    }
-                    if (reader["LAST_NAME"] != DBNull.Value)
-                    {
-                        tempClient.LastName = reader["LAST_NAME"] as string;
-                    }
-                    if (reader["COMPANY_NAME"] != DBNull.Value)
-                    {
-                        tempClient.Company = reader["COMPANY_NAME"] as string;
-                    }
-                    //if (reader["PARENT_CLIENT"] != DBNull.Value)
-                    //{
-                    //    tempClient.Balance = (reader["PARENT_CLIENT"] as int?) ?? 0.0;
-                    //}
-                    if (reader["JOB_ID"] != DBNull.Value)
-                    {
-                        tempClient.JobID = (reader["JOB_ID"] as int?) ?? 0;
-                    }
-                    if (reader["JOB_ACTIVE"] != DBNull.Value)
-                    {
-                        if (!reader.GetBoolean(reader.GetOrdinal("JOB_ACTIVE"))) tempClient = null;//if not active then it will delete the temp so it is not added
-                    }
 
 
-                    //Add the temporary plot stuff from list.
-                    ClientsObjList.Add(tempClient);
+                        AClient tempClient = new AClient();
 
-                    tempClient = null;
+                        if (reader["CLIENT_ID"] != DBNull.Value)
+                        {
+                            tempClient.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;
+                        }
+                        if (reader["FIRST_NAME"] != DBNull.Value)
+                        {
+                            tempClient.FirstName = reader["FIRST_NAME"] as string;
+                        }
+                        if (reader["LAST_NAME"] != DBNull.Value)
+                        {
+                            tempClient.LastName = reader["LAST_NAME"] as string;
+                        }
+                        if (reader["COMPANY_NAME"] != DBNull.Value)
+                        {
+                            tempClient.Company = reader["COMPANY_NAME"] as string;
+                        }
+                        //if (reader["PARENT_CLIENT"] != DBNull.Value)
+                        //{
+                        //    tempClient.Balance = (reader["PARENT_CLIENT"] as int?) ?? 0.0;
+                        //}
+                        if (reader["JOB_ID"] != DBNull.Value)
+                        {
+                            tempClient.JobID = (reader["JOB_ID"] as int?) ?? 0;
+                        }
+                        if (reader["JOB_ACTIVE"] != DBNull.Value)
+                        {
+                            if (!reader.GetBoolean(reader.GetOrdinal("JOB_ACTIVE"))) tempClient = null;//if not active then it will delete the temp so it is not added
+                        }
+
+
+                        //Add the temporary plot stuff from list.
+                        ClientsObjList.Add(tempClient);
+
+                        tempClient = null;
+                    }
+                    connection.Close();
                 }
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show("Could not retrieve clients from Database.! \n Error reads: " + ex.Message);
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Could not retrieve clients from Database.! \n Error reads: " + ex.Message);
+                }
             }
         }
 
@@ -646,7 +727,7 @@ namespace GrenciCPA
         {
             foreach (AClient aClient in ClientsObjList)
             {
-                dgvJobs.Rows.Add(aClient.FirstName, aClient.LastName, aClient.Company, " " /*GetParent(aClient.ParentID)*/," " /*GetServ(aClient.ClientID)*/, " " /*GetStaff(aClient.ClientID)*/, "View Job", aClient.ClientID, aClient.JobID, "Invoice");
+                dgvJobs.Rows.Add(aClient.FirstName, aClient.LastName, aClient.Company, " " /*GetParent(aClient.ParentID)*/,GetServ(aClient.ClientID), GetStaff(aClient.ClientID), "View Job", aClient.ClientID, aClient.JobID, "Invoice");
 
             }
         }
@@ -655,7 +736,8 @@ namespace GrenciCPA
         private string GetStaff(int aClientID)
         {
             string returning = "";
-            string GetParentSQL = "SELECT STAFF_TABLE.STAFF_FIRST_NAME FROM STAFF_TABLE INNER JOIN JOB_TABLE ON STAFF_TABLE.STAFF_ID = JOB_TABLE.STAFF_ID INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE CLIENT_ID =" + aClientID + ";";
+            string GetParentSQL = "SELECT STAFF_TABLE.STAFF_FIRST_NAME, STAFF_TABLE.STAFF_LAST_NAME FROM STAFF_TABLE INNER JOIN JOB_TABLE ON " +
+                "STAFF_TABLE.STAFF_ID = JOB_TABLE.STAFF_ID INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE CLIENT_TABLE.CLIENT_ID =" + aClientID + ";";
 
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
 
@@ -677,9 +759,13 @@ namespace GrenciCPA
                     AClient tempClient = new AClient();
 
 
-                    if (reader["FIRST_NAME"] != DBNull.Value)
+                    if (reader["STAFF_FIRST_NAME"] != DBNull.Value)
                     {
-                        returning = reader["FIRST_NAME"] as string;
+                        returning = reader["STAFF_FIRST_NAME"] as string;
+                    }
+                    if (reader["STAFF_LAST_NAME"] != DBNull.Value)
+                    {
+                        returning += " " + reader["STAFF_LAST_NAME"];
                     }
 
                 }
@@ -713,12 +799,9 @@ namespace GrenciCPA
                 while (reader.Read())
                 {
 
-                    AClient tempClient = new AClient();
-
-
                     if (reader["SERV_NAME"] != DBNull.Value)
                     {
-                        returning = reader["SERV_NAME"] as string;
+                        returning += reader["SERV_NAME"] as string  + ", \n";
                     }
 
                 }
@@ -726,7 +809,7 @@ namespace GrenciCPA
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Could not retrieve parent client from Database.! \n Error reads: " + ex.Message);
+                MessageBox.Show("Could not retrieve services for the client from Database.! \n Error reads: " + ex.Message);
             }
             return returning;
         }

@@ -180,10 +180,6 @@ namespace GrenciCPA
             lblTotal.Text = "$700.00";
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void dgvPayments_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -193,6 +189,14 @@ namespace GrenciCPA
         private void btnClose_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnProcess_Click(object sender, EventArgs e)
+        {
+
+            AClient aClient = ClientsObj;
+            aClient.Balance = aClient.Balance - double.Parse(txtOverride.Text);
+            MessageBox.Show("The client paid " + txtOverride.Text + " and now owes " + aClient.Balance);
         }
     }
 }

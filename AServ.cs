@@ -12,10 +12,12 @@ namespace GrenciCPA
         private string servName;
         private string servSent;
         private bool active;
+        private List<AChar> chars;
 
         public int ServID { get => servID; set => servID = value; }
         public string ServName { get => servName; set => servName = value; }
         public string ServSent { get => servSent; set => servSent = value; }
         public bool Active { get => active; set => active = value; }
+        public List<AChar> Chars { get => chars; set => chars = value; }
     }
 }

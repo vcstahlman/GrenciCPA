@@ -353,16 +353,18 @@ namespace GrenciCPA
                         command.Parameters.AddWithValue("@pClientID", clientID);
                         command.Parameters.AddWithValue("@pCharID", achar.CharID);
 
-
+                       
                         int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show(achar.CharName + " was re-assigned!");
-                        }
-                        else
-                        {
-                            MessageBox.Show(achar.CharName + " was not re-assigned!");
-                        }
+                        
+                        //testing stuff
+                        //if (rowsAffected > 0)
+                        //{
+                        //    MessageBox.Show(achar.CharName + " was re-assigned!");
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show(achar.CharName + " was not re-assigned!");
+                        //}
                         connection.Close();
                         
 
@@ -391,14 +393,16 @@ namespace GrenciCPA
 
 
                         int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show( achar.CharName + " was assigned!");
-                        }
-                        else
-                        {
-                            MessageBox.Show(achar.CharName + " was not assigned!");
-                        }
+
+
+                        //if (rowsAffected > 0)
+                        //{
+                        //    MessageBox.Show( achar.CharName + " was assigned!");
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show(achar.CharName + " was not assigned!");
+                        //}
                         connection.Close();
 
 
