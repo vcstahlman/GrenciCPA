@@ -191,40 +191,46 @@ namespace GrenciCPA
                 cmboAddTime.Items.Clear();
                 cmboAddTime.Visible = false;
 
-                //int tedit = tadd - tsub;
+                int tedit = tadd - tsub;
 
-                //string = "Edit Time";
+                Description f1 = new Description();
+                f1.ShowDialog();
+                string timeDesc = f1.getDesc();
 
+                btnEditTime.Text = "Edit Time";
 
-
-                //string SetEditSQL = "INSERT INTO TIME_TABLE(JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT)  " +
-                //        " VALUES (@pJobID, @pStart, @pEnd, @pDescript)";
-                ////Pulled from App.config
-                //connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-                //try
-                //{
-                //    connection = new SqlConnection(connectionString);
-                //    command = new SqlCommand(SetEditSQL, connection);
-                //    //Open the connection
-                //    connection.Open();
+                DateTime timeEnd = DateTime.Now;
+                TimeSpan span = new TimeSpan(0, tedit, 0);
 
 
-                //    command.Parameters.AddWithValue("@pJobID", jobID);
-                //    command.Parameters.AddWithValue("@pStart", );
-                //    command.Parameters.AddWithValue("@pEnd", DateTime.Now);
-                //    command.Parameters.AddWithValue("@pDescript", ptimedesc);
+                string SetEditSQL = "INSERT INTO TIME_TABLE(JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT)  " +
+                        " VALUES (@pJobID, @pStart, @pEnd, @pDescript)";
+                //Pulled from App.config
+                connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+                try
+                {
+                    connection = new SqlConnection(connectionString);
+                    command = new SqlCommand(SetEditSQL, connection);
+                    //Open the connection
+                    connection.Open();
 
 
-                //    int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
+                    command.Parameters.AddWithValue("@pJobID", jobID);
+                    command.Parameters.AddWithValue("@pStart", DateTime.Now.Subtract(span));
+                    command.Parameters.AddWithValue("@pEnd", DateTime.Now);
+                    command.Parameters.AddWithValue("@pDescript", timeDesc);
 
-                //    connection.Close();
 
-                //}
-                //catch (Exception ex)
-                //{
-                //    MessageBox.Show("Could not add time.! \n Error reads: " + ex.Message);
-                //}
-                
+                    int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
+
+                    connection.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not add time.! \n Error reads: " + ex.Message);
+                }
+
             }
         }
         private void btnSave_Click(object sender, EventArgs e)

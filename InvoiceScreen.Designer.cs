@@ -34,11 +34,12 @@
             this.btnMakeInvoice = new System.Windows.Forms.Button();
             this.lblService = new System.Windows.Forms.Label();
             this.lblAmount = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnEmail = new System.Windows.Forms.Button();
             this.rtbServices = new System.Windows.Forms.RichTextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.rtbPrices = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btnEdit
@@ -51,6 +52,7 @@
             this.btnEdit.TabIndex = 33;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // txtAmtOwed
             // 
@@ -94,16 +96,6 @@
             this.lblAmount.Size = new System.Drawing.Size(75, 13);
             this.lblAmount.TabIndex = 26;
             this.lblAmount.Text = "Amount owed:";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(8, 29);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(64, 13);
-            this.lblName.TabIndex = 25;
-            this.lblName.Text = "Client Name";
             // 
             // btnClose
             // 
@@ -150,22 +142,41 @@
             this.rtbServices.Location = new System.Drawing.Point(10, 50);
             this.rtbServices.Name = "rtbServices";
             this.rtbServices.ReadOnly = true;
-            this.rtbServices.Size = new System.Drawing.Size(700, 280);
+            this.rtbServices.Size = new System.Drawing.Size(573, 280);
             this.rtbServices.TabIndex = 34;
             this.rtbServices.Text = "";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(10, 24);
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(237, 20);
+            this.txtName.TabIndex = 35;
+            // 
+            // rtbPrices
+            // 
+            this.rtbPrices.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbPrices.Location = new System.Drawing.Point(648, 50);
+            this.rtbPrices.Name = "rtbPrices";
+            this.rtbPrices.ReadOnly = true;
+            this.rtbPrices.Size = new System.Drawing.Size(71, 280);
+            this.rtbPrices.TabIndex = 36;
+            this.rtbPrices.Text = "";
             // 
             // InvoiceScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 481);
+            this.Controls.Add(this.rtbPrices);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.rtbServices);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txtAmtOwed);
             this.Controls.Add(this.btnMakeInvoice);
             this.Controls.Add(this.lblService);
             this.Controls.Add(this.lblAmount);
-            this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnEmail);
@@ -184,10 +195,11 @@
         private System.Windows.Forms.Button btnMakeInvoice;
         private System.Windows.Forms.Label lblService;
         private System.Windows.Forms.Label lblAmount;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnEmail;
         private System.Windows.Forms.RichTextBox rtbServices;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.RichTextBox rtbPrices;
     }
 }

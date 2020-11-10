@@ -14,6 +14,7 @@ using Outlook = Microsoft.Office.Interop.Outlook;
 using System.IO;
 using System.CodeDom;
 using System.Data.SqlClient;
+using System.Runtime.Remoting;
 
 // Justin Bloss
 // The purpose of this form is to allow the user to create and either print or email an invoice to a client, amounts are generated based on what is entered
@@ -31,6 +32,7 @@ namespace GrenciCPA
         private int parentID;
         private int clientID;
         private double finalTotal;
+        private double cumulativeTotal = 0.0;
 
         private List<AComp> componentList = new List<AComp>();
         private List<string> service_names = new List<string>();
@@ -56,26 +58,26 @@ namespace GrenciCPA
             jobID = pJob;
             finalTotal = pTotal;
             CreateJobs(jobID);
-            lblName.Text = clientFirstName + " " + clientLastName;
-            double cumulativeTotal = 0.0;
-            for(int i = 0; i < service_names.Count; i++)
+            txtName.Text = clientFirstName + " " + clientLastName;
+
+            for (int i = 0; i < service_names.Count; i++)
             {
-                rtbServices.AppendText(service_names[i] + ": " + service_totals[i] +"\n");
-                rtbServices.AppendText(service_sentences[i] + '\n');
+                rtbServices.AppendText(service_sentences[i] + Environment.NewLine);
+                rtbPrices.AppendText(service_totals[i] + Environment.NewLine);
                 cumulativeTotal = service_totals[i] + cumulativeTotal;
             }
-            rtbServices.AppendText("Other Costs: " + (finalTotal - cumulativeTotal));
+            rtbServices.AppendText("Other Costs");
+            rtbPrices.AppendText((finalTotal - cumulativeTotal).ToString());
             txtAmtOwed.Text = finalTotal.ToString();
-
         }
         public void CreateJobs(int pJob)
         {
             string GetJobSQL = "SELECT JOB_COMPONENT_TABLE.SERV_ID, JOB_COMPONENT_TABLE.TOTAL, JOB_COMPONENT_TABLE.JOB_ID, SERVICE_TABLE.SERV_NAME, SERVICE_TABLE.SERV_SENTENCE, CLIENT_TABLE.CLIENT_ID, " +
-                "CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP " +
+                "CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP, CLIENT_TABLE.EMAIL " +
                 "FROM JOB_COMPONENT_TABLE INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID INNER JOIN SERVICE_TABLE ON JOB_COMPONENT_TABLE.SERV_ID = SERVICE_TABLE.SERV_ID " +
                 "INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " + 
                 "WHERE JOB_COMPONENT_TABLE.JOB_ID = " + jobID + " " +
-                "GROUP BY JOB_TABLE.JOB_ID, CLIENT_TABLE.SERV_ID, SERVICE_TABLE.SERV_SENTENCE;";
+                "ORDER BY JOB_COMPONENT_TABLE.SERV_ID;";
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
             {
@@ -153,7 +155,12 @@ namespace GrenciCPA
                     //this is used for a comparason for in the save function
                     tempComp.Row = i;
                     i++;
-                    componentList.Add(tempComp);
+                    if(componentList.Count == 0) componentList.Add(tempComp);
+                    else if(componentList[componentList.Count -1].Serv_ID == tempComp.Serv_ID)// if new is same as old add to the total but not another row.
+                    {
+                        componentList[componentList.Count -1].Total += tempComp.Total;
+                    }
+                    else componentList.Add(tempComp);
                     ClientsObj = tempClient;
                 }
                 connection.Close();
@@ -161,7 +168,7 @@ namespace GrenciCPA
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Could not retrieve characteristics from Database.! \n Error reads: " + ex.Message);
+                MessageBox.Show("Could not retrieve services from Database.! \n Error reads: " + ex.Message);
             }
         }
         
@@ -192,17 +199,14 @@ namespace GrenciCPA
             // Once this button is clicked, it will generated a new pdf and save it to the user's computer, in case they want to print it out or
             // save it for later on
 
-
-            //Will need to have these not hard code
-            string name = "Joe & Joan Smith"; //From client database
-            string address = "123 Center Avenue"; //From client database
-            string city = "Butler, PA, 16001"; //From client database
-            double cumulativeTotal = 0.0;
             Document document = new Document();
 
             // we need to gothrough the name and update it to fit and not save over the old
             //also need a filenetwork based off of clients
-            PdfWriter.GetInstance(document, new FileStream("SampleInvoice.pdf", FileMode.Create));
+            string filePath = "Invoices/" + clientID + clientLastName + "/" + clientLastName + "/" + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + ".pdf";
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
+            PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
             document.Open();
             iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(@"GrenciHeader.jpg");
             iTextSharp.text.Image img2 = iTextSharp.text.Image.GetInstance(@"GrenciFooter.jpg");
@@ -253,6 +257,45 @@ namespace GrenciCPA
         private void btnClose_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (btnEdit.Text == "Edit")
+            {
+
+                double total = 0.0;
+                rtbPrices.ReadOnly = false;
+                rtbServices.ReadOnly = false;
+                txtName.ReadOnly = false;
+                btnEdit.Text = "Finish Editing";
+                string clientFullName = txtName.Text;
+                string[] splitName = clientFullName.Split(' ');
+                this.clientFirstName = splitName[0];
+                this.clientLastName = splitName[1];
+
+                string[] sentences = rtbServices.Text.Split(Environment.NewLine.ToCharArray());
+                string[] totals = rtbPrices.Text.Split(Environment.NewLine.ToCharArray());
+
+                service_sentences.Clear();
+                service_totals.Clear();
+                for (int i = 0; i < sentences.Length; i++)
+                {
+                    service_sentences.Add(sentences[i]);
+                    service_totals.Add(double.Parse(totals[i]));
+                    total = total + double.Parse(totals[i]);
+                }
+
+                txtAmtOwed.Text = total.ToString();
+            }
+
+            else
+            {
+                rtbPrices.ReadOnly = true;
+                rtbServices.ReadOnly = true;
+                txtName.ReadOnly = true;
+                btnEdit.Text = "Edit";
+            }
         }
     }
 }
