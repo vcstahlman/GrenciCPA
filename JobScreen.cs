@@ -46,6 +46,8 @@ namespace GrenciCPA
         private List<ATime> timeList = new List<ATime>();
         private List<AStaff> staffList = new List<AStaff>();
 
+        
+
 
 
         public JobScreen()
@@ -105,7 +107,23 @@ namespace GrenciCPA
         private void button3_Click(object sender, EventArgs e)
         {//this is the close button
 
-            btnTimer_Click(null, null);//this saves time if timer is running
+            if(btnTimer.Text == "Stop Timer")
+            {
+
+                DateTime timeEnd = DateTime.Now;
+                btnTimer.Text = "Start Timer";
+
+                Description f1 = new Description();
+                f1.ShowDialog();
+                string timeDesc = f1.getDesc();
+
+                dgvTime.Rows.Insert(0, new string[] { (DateTime.Now - timeStart).ToString(), timeStart.ToString(), DateTime.Now.ToString(), timeDesc });
+                SaveTime(timeDesc);//saves it to the database as well.
+
+                time.Add(timeEnd.Subtract(timeStart));
+                lblTime.Text = "Total Elapsed Time: " + String.Format("{0:0.00}", time.TotalHours) + " hours";
+            }
+
             string message = "If you close now, any unsaved changes may be lost. Are you sure you want to continue?";
             string title = "Confirm Window";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -224,6 +242,7 @@ namespace GrenciCPA
                     int rowsAffected = command.ExecuteNonQuery();//tells ya if it worked
 
                     connection.Close();
+                    dgvTime.Rows.Insert(0, new string[] { (DateTime.Now - DateTime.Now.Subtract(span)).ToString(), DateTime.Now.Subtract(span).ToString(), DateTime.Now.ToString(), timeDesc });
 
                 }
                 catch (Exception ex)
@@ -252,7 +271,7 @@ namespace GrenciCPA
         //\\\\\\\\\\\\\\MAIN SAVE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         private void SavePage()
         {
-            for (int i = 0; i < dgvFees.Rows.Count; i++)
+            for (int i = 0; i < dgvFees.Rows.Count; i++)//goes through the dgv and saves items to the page
             {
                 foreach (AComp aComp in componentList)
                 {
@@ -262,6 +281,7 @@ namespace GrenciCPA
                             aComp.Serv_ID = int.Parse(dgvFees.Rows[i].Cells[1].Value.ToString());
                         else aComp.Serv_ID = 0;
                         //reads in the string for the serv
+
                         if (dgvFees.Rows[i].Cells[2].Value != null)
                             aComp.Char_ID = int.Parse(dgvFees.Rows[i].Cells[2].Value.ToString());
                         else aComp.Char_ID = 0;
@@ -270,12 +290,15 @@ namespace GrenciCPA
                         double cost = 0;
                         double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out cost);
                         aComp.Char_cost = cost;
+
                         double multi = 0;
                         double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out multi);
                         aComp.Char_multi = multi;
+
                         aComp.Total = multi * cost;
 
-                        if (aComp.Serv_ID == 0 && aComp.Char_ID == 0) aComp.SortInt = 3;//this marks it to not save due to having no information
+                        if (aComp.Serv_ID == 0 && aComp.Char_ID == 0)
+                            aComp.SortInt = 3;//this marks it to not save due to having no information
 
                     }
 
@@ -287,7 +310,7 @@ namespace GrenciCPA
             {
                 foreach (AComp aComp in componentList)
                 {
-                    if (dgvFees.Rows[i].Cells[0].Value == null) continue;
+                    if (dgvFees.Rows[i].Cells[0].Value == null) continue;//if saved in component
                     else if (dgvFees.Rows[i].Cells[0].Value.ToString() == aComp.Component_ID.ToString())
                     {
                         if (dgvFees.Rows[i].Cells[1].Value != null)
@@ -310,7 +333,8 @@ namespace GrenciCPA
                         //this means that it was put into the fill command and needs updating
                         aComp.SortInt = 2; //sorting index that will be for updating past 
 
-                        if (aComp.Serv_ID == 0 && aComp.Char_ID == 0) aComp.SortInt = 4;//this marks it to not save due to having no information, but also need deleted from db
+                        if (aComp.Serv_ID == 0 && aComp.Char_ID == 0) 
+                            aComp.SortInt = 4;//this marks it to not save due to having no information, but also need deleted from db
                     }
 
                 }
@@ -509,7 +533,22 @@ namespace GrenciCPA
                 MessageBox.Show("Could not save the job information. \n" + ex.Message);
             }
 
-            btnTimer_Click(this, null);//this should call the timer click and if it needs to save then you will make it save before leaving the page.
+            if (btnTimer.Text == "Stop Timer")//saves time if that is needed.
+            {
+
+                DateTime timeEnd = DateTime.Now;
+                btnTimer.Text = "Start Timer";
+
+                Description f1 = new Description();
+                f1.ShowDialog();
+                string timeDesc = f1.getDesc();
+
+                dgvTime.Rows.Insert(0, new string[] { (DateTime.Now - timeStart).ToString(), timeStart.ToString(), DateTime.Now.ToString(), timeDesc });
+                SaveTime(timeDesc);//saves it to the database as well.
+
+                time.Add(timeEnd.Subtract(timeStart));
+                lblTime.Text = "Total Elapsed Time: " + String.Format("{0:0.00}", time.TotalHours) + " hours";
+            }
 
         }
 

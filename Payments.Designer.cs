@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payments));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboType = new System.Windows.Forms.ComboBox();
             this.lblSSN = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -44,26 +44,26 @@
             this.dgvPayments = new System.Windows.Forms.DataGridView();
             this.txtInvoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxChknum = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cboType
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cboType.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cboType.FormattingEnabled = true;
+            this.cboType.Items.AddRange(new object[] {
             "Check",
             "Cash",
             "Credit",
             "Debit"});
-            this.comboBox1.Location = new System.Drawing.Point(25, 234);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(312, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Text = "Method of Payment";
+            this.cboType.Location = new System.Drawing.Point(25, 234);
+            this.cboType.Margin = new System.Windows.Forms.Padding(2);
+            this.cboType.Name = "cboType";
+            this.cboType.Size = new System.Drawing.Size(312, 21);
+            this.cboType.TabIndex = 0;
+            this.cboType.Text = "Method of Payment";
             // 
             // lblSSN
             // 
@@ -134,19 +134,19 @@
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClose.Location = new System.Drawing.Point(238, 301);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 46);
             this.btnClose.TabIndex = 29;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnProcess
             // 
             this.btnProcess.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnProcess.Location = new System.Drawing.Point(116, 301);
-            this.btnProcess.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProcess.Margin = new System.Windows.Forms.Padding(2);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(99, 46);
             this.btnProcess.TabIndex = 30;
@@ -158,7 +158,7 @@
             // 
             this.txtOverride.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtOverride.Location = new System.Drawing.Point(116, 275);
-            this.txtOverride.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtOverride.Margin = new System.Windows.Forms.Padding(2);
             this.txtOverride.Name = "txtOverride";
             this.txtOverride.Size = new System.Drawing.Size(100, 20);
             this.txtOverride.TabIndex = 31;
@@ -186,7 +186,7 @@
             this.txtInvoice,
             this.txtAmount});
             this.dgvPayments.Location = new System.Drawing.Point(12, 103);
-            this.dgvPayments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPayments.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPayments.Name = "dgvPayments";
             this.dgvPayments.ReadOnly = true;
             this.dgvPayments.RowHeadersWidth = 51;
@@ -212,14 +212,15 @@
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.ReadOnly = true;
             // 
-            // textBox1
+            // tbxChknum
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(277, 275);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(61, 20);
-            this.textBox1.TabIndex = 34;
+            this.tbxChknum.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tbxChknum.Location = new System.Drawing.Point(277, 275);
+            this.tbxChknum.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxChknum.Name = "tbxChknum";
+            this.tbxChknum.Size = new System.Drawing.Size(61, 20);
+            this.tbxChknum.TabIndex = 34;
+            this.tbxChknum.Visible = false;
             // 
             // label2
             // 
@@ -231,6 +232,7 @@
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 35;
             this.label2.Text = "Check #";
+            this.label2.Visible = false;
             // 
             // Payments
             // 
@@ -238,7 +240,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(346, 360);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxChknum);
             this.Controls.Add(this.dgvPayments);
             this.Controls.Add(this.lblOverride);
             this.Controls.Add(this.txtOverride);
@@ -251,9 +253,9 @@
             this.Controls.Add(this.lblAddressCSZ);
             this.Controls.Add(this.lblAddressSt);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboType);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Payments";
             this.Text = "Payments";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).EndInit();
@@ -264,7 +266,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.Label lblSSN;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPhone;
@@ -277,7 +279,7 @@
         private System.Windows.Forms.TextBox txtOverride;
         private System.Windows.Forms.Label lblOverride;
         private System.Windows.Forms.DataGridView dgvPayments;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxChknum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtAmount;

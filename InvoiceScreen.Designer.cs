@@ -37,18 +37,21 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnEmail = new System.Windows.Forms.Button();
-            this.rtbServices = new System.Windows.Forms.RichTextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.rtbPrices = new System.Windows.Forms.RichTextBox();
+            this.dgvInvoice = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEdit.Location = new System.Drawing.Point(10, 395);
+            this.btnEdit.Location = new System.Drawing.Point(270, 24);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(79, 29);
+            this.btnEdit.Size = new System.Drawing.Size(79, 24);
             this.btnEdit.TabIndex = 33;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -68,7 +71,7 @@
             // btnMakeInvoice
             // 
             this.btnMakeInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMakeInvoice.Location = new System.Drawing.Point(10, 428);
+            this.btnMakeInvoice.Location = new System.Drawing.Point(10, 430);
             this.btnMakeInvoice.Margin = new System.Windows.Forms.Padding(2);
             this.btnMakeInvoice.Name = "btnMakeInvoice";
             this.btnMakeInvoice.Size = new System.Drawing.Size(79, 40);
@@ -102,7 +105,7 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(642, 436);
+            this.btnClose.Location = new System.Drawing.Point(622, 436);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(77, 35);
@@ -114,7 +117,7 @@
             // btnPrint
             // 
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Location = new System.Drawing.Point(642, 380);
+            this.btnPrint.Location = new System.Drawing.Point(622, 380);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(77, 35);
@@ -126,7 +129,7 @@
             // btnEmail
             // 
             this.btnEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEmail.Location = new System.Drawing.Point(642, 340);
+            this.btnEmail.Location = new System.Drawing.Point(622, 340);
             this.btnEmail.Margin = new System.Windows.Forms.Padding(2);
             this.btnEmail.Name = "btnEmail";
             this.btnEmail.Size = new System.Drawing.Size(77, 35);
@@ -134,17 +137,6 @@
             this.btnEmail.Text = "Email Invoice";
             this.btnEmail.UseVisualStyleBackColor = true;
             this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
-            // 
-            // rtbServices
-            // 
-            this.rtbServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbServices.Location = new System.Drawing.Point(10, 50);
-            this.rtbServices.Name = "rtbServices";
-            this.rtbServices.ReadOnly = true;
-            this.rtbServices.Size = new System.Drawing.Size(573, 280);
-            this.rtbServices.TabIndex = 34;
-            this.rtbServices.Text = "";
             // 
             // txtName
             // 
@@ -154,24 +146,53 @@
             this.txtName.Size = new System.Drawing.Size(237, 20);
             this.txtName.TabIndex = 35;
             // 
-            // rtbPrices
+            // dgvInvoice
             // 
-            this.rtbPrices.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbPrices.Location = new System.Drawing.Point(648, 50);
-            this.rtbPrices.Name = "rtbPrices";
-            this.rtbPrices.ReadOnly = true;
-            this.rtbPrices.Size = new System.Drawing.Size(71, 280);
-            this.rtbPrices.TabIndex = 36;
-            this.rtbPrices.Text = "";
+            this.dgvInvoice.AllowUserToAddRows = false;
+            this.dgvInvoice.AllowUserToDeleteRows = false;
+            this.dgvInvoice.AllowUserToOrderColumns = true;
+            this.dgvInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInvoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dgvInvoice.Location = new System.Drawing.Point(10, 69);
+            this.dgvInvoice.Name = "dgvInvoice";
+            this.dgvInvoice.Size = new System.Drawing.Size(689, 235);
+            this.dgvInvoice.TabIndex = 36;
+            this.dgvInvoice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Sentence";
+            this.Column1.MaxInputLength = 62767;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 550;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Subtotal";
+            this.Column2.Name = "Column2";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(8, 402);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(81, 23);
+            this.btnUpdate.TabIndex = 37;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // InvoiceScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 481);
-            this.Controls.Add(this.rtbPrices);
+            this.ClientSize = new System.Drawing.Size(707, 481);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.dgvInvoice);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.rtbServices);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txtAmtOwed);
             this.Controls.Add(this.btnMakeInvoice);
@@ -184,6 +205,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InvoiceScreen";
             this.Text = "InvoiceScreen";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,8 +220,10 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnEmail;
-        private System.Windows.Forms.RichTextBox rtbServices;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.RichTextBox rtbPrices;
+        private System.Windows.Forms.DataGridView dgvInvoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

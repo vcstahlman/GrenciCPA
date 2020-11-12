@@ -200,7 +200,7 @@ namespace GrenciCPA
                 "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                 "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                 "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
-                "WHERE JOB_TABLE.TOTAL_BILL > 0 AND JOB_TABLE.STAFF_ID IS NULL";
+                "WHERE JOB_TABLE.TOTAL_BILL > 0 AND JOB_TABLE.STAFF_ID IS NULL AND JOB_TABLE.JOB_ACTIVE = 1";
                 connectionString = Properties.Settings.Default.GrenciDBConnectionString;
 
                 try
@@ -338,7 +338,7 @@ namespace GrenciCPA
                 "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                 "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                 "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
-                "WHERE JOB_TABLE.TOTAL_BILL > 0";
+                "WHERE JOB_TABLE.TOTAL_BILL > 0 AND JOB_TABLE.JOB_ACTIVE = 1";
                 connectionString = Properties.Settings.Default.GrenciDBConnectionString;
 
                 try
@@ -476,7 +476,7 @@ namespace GrenciCPA
                 "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                 "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                 "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
-                "WHERE JOB_TABLE.STAFF_ID IS NULL";
+                "WHERE JOB_TABLE.STAFF_ID IS NULL AND JOB_TABLE.JOB_ACTIVE = 1";
                 connectionString = Properties.Settings.Default.GrenciDBConnectionString;
 
                 try
@@ -567,7 +567,7 @@ namespace GrenciCPA
                     "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                     "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                     "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
-                    "WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') ";
+                    "WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') AND JOB_TABLE.JOB_ACTIVE = 1 ";
 
                
                 connectionString = Properties.Settings.Default.GrenciDBConnectionString;
@@ -727,7 +727,7 @@ namespace GrenciCPA
         {
             foreach (AClient aClient in ClientsObjList)
             {
-                dgvJobs.Rows.Add(aClient.FirstName, aClient.LastName, aClient.Company, " " /*GetParent(aClient.ParentID)*/,GetServ(aClient.ClientID), GetStaff(aClient.ClientID), "View Job", aClient.ClientID, aClient.JobID, "Invoice");
+                dgvJobs.Rows.Add(aClient.FirstName, aClient.LastName, aClient.Company, " " /*GetParent(aClient.ParentID)*/,GetServ(aClient.ClientID), GetStaff(aClient.ClientID), "View Job", aClient.ClientID, aClient.JobID);
 
             }
         }

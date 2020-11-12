@@ -62,6 +62,8 @@
       <DependentUpon>AddClient.cs</DependentUpon>
     </Compile>
     <Compile Include="AFee.cs" />
+    <Compile Include="AInvoice.cs" />
+    <Compile Include="APayment.cs" />
     <Compile Include="AServ.cs" />
     <Compile Include="AStaff.cs" />
     <Compile Include="ATime.cs" />
