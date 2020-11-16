@@ -40,6 +40,11 @@ namespace GrenciCPA
         private List<string> characteristics;
         private string preferred;
         private int jobID;
+        private string dateSent;
+        private float totalBill;
+        private string servName;
+        private float paymentAmount;
+
 
 
         //accessors and mutators for the class.
@@ -65,5 +70,9 @@ namespace GrenciCPA
         public List<string> Characteristics { get => characteristics; set => characteristics = value; }
         public string Preferred { get => preferred; set => preferred = value; }
         public int JobID { get => jobID; set => jobID = value; }
+        public string DateSent { get => dateSent; set => dateSent = value; }
+        public float TotalBill { get => totalBill; set => totalBill = value; }
+        public string ServName { get => servName; set => servName = value; }
+        public float PaymentAmount { get => paymentAmount; set => paymentAmount = value; }
     }
 }

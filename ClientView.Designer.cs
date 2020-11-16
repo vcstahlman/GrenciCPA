@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientView));
             this.button3 = new System.Windows.Forms.Button();
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
@@ -46,11 +45,10 @@
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.dgvClientPast = new System.Windows.Forms.DataGridView();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDateInvoiced = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAmountCharged = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDateInvoiced = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewJob = new System.Windows.Forms.Button();
             this.btnActive = new System.Windows.Forms.Button();
             this.lblNotes = new System.Windows.Forms.Label();
@@ -61,6 +59,7 @@
             this.lblCounty = new System.Windows.Forms.Label();
             this.lblSchool = new System.Windows.Forms.Label();
             this.lblParent = new System.Windows.Forms.Label();
+            this.btnPayments = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +67,7 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Location = new System.Drawing.Point(899, 547);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(129, 45);
             this.button3.TabIndex = 28;
@@ -173,54 +172,52 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientPast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientPast.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.StartDate,
+            this.txtDateInvoiced,
             this.Service,
             this.txtAmountCharged,
-            this.txtAmountPaid,
-            this.txtDateInvoiced});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientPast.DefaultCellStyle = dataGridViewCellStyle6;
+            this.txtAmountPaid});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientPast.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvClientPast.Location = new System.Drawing.Point(8, 186);
-            this.dgvClientPast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvClientPast.Margin = new System.Windows.Forms.Padding(2);
             this.dgvClientPast.Name = "dgvClientPast";
             this.dgvClientPast.ReadOnly = true;
             this.dgvClientPast.RowHeadersWidth = 51;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvClientPast.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvClientPast.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvClientPast.RowTemplate.Height = 24;
             this.dgvClientPast.Size = new System.Drawing.Size(850, 346);
             this.dgvClientPast.TabIndex = 0;
             this.dgvClientPast.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientPast_CellContentClick);
             // 
-            // StartDate
+            // txtDateInvoiced
             // 
-            this.StartDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.StartDate.DataPropertyName = "StartDate";
+            this.txtDateInvoiced.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.txtDateInvoiced.DataPropertyName = "DateInvoiced";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Format = "d";
             dataGridViewCellStyle1.NullValue = null;
-            this.StartDate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.StartDate.HeaderText = "Start Date";
-            this.StartDate.MinimumWidth = 100;
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
-            this.StartDate.Width = 125;
+            this.txtDateInvoiced.DefaultCellStyle = dataGridViewCellStyle1;
+            this.txtDateInvoiced.HeaderText = "Date Invoiced";
+            this.txtDateInvoiced.MinimumWidth = 100;
+            this.txtDateInvoiced.Name = "txtDateInvoiced";
+            this.txtDateInvoiced.ReadOnly = true;
+            this.txtDateInvoiced.Width = 147;
             // 
             // Service
             // 
             this.Service.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Service.DataPropertyName = "Service";
+            this.Service.DataPropertyName = "Services";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.NullValue = null;
             this.Service.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Service.HeaderText = "Service";
+            this.Service.HeaderText = "Services";
             this.Service.MinimumWidth = 100;
             this.Service.Name = "Service";
             this.Service.ReadOnly = true;
@@ -228,12 +225,12 @@
             // txtAmountCharged
             // 
             this.txtAmountCharged.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.txtAmountCharged.DataPropertyName = "AmountCharged";
+            this.txtAmountCharged.DataPropertyName = "AmountOwed";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle3.Format = "C2";
             dataGridViewCellStyle3.NullValue = null;
             this.txtAmountCharged.DefaultCellStyle = dataGridViewCellStyle3;
-            this.txtAmountCharged.HeaderText = "Amount Charged";
+            this.txtAmountCharged.HeaderText = "Amount Owed";
             this.txtAmountCharged.MinimumWidth = 100;
             this.txtAmountCharged.Name = "txtAmountCharged";
             this.txtAmountCharged.ReadOnly = true;
@@ -253,25 +250,11 @@
             this.txtAmountPaid.ReadOnly = true;
             this.txtAmountPaid.Width = 125;
             // 
-            // txtDateInvoiced
-            // 
-            this.txtDateInvoiced.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.txtDateInvoiced.DataPropertyName = "DateInvoiced";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.txtDateInvoiced.DefaultCellStyle = dataGridViewCellStyle5;
-            this.txtDateInvoiced.HeaderText = "Date Invoiced";
-            this.txtDateInvoiced.MinimumWidth = 100;
-            this.txtDateInvoiced.Name = "txtDateInvoiced";
-            this.txtDateInvoiced.ReadOnly = true;
-            this.txtDateInvoiced.Width = 147;
-            // 
             // btnNewJob
             // 
             this.btnNewJob.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNewJob.Location = new System.Drawing.Point(8, 547);
-            this.btnNewJob.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewJob.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewJob.Name = "btnNewJob";
             this.btnNewJob.Size = new System.Drawing.Size(120, 45);
             this.btnNewJob.TabIndex = 31;
@@ -283,7 +266,7 @@
             // 
             this.btnActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnActive.Location = new System.Drawing.Point(133, 547);
-            this.btnActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnActive.Margin = new System.Windows.Forms.Padding(2);
             this.btnActive.Name = "btnActive";
             this.btnActive.Size = new System.Drawing.Size(120, 45);
             this.btnActive.TabIndex = 34;
@@ -320,7 +303,7 @@
             "Schedule C",
             "Dependents"});
             this.lbxLabels.Location = new System.Drawing.Point(234, 60);
-            this.lbxLabels.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbxLabels.Margin = new System.Windows.Forms.Padding(2);
             this.lbxLabels.Name = "lbxLabels";
             this.lbxLabels.Size = new System.Drawing.Size(171, 82);
             this.lbxLabels.TabIndex = 40;
@@ -378,11 +361,22 @@
             this.lblParent.TabIndex = 45;
             this.lblParent.Text = "Juana Smith";
             // 
+            // btnPayments
+            // 
+            this.btnPayments.Location = new System.Drawing.Point(258, 547);
+            this.btnPayments.Name = "btnPayments";
+            this.btnPayments.Size = new System.Drawing.Size(120, 45);
+            this.btnPayments.TabIndex = 46;
+            this.btnPayments.Text = "Payments";
+            this.btnPayments.UseVisualStyleBackColor = true;
+            this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
+            // 
             // ClientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 600);
+            this.Controls.Add(this.btnPayments);
             this.Controls.Add(this.lblParent);
             this.Controls.Add(this.lblBirthdate);
             this.Controls.Add(this.lblCounty);
@@ -404,7 +398,7 @@
             this.Controls.Add(this.lblAddressSt);
             this.Controls.Add(this.lblName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ClientView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientView";
@@ -433,14 +427,14 @@
         private System.Windows.Forms.Label lblChar;
         private System.Windows.Forms.ListBox lbxLabels;
         private System.Windows.Forms.Label lblBalance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Service;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountCharged;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountPaid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtDateInvoiced;
         private System.Windows.Forms.Label lblBirthdate;
         private System.Windows.Forms.Label lblCounty;
         private System.Windows.Forms.Label lblSchool;
         private System.Windows.Forms.Label lblParent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtDateInvoiced;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountCharged;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountPaid;
+        private System.Windows.Forms.Button btnPayments;
     }
 }

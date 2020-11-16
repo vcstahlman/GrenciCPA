@@ -237,6 +237,7 @@
             this.MinimumFee.HeaderText = "Minimum";
             this.MinimumFee.MinimumWidth = 85;
             this.MinimumFee.Name = "MinimumFee";
+            this.MinimumFee.Visible = false;
             this.MinimumFee.Width = 85;
             // 
             // txtAssociatedService

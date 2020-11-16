@@ -166,3 +166,4 @@ C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.CopyComplete
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.exe
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.pdb
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csprojAssemblyReference.cache
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ReportDemo.resources

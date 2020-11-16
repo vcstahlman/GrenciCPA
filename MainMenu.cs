@@ -57,7 +57,7 @@ namespace GrenciCPA
         private void btnReport_Click(object sender, EventArgs e)
         {
             // this button instantiates a form that replicates a reports page, where the user can conduct advanced searches based on specific parameters
-            Reports form = new Reports();
+            ReportDemo form = new ReportDemo();
             form.ShowDialog();
         }
     }

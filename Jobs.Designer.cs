@@ -39,9 +39,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.dgvJobs = new System.Windows.Forms.DataGridView();
-            this.cbxToInvoice = new System.Windows.Forms.CheckBox();
-            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
-            this.cbxProgress = new System.Windows.Forms.CheckBox();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +48,10 @@
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JobID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbxToInvoice = new System.Windows.Forms.CheckBox();
+            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
+            this.cbxProgress = new System.Windows.Forms.CheckBox();
+            this.cbxPast = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(379, 7);
+            this.btnSearch.Location = new System.Drawing.Point(457, 7);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(74, 30);
@@ -113,41 +114,6 @@
             this.dgvJobs.Size = new System.Drawing.Size(1107, 518);
             this.dgvJobs.TabIndex = 11;
             this.dgvJobs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJobs_CellContentClick);
-            // 
-            // cbxToInvoice
-            // 
-            this.cbxToInvoice.AutoSize = true;
-            this.cbxToInvoice.Location = new System.Drawing.Point(222, 15);
-            this.cbxToInvoice.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxToInvoice.Name = "cbxToInvoice";
-            this.cbxToInvoice.Size = new System.Drawing.Size(77, 17);
-            this.cbxToInvoice.TabIndex = 16;
-            this.cbxToInvoice.Text = "To Invoice";
-            this.cbxToInvoice.UseVisualStyleBackColor = true;
-            // 
-            // cbxUnassigned
-            // 
-            this.cbxUnassigned.AutoSize = true;
-            this.cbxUnassigned.Location = new System.Drawing.Point(139, 15);
-            this.cbxUnassigned.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxUnassigned.Name = "cbxUnassigned";
-            this.cbxUnassigned.Size = new System.Drawing.Size(82, 17);
-            this.cbxUnassigned.TabIndex = 17;
-            this.cbxUnassigned.Text = "Unassigned";
-            this.cbxUnassigned.UseVisualStyleBackColor = true;
-            // 
-            // cbxProgress
-            // 
-            this.cbxProgress.AutoSize = true;
-            this.cbxProgress.Checked = true;
-            this.cbxProgress.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxProgress.Location = new System.Drawing.Point(298, 15);
-            this.cbxProgress.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxProgress.Name = "cbxProgress";
-            this.cbxProgress.Size = new System.Drawing.Size(79, 17);
-            this.cbxProgress.TabIndex = 19;
-            this.cbxProgress.Text = "In Progress";
-            this.cbxProgress.UseVisualStyleBackColor = true;
             // 
             // FirstName
             // 
@@ -245,11 +211,56 @@
             this.JobID.Visible = false;
             this.JobID.Width = 125;
             // 
+            // cbxToInvoice
+            // 
+            this.cbxToInvoice.AutoSize = true;
+            this.cbxToInvoice.Location = new System.Drawing.Point(222, 15);
+            this.cbxToInvoice.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxToInvoice.Name = "cbxToInvoice";
+            this.cbxToInvoice.Size = new System.Drawing.Size(77, 17);
+            this.cbxToInvoice.TabIndex = 16;
+            this.cbxToInvoice.Text = "To Invoice";
+            this.cbxToInvoice.UseVisualStyleBackColor = true;
+            // 
+            // cbxUnassigned
+            // 
+            this.cbxUnassigned.AutoSize = true;
+            this.cbxUnassigned.Location = new System.Drawing.Point(139, 15);
+            this.cbxUnassigned.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxUnassigned.Name = "cbxUnassigned";
+            this.cbxUnassigned.Size = new System.Drawing.Size(82, 17);
+            this.cbxUnassigned.TabIndex = 17;
+            this.cbxUnassigned.Text = "Unassigned";
+            this.cbxUnassigned.UseVisualStyleBackColor = true;
+            // 
+            // cbxProgress
+            // 
+            this.cbxProgress.AutoSize = true;
+            this.cbxProgress.Location = new System.Drawing.Point(298, 15);
+            this.cbxProgress.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxProgress.Name = "cbxProgress";
+            this.cbxProgress.Size = new System.Drawing.Size(79, 17);
+            this.cbxProgress.TabIndex = 19;
+            this.cbxProgress.Text = "In Progress";
+            this.cbxProgress.UseVisualStyleBackColor = true;
+            // 
+            // cbxPast
+            // 
+            this.cbxPast.AutoSize = true;
+            this.cbxPast.Location = new System.Drawing.Point(381, 15);
+            this.cbxPast.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxPast.Name = "cbxPast";
+            this.cbxPast.Size = new System.Drawing.Size(72, 17);
+            this.cbxPast.TabIndex = 20;
+            this.cbxPast.Text = "Past Jobs";
+            this.cbxPast.UseVisualStyleBackColor = true;
+            // 
             // Jobs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 646);
+            this.Controls.Add(this.cbxPast);
             this.Controls.Add(this.cbxProgress);
             this.Controls.Add(this.cbxUnassigned);
             this.Controls.Add(this.cbxToInvoice);
@@ -287,5 +298,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn JobID;
+        private System.Windows.Forms.CheckBox cbxPast;
     }
 }

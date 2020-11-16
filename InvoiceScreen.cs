@@ -218,7 +218,7 @@ namespace GrenciCPA
         private void btnMakeInvoice_Click_1(object sender, EventArgs e)
         {
 
-            filePath = "Invoices/" + ClientsObj.ClientID + clientLastName + "/" + clientLastName + "/" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + ".pdf";
+            filePath = "Invoices/" + ClientsObj.ClientID + clientLastName + "/" + clientLastName + "/" + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
             //will save invoice on the path of the id
             string inString = "";
             int invoice = 0;
@@ -327,6 +327,28 @@ namespace GrenciCPA
             btnEmail.Enabled = true;
             btnPrint.Enabled = true;
 
+
+            string setPaymentSQL = "UPDATE JOB_TABLE SET JOB_ACTIVE = 0  WHERE JOB_ID = " + jobID + ";";
+            //we are going through and updating the prices that we need to pull
+
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(setPaymentSQL, connection);
+                //Open the connection
+                connection.Open();
+                command.ExecuteNonQuery();//tells ya if it worked
+
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not deactivate job \nError: " + ex.Message);
+            }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

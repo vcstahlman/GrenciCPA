@@ -85,6 +85,7 @@ namespace GrenciCPA
             (dgvFees.Columns[2] as DataGridViewComboBoxColumn).DataSource = characteristicList;
             (dgvFees.Columns[2] as DataGridViewComboBoxColumn).DisplayMember = "CharName";
             (dgvFees.Columns[2] as DataGridViewComboBoxColumn).ValueMember = "CharID";
+
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).DataSource = serviceList;
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).DisplayMember = "ServName";
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).ValueMember = "ServID";
@@ -171,6 +172,8 @@ namespace GrenciCPA
         private void btnComplete_Click(object sender, EventArgs e)
         {
             SavePage();
+
+            
 
             InvoiceScreen form = new InvoiceScreen(jobID, jobTotal);//pass the jobID and the total
             form.ShowDialog();
@@ -271,6 +274,59 @@ namespace GrenciCPA
         //\\\\\\\\\\\\\\MAIN SAVE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         private void SavePage()
         {
+            //componentList.Clear();
+           
+            //foreach(DataGridViewRow row in dgvFees.Rows)//goes through the dgv and saves items to the page
+            //{
+            //    int i = row.Index;
+            //    AComp temp = new AComp();
+            //    temp.Row = row.Index;
+
+            //    //retrives the numbers from the dgv and saves them to the comp
+
+            //    int inOutInt = 0;
+            //    if (dgvFees.Rows[i].Cells[0].Value != null)
+            //        int.TryParse(dgvFees.Rows[i].Cells[0].Value.ToString(), out inOutInt);
+            //    if (inOutInt != 0) temp.Component_ID = inOutInt;
+
+            //    //only need the ids for the save so we are making sure that we watch the list to the dgv
+            //    inOutInt = 0;
+            //    if (dgvFees.Rows[i].Cells[1].Value != null)
+            //        int.TryParse(dgvFees.Rows[i].Cells[1].Value.ToString(), out inOutInt);
+            //    temp.Serv_ID = inOutInt;
+
+            //    inOutInt = 0;
+            //    if (dgvFees.Rows[i].Cells[2].Value != null)
+            //        int.TryParse(dgvFees.Rows[i].Cells[2].Value.ToString(), out inOutInt);
+            //    temp.Char_ID = inOutInt;
+
+
+            //    double inOutDub = 0.00;
+            //    if (dgvFees.Rows[i].Cells[3].Value != null)
+            //        double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out inOutDub);
+            //    temp.Char_cost = inOutDub;
+
+            //    inOutDub = 0.00;
+            //    if (dgvFees.Rows[i].Cells[4].Value != null)
+            //        double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out inOutDub);
+            //    temp.Char_multi = inOutDub;
+
+            //    inOutDub = 0.00;
+            //    if (dgvFees.Rows[i].Cells[5].Value != null)
+            //        double.TryParse(dgvFees.Rows[i].Cells[5].Value.ToString(), out inOutDub);
+            //    temp.Total = inOutDub;
+
+                
+                
+            //    temp.SortInt = 1;
+                
+            //    if(temp.Serv_ID == 0 && temp.Char_ID == 0)
+            //                temp.SortInt = 3;//this marks it to not save due to having no information
+                
+            //    componentList.Add(temp);
+
+
+            //}
             for (int i = 0; i < dgvFees.Rows.Count; i++)//goes through the dgv and saves items to the page
             {
                 foreach (AComp aComp in componentList)
@@ -297,8 +353,7 @@ namespace GrenciCPA
 
                         aComp.Total = multi * cost;
 
-                        if (aComp.Serv_ID == 0 && aComp.Char_ID == 0)
-                            aComp.SortInt = 3;//this marks it to not save due to having no information
+
 
                     }
 
@@ -331,7 +386,7 @@ namespace GrenciCPA
 
                         //readsin the string for the char
                         //this means that it was put into the fill command and needs updating
-                        aComp.SortInt = 2; //sorting index that will be for updating past 
+                        if (aComp.Component_ID != 0)aComp.SortInt = 2; //sorting index that will be for updating past 
 
                         if (aComp.Serv_ID == 0 && aComp.Char_ID == 0) 
                             aComp.SortInt = 4;//this marks it to not save due to having no information, but also need deleted from db
@@ -933,29 +988,35 @@ namespace GrenciCPA
                 int i = 0;
                 while (reader.Read())//reads in all the data assotiated with the 
                 {
-                    AServ tempServ = new AServ();
+                    AServ temp = new AServ();
 
 
                     if (reader["SERV_ID"] != DBNull.Value)
                     {
-                        tempServ.ServID = (reader["SERV_ID"] as int?) ?? 0;
+                        temp.ServID = (reader["SERV_ID"] as int?) ?? 0;
                     }
                     if (reader["SERV_NAME"] != DBNull.Value)
                     {
-                        tempServ.ServName = (reader["SERV_NAME"] as string);
+                        temp.ServName = (reader["SERV_NAME"] as string);
                     }
                     if (reader["SERV_ACTIVE"] != DBNull.Value)
                     {
-                        if (!reader.GetBoolean(reader.GetOrdinal("SERV_ACTIVE"))) tempServ = null;//if not active then it will delete the temp so it is not added
+                        if (!reader.GetBoolean(reader.GetOrdinal("SERV_ACTIVE"))) temp = null;//if not active then it will delete the temp so it is not added
                     }
 
-                    tempServ.Chars = new List<AChar>();
+                    temp.Chars = new List<AChar>();
                     //this is used for a comparason for in the save function
 
                     i++;
-                    serviceList.Add(tempServ);
+                    serviceList.Add(temp);
                 }
+                
                 connection.Close();
+                AServ tempServ = new AServ();
+                tempServ.ServName = "____Blank____";
+                tempServ.ServID = 0;
+                tempServ.Chars = new List<AChar>();
+                serviceList.Add(tempServ);
             }
             catch (Exception ex)
             {
@@ -1014,17 +1075,36 @@ namespace GrenciCPA
 
                     //this is used for a comparason for in the save function
                     foreach (AServ aserv in serviceList)
-                            {
-                                if (aserv.ServID == tempChar.CharAsso && tempChar.CharAsso != 0)
-                                {
-                                    aserv.Chars.Add(tempChar);
-                                }
-                            }
+                    {
+                        if (aserv.ServID == tempChar.CharAsso && tempChar.CharAsso != 0)
+                        {
+                            aserv.Chars.Add(tempChar);
+                        }
+                    }
 
                     i++;
                     characteristicList.Add(tempChar);
                 }
                 connection.Close();
+
+                AChar temp = new AChar();
+                temp.CharID = 0;
+                temp.CharName = "____Blank____";
+                temp.CharCost = 0;
+                characteristicList.Add(temp);
+                foreach (AServ aserv in serviceList)
+                {
+                    aserv.Chars.Add(temp);
+                    if (aserv.Chars.Count == 1)//if empty it will bring up all char
+                    {
+                        foreach (AChar characteristic in characteristicList)
+                        {
+                            aserv.Chars.Add(characteristic);
+                        }
+
+                    }
+                }
+                
             }
             catch (Exception ex)
             {
@@ -1067,7 +1147,7 @@ namespace GrenciCPA
                     }
                     if (reader["STAFF_LAST_NAME"] != DBNull.Value)
                     {
-                        tempStaff.StaffFirstName = (reader["STAFF_LAST_NAME"] as string);
+                        tempStaff.StaffLastName = (reader["STAFF_LAST_NAME"] as string);
                     }
 
 
@@ -1206,19 +1286,20 @@ namespace GrenciCPA
                 MessageBox.Show("Could not retrieve characteristics from Database.! \n Error reads: " + ex.Message);
             }
 
-            if (componentList.Count == 0) MessageBox.Show("Components list for this job is empty. Something did not load correct, or the job is new.");
 
+            if (componentList.Count == 0) MessageBox.Show("Components list for this job is empty. Something did not load correct, or the job is new.");
+            
             foreach (AComp comp in componentList)
             {
                 //inserts the component on the last row of the dgv
-                dgvFees.Rows.Insert(comp.Row, new string[] {
+                dgvFees.Rows.Insert(comp.Row, new string[] {                    
                     comp.Component_ID.ToString(), null , null,
-                    String.Format("{0:0.00}",comp.Char_cost), String.Format("{0:0.00}", comp.Char_multi), comp.Total.ToString() });
+                    String.Format("{0:0.00}", comp.Char_cost), String.Format("{0:0.00}", comp.Char_multi), comp.Total.ToString() });
             }
             foreach( AComp acomp in componentList)
             {
                 if(acomp.Serv_ID != 0)dgvFees.Rows[acomp.Row].Cells[1].Value = acomp.Serv_ID;
-                if (acomp.Char_ID != 0) dgvFees.Rows[acomp.Row].Cells[2].Value = acomp.Char_ID;
+                if(acomp.Char_ID != 0) dgvFees.Rows[acomp.Row].Cells[2].Value = acomp.Char_ID;
 
             }
             afterLoad = true;
@@ -1262,11 +1343,11 @@ namespace GrenciCPA
             {
                 double newcost = 0;
                 double newmulti = 0;
-                double newtotal = 0;
+                
                 if (dgvFees.Rows[i].Cells[3].Value != null) double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out newcost);
                 if (dgvFees.Rows[i].Cells[4].Value != null) double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out newmulti);
 
-                newtotal = newcost * newmulti;//if it is less it will be overwriten, if not it will be fine.
+                double newtotal = newcost * newmulti;//if it is less it will be overwriten, if not it will be fine.
                 dgvFees.Rows[i].Cells[5].Value = newtotal;//if the new total is more than the one in there it will rewrite.
 
 
@@ -1294,10 +1375,11 @@ namespace GrenciCPA
 
                                 foreach (AComp cmp in componentList)//this finds the current row under edit and adds the correct data for the char selected
                                 {
-                                    if (cmp.Row == e.RowIndex)
+                                    if (cmp.Row == e.RowIndex) //sets cost and char for that row
                                     {
                                         cmp.Char_cost = achar.CharCost;
-
+                                        cmp.Char_ID = achar.CharID;
+                                        cmp.Char_Name = achar.CharName;
                                     }
                                 }
                             }
@@ -1321,7 +1403,17 @@ namespace GrenciCPA
                                 cbo.DisplayMember = "CharName";
                                 cbo.ValueMember = "CharID";
                                 dgvFees.Rows[e.RowIndex].Cells[2] = cbo;
+
                                 //gets the list of chars for each serv in the second combo box if the first one is used.
+                                foreach (AComp cmp in componentList)//this finds the current row under edit and adds the correct data for the char selected
+                                {
+                                    if (cmp.Row == e.RowIndex)//sets the component details for thatrow if somethin is selected
+                                    {
+                                        
+                                        cmp.Serv_ID = aserv.ServID;
+                                        cmp.Serv_Name = aserv.ServName;
+                                    }
+                                }
                             }
                         }
                     }

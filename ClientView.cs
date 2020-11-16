@@ -26,40 +26,23 @@ namespace GrenciCPA
         private int parentID;
         private int clientID;
 
+        private List<AInvoice> invoiceList = new List<AInvoice>();
+
         public ClientView()
         {
-            // test data
-            //InitializeComponent();
-            //int n = dgvClientPast.Rows.Add();
-            //dgvClientPast.Rows[n].Cells[0].Value = "4/12/19";
-            //dgvClientPast.Rows[n].Cells[1].Value = "Income Tax";
-            //dgvClientPast.Rows[n].Cells[2].Value = "$125";
-            //dgvClientPast.Rows[n].Cells[3].Value = "$125";
-            //dgvClientPast.Rows[n].Cells[4].Value = "4/13/19";
-
-            //int j = dgvClientPast.Rows.Add();
-            //dgvClientPast.Rows[j].Cells[0].Value = "4/8/18";
-            //dgvClientPast.Rows[j].Cells[1].Value = "Income Tax";
-            //dgvClientPast.Rows[j].Cells[2].Value = "$125";
-            //dgvClientPast.Rows[j].Cells[3].Value = "$125";
-            //dgvClientPast.Rows[j].Cells[4].Value = "4/8/18";
-
-            //int m = dgvClientPast.Rows.Add();
-            //dgvClientPast.Rows[m].Cells[0].Value = "2/23/18";
-            //dgvClientPast.Rows[m].Cells[1].Value = "Investments";
-            //dgvClientPast.Rows[m].Cells[2].Value = "$100";
-            //dgvClientPast.Rows[m].Cells[3].Value = "$100";
-            //dgvClientPast.Rows[m].Cells[4].Value = "2/23/18";
         }
         public ClientView(int pClientID)
         {
             InitializeComponent();
             clientID = pClientID;
             ClientsObj = new AClient();
+            
             CreateClientList();
 
             FillClientInfo();
-            
+
+            FillJobs();
+            FillDGV();
         }
 
         private void CreateClientList()
@@ -390,6 +373,116 @@ namespace GrenciCPA
         {
 
         }
+        private void FillJobs()
+        {
+            var GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.DATE_SENT, " +
+                "INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.AMOUNT_PAID FROM INVOICE_TABLE " +
+                "INNER JOIN JOB_TABLE ON INVOICE_TABLE.JOB_ID = JOB_TABLE.JOB_ID" +
+                " WHERE JOB_TABLE.CLIENT_ID = "+ clientID+ ";";
 
+            
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+
+            try
+            {
+
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(GetClientsSQL, connection);
+                //Open the connection
+                connection.Open();
+                //Create a SQL Data Reader object
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                //Keep reading as long as I have data from the database to read
+                while (reader.Read())
+                {
+
+
+                    AInvoice tempinvoice = new AInvoice();
+
+                    if (reader["JOB_ID"] != DBNull.Value)
+                    {
+                        tempinvoice.JobID = (reader["JOB_ID"] as int?) ?? 0;
+                    }
+                    if (reader["DATE_SENT"] != DBNull.Value)
+                    {
+                        tempinvoice.SentDate = (DateTime)reader["DATE_SENT"];
+                    }
+                    if (reader["AMOUNT_PAID"] != DBNull.Value)
+                    {
+                        tempinvoice.AmtPaid = (reader["AMOUNT_PAID"] as float?) ?? 0.00;
+                    }
+
+                    if (reader["AMOUNT_OWED"] != DBNull.Value)
+                    {
+                        tempinvoice.AmtOwed = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
+                    }
+
+
+
+
+                    //Add the temporary plot stuff from list.
+                    invoiceList.Add(tempinvoice);
+
+                    tempinvoice = null;
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Could not retrieve clients from Database.! \n Error reads: " + ex.Message);
+            }
+        }
+
+        private string GetServ(int aClientID)
+        {
+            string returning = "";
+            string GetParentSQL = "SELECT SERVICE_TABLE.SERV_NAME FROM SERVICE_TABLE INNER JOIN JOB_COMPONENT_TABLE ON SERVICE_TABLE.SERV_ID = JOB_COMPONENT_TABLE.SERV_ID " +
+                "INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID WHERE JOB_TABLE.CLIENT_ID =" + aClientID + ";";
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(GetParentSQL, connection);
+                //Open the connection
+                connection.Open();
+                //Create a SQL Data Reader object
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                //Keep reading as long as I have data from the database to read
+
+
+
+                while (reader.Read())
+                {
+
+                    if (reader["SERV_NAME"] != DBNull.Value)
+                    {
+                        returning += reader["SERV_NAME"] as string + ", \n";
+                    }
+
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not retrieve services for the client from Database.! \n Error reads: " + ex.Message);
+            }
+            return returning;
+        }
+
+        private void FillDGV()
+        {
+            foreach(AInvoice invoice in invoiceList)
+            {
+                dgvClientPast.Rows.Add(invoice.SentDate.ToLongDateString(), GetServ(clientID), invoice.AmtOwed, invoice.AmtPaid);
+            }
+        }
+
+        private void btnPayments_Click(object sender, EventArgs e)
+        {
+            ReportDemo form = new ReportDemo(clientID);
+            form.ShowDialog();
+        }
     }
 }
