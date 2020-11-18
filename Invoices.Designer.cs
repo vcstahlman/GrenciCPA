@@ -28,32 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Invoices));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.dgvInvoices = new System.Windows.Forms.DataGridView();
+            this.cbxOverdue = new System.Windows.Forms.CheckBox();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CellPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.AmountOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Payment = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cbxOverdue = new System.Windows.Forms.CheckBox();
-            this.btnPayment = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoices)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1535, 610);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Location = new System.Drawing.Point(1194, 687);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(132, 57);
+            this.btnClose.Size = new System.Drawing.Size(148, 64);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -61,10 +59,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(263, 14);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Location = new System.Drawing.Point(296, 15);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(84, 26);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search ";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -72,10 +69,9 @@
             // 
             // tbxSearch
             // 
-            this.tbxSearch.Location = new System.Drawing.Point(12, 14);
-            this.tbxSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxSearch.Location = new System.Drawing.Point(14, 15);
             this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Size = new System.Drawing.Size(124, 22);
+            this.tbxSearch.Size = new System.Drawing.Size(139, 24);
             this.tbxSearch.TabIndex = 7;
             // 
             // dgvInvoices
@@ -93,19 +89,28 @@
             this.LastName,
             this.FirstName,
             this.Company,
-            this.CellPhone,
-            this.Email,
-            this.Column1,
+            this.AmountOwed,
+            this.ClientFile,
             this.Payment});
-            this.dgvInvoices.Location = new System.Drawing.Point(9, 54);
-            this.dgvInvoices.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvInvoices.Location = new System.Drawing.Point(10, 61);
             this.dgvInvoices.Name = "dgvInvoices";
             this.dgvInvoices.ReadOnly = true;
             this.dgvInvoices.RowHeadersWidth = 51;
             this.dgvInvoices.RowTemplate.Height = 24;
-            this.dgvInvoices.Size = new System.Drawing.Size(1655, 520);
+            this.dgvInvoices.Size = new System.Drawing.Size(1330, 584);
             this.dgvInvoices.TabIndex = 6;
             this.dgvInvoices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInvoices_CellContentClick_1);
+            // 
+            // cbxOverdue
+            // 
+            this.cbxOverdue.AutoSize = true;
+            this.cbxOverdue.Location = new System.Drawing.Point(159, 18);
+            this.cbxOverdue.Name = "cbxOverdue";
+            this.cbxOverdue.Size = new System.Drawing.Size(73, 22);
+            this.cbxOverdue.TabIndex = 12;
+            this.cbxOverdue.Text = "Unpaid";
+            this.cbxOverdue.UseVisualStyleBackColor = true;
+            this.cbxOverdue.CheckedChanged += new System.EventHandler(this.cbxOverdue_CheckedChanged);
             // 
             // View
             // 
@@ -148,31 +153,24 @@
             this.Company.ReadOnly = true;
             this.Company.Width = 125;
             // 
-            // CellPhone
+            // AmountOwed
             // 
-            this.CellPhone.HeaderText = "Cell Phone";
-            this.CellPhone.MinimumWidth = 6;
-            this.CellPhone.Name = "CellPhone";
-            this.CellPhone.ReadOnly = true;
-            this.CellPhone.Width = 125;
+            this.AmountOwed.HeaderText = "Amount Owed";
+            this.AmountOwed.MinimumWidth = 6;
+            this.AmountOwed.Name = "AmountOwed";
+            this.AmountOwed.ReadOnly = true;
+            this.AmountOwed.Width = 125;
             // 
-            // Email
+            // ClientFile
             // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 125;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Status";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column1.Width = 70;
+            this.ClientFile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ClientFile.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ClientFile.HeaderText = "Client File";
+            this.ClientFile.MinimumWidth = 6;
+            this.ClientFile.Name = "ClientFile";
+            this.ClientFile.ReadOnly = true;
+            this.ClientFile.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Payment
             // 
@@ -184,42 +182,18 @@
             this.Payment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Payment.Width = 125;
             // 
-            // cbxOverdue
-            // 
-            this.cbxOverdue.AutoSize = true;
-            this.cbxOverdue.Location = new System.Drawing.Point(141, 16);
-            this.cbxOverdue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxOverdue.Name = "cbxOverdue";
-            this.cbxOverdue.Size = new System.Drawing.Size(75, 21);
-            this.cbxOverdue.TabIndex = 12;
-            this.cbxOverdue.Text = "Unpaid";
-            this.cbxOverdue.UseVisualStyleBackColor = true;
-            this.cbxOverdue.CheckedChanged += new System.EventHandler(this.cbxOverdue_CheckedChanged);
-            // 
-            // btnPayment
-            // 
-            this.btnPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPayment.Location = new System.Drawing.Point(1368, 610);
-            this.btnPayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(125, 57);
-            this.btnPayment.TabIndex = 14;
-            this.btnPayment.Text = "make payment";
-            this.btnPayment.UseVisualStyleBackColor = true;
-            // 
             // Invoices
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1679, 683);
-            this.Controls.Add(this.btnPayment);
+            this.ClientSize = new System.Drawing.Size(1356, 768);
             this.Controls.Add(this.cbxOverdue);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.dgvInvoices);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Invoices";
             this.Text = "Invoices";
             this.Load += new System.EventHandler(this.Invoices_Load);
@@ -236,15 +210,13 @@
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.DataGridView dgvInvoices;
         private System.Windows.Forms.CheckBox cbxOverdue;
-        private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Company;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CellPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewButtonColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountOwed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientFile;
         private System.Windows.Forms.DataGridViewButtonColumn Payment;
     }
 }

@@ -838,7 +838,7 @@ namespace GrenciCPA
 
                     if (reader["SERV_NAME"] != DBNull.Value)
                     {
-                        returning += reader["SERV_NAME"] as string  + ", \n";
+                        returning += reader["SERV_NAME"] as string  + " \n";
                     }
 
                 }

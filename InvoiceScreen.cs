@@ -52,7 +52,7 @@ namespace GrenciCPA
         public InvoiceScreen()
         {
             InitializeComponent();
-            
+
         }
         public InvoiceScreen(int pJob, double pTotal)
         {
@@ -92,7 +92,7 @@ namespace GrenciCPA
             string GetJobSQL = "SELECT JOB_COMPONENT_TABLE.SERV_ID, JOB_COMPONENT_TABLE.TOTAL, JOB_COMPONENT_TABLE.JOB_ID, SERVICE_TABLE.SERV_NAME, SERVICE_TABLE.SERV_SENTENCE, CLIENT_TABLE.CLIENT_ID, " +
                 "CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP, CLIENT_TABLE.EMAIL " +
                 "FROM JOB_COMPONENT_TABLE INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID INNER JOIN SERVICE_TABLE ON JOB_COMPONENT_TABLE.SERV_ID = SERVICE_TABLE.SERV_ID " +
-                "INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " + 
+                "INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
                 "WHERE JOB_COMPONENT_TABLE.JOB_ID = " + jobID + " " +
                 "ORDER BY JOB_COMPONENT_TABLE.SERV_ID;";
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
@@ -124,7 +124,7 @@ namespace GrenciCPA
                     }
                     if (reader["TOTAL"] != DBNull.Value)
                     {
-                        tempComp.Total = (reader["TOTAL"] as float?) ?? 0.0;
+                        tempComp.Total = (reader["TOTAL"] as double?) ?? 0.0;
                         service_totals.Add(tempComp.Total);
                     }
                     if (reader["SERV_SENTENCE"] != DBNull.Value)
@@ -132,9 +132,9 @@ namespace GrenciCPA
                         tempComp.Serv_Sentence = (reader["SERV_SENTENCE"] as string);
                         service_sentences.Add(reader["SERV_SENTENCE"] as string);
                     }
-                    if(reader["CLIENT_ID"] != DBNull.Value)
+                    if (reader["CLIENT_ID"] != DBNull.Value)
                     {
-                        tempClient.ClientID = (reader["CLIENT_ID"] as int ?) ?? 0;
+                        tempClient.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;
                         clientID = (reader["CLIENT_ID"] as int?) ?? 0;
                     }
                     if (reader["FIRST_NAME"] != DBNull.Value)
@@ -177,25 +177,25 @@ namespace GrenciCPA
                     //this is used for a comparason for in the save function
                     tempComp.Row = i;
                     i++;
-                    if(componentList.Count == 0) componentList.Add(tempComp);
-                    else if(componentList[componentList.Count -1].Serv_ID == tempComp.Serv_ID)// if new is same as old add to the total but not another row.
+                    if (componentList.Count == 0) componentList.Add(tempComp);
+                    else if (componentList[componentList.Count - 1].Serv_ID == tempComp.Serv_ID)// if new is same as old add to the total but not another row.
                     {
-                        componentList[componentList.Count -1].Total += tempComp.Total;
+                        componentList[componentList.Count - 1].Total += tempComp.Total;
                     }
                     else componentList.Add(tempComp);
                     ClientsObj = tempClient;
                 }
                 connection.Close();
-                    
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Could not retrieve services from Database.! \n Error reads: " + ex.Message);
             }
         }
-        
 
-        
+
+
 
         private void btnEmail_Click(object sender, EventArgs e)
         {
@@ -210,15 +210,15 @@ namespace GrenciCPA
             oMailItem.Subject = "Grenci CPA Invoice";
 
             List<string> attachments = new List<string>();
-            
-            //oMailItem.Attachments.Add(filePath);
+
+            oMailItem.Attachments.Add(@filePath);
             oMailItem.Display(true);
         }
 
         private void btnMakeInvoice_Click_1(object sender, EventArgs e)
         {
 
-            filePath = "Invoices/" + ClientsObj.ClientID + clientLastName + "/" + clientLastName + "/" + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
+
             //will save invoice on the path of the id
             string inString = "";
             int invoice = 0;
@@ -227,13 +227,15 @@ namespace GrenciCPA
             {
                 string sentence = service_sentences[i];
                 double total = service_totals[i];
-                
+
                 inString += sentence + ": $" + total + "\n";
-                
+
             }
             string SetInvoiceSQL = "INSERT INTO INVOICE_TABLE (JOB_ID, AMOUNT_OWED, AMOUNT_PAID, INVOICE_TEXT, FILE_PATH, DATE_SENT) " +
                 "OUTPUT INSERTED.INVOICE_ID " +
                 "VALUES (@JOB_ID, @OWED, @PAID, @TEXT, @PATH, @DATE); ";
+
+            filePath = "C:/Invoices/" + ClientsObj.JobID + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
 
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
@@ -250,12 +252,12 @@ namespace GrenciCPA
                 command.Parameters.AddWithValue("@TEXT", inString);
                 command.Parameters.AddWithValue("@PATH", filePath);
                 command.Parameters.AddWithValue("@DATE", DateTime.Now);
-                
 
-                
+
+
                 var lastID = command.ExecuteScalar(); //this gets the data of the client that was just added into the system
                 invoice = Convert.ToInt32(lastID);
-                
+
 
                 connection.Close();
                 // Once this button is clicked, it will generated a new pdf and save it to the user's computer, in case they want to print it out or
@@ -280,10 +282,10 @@ namespace GrenciCPA
 
             // we need to gothrough the name and update it to fit and not save over the old
             //also need a filenetwork based off of clients
-            
+
             Directory.CreateDirectory(Path.GetDirectoryName(filePath));
 
-            PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
+            PdfWriter.GetInstance(document, new FileStream(@filePath, FileMode.Create));
             document.Open();
             iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(@"GrenciHeader.jpg");
             iTextSharp.text.Image img2 = iTextSharp.text.Image.GetInstance(@"GrenciFooter.jpg");
@@ -297,7 +299,7 @@ namespace GrenciCPA
             var h1 = new Paragraph();
             h1.Alignment = Element.ALIGN_CENTER;
             h1.Add(new Chunk("\n" + "\n" + "INVOICE " + "\n", boldFont));
-            Paragraph date = new Paragraph(DateTime.Now.ToLongDateString() , normalFont);
+            Paragraph date = new Paragraph(DateTime.Now.ToLongDateString(), normalFont);
             Paragraph p1 = new Paragraph("\n" + clientFirstName + " " + clientLastName, normalFont);
             Paragraph p2 = new Paragraph(clientAddress, normalFont);
             Paragraph p3 = new Paragraph(clientCity + ", " + clientState + " " + clientZip + "\n\n", normalFont);
@@ -314,7 +316,7 @@ namespace GrenciCPA
                 cumulativeTotal = total + cumulativeTotal;
                 p4 = new Paragraph(sentence + ": $" + total + "\n", normalFont);
                 document.Add(p4);
-            }            
+            }
             //Comes from the sum of the job
             Paragraph p5 = new Paragraph("\n" + "Total Amount Due: " + finalTotal, boldFont);
             Paragraph p6 = new Paragraph("\n\n" + "Thank you for your business!" + "\n\n", normalFont);
@@ -326,6 +328,7 @@ namespace GrenciCPA
             btnMakeInvoice.Text = "Invoice made";
             btnEmail.Enabled = true;
             btnPrint.Enabled = true;
+
 
 
             string setPaymentSQL = "UPDATE JOB_TABLE SET JOB_ACTIVE = 0  WHERE JOB_ID = " + jobID + ";";
@@ -353,7 +356,7 @@ namespace GrenciCPA
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start(@filePath);
         }
 
         private void btnClose_Click_1(object sender, EventArgs e)
@@ -393,13 +396,13 @@ namespace GrenciCPA
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            int sum = 0;
+            double sum = 0.0;
 
             for (int i = 0; i < dgvInvoice.Rows.Count; i++)
             {
                 service_sentences[i] = dgvInvoice.Rows[i].Cells[0].Value.ToString();
-                service_totals[i]= Convert.ToInt32(dgvInvoice.Rows[i].Cells[1].Value);
-                sum += Convert.ToInt32(dgvInvoice.Rows[i].Cells[1].Value);
+                service_totals[i] = Convert.ToDouble(dgvInvoice.Rows[i].Cells[1].Value);
+                sum += Convert.ToDouble(dgvInvoice.Rows[i].Cells[1].Value);
 
             }
 

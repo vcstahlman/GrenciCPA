@@ -88,10 +88,9 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(1410, 584);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Location = new System.Drawing.Point(1426, 587);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(77, 43);
+            this.button3.Size = new System.Drawing.Size(116, 60);
             this.button3.TabIndex = 28;
             this.button3.Text = "Close";
             this.button3.UseVisualStyleBackColor = true;
@@ -99,9 +98,11 @@
             // 
             // btnEditClient
             // 
-            this.btnEditClient.Location = new System.Drawing.Point(80, 318);
+            this.btnEditClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnEditClient.Location = new System.Drawing.Point(350, 10);
+            this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditClient.Name = "btnEditClient";
-            this.btnEditClient.Size = new System.Drawing.Size(129, 23);
+            this.btnEditClient.Size = new System.Drawing.Size(140, 25);
             this.btnEditClient.TabIndex = 22;
             this.btnEditClient.Text = "View Client Info";
             this.btnEditClient.UseVisualStyleBackColor = true;
@@ -124,13 +125,12 @@
             this.txtCharCost,
             this.txtCharMultiplier,
             this.txtMiniTotal});
-            this.dgvFees.Location = new System.Drawing.Point(233, 32);
-            this.dgvFees.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvFees.Location = new System.Drawing.Point(350, 44);
             this.dgvFees.MultiSelect = false;
             this.dgvFees.Name = "dgvFees";
             this.dgvFees.RowHeadersWidth = 51;
             this.dgvFees.RowTemplate.Height = 24;
-            this.dgvFees.Size = new System.Drawing.Size(1257, 382);
+            this.dgvFees.Size = new System.Drawing.Size(1197, 350);
             this.dgvFees.TabIndex = 29;
             this.dgvFees.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             this.dgvFees.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
@@ -208,10 +208,9 @@
             // btnComplete
             // 
             this.btnComplete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnComplete.Location = new System.Drawing.Point(1410, 488);
-            this.btnComplete.Margin = new System.Windows.Forms.Padding(2);
+            this.btnComplete.Location = new System.Drawing.Point(1426, 454);
             this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(77, 43);
+            this.btnComplete.Size = new System.Drawing.Size(116, 60);
             this.btnComplete.TabIndex = 30;
             this.btnComplete.Text = "Complete";
             this.btnComplete.UseVisualStyleBackColor = true;
@@ -220,10 +219,9 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(1410, 536);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave.Location = new System.Drawing.Point(1426, 520);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(77, 43);
+            this.btnSave.Size = new System.Drawing.Size(116, 60);
             this.btnSave.TabIndex = 31;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -233,11 +231,10 @@
             // 
             this.lblStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStaff.AutoSize = true;
-            this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaff.Location = new System.Drawing.Point(1300, 10);
-            this.lblStaff.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblStaff.Location = new System.Drawing.Point(1261, 14);
             this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(81, 13);
+            this.lblStaff.Size = new System.Drawing.Size(94, 18);
             this.lblStaff.TabIndex = 43;
             this.lblStaff.Text = "Assigned To:";
             // 
@@ -251,12 +248,11 @@
             this.StartedTime,
             this.EndedTime,
             this.Desc});
-            this.dgvTime.Location = new System.Drawing.Point(502, 470);
-            this.dgvTime.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvTime.Location = new System.Drawing.Point(761, 441);
             this.dgvTime.Name = "dgvTime";
             this.dgvTime.RowHeadersWidth = 51;
             this.dgvTime.RowTemplate.Height = 24;
-            this.dgvTime.Size = new System.Drawing.Size(847, 149);
+            this.dgvTime.Size = new System.Drawing.Size(581, 206);
             this.dgvTime.TabIndex = 58;
             // 
             // TimeLength
@@ -305,10 +301,9 @@
             // txtSubtract
             // 
             this.txtSubtract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSubtract.Location = new System.Drawing.Point(403, 599);
-            this.txtSubtract.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSubtract.Location = new System.Drawing.Point(612, 619);
             this.txtSubtract.Name = "txtSubtract";
-            this.txtSubtract.Size = new System.Drawing.Size(72, 20);
+            this.txtSubtract.Size = new System.Drawing.Size(106, 24);
             this.txtSubtract.TabIndex = 67;
             this.txtSubtract.Visible = false;
             // 
@@ -316,10 +311,9 @@
             // 
             this.lblSubtractTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSubtractTime.AutoSize = true;
-            this.lblSubtractTime.Location = new System.Drawing.Point(324, 599);
-            this.lblSubtractTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSubtractTime.Location = new System.Drawing.Point(494, 619);
             this.lblSubtractTime.Name = "lblSubtractTime";
-            this.lblSubtractTime.Size = new System.Drawing.Size(76, 13);
+            this.lblSubtractTime.Size = new System.Drawing.Size(104, 18);
             this.lblSubtractTime.TabIndex = 66;
             this.lblSubtractTime.Text = "Subtract Time:";
             this.lblSubtractTime.Visible = false;
@@ -327,10 +321,9 @@
             // btnEditTime
             // 
             this.btnEditTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditTime.Location = new System.Drawing.Point(325, 505);
-            this.btnEditTime.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditTime.Location = new System.Drawing.Point(496, 489);
             this.btnEditTime.Name = "btnEditTime";
-            this.btnEditTime.Size = new System.Drawing.Size(80, 37);
+            this.btnEditTime.Size = new System.Drawing.Size(120, 51);
             this.btnEditTime.TabIndex = 65;
             this.btnEditTime.Text = "Edit Time";
             this.btnEditTime.UseVisualStyleBackColor = true;
@@ -340,10 +333,9 @@
             // 
             this.lblAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAddTime.AutoSize = true;
-            this.lblAddTime.Location = new System.Drawing.Point(345, 579);
-            this.lblAddTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAddTime.Location = new System.Drawing.Point(526, 592);
             this.lblAddTime.Name = "lblAddTime";
-            this.lblAddTime.Size = new System.Drawing.Size(55, 13);
+            this.lblAddTime.Size = new System.Drawing.Size(74, 18);
             this.lblAddTime.TabIndex = 64;
             this.lblAddTime.Text = "Add Time:";
             this.lblAddTime.Visible = false;
@@ -351,10 +343,9 @@
             // txtAddTime
             // 
             this.txtAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAddTime.Location = new System.Drawing.Point(403, 577);
-            this.txtAddTime.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAddTime.Location = new System.Drawing.Point(612, 589);
             this.txtAddTime.Name = "txtAddTime";
-            this.txtAddTime.Size = new System.Drawing.Size(72, 20);
+            this.txtAddTime.Size = new System.Drawing.Size(106, 24);
             this.txtAddTime.TabIndex = 63;
             this.txtAddTime.Visible = false;
             // 
@@ -369,10 +360,9 @@
             "40 minutes",
             "50 minutes",
             "1 hour"});
-            this.cmboAddTime.Location = new System.Drawing.Point(403, 552);
-            this.cmboAddTime.Margin = new System.Windows.Forms.Padding(2);
+            this.cmboAddTime.Location = new System.Drawing.Point(612, 554);
             this.cmboAddTime.Name = "cmboAddTime";
-            this.cmboAddTime.Size = new System.Drawing.Size(72, 21);
+            this.cmboAddTime.Size = new System.Drawing.Size(106, 26);
             this.cmboAddTime.TabIndex = 61;
             this.cmboAddTime.Visible = false;
             // 
@@ -380,10 +370,9 @@
             // 
             this.lblAddMinutes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAddMinutes.AutoSize = true;
-            this.lblAddMinutes.Location = new System.Drawing.Point(331, 558);
-            this.lblAddMinutes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAddMinutes.Location = new System.Drawing.Point(504, 563);
             this.lblAddMinutes.Name = "lblAddMinutes";
-            this.lblAddMinutes.Size = new System.Drawing.Size(69, 13);
+            this.lblAddMinutes.Size = new System.Drawing.Size(93, 18);
             this.lblAddMinutes.TabIndex = 60;
             this.lblAddMinutes.Text = "Add Minutes:";
             this.lblAddMinutes.Visible = false;
@@ -391,10 +380,9 @@
             // btnTimer
             // 
             this.btnTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTimer.Location = new System.Drawing.Point(410, 505);
-            this.btnTimer.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTimer.Location = new System.Drawing.Point(623, 489);
             this.btnTimer.Name = "btnTimer";
-            this.btnTimer.Size = new System.Drawing.Size(80, 37);
+            this.btnTimer.Size = new System.Drawing.Size(120, 51);
             this.btnTimer.TabIndex = 59;
             this.btnTimer.Text = "Start Timer";
             this.btnTimer.UseVisualStyleBackColor = true;
@@ -405,8 +393,7 @@
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(499, 450);
-            this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTime.Location = new System.Drawing.Point(756, 413);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(48, 17);
             this.lblTime.TabIndex = 62;
@@ -417,11 +404,10 @@
             this.lblNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNotes.AutoSize = true;
-            this.lblNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.Location = new System.Drawing.Point(2, 470);
-            this.lblNotes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblNotes.Location = new System.Drawing.Point(3, 429);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(44, 13);
+            this.lblNotes.Size = new System.Drawing.Size(52, 18);
             this.lblNotes.TabIndex = 69;
             this.lblNotes.Text = "Notes:";
             // 
@@ -429,9 +415,10 @@
             // 
             this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rtbNotes.Enabled = false;
-            this.rtbNotes.Location = new System.Drawing.Point(7, 484);
+            this.rtbNotes.Location = new System.Drawing.Point(6, 456);
+            this.rtbNotes.Margin = new System.Windows.Forms.Padding(4);
             this.rtbNotes.Name = "rtbNotes";
-            this.rtbNotes.Size = new System.Drawing.Size(293, 136);
+            this.rtbNotes.Size = new System.Drawing.Size(438, 187);
             this.rtbNotes.TabIndex = 68;
             this.rtbNotes.Text = "Their child Jake just graduated High School\nThey also have a child out of Collage" +
     " and out of state\n\n";
@@ -440,19 +427,18 @@
             // 
             this.cmboStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmboStaff.FormattingEnabled = true;
-            this.cmboStaff.Location = new System.Drawing.Point(1393, 7);
-            this.cmboStaff.Margin = new System.Windows.Forms.Padding(2);
+            this.cmboStaff.Location = new System.Drawing.Point(1401, 10);
             this.cmboStaff.Name = "cmboStaff";
-            this.cmboStaff.Size = new System.Drawing.Size(92, 21);
+            this.cmboStaff.Size = new System.Drawing.Size(136, 26);
             this.cmboStaff.TabIndex = 72;
             // 
             // lblParent
             // 
             this.lblParent.AutoSize = true;
-            this.lblParent.Location = new System.Drawing.Point(10, 198);
-            this.lblParent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblParent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblParent.Location = new System.Drawing.Point(15, 274);
             this.lblParent.Name = "lblParent";
-            this.lblParent.Size = new System.Drawing.Size(65, 13);
+            this.lblParent.Size = new System.Drawing.Size(90, 18);
             this.lblParent.TabIndex = 85;
             this.lblParent.Text = "Juana Smith";
             // 
@@ -460,10 +446,11 @@
             // 
             this.lblBirthdate.AutoSize = true;
             this.lblBirthdate.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBirthdate.Location = new System.Drawing.Point(10, 122);
+            this.lblBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblBirthdate.Location = new System.Drawing.Point(15, 169);
+            this.lblBirthdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBirthdate.Name = "lblBirthdate";
-            this.lblBirthdate.Size = new System.Drawing.Size(71, 13);
+            this.lblBirthdate.Size = new System.Drawing.Size(82, 18);
             this.lblBirthdate.TabIndex = 84;
             this.lblBirthdate.Text = "1997-10-01";
             // 
@@ -471,10 +458,11 @@
             // 
             this.lblCounty.AutoSize = true;
             this.lblCounty.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblCounty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCounty.Location = new System.Drawing.Point(10, 80);
+            this.lblCounty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblCounty.Location = new System.Drawing.Point(15, 111);
+            this.lblCounty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCounty.Name = "lblCounty";
-            this.lblCounty.Size = new System.Drawing.Size(40, 13);
+            this.lblCounty.Size = new System.Drawing.Size(46, 18);
             this.lblCounty.TabIndex = 83;
             this.lblCounty.Text = "Butler";
             // 
@@ -482,44 +470,46 @@
             // 
             this.lblSchool.AutoSize = true;
             this.lblSchool.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSchool.Location = new System.Drawing.Point(9, 94);
+            this.lblSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblSchool.Location = new System.Drawing.Point(14, 130);
+            this.lblSchool.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSchool.Name = "lblSchool";
-            this.lblSchool.Size = new System.Drawing.Size(58, 13);
+            this.lblSchool.Size = new System.Drawing.Size(70, 18);
             this.lblSchool.TabIndex = 82;
             this.lblSchool.Text = "North BC";
             // 
             // lblChar
             // 
             this.lblChar.AutoSize = true;
-            this.lblChar.Location = new System.Drawing.Point(10, 217);
-            this.lblChar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblChar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblChar.Location = new System.Drawing.Point(15, 300);
             this.lblChar.Name = "lblChar";
-            this.lblChar.Size = new System.Drawing.Size(108, 13);
+            this.lblChar.Size = new System.Drawing.Size(152, 18);
             this.lblChar.TabIndex = 81;
             this.lblChar.Text = "Client Characteristics:";
             // 
             // lbxChar
             // 
             this.lbxChar.Enabled = false;
+            this.lbxChar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.lbxChar.FormattingEnabled = true;
+            this.lbxChar.ItemHeight = 18;
             this.lbxChar.Items.AddRange(new object[] {
             "Joint",
             "Schedule C",
             "Dependents"});
-            this.lbxChar.Location = new System.Drawing.Point(12, 232);
-            this.lbxChar.Margin = new System.Windows.Forms.Padding(2);
+            this.lbxChar.Location = new System.Drawing.Point(18, 321);
             this.lbxChar.Name = "lbxChar";
-            this.lbxChar.Size = new System.Drawing.Size(198, 82);
+            this.lbxChar.Size = new System.Drawing.Size(295, 94);
             this.lbxChar.TabIndex = 80;
             // 
             // lblBalance
             // 
             this.lblBalance.AutoSize = true;
-            this.lblBalance.Location = new System.Drawing.Point(10, 186);
-            this.lblBalance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblBalance.Location = new System.Drawing.Point(15, 258);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(91, 13);
+            this.lblBalance.Size = new System.Drawing.Size(121, 18);
             this.lblBalance.TabIndex = 79;
             this.lblBalance.Text = "Balance: $100.00";
             // 
@@ -527,10 +517,11 @@
             // 
             this.lblSSN.AutoSize = true;
             this.lblSSN.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSSN.Location = new System.Drawing.Point(9, 163);
+            this.lblSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblSSN.Location = new System.Drawing.Point(14, 226);
+            this.lblSSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSSN.Name = "lblSSN";
-            this.lblSSN.Size = new System.Drawing.Size(78, 13);
+            this.lblSSN.Size = new System.Drawing.Size(90, 18);
             this.lblSSN.TabIndex = 78;
             this.lblSSN.Text = "200-14-3987";
             // 
@@ -538,10 +529,11 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(9, 150);
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblEmail.Location = new System.Drawing.Point(14, 208);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(115, 13);
+            this.lblEmail.Size = new System.Drawing.Size(142, 18);
             this.lblEmail.TabIndex = 77;
             this.lblEmail.Text = "smiths@yahoo.com";
             // 
@@ -549,10 +541,11 @@
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(9, 136);
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblPhone.Location = new System.Drawing.Point(14, 188);
+            this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(85, 13);
+            this.lblPhone.Size = new System.Drawing.Size(98, 18);
             this.lblPhone.TabIndex = 76;
             this.lblPhone.Text = "814-393-2500";
             // 
@@ -560,10 +553,11 @@
             // 
             this.lblAddressCSZ.AutoSize = true;
             this.lblAddressCSZ.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblAddressCSZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressCSZ.Location = new System.Drawing.Point(9, 58);
+            this.lblAddressCSZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblAddressCSZ.Location = new System.Drawing.Point(14, 80);
+            this.lblAddressCSZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressCSZ.Name = "lblAddressCSZ";
-            this.lblAddressCSZ.Size = new System.Drawing.Size(109, 13);
+            this.lblAddressCSZ.Size = new System.Drawing.Size(126, 18);
             this.lblAddressCSZ.TabIndex = 75;
             this.lblAddressCSZ.Text = "Clarion, PA 16214";
             // 
@@ -571,10 +565,11 @@
             // 
             this.lblAddressSt.AutoSize = true;
             this.lblAddressSt.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblAddressSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressSt.Location = new System.Drawing.Point(9, 44);
+            this.lblAddressSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblAddressSt.Location = new System.Drawing.Point(14, 61);
+            this.lblAddressSt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressSt.Name = "lblAddressSt";
-            this.lblAddressSt.Size = new System.Drawing.Size(97, 13);
+            this.lblAddressSt.Size = new System.Drawing.Size(111, 18);
             this.lblAddressSt.TabIndex = 74;
             this.lblAddressSt.Text = "123 Main Street";
             // 
@@ -582,10 +577,11 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(9, 16);
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblName.Location = new System.Drawing.Point(14, 22);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(118, 13);
+            this.lblName.Size = new System.Drawing.Size(140, 18);
             this.lblName.TabIndex = 73;
             this.lblName.Text = "Joe and Joan Smith";
             // 
@@ -595,8 +591,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(754, 450);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotal.Location = new System.Drawing.Point(1139, 413);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(50, 17);
             this.lblTotal.TabIndex = 86;
@@ -604,9 +599,9 @@
             // 
             // JobScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1499, 642);
+            this.ClientSize = new System.Drawing.Size(1559, 667);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblParent);
             this.Controls.Add(this.lblBirthdate);
@@ -640,8 +635,8 @@
             this.Controls.Add(this.dgvFees);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnEditClient);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "JobScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobScreen";

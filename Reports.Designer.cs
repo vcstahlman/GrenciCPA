@@ -47,11 +47,6 @@
             this.lbxReport = new System.Windows.Forms.ListBox();
             this.lblMisc = new System.Windows.Forms.Label();
             this.dgvReports = new System.Windows.Forms.DataGridView();
-            this.lblReports = new System.Windows.Forms.Label();
-            this.lblFrom = new System.Windows.Forms.Label();
-            this.lblTo = new System.Windows.Forms.Label();
-            this.tbxTo = new System.Windows.Forms.TextBox();
-            this.tbxFrom = new System.Windows.Forms.TextBox();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,15 +56,20 @@
             this.TotalOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblReports = new System.Windows.Forms.Label();
+            this.lblFrom = new System.Windows.Forms.Label();
+            this.lblTo = new System.Windows.Forms.Label();
+            this.tbxTo = new System.Windows.Forms.TextBox();
+            this.tbxFrom = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1308, 730);
+            this.btnClose.Location = new System.Drawing.Point(1357, 606);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(130, 44);
+            this.btnClose.Size = new System.Drawing.Size(147, 50);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -77,9 +77,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(473, 92);
+            this.btnSearch.Location = new System.Drawing.Point(532, 104);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(121, 43);
+            this.btnSearch.Size = new System.Drawing.Size(136, 48);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -93,9 +93,9 @@
             "Schedule E",
             "Joint",
             "Individual"});
-            this.clbLabels.Location = new System.Drawing.Point(16, 12);
+            this.clbLabels.Location = new System.Drawing.Point(18, 14);
             this.clbLabels.Name = "clbLabels";
-            this.clbLabels.Size = new System.Drawing.Size(204, 123);
+            this.clbLabels.Size = new System.Drawing.Size(229, 137);
             this.clbLabels.TabIndex = 2;
             // 
             // cboService
@@ -108,55 +108,55 @@
             "Audit",
             "Sales Tax",
             "Merchantile Tax"});
-            this.cboService.Location = new System.Drawing.Point(230, 101);
+            this.cboService.Location = new System.Drawing.Point(258, 114);
             this.cboService.Name = "cboService";
-            this.cboService.Size = new System.Drawing.Size(207, 24);
+            this.cboService.Size = new System.Drawing.Size(232, 26);
             this.cboService.TabIndex = 3;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(227, 17);
+            this.lblName.Location = new System.Drawing.Point(255, 19);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(49, 17);
+            this.lblName.Size = new System.Drawing.Size(52, 18);
             this.lblName.TabIndex = 4;
             this.lblName.Text = "Name:";
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(279, 17);
+            this.tbxName.Location = new System.Drawing.Point(314, 19);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(142, 22);
+            this.tbxName.Size = new System.Drawing.Size(160, 24);
             this.tbxName.TabIndex = 5;
             // 
             // tbxMisc
             // 
-            this.tbxMisc.Location = new System.Drawing.Point(279, 59);
+            this.tbxMisc.Location = new System.Drawing.Point(314, 66);
             this.tbxMisc.Name = "tbxMisc";
-            this.tbxMisc.Size = new System.Drawing.Size(142, 22);
+            this.tbxMisc.Size = new System.Drawing.Size(160, 24);
             this.tbxMisc.TabIndex = 6;
             // 
             // lbxReport
             // 
             this.lbxReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbxReport.FormattingEnabled = true;
-            this.lbxReport.ItemHeight = 16;
+            this.lbxReport.ItemHeight = 18;
             this.lbxReport.Items.AddRange(new object[] {
             "Names:",
             "Total gains:",
             "Date range:",
             "Active Labels:"});
-            this.lbxReport.Location = new System.Drawing.Point(16, 594);
+            this.lbxReport.Location = new System.Drawing.Point(18, 454);
             this.lbxReport.Name = "lbxReport";
-            this.lbxReport.Size = new System.Drawing.Size(903, 180);
+            this.lbxReport.Size = new System.Drawing.Size(1015, 202);
             this.lbxReport.TabIndex = 7;
             // 
             // lblMisc
             // 
             this.lblMisc.AutoSize = true;
-            this.lblMisc.Location = new System.Drawing.Point(227, 59);
+            this.lblMisc.Location = new System.Drawing.Point(255, 66);
             this.lblMisc.Name = "lblMisc";
-            this.lblMisc.Size = new System.Drawing.Size(40, 17);
+            this.lblMisc.Size = new System.Drawing.Size(44, 18);
             this.lblMisc.TabIndex = 8;
             this.lblMisc.Text = "Misc:";
             // 
@@ -176,54 +176,12 @@
             this.TotalOwed,
             this.Invoice,
             this.Date});
-            this.dgvReports.Location = new System.Drawing.Point(16, 141);
+            this.dgvReports.Location = new System.Drawing.Point(18, 159);
             this.dgvReports.Name = "dgvReports";
             this.dgvReports.RowHeadersWidth = 51;
             this.dgvReports.RowTemplate.Height = 24;
-            this.dgvReports.Size = new System.Drawing.Size(1422, 430);
+            this.dgvReports.Size = new System.Drawing.Size(1484, 268);
             this.dgvReports.TabIndex = 9;
-            // 
-            // lblReports
-            // 
-            this.lblReports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblReports.AutoSize = true;
-            this.lblReports.Location = new System.Drawing.Point(13, 574);
-            this.lblReports.Name = "lblReports";
-            this.lblReports.Size = new System.Drawing.Size(55, 17);
-            this.lblReports.TabIndex = 10;
-            this.lblReports.Text = "Report:";
-            // 
-            // lblFrom
-            // 
-            this.lblFrom.AutoSize = true;
-            this.lblFrom.Location = new System.Drawing.Point(435, 20);
-            this.lblFrom.Name = "lblFrom";
-            this.lblFrom.Size = new System.Drawing.Size(44, 17);
-            this.lblFrom.TabIndex = 11;
-            this.lblFrom.Text = "From:";
-            // 
-            // lblTo
-            // 
-            this.lblTo.AutoSize = true;
-            this.lblTo.Location = new System.Drawing.Point(435, 62);
-            this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(29, 17);
-            this.lblTo.TabIndex = 12;
-            this.lblTo.Text = "To:";
-            // 
-            // tbxTo
-            // 
-            this.tbxTo.Location = new System.Drawing.Point(494, 59);
-            this.tbxTo.Name = "tbxTo";
-            this.tbxTo.Size = new System.Drawing.Size(100, 22);
-            this.tbxTo.TabIndex = 13;
-            // 
-            // tbxFrom
-            // 
-            this.tbxFrom.Location = new System.Drawing.Point(494, 17);
-            this.tbxFrom.Name = "tbxFrom";
-            this.tbxFrom.Size = new System.Drawing.Size(100, 22);
-            this.tbxFrom.TabIndex = 14;
             // 
             // FirstName
             // 
@@ -310,11 +268,53 @@
             this.Date.MinimumWidth = 100;
             this.Date.Name = "Date";
             // 
+            // lblReports
+            // 
+            this.lblReports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblReports.AutoSize = true;
+            this.lblReports.Location = new System.Drawing.Point(15, 430);
+            this.lblReports.Name = "lblReports";
+            this.lblReports.Size = new System.Drawing.Size(57, 18);
+            this.lblReports.TabIndex = 10;
+            this.lblReports.Text = "Report:";
+            // 
+            // lblFrom
+            // 
+            this.lblFrom.AutoSize = true;
+            this.lblFrom.Location = new System.Drawing.Point(489, 22);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(48, 18);
+            this.lblFrom.TabIndex = 11;
+            this.lblFrom.Text = "From:";
+            // 
+            // lblTo
+            // 
+            this.lblTo.AutoSize = true;
+            this.lblTo.Location = new System.Drawing.Point(489, 69);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(30, 18);
+            this.lblTo.TabIndex = 12;
+            this.lblTo.Text = "To:";
+            // 
+            // tbxTo
+            // 
+            this.tbxTo.Location = new System.Drawing.Point(555, 66);
+            this.tbxTo.Name = "tbxTo";
+            this.tbxTo.Size = new System.Drawing.Size(112, 24);
+            this.tbxTo.TabIndex = 13;
+            // 
+            // tbxFrom
+            // 
+            this.tbxFrom.Location = new System.Drawing.Point(555, 19);
+            this.tbxFrom.Name = "tbxFrom";
+            this.tbxFrom.Size = new System.Drawing.Size(112, 24);
+            this.tbxFrom.TabIndex = 14;
+            // 
             // Reports
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1450, 786);
+            this.ClientSize = new System.Drawing.Size(1517, 670);
             this.Controls.Add(this.tbxFrom);
             this.Controls.Add(this.tbxTo);
             this.Controls.Add(this.lblTo);
@@ -330,6 +330,7 @@
             this.Controls.Add(this.clbLabels);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClose);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.Name = "Reports";
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Reports_Load);

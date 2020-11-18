@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -87,21 +86,12 @@
             this.View,
             this.Invoices,
             this.ID});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClients.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvClients.Location = new System.Drawing.Point(9, 46);
-            this.dgvClients.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvClients.Location = new System.Drawing.Point(14, 64);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersWidth = 51;
             this.dgvClients.RowTemplate.Height = 24;
-            this.dgvClients.Size = new System.Drawing.Size(1544, 467);
+            this.dgvClients.Size = new System.Drawing.Size(1525, 519);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
             // 
@@ -238,10 +228,9 @@
             // btnAddClient
             // 
             this.btnAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddClient.Location = new System.Drawing.Point(11, 539);
-            this.btnAddClient.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddClient.Location = new System.Drawing.Point(14, 593);
             this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(98, 46);
+            this.btnAddClient.Size = new System.Drawing.Size(147, 64);
             this.btnAddClient.TabIndex = 4;
             this.btnAddClient.Text = "Add New Client";
             this.btnAddClient.UseVisualStyleBackColor = true;
@@ -250,10 +239,9 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1454, 539);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Location = new System.Drawing.Point(1390, 593);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(99, 46);
+            this.btnClose.Size = new System.Drawing.Size(149, 64);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -262,20 +250,18 @@
             // cbxUnassigned
             // 
             this.cbxUnassigned.AutoSize = true;
-            this.cbxUnassigned.Location = new System.Drawing.Point(184, 11);
-            this.cbxUnassigned.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxUnassigned.Location = new System.Drawing.Point(276, 15);
             this.cbxUnassigned.Name = "cbxUnassigned";
-            this.cbxUnassigned.Size = new System.Drawing.Size(106, 17);
+            this.cbxUnassigned.Size = new System.Drawing.Size(139, 22);
             this.cbxUnassigned.TabIndex = 23;
             this.cbxUnassigned.Text = "Unassigned Only";
             this.cbxUnassigned.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(401, 4);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Location = new System.Drawing.Point(601, 5);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(74, 30);
+            this.btnSearch.Size = new System.Drawing.Size(111, 41);
             this.btnSearch.TabIndex = 21;
             this.btnSearch.Text = "Search ";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -283,29 +269,27 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(11, 10);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.Location = new System.Drawing.Point(16, 14);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(170, 20);
+            this.txtSearch.Size = new System.Drawing.Size(253, 24);
             this.txtSearch.TabIndex = 20;
             // 
             // cbxIsCompany
             // 
             this.cbxIsCompany.AutoSize = true;
-            this.cbxIsCompany.Location = new System.Drawing.Point(294, 11);
-            this.cbxIsCompany.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxIsCompany.Location = new System.Drawing.Point(441, 15);
             this.cbxIsCompany.Name = "cbxIsCompany";
-            this.cbxIsCompany.Size = new System.Drawing.Size(92, 17);
+            this.cbxIsCompany.Size = new System.Drawing.Size(122, 22);
             this.cbxIsCompany.TabIndex = 25;
             this.cbxIsCompany.Text = "Company only";
             this.cbxIsCompany.UseVisualStyleBackColor = true;
             // 
             // ClientList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1564, 592);
+            this.ClientSize = new System.Drawing.Size(1555, 669);
             this.Controls.Add(this.cbxIsCompany);
             this.Controls.Add(this.cbxUnassigned);
             this.Controls.Add(this.btnSearch);
@@ -313,8 +297,8 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddClient);
             this.Controls.Add(this.dgvClients);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ClientList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientList";

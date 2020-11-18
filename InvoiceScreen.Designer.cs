@@ -48,10 +48,9 @@
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEdit.Location = new System.Drawing.Point(270, 24);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEdit.Location = new System.Drawing.Point(405, 33);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(79, 24);
+            this.btnEdit.Size = new System.Drawing.Size(118, 33);
             this.btnEdit.TabIndex = 33;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -60,21 +59,19 @@
             // txtAmtOwed
             // 
             this.txtAmtOwed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAmtOwed.Location = new System.Drawing.Point(11, 365);
-            this.txtAmtOwed.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAmtOwed.Location = new System.Drawing.Point(16, 505);
             this.txtAmtOwed.Name = "txtAmtOwed";
             this.txtAmtOwed.ReadOnly = true;
-            this.txtAmtOwed.Size = new System.Drawing.Size(72, 20);
+            this.txtAmtOwed.Size = new System.Drawing.Size(106, 24);
             this.txtAmtOwed.TabIndex = 31;
             this.txtAmtOwed.Text = "$275";
             // 
             // btnMakeInvoice
             // 
             this.btnMakeInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMakeInvoice.Location = new System.Drawing.Point(10, 430);
-            this.btnMakeInvoice.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMakeInvoice.Location = new System.Drawing.Point(15, 595);
             this.btnMakeInvoice.Name = "btnMakeInvoice";
-            this.btnMakeInvoice.Size = new System.Drawing.Size(79, 40);
+            this.btnMakeInvoice.Size = new System.Drawing.Size(118, 55);
             this.btnMakeInvoice.TabIndex = 29;
             this.btnMakeInvoice.Text = "Create Invoice";
             this.btnMakeInvoice.UseVisualStyleBackColor = true;
@@ -83,20 +80,18 @@
             // lblService
             // 
             this.lblService.AutoSize = true;
-            this.lblService.Location = new System.Drawing.Point(8, 53);
-            this.lblService.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblService.Location = new System.Drawing.Point(12, 73);
             this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(0, 13);
+            this.lblService.Size = new System.Drawing.Size(0, 18);
             this.lblService.TabIndex = 27;
             // 
             // lblAmount
             // 
             this.lblAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAmount.AutoSize = true;
-            this.lblAmount.Location = new System.Drawing.Point(7, 344);
-            this.lblAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAmount.Location = new System.Drawing.Point(10, 476);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(75, 13);
+            this.lblAmount.Size = new System.Drawing.Size(103, 18);
             this.lblAmount.TabIndex = 26;
             this.lblAmount.Text = "Amount owed:";
             // 
@@ -105,10 +100,9 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(622, 436);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Location = new System.Drawing.Point(593, 604);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(77, 35);
+            this.btnClose.Size = new System.Drawing.Size(116, 48);
             this.btnClose.TabIndex = 24;
             this.btnClose.Text = "Cancel";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -117,10 +111,9 @@
             // btnPrint
             // 
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Location = new System.Drawing.Point(622, 380);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrint.Location = new System.Drawing.Point(593, 526);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(77, 35);
+            this.btnPrint.Size = new System.Drawing.Size(116, 48);
             this.btnPrint.TabIndex = 23;
             this.btnPrint.Text = "Print Invoice";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -129,10 +122,9 @@
             // btnEmail
             // 
             this.btnEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEmail.Location = new System.Drawing.Point(622, 340);
-            this.btnEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEmail.Location = new System.Drawing.Point(593, 471);
             this.btnEmail.Name = "btnEmail";
-            this.btnEmail.Size = new System.Drawing.Size(77, 35);
+            this.btnEmail.Size = new System.Drawing.Size(116, 48);
             this.btnEmail.TabIndex = 22;
             this.btnEmail.Text = "Email Invoice";
             this.btnEmail.UseVisualStyleBackColor = true;
@@ -140,10 +132,11 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(10, 24);
+            this.txtName.Location = new System.Drawing.Point(15, 33);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(237, 20);
+            this.txtName.Size = new System.Drawing.Size(354, 24);
             this.txtName.TabIndex = 35;
             // 
             // dgvInvoice
@@ -157,9 +150,10 @@
             this.dgvInvoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dgvInvoice.Location = new System.Drawing.Point(10, 69);
+            this.dgvInvoice.Location = new System.Drawing.Point(15, 96);
+            this.dgvInvoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvInvoice.Name = "dgvInvoice";
-            this.dgvInvoice.Size = new System.Drawing.Size(689, 235);
+            this.dgvInvoice.Size = new System.Drawing.Size(694, 325);
             this.dgvInvoice.TabIndex = 36;
             this.dgvInvoice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -177,9 +171,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(8, 402);
+            this.btnUpdate.Location = new System.Drawing.Point(12, 557);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(81, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(122, 32);
             this.btnUpdate.TabIndex = 37;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -187,9 +182,9 @@
             // 
             // InvoiceScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 481);
+            this.ClientSize = new System.Drawing.Size(720, 666);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvInvoice);
             this.Controls.Add(this.txtName);
@@ -201,8 +196,8 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnEmail);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InvoiceScreen";
             this.Text = "InvoiceScreen";
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();

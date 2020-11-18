@@ -359,6 +359,14 @@ namespace GrenciCPA
                     form.ShowDialog();
 
                 }
+                else if(e.ColumnIndex == dgvClients.Columns["Invoices"].Index)
+                {
+                    int IDtoPass = int.Parse(dgvClients.Rows[e.RowIndex].Cells[e.ColumnIndex  +1].Value.ToString());//gets the ID
+
+                    Invoices form = new Invoices(IDtoPass);
+                    form.ShowDialog();
+
+                }
             }
             catch (Exception ex)
             {

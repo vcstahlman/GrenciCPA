@@ -40,18 +40,18 @@
             // 
             this.cboStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cboStaff.FormattingEnabled = true;
-            this.cboStaff.Location = new System.Drawing.Point(34, 65);
+            this.cboStaff.Location = new System.Drawing.Point(39, 73);
             this.cboStaff.Name = "cboStaff";
-            this.cboStaff.Size = new System.Drawing.Size(233, 24);
+            this.cboStaff.Size = new System.Drawing.Size(262, 26);
             this.cboStaff.TabIndex = 0;
             this.cboStaff.Text = "Choose Staff";
             // 
             // btnSelect
             // 
             this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSelect.Location = new System.Drawing.Point(158, 136);
+            this.btnSelect.Location = new System.Drawing.Point(177, 152);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(133, 49);
+            this.btnSelect.Size = new System.Drawing.Size(150, 55);
             this.btnSelect.TabIndex = 1;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -60,9 +60,9 @@
             // btnClose
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClose.Location = new System.Drawing.Point(158, 191);
+            this.btnClose.Location = new System.Drawing.Point(177, 215);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(134, 43);
+            this.btnClose.Size = new System.Drawing.Size(150, 48);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@
             // btnAdd
             // 
             this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAdd.Location = new System.Drawing.Point(12, 136);
+            this.btnAdd.Location = new System.Drawing.Point(14, 152);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(127, 49);
+            this.btnAdd.Size = new System.Drawing.Size(142, 55);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add Staff";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -82,9 +82,9 @@
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnEdit.Location = new System.Drawing.Point(12, 191);
+            this.btnEdit.Location = new System.Drawing.Point(14, 215);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(127, 43);
+            this.btnEdit.Size = new System.Drawing.Size(142, 48);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -92,14 +92,15 @@
             // 
             // StaffSelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 246);
+            this.ClientSize = new System.Drawing.Size(351, 277);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.cboStaff);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StaffSelect";
             this.Text = "StaffSelect";

@@ -274,91 +274,92 @@ namespace GrenciCPA
         //\\\\\\\\\\\\\\MAIN SAVE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         private void SavePage()
         {
-            //componentList.Clear();
-           
-            //foreach(DataGridViewRow row in dgvFees.Rows)//goes through the dgv and saves items to the page
-            //{
-            //    int i = row.Index;
-            //    AComp temp = new AComp();
-            //    temp.Row = row.Index;
+            componentList.Clear();
 
-            //    //retrives the numbers from the dgv and saves them to the comp
-
-            //    int inOutInt = 0;
-            //    if (dgvFees.Rows[i].Cells[0].Value != null)
-            //        int.TryParse(dgvFees.Rows[i].Cells[0].Value.ToString(), out inOutInt);
-            //    if (inOutInt != 0) temp.Component_ID = inOutInt;
-
-            //    //only need the ids for the save so we are making sure that we watch the list to the dgv
-            //    inOutInt = 0;
-            //    if (dgvFees.Rows[i].Cells[1].Value != null)
-            //        int.TryParse(dgvFees.Rows[i].Cells[1].Value.ToString(), out inOutInt);
-            //    temp.Serv_ID = inOutInt;
-
-            //    inOutInt = 0;
-            //    if (dgvFees.Rows[i].Cells[2].Value != null)
-            //        int.TryParse(dgvFees.Rows[i].Cells[2].Value.ToString(), out inOutInt);
-            //    temp.Char_ID = inOutInt;
-
-
-            //    double inOutDub = 0.00;
-            //    if (dgvFees.Rows[i].Cells[3].Value != null)
-            //        double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out inOutDub);
-            //    temp.Char_cost = inOutDub;
-
-            //    inOutDub = 0.00;
-            //    if (dgvFees.Rows[i].Cells[4].Value != null)
-            //        double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out inOutDub);
-            //    temp.Char_multi = inOutDub;
-
-            //    inOutDub = 0.00;
-            //    if (dgvFees.Rows[i].Cells[5].Value != null)
-            //        double.TryParse(dgvFees.Rows[i].Cells[5].Value.ToString(), out inOutDub);
-            //    temp.Total = inOutDub;
-
-                
-                
-            //    temp.SortInt = 1;
-                
-            //    if(temp.Serv_ID == 0 && temp.Char_ID == 0)
-            //                temp.SortInt = 3;//this marks it to not save due to having no information
-                
-            //    componentList.Add(temp);
-
-
-            //}
-            for (int i = 0; i < dgvFees.Rows.Count; i++)//goes through the dgv and saves items to the page
+            foreach (DataGridViewRow row in dgvFees.Rows)//goes through the dgv and saves items to the page
             {
-                foreach (AComp aComp in componentList)
-                {
-                    if (i == aComp.Row && aComp.SortInt == 1)//if it is new and if it is in the correct row
-                    {
-                        if (dgvFees.Rows[i].Cells[1].Value != null)
-                            aComp.Serv_ID = int.Parse(dgvFees.Rows[i].Cells[1].Value.ToString());
-                        else aComp.Serv_ID = 0;
-                        //reads in the string for the serv
+                int i = row.Index;
+                AComp temp = new AComp();
+                temp.Row = row.Index;
 
-                        if (dgvFees.Rows[i].Cells[2].Value != null)
-                            aComp.Char_ID = int.Parse(dgvFees.Rows[i].Cells[2].Value.ToString());
-                        else aComp.Char_ID = 0;
-                        //readsin the string for the char
+                //retrives the numbers from the dgv and saves them to the comp
 
-                        double cost = 0;
-                        double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out cost);
-                        aComp.Char_cost = cost;
+                int inOutInt = 0;
+                if (dgvFees.Rows[i].Cells[0].Value != null)
+                    int.TryParse(dgvFees.Rows[i].Cells[0].Value.ToString(), out inOutInt);
+                if (inOutInt != 0) temp.Component_ID = inOutInt;
 
-                        double multi = 0;
-                        double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out multi);
-                        aComp.Char_multi = multi;
+                //only need the ids for the save so we are making sure that we watch the list to the dgv
+                inOutInt = 0;
+                if (dgvFees.Rows[i].Cells[1].Value != null)
+                    int.TryParse(dgvFees.Rows[i].Cells[1].Value.ToString(), out inOutInt);
+                temp.Serv_ID = inOutInt;
 
-                        aComp.Total = multi * cost;
+                inOutInt = 0;
+                if (dgvFees.Rows[i].Cells[2].Value != null)
+                    int.TryParse(dgvFees.Rows[i].Cells[2].Value.ToString(), out inOutInt);
+                temp.Char_ID = inOutInt;
 
 
+                double inOutDub = 0.00;
+                if (dgvFees.Rows[i].Cells[3].Value != null)
+                    double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out inOutDub);
+                temp.Char_cost = inOutDub;
 
-                    }
+                inOutDub = 0.00;
+                if (dgvFees.Rows[i].Cells[4].Value != null)
+                    double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out inOutDub);
+                temp.Char_multi = inOutDub;
 
-                }
+                inOutDub = 0.00;
+                if (dgvFees.Rows[i].Cells[5].Value != null)
+                    double.TryParse(dgvFees.Rows[i].Cells[5].Value.ToString(), out inOutDub);
+                temp.Total = inOutDub;
+
+
+
+                temp.SortInt = 1;
+
+                if (temp.Serv_ID == 0 && temp.Char_ID == 0)
+                    temp.SortInt = 3;//this marks it to not save due to having no information
+
+                componentList.Add(temp);
+
+
             }
+
+            //for (int i = 0; i < dgvFees.Rows.Count; i++)//goes through the dgv and saves items to the page
+            //{
+            //    foreach (AComp aComp in componentList)
+            //    {
+            //        if (i == aComp.Row && aComp.SortInt == 1)//if it is new and if it is in the correct row
+            //        {
+            //            if (dgvFees.Rows[i].Cells[1].Value != null)
+            //                aComp.Serv_ID = int.Parse(dgvFees.Rows[i].Cells[1].Value.ToString());
+            //            else aComp.Serv_ID = 0;
+            //            //reads in the string for the serv
+
+            //            if (dgvFees.Rows[i].Cells[2].Value != null)
+            //                aComp.Char_ID = int.Parse(dgvFees.Rows[i].Cells[2].Value.ToString());
+            //            else aComp.Char_ID = 0;
+            //            //readsin the string for the char
+
+            //            double cost = 0;
+            //            double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out cost);
+            //            aComp.Char_cost = cost;
+
+            //            double multi = 0;
+            //            double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out multi);
+            //            aComp.Char_multi = multi;
+
+            //            aComp.Total = multi * cost;
+
+
+
+            //        }
+
+            //    }
+            //}
 
             //this travels through the datagridview and checks if the current row is saved at all
             for (int i = 0; i < dgvFees.Rows.Count; i++)
@@ -602,7 +603,7 @@ namespace GrenciCPA
                 SaveTime(timeDesc);//saves it to the database as well.
 
                 time.Add(timeEnd.Subtract(timeStart));
-                lblTime.Text = "Total Elapsed Time: " + String.Format("{0:0.00}", time.TotalHours) + " hours";
+                lblTime.Text = "Total Elapsed Time: " + string.Format("{0:#,0.00}", time.TotalHours) + " hours";
             }
 
         }
@@ -1294,7 +1295,7 @@ namespace GrenciCPA
                 //inserts the component on the last row of the dgv
                 dgvFees.Rows.Insert(comp.Row, new string[] {                    
                     comp.Component_ID.ToString(), null , null,
-                    String.Format("{0:0.00}", comp.Char_cost), String.Format("{0:0.00}", comp.Char_multi), comp.Total.ToString() });
+                    string.Format("{0:#,0.00}", comp.Char_cost), string.Format("{0:#,0.00}", comp.Char_multi), comp.Total.ToString() });
             }
             foreach( AComp acomp in componentList)
             {
@@ -1348,12 +1349,12 @@ namespace GrenciCPA
                 if (dgvFees.Rows[i].Cells[4].Value != null) double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out newmulti);
 
                 double newtotal = newcost * newmulti;//if it is less it will be overwriten, if not it will be fine.
-                dgvFees.Rows[i].Cells[5].Value = newtotal;//if the new total is more than the one in there it will rewrite.
+                dgvFees.Rows[i].Cells[5].Value = string.Format("{0:#,0.00}", newtotal);//if the new total is more than the one in there it will rewrite.
 
 
                 jobTotal += newtotal;
             }
-            lblTotal.Text = "Total: $" + String.Format("{0:0.00}", jobTotal);
+            lblTotal.Text = "Total: $" + string.Format("{0:#,0.00}", jobTotal);
         }
 
         private void dgvFees_CellContentClick(object sender, DataGridViewCellEventArgs e)
