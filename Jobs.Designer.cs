@@ -243,6 +243,8 @@
             // cbxProgress
             // 
             this.cbxProgress.AutoSize = true;
+            this.cbxProgress.Checked = true;
+            this.cbxProgress.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxProgress.Location = new System.Drawing.Point(447, 21);
             this.cbxProgress.Name = "cbxProgress";
             this.cbxProgress.Size = new System.Drawing.Size(103, 22);
@@ -253,6 +255,8 @@
             // cbxPast
             // 
             this.cbxPast.AutoSize = true;
+            this.cbxPast.Checked = true;
+            this.cbxPast.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxPast.Location = new System.Drawing.Point(572, 21);
             this.cbxPast.Name = "cbxPast";
             this.cbxPast.Size = new System.Drawing.Size(94, 22);

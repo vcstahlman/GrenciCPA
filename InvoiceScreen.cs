@@ -77,12 +77,12 @@ namespace GrenciCPA
 
             }
 
-            txtAmtOwed.Text = "Total sum is:" + sum.ToString();
+            txtAmtOwed.Text = "Total sum is:" + string.Format("{0:#,0.00}", sum);
             service_names.Add("Other ");
             service_sentences.Add("Other Costs: ");
             service_totals.Add(finalTotal - cumulativeTotal);
-            dgvInvoice.Rows.Add("Other Costs", finalTotal - cumulativeTotal);
-            txtAmtOwed.Text = finalTotal.ToString();
+            dgvInvoice.Rows.Add("Other Costs", string.Format("{0:#,0.00}", finalTotal - cumulativeTotal));
+            txtAmtOwed.Text = '$'+ string.Format("{0:#,0.00}", finalTotal);
 
             btnEmail.Enabled = false;
             btnPrint.Enabled = false;
@@ -235,7 +235,7 @@ namespace GrenciCPA
                 "OUTPUT INSERTED.INVOICE_ID " +
                 "VALUES (@JOB_ID, @OWED, @PAID, @TEXT, @PATH, @DATE); ";
 
-            filePath = "C:/Invoices/" + ClientsObj.JobID + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
+            filePath = "C:/Invoices/" + jobID + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
 
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
@@ -314,11 +314,11 @@ namespace GrenciCPA
                 string sentence = service_sentences[i];
                 double total = service_totals[i];
                 cumulativeTotal = total + cumulativeTotal;
-                p4 = new Paragraph(sentence + ": $" + total + "\n", normalFont);
+                p4 = new Paragraph(sentence + ": $" + string.Format("{0:#,0.00}",total) + "\n", normalFont);
                 document.Add(p4);
             }
             //Comes from the sum of the job
-            Paragraph p5 = new Paragraph("\n" + "Total Amount Due: " + finalTotal, boldFont);
+            Paragraph p5 = new Paragraph("\n" + "Total Amount Due: $" + string.Format("{0:#,0.00}",finalTotal), boldFont);
             Paragraph p6 = new Paragraph("\n\n" + "Thank you for your business!" + "\n\n", normalFont);
             document.Add(p5);
             document.Add(p6);

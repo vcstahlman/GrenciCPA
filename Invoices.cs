@@ -96,7 +96,7 @@ namespace GrenciCPA
                         }
                         if (reader["AMOUNT_OWED"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["AMOUNT_OWED"] as double?) ?? 0.0;
+                            tempClient.Balance = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
                         }
 
                         //Add the temporary plot stuff from list.
@@ -181,7 +181,7 @@ namespace GrenciCPA
                         }
                         if (reader["AMOUNT_OWED"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["AMOUNT_OWED"] as double?) ?? 0.0;
+                            tempClient.Balance = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
                         }
 
                         //Add the temporary plot stuff from list.
@@ -257,7 +257,7 @@ namespace GrenciCPA
                         }
                         if (reader["AMOUNT_OWED"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["AMOUNT_OWED"] as double?) ?? 0.0;
+                            tempClient.Balance = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
                         }
 
                         //Add the temporary plot stuff from list.
@@ -284,7 +284,7 @@ namespace GrenciCPA
             foreach (AClient aClient in ClientsObjList)
             {
                 dgvInvoices.Rows.Add("View", aClient.ClientID, aClient.LastName, aClient.FirstName, aClient.Company,
-                   aClient.Balance, aClient.Address, "Make Payment");
+                   string.Format("{0:#,0.00}", aClient.Balance) , aClient.Address, "Make Payment");
             }
         }
 
@@ -322,6 +322,9 @@ namespace GrenciCPA
 
                     Payments form = new Payments(IDtoPass);
                     form.ShowDialog();
+                }
+                if (e.ColumnIndex == dgvInvoices.Columns[6].Index) { 
+                    System.Diagnostics.Process.Start(@dgvInvoices.Rows[e.RowIndex].Cells[6].Value.ToString());
                 }
                 
             }
@@ -392,7 +395,7 @@ namespace GrenciCPA
                         }
                         if (reader["AMOUNT_OWED"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["AMOUNT_OWED"] as double?) ?? 0.0;
+                            tempClient.Balance = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
                         }
 
                         //Add the temporary plot stuff from list.

@@ -41,7 +41,7 @@
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClientFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientFile = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Payment = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoices)).BeginInit();
             this.SuspendLayout();
@@ -164,6 +164,7 @@
             // ClientFile
             // 
             this.ClientFile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ClientFile.DefaultCellStyle = dataGridViewCellStyle1;
             this.ClientFile.HeaderText = "Client File";
@@ -171,6 +172,7 @@
             this.ClientFile.Name = "ClientFile";
             this.ClientFile.ReadOnly = true;
             this.ClientFile.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ClientFile.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Payment
             // 
@@ -216,7 +218,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Company;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountOwed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClientFile;
+        private System.Windows.Forms.DataGridViewButtonColumn ClientFile;
         private System.Windows.Forms.DataGridViewButtonColumn Payment;
     }
 }

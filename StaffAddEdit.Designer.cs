@@ -35,8 +35,6 @@
             this.tbxLast = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblRate = new System.Windows.Forms.Label();
-            this.tbxRate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSave
@@ -97,31 +95,11 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "First Name";
             // 
-            // lblRate
-            // 
-            this.lblRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblRate.AutoSize = true;
-            this.lblRate.Location = new System.Drawing.Point(129, 127);
-            this.lblRate.Name = "lblRate";
-            this.lblRate.Size = new System.Drawing.Size(39, 18);
-            this.lblRate.TabIndex = 51;
-            this.lblRate.Text = "Rate";
-            // 
-            // tbxRate
-            // 
-            this.tbxRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.tbxRate.Location = new System.Drawing.Point(195, 122);
-            this.tbxRate.Name = "tbxRate";
-            this.tbxRate.Size = new System.Drawing.Size(220, 24);
-            this.tbxRate.TabIndex = 2;
-            // 
             // StaffAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 263);
-            this.Controls.Add(this.tbxRate);
-            this.Controls.Add(this.lblRate);
             this.Controls.Add(this.tbxFirst);
             this.Controls.Add(this.tbxLast);
             this.Controls.Add(this.label2);
@@ -145,7 +123,5 @@
         private System.Windows.Forms.TextBox tbxLast;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblRate;
-        private System.Windows.Forms.TextBox tbxRate;
     }
 }

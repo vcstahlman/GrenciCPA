@@ -148,7 +148,7 @@ namespace GrenciCPA
 
                     if (reader["OWED_BALANCE"] != DBNull.Value)
                     {
-                        tempClient.Balance = (reader["OWED_BALANCE"] as double?) ?? 0.0;
+                        tempClient.Balance = (reader["OWED_BALANCE"] as float?) ?? 0.00;
                     }
 
 
@@ -287,7 +287,7 @@ namespace GrenciCPA
             rtbNotes.Text = aClient.Notes;
 
             lblParent.Text = GetParent(aClient.ParentID);
-            lblBalance.Text = "Balance: " + aClient.Balance;
+            lblBalance.Text = "Balance: $" + string.Format("{0:#,0.00}", aClient.Balance);
             
             
         }

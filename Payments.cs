@@ -256,6 +256,7 @@ namespace GrenciCPA
             lblAddressCSZ.Text = aClient.City + ", " + aClient.State + " " + aClient.Zip;
             lblPhone.Text = aClient.Phone;
             lblEmail.Text = aClient.Email;
+            txtOverride.Text = string.Format("{0:#,0.00}", aClient.Balance);
 
         }
         private void FillPaymentInfo()
@@ -263,7 +264,7 @@ namespace GrenciCPA
 
             foreach(AInvoice anInvoice in InvoiceObjList)
             {
-                dgvPayments.Rows.Add(anInvoice.InvoiceID.ToString(), "$" + anInvoice.AmtOwed.ToString());
+                dgvPayments.Rows.Add(anInvoice.InvoiceID.ToString(), "$" + string.Format("{0:#,0.00}",anInvoice.AmtOwed));
             }
             
         }

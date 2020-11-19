@@ -186,8 +186,7 @@ namespace GrenciCPA
         {
             if (btnEditTime.Text == "Edit Time")
             {
-                lblAddMinutes.Visible = true;
-                cmboAddTime.Visible = true;
+                
                 lblAddTime.Visible = true;
                 txtAddTime.Visible = true;
                 lblSubtractTime.Visible = true;
@@ -198,7 +197,7 @@ namespace GrenciCPA
 
             else
             {
-                lblAddMinutes.Visible = false;
+                
                 lblAddTime.Visible = false;
                 lblSubtractTime.Visible = false;
                 int tadd = 0;
@@ -209,8 +208,7 @@ namespace GrenciCPA
                 int.TryParse(txtSubtract.Text, out tsub);
                 txtSubtract.Text = "";
                 txtSubtract.Visible = false;
-                cmboAddTime.Items.Clear();
-                cmboAddTime.Visible = false;
+                
 
                 int tedit = tadd - tsub;
 
@@ -1005,11 +1003,16 @@ namespace GrenciCPA
                         if (!reader.GetBoolean(reader.GetOrdinal("SERV_ACTIVE"))) temp = null;//if not active then it will delete the temp so it is not added
                     }
 
-                    temp.Chars = new List<AChar>();
-                    //this is used for a comparason for in the save function
-
+                    if (temp != null)
+                    {
+                        List<AChar> chars = new List<AChar>();
+                        temp.Chars = chars;
+                        //this is used for a comparason for in the save function
+                        serviceList.Add(temp);
+                    }
+                    
+                    
                     i++;
-                    serviceList.Add(temp);
                 }
                 
                 connection.Close();
@@ -1073,18 +1076,21 @@ namespace GrenciCPA
                         if (!reader.GetBoolean(reader.GetOrdinal("CHAR_ACTIVE"))) tempChar = null;//if not active then it will delete the temp so it is not added
                     }
 
-
-                    //this is used for a comparason for in the save function
-                    foreach (AServ aserv in serviceList)
+                    if (tempChar != null)
                     {
-                        if (aserv.ServID == tempChar.CharAsso && tempChar.CharAsso != 0)
+                        //this is used for a comparason for in the save function
+                        foreach (AServ aserv in serviceList)
                         {
-                            aserv.Chars.Add(tempChar);
+                            if (aserv.ServID == tempChar.CharAsso && tempChar.CharAsso != 0)
+                            {
+                                aserv.Chars.Add(tempChar);
+                            }
                         }
+                        characteristicList.Add(tempChar);
                     }
 
                     i++;
-                    characteristicList.Add(tempChar);
+                    
                 }
                 connection.Close();
 

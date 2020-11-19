@@ -763,18 +763,18 @@ namespace GrenciCPA
             {
                 foreach (AClient aClient in ClientsObjList)
                 {
-                    dgvJobs.Rows.Add(aClient.FirstName, aClient.LastName, aClient.Company, " " /*GetParent(aClient.ParentID)*/, GetServ(aClient.ClientID), GetStaff(aClient.ClientID), "View Job", aClient.ClientID, aClient.JobID);
+                    dgvJobs.Rows.Add(aClient.FirstName, aClient.LastName, aClient.Company, " " /*GetParent(aClient.ParentID)*/, GetServ(aClient.JobID), GetStaff(aClient.JobID), "View Job", aClient.ClientID, aClient.JobID);
 
                 }
             }
         }
 
         ////////////////
-        private string GetStaff(int aClientID)
+        private string GetStaff(int aJob)
         {
             string returning = "";
             string GetParentSQL = "SELECT STAFF_TABLE.STAFF_FIRST_NAME, STAFF_TABLE.STAFF_LAST_NAME FROM STAFF_TABLE INNER JOIN JOB_TABLE ON " +
-                "STAFF_TABLE.STAFF_ID = JOB_TABLE.STAFF_ID INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE CLIENT_TABLE.CLIENT_ID =" + aClientID + ";";
+                "STAFF_TABLE.STAFF_ID = JOB_TABLE.STAFF_ID INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE JOB_TABLE.JOB_ID =" + aJob + ";";
 
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
 
@@ -815,10 +815,10 @@ namespace GrenciCPA
             return returning;
         }
         ////////////////
-        private string GetServ(int aClientID)
+        private string GetServ(int aJob)
         {
             string returning = "";
-            string GetParentSQL = "SELECT SERVICE_TABLE.SERV_NAME FROM SERVICE_TABLE INNER JOIN JOB_COMPONENT_TABLE ON SERVICE_TABLE.SERV_ID = JOB_COMPONENT_TABLE.SERV_ID INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID WHERE JOB_TABLE.CLIENT_ID =" + aClientID + ";";
+            string GetParentSQL = "SELECT SERVICE_TABLE.SERV_NAME FROM SERVICE_TABLE INNER JOIN JOB_COMPONENT_TABLE ON SERVICE_TABLE.SERV_ID = JOB_COMPONENT_TABLE.SERV_ID INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID WHERE JOB_TABLE.JOB_ID =" + aJob + ";";
             //Pulled from App.config
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try

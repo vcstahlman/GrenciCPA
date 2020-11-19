@@ -60,8 +60,6 @@
             this.btnEditTime = new System.Windows.Forms.Button();
             this.lblAddTime = new System.Windows.Forms.Label();
             this.txtAddTime = new System.Windows.Forms.TextBox();
-            this.cmboAddTime = new System.Windows.Forms.ComboBox();
-            this.lblAddMinutes = new System.Windows.Forms.Label();
             this.btnTimer = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblNotes = new System.Windows.Forms.Label();
@@ -349,34 +347,6 @@
             this.txtAddTime.TabIndex = 63;
             this.txtAddTime.Visible = false;
             // 
-            // cmboAddTime
-            // 
-            this.cmboAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cmboAddTime.FormattingEnabled = true;
-            this.cmboAddTime.Items.AddRange(new object[] {
-            "10 minutes",
-            "20 minutes",
-            "30 minutes",
-            "40 minutes",
-            "50 minutes",
-            "1 hour"});
-            this.cmboAddTime.Location = new System.Drawing.Point(612, 554);
-            this.cmboAddTime.Name = "cmboAddTime";
-            this.cmboAddTime.Size = new System.Drawing.Size(106, 26);
-            this.cmboAddTime.TabIndex = 61;
-            this.cmboAddTime.Visible = false;
-            // 
-            // lblAddMinutes
-            // 
-            this.lblAddMinutes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblAddMinutes.AutoSize = true;
-            this.lblAddMinutes.Location = new System.Drawing.Point(504, 563);
-            this.lblAddMinutes.Name = "lblAddMinutes";
-            this.lblAddMinutes.Size = new System.Drawing.Size(93, 18);
-            this.lblAddMinutes.TabIndex = 60;
-            this.lblAddMinutes.Text = "Add Minutes:";
-            this.lblAddMinutes.Visible = false;
-            // 
             // btnTimer
             // 
             this.btnTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -625,8 +595,6 @@
             this.Controls.Add(this.lblAddTime);
             this.Controls.Add(this.txtAddTime);
             this.Controls.Add(this.lblTime);
-            this.Controls.Add(this.cmboAddTime);
-            this.Controls.Add(this.lblAddMinutes);
             this.Controls.Add(this.btnTimer);
             this.Controls.Add(this.dgvTime);
             this.Controls.Add(this.lblStaff);
@@ -662,8 +630,6 @@
         private System.Windows.Forms.Button btnEditTime;
         private System.Windows.Forms.Label lblAddTime;
         private System.Windows.Forms.TextBox txtAddTime;
-        private System.Windows.Forms.ComboBox cmboAddTime;
-        private System.Windows.Forms.Label lblAddMinutes;
         private System.Windows.Forms.Button btnTimer;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblNotes;

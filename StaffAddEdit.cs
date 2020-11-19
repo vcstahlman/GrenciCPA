@@ -138,7 +138,7 @@ namespace GrenciCPA
                            "OUTPUT INSERTED.STAFF_ID " +
                            "VALUES (@FIRST, @LAST, @RATE ); ";
 
-            if (!isNew) SetOtherSQL = "UPDATE STAFF_TABLE STAFF_FIRST_NAME = @FIRST, STAFF_LAST_NAME = @LAST, STAFF_RATE_PER_HR = @RATE " +
+            if (!isNew) SetOtherSQL = "UPDATE STAFF_TABLE SET STAFF_FIRST_NAME = @FIRST, STAFF_LAST_NAME = @LAST, STAFF_RATE_PER_HR = @RATE " +
                                      "WHERE STAFF_ID= " + staffID + " ; ";
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
@@ -151,9 +151,8 @@ namespace GrenciCPA
 
                 command.Parameters.AddWithValue("@FIRST", tbxFirst.Text);
                 command.Parameters.AddWithValue("@LAST", tbxLast.Text);
-                int rate = 0;
-                int.TryParse(tbxRate.Text, out rate);
-                command.Parameters.AddWithValue("@RATE", rate);
+                
+                command.Parameters.AddWithValue("@RATE", 1);
 
 
 
