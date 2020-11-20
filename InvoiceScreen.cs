@@ -235,7 +235,7 @@ namespace GrenciCPA
                 "OUTPUT INSERTED.INVOICE_ID " +
                 "VALUES (@JOB_ID, @OWED, @PAID, @TEXT, @PATH, @DATE); ";
 
-            filePath = "C:/Invoices/" + jobID + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
+            filePath = "C:/Invoices/" + clientFirstName + clientLastName + clientID +"/"+ jobID + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
 
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try

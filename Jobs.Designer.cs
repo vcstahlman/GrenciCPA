@@ -50,10 +50,9 @@
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JobID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbxToInvoice = new System.Windows.Forms.CheckBox();
             this.cbxUnassigned = new System.Windows.Forms.CheckBox();
-            this.cbxProgress = new System.Windows.Forms.CheckBox();
-            this.cbxPast = new System.Windows.Forms.CheckBox();
+            this.cbxProgress = new System.Windows.Forms.RadioButton();
+            this.cbxPast = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +69,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(686, 10);
+            this.btnSearch.Location = new System.Drawing.Point(627, 9);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(111, 42);
             this.btnSearch.TabIndex = 13;
@@ -220,16 +219,6 @@
             this.JobID.Visible = false;
             this.JobID.Width = 125;
             // 
-            // cbxToInvoice
-            // 
-            this.cbxToInvoice.AutoSize = true;
-            this.cbxToInvoice.Location = new System.Drawing.Point(333, 21);
-            this.cbxToInvoice.Name = "cbxToInvoice";
-            this.cbxToInvoice.Size = new System.Drawing.Size(95, 22);
-            this.cbxToInvoice.TabIndex = 16;
-            this.cbxToInvoice.Text = "To Invoice";
-            this.cbxToInvoice.UseVisualStyleBackColor = true;
-            // 
             // cbxUnassigned
             // 
             this.cbxUnassigned.AutoSize = true;
@@ -244,24 +233,22 @@
             // 
             this.cbxProgress.AutoSize = true;
             this.cbxProgress.Checked = true;
-            this.cbxProgress.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxProgress.Location = new System.Drawing.Point(447, 21);
+            this.cbxProgress.Location = new System.Drawing.Point(445, 19);
             this.cbxProgress.Name = "cbxProgress";
-            this.cbxProgress.Size = new System.Drawing.Size(103, 22);
-            this.cbxProgress.TabIndex = 19;
+            this.cbxProgress.Size = new System.Drawing.Size(102, 22);
+            this.cbxProgress.TabIndex = 21;
+            this.cbxProgress.TabStop = true;
             this.cbxProgress.Text = "In Progress";
             this.cbxProgress.UseVisualStyleBackColor = true;
             // 
             // cbxPast
             // 
             this.cbxPast.AutoSize = true;
-            this.cbxPast.Checked = true;
-            this.cbxPast.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxPast.Location = new System.Drawing.Point(572, 21);
+            this.cbxPast.Location = new System.Drawing.Point(553, 20);
             this.cbxPast.Name = "cbxPast";
-            this.cbxPast.Size = new System.Drawing.Size(94, 22);
-            this.cbxPast.TabIndex = 20;
-            this.cbxPast.Text = "Past Jobs";
+            this.cbxPast.Size = new System.Drawing.Size(56, 22);
+            this.cbxPast.TabIndex = 22;
+            this.cbxPast.Text = "Past";
             this.cbxPast.UseVisualStyleBackColor = true;
             // 
             // Jobs
@@ -272,7 +259,6 @@
             this.Controls.Add(this.cbxPast);
             this.Controls.Add(this.cbxProgress);
             this.Controls.Add(this.cbxUnassigned);
-            this.Controls.Add(this.cbxToInvoice);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbxSearch);
@@ -295,9 +281,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.DataGridView dgvJobs;
-        private System.Windows.Forms.CheckBox cbxToInvoice;
         private System.Windows.Forms.CheckBox cbxUnassigned;
-        private System.Windows.Forms.CheckBox cbxProgress;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Company;
@@ -307,6 +291,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn JobID;
-        private System.Windows.Forms.CheckBox cbxPast;
+        private System.Windows.Forms.RadioButton cbxProgress;
+        private System.Windows.Forms.RadioButton cbxPast;
     }
 }

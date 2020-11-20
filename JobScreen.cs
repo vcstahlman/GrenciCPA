@@ -40,6 +40,8 @@ namespace GrenciCPA
         private double jobTotal;
         private bool afterLoad;
 
+        private bool isActive = true;
+
         private List<AComp> componentList = new List<AComp>();
         private List<AServ> serviceList = new List<AServ>();
         private List<AChar> characteristicList = new List<AChar>();
@@ -90,7 +92,7 @@ namespace GrenciCPA
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).DisplayMember = "ServName";
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).ValueMember = "ServID";
 
-            
+            activeCheck();
         }
 
 
@@ -220,6 +222,10 @@ namespace GrenciCPA
 
                 DateTime timeEnd = DateTime.Now;
                 TimeSpan span = new TimeSpan(0, tedit, 0);
+                
+
+                time.Add(timeEnd.Subtract(timeStart));
+                lblTime.Text = "Total Elapsed Time: " + String.Format("{0:0.00}", time.TotalHours + span.TotalHours) + " hours";
 
 
                 string SetEditSQL = "INSERT INTO TIME_TABLE(JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT)  " +
@@ -1312,7 +1318,53 @@ namespace GrenciCPA
             afterLoad = true;
 
         }
+        private void activeCheck()
+        {
+            string GetCompSQL = "SELECT JOB_ACTIVE FROM JOB_TABLE " +
+                "WHERE JOB_ID = " + jobID + ";";
 
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(GetCompSQL, connection);
+                //Open the connection
+                connection.Open();
+                //Create a SQL Data Reader object
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                //Keep reading as long as I have data from the database to read
+
+
+                int i = 0;
+                while (reader.Read())//reads in all the data assotiated with the 
+                {
+                    
+
+                    if (reader["JOB_ACTIVE"] != DBNull.Value)
+                    {
+                        isActive = reader.GetBoolean(reader.GetOrdinal("JOB_ACTIVE"));
+                    }
+                    
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not retrieve characteristics from Database.! \n Error reads: " + ex.Message);
+            }
+
+
+            if(!isActive)//if the job is not active it will disable everything
+            {
+                this.Text += ": Past Job View";
+                dgvFees.Enabled = false;
+                btnComplete.Enabled = false;
+                btnSave.Enabled = false;
+                btnTimer.Enabled = false;
+                btnEditTime.Enabled = false;
+            }
+        }
 
         //\\\\\\\\\DGV FEATURES
        
