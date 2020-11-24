@@ -31,12 +31,12 @@ namespace GrenciCPA
         private AClient ClientsObj;
         private int parentID;
         private int clientID;
-        private double finalTotal;
-        private double cumulativeTotal = 0.0;
+        private decimal finalTotal;
+        private decimal cumulativeTotal = 0;
 
         private List<AComp> componentList = new List<AComp>();
         private List<string> service_names = new List<string>();
-        private List<double> service_totals = new List<double>();
+        private List<decimal> service_totals = new List<decimal>();
         private List<string> service_sentences = new List<string>();
 
         private string clientFirstName;
@@ -54,7 +54,7 @@ namespace GrenciCPA
             InitializeComponent();
 
         }
-        public InvoiceScreen(int pJob, double pTotal)
+        public InvoiceScreen(int pJob, decimal pTotal)
         {
             InitializeComponent();
             jobID = pJob;
@@ -64,20 +64,34 @@ namespace GrenciCPA
 
             for (int i = 0; i < service_names.Count; i++)
             {
-                dgvInvoice.Rows.Add(service_sentences[i], service_totals[i]);
+                if (i == 0) dgvInvoice.Rows.Add(service_sentences[i], string.Format("{0:#,0.00}", service_totals[i]));
+                else if (service_sentences[i] == service_sentences[i - 1]) 
+                {
+                    decimal last = 0;
+                    decimal.TryParse(dgvInvoice.Rows[dgvInvoice.Rows.Count-1].Cells[1].Value.ToString(), out last);
+
+                    dgvInvoice.Rows[dgvInvoice.Rows.Count-1].Cells[1].Value = string.Format("{0:#,0.00}", last + service_totals[i]);//puts this into the latest row
+                }
+                else { dgvInvoice.Rows.Add(service_sentences[i], string.Format("{0:#,0.00}", service_totals[i])); }
                 cumulativeTotal = service_totals[i] + cumulativeTotal;
             }
-            int sum = 0;
+            decimal sum = 0;
 
             for (int i = 0; i < dgvInvoice.Rows.Count; ++i)
 
             {
-
-                sum += Convert.ToInt32(dgvInvoice.Rows[i].Cells[1].Value);
+                try
+                {
+                    sum += Convert.ToDecimal(dgvInvoice.Rows[i].Cells[1].Value);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("The sum did not finish converting \nError: " + ex.Message);
+                }
 
             }
 
-            txtAmtOwed.Text = "Total sum is:" + string.Format("{0:#,0.00}", sum);
+            txtAmtOwed.Text = "Total sum is: $" + string.Format("{0:#,0.00}", sum);
             service_names.Add("Other ");
             service_sentences.Add("Other Costs: ");
             service_totals.Add(finalTotal - cumulativeTotal);
@@ -95,6 +109,8 @@ namespace GrenciCPA
                 "INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
                 "WHERE JOB_COMPONENT_TABLE.JOB_ID = " + jobID + " " +
                 "ORDER BY JOB_COMPONENT_TABLE.SERV_ID;";
+
+            int lastServID = 0;
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
             {
@@ -124,7 +140,7 @@ namespace GrenciCPA
                     }
                     if (reader["TOTAL"] != DBNull.Value)
                     {
-                        tempComp.Total = (reader["TOTAL"] as double?) ?? 0.0;
+                        tempComp.Total = (reader["TOTAL"] as decimal?) ?? 0.00m;
                         service_totals.Add(tempComp.Total);
                     }
                     if (reader["SERV_SENTENCE"] != DBNull.Value)
@@ -177,12 +193,22 @@ namespace GrenciCPA
                     //this is used for a comparason for in the save function
                     tempComp.Row = i;
                     i++;
-                    if (componentList.Count == 0) componentList.Add(tempComp);
-                    else if (componentList[componentList.Count - 1].Serv_ID == tempComp.Serv_ID)// if new is same as old add to the total but not another row.
+                    if (componentList.Count == 0)
+                    {
+                        componentList.Add(tempComp);//add no mater what
+                        lastServID = tempComp.Serv_ID;
+                    }
+                    else if (lastServID == tempComp.Serv_ID && tempComp.Serv_ID != 0)// if new is same as old add to the total but not another row.
                     {
                         componentList[componentList.Count - 1].Total += tempComp.Total;
+                        lastServID = tempComp.Serv_ID;
                     }
-                    else componentList.Add(tempComp);
+
+                    else
+                    {
+                        componentList.Add(tempComp);
+                        lastServID = tempComp.Serv_ID;
+                    }
                     ClientsObj = tempClient;
                 }
                 connection.Close();
@@ -193,8 +219,6 @@ namespace GrenciCPA
                 MessageBox.Show("Could not retrieve services from Database.! \n Error reads: " + ex.Message);
             }
         }
-
-
 
 
         private void btnEmail_Click(object sender, EventArgs e)
@@ -226,9 +250,9 @@ namespace GrenciCPA
             for (int i = 0; i < service_names.Count; i++)
             {
                 string sentence = service_sentences[i];
-                double total = service_totals[i];
+                decimal total = service_totals[i];
 
-                inString += sentence + ": $" + total + "\n";
+                inString += sentence + ": $" + string.Format("{0:#,0.00}", total )+ "\n";
 
             }
             string SetInvoiceSQL = "INSERT INTO INVOICE_TABLE (JOB_ID, AMOUNT_OWED, AMOUNT_PAID, INVOICE_TEXT, FILE_PATH, DATE_SENT) " +
@@ -312,9 +336,9 @@ namespace GrenciCPA
             for (int i = 0; i < service_names.Count; i++)
             {
                 string sentence = service_sentences[i];
-                double total = service_totals[i];
+                decimal total = service_totals[i];
                 cumulativeTotal = total + cumulativeTotal;
-                p4 = new Paragraph(sentence + ": $" + string.Format("{0:#,0.00}",total) + "\n", normalFont);
+                p4 = new Paragraph(sentence + ": $" + string.Format("{0:#,0.00}", total) + "\n", normalFont);
                 document.Add(p4);
             }
             //Comes from the sum of the job
@@ -352,6 +376,8 @@ namespace GrenciCPA
             {
                 MessageBox.Show("Could not deactivate job \nError: " + ex.Message);
             }
+
+            btnClose.Text = "Close";
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -396,13 +422,13 @@ namespace GrenciCPA
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            double sum = 0.0;
+            decimal sum = 0;
 
             for (int i = 0; i < dgvInvoice.Rows.Count; i++)
             {
                 service_sentences[i] = dgvInvoice.Rows[i].Cells[0].Value.ToString();
-                service_totals[i] = Convert.ToDouble(dgvInvoice.Rows[i].Cells[1].Value);
-                sum += Convert.ToDouble(dgvInvoice.Rows[i].Cells[1].Value);
+                service_totals[i] = Convert.ToDecimal(dgvInvoice.Rows[i].Cells[1].Value);
+                sum += Convert.ToDecimal(dgvInvoice.Rows[i].Cells[1].Value);
 
             }
 

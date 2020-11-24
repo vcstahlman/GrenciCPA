@@ -13,8 +13,8 @@ namespace GrenciCPA
 
         // identification vars
         private string feeName;
-        private double feeCost;
-        private double feeMin;
+        private decimal feeCost;
+        private decimal feeMin;
         private int servID;
         private string servName;
         private bool active;
@@ -23,8 +23,8 @@ namespace GrenciCPA
         // accessors and mutators for AClient class
         public int FeeID { get => feeID; set => feeID = value; }
         public string FeeName { get => feeName; set => feeName = value; }
-        public double FeeCost { get => feeCost; set => feeCost = value; }
-        public double FeeMin { get => feeMin; set => feeMin = value; }
+        public decimal FeeCost { get => feeCost; set => feeCost = value; }
+        public decimal FeeMin { get => feeMin; set => feeMin = value; }
         public int ServID { get => servID; set => servID = value; }
         public string ServName { get => servName; set => servName = value; }
         public bool Active { get => active; set => active = value; }

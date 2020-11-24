@@ -79,11 +79,11 @@ namespace GrenciCPA
                     }
                     if (reader["AMOUNT_OWED"] != DBNull.Value)
                     {
-                        tempinvoice.AmtOwed = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
+                        tempinvoice.AmtOwed = (reader["AMOUNT_OWED"] as decimal?) ?? 0.00m;
                     }
                     if (reader["AMOUNT_PAID"] != DBNull.Value)
                     {
-                        tempinvoice.AmtPaid = (reader["AMOUNT_PAID"] as float?) ?? 0.00;
+                        tempinvoice.AmtPaid = (reader["AMOUNT_PAID"] as decimal?) ?? 0.00m;
                     }
                     if (reader["DATE_SENT"] != DBNull.Value)
                     {
@@ -317,9 +317,9 @@ namespace GrenciCPA
 
             //makes the invoices 0 out if possible
             int rowsaffected = 0;
-            double paymentAmount = 0;
+            decimal paymentAmount = 0;
             
-            double.TryParse(txtOverride.Text, out paymentAmount);
+            decimal.TryParse(txtOverride.Text, out paymentAmount);
 
             foreach (AInvoice aninvoice in InvoiceObjList)
             {   if (paymentAmount > 0)
@@ -336,7 +336,7 @@ namespace GrenciCPA
                         //Open the connection
                         connection.Open();
 
-                        double payment = aninvoice.AmtOwed;
+                        decimal payment = aninvoice.AmtOwed;
                         if (payment > paymentAmount)
                         {
                             aninvoice.AmtOwed -= paymentAmount;//if payment is left then put rest into it
@@ -379,7 +379,7 @@ namespace GrenciCPA
                 //Open the connection
                 connection.Open();
 
-                double bal = ClientsObj.Balance;
+                decimal bal = ClientsObj.Balance;
 
                 bal -= paymentAmount;
                 

@@ -148,7 +148,7 @@ namespace GrenciCPA
 
                     if (reader["OWED_BALANCE"] != DBNull.Value)
                     {
-                        tempClient.Balance = (reader["OWED_BALANCE"] as float?) ?? 0.00;
+                        tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0;
                     }
 
 
@@ -409,12 +409,12 @@ namespace GrenciCPA
                     }
                     if (reader["AMOUNT_PAID"] != DBNull.Value)
                     {
-                        tempinvoice.AmtPaid = (reader["AMOUNT_PAID"] as float?) ?? 0.00;
+                        tempinvoice.AmtPaid = (reader["AMOUNT_PAID"] as decimal?) ?? 0;
                     }
 
                     if (reader["AMOUNT_OWED"] != DBNull.Value)
                     {
-                        tempinvoice.AmtOwed = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
+                        tempinvoice.AmtOwed = (reader["AMOUNT_OWED"] as decimal?) ?? 0;
                     }
 
 

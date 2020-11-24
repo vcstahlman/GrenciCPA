@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>afg_logo_APZ_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -90,6 +93,9 @@
     </Compile>
     <Compile Include="Globals.Designer.cs">
       <DependentUpon>Globals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrenciDBDataSet.cs">
+      <DependentUpon>GrenciDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GrenciDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -263,6 +269,7 @@
     <Content Include="AFG Logo.JPG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="afg_logo_APZ_icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

@@ -36,6 +36,7 @@
             this.btnStaff = new System.Windows.Forms.Button();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.btnReport = new System.Windows.Forms.Button();
+            this.btnPayments = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,11 +118,22 @@
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // btnPayments
+            // 
+            this.btnPayments.Location = new System.Drawing.Point(811, 374);
+            this.btnPayments.Name = "btnPayments";
+            this.btnPayments.Size = new System.Drawing.Size(158, 46);
+            this.btnPayments.TabIndex = 7;
+            this.btnPayments.Text = "Reports";
+            this.btnPayments.UseVisualStyleBackColor = true;
+            this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 565);
+            this.Controls.Add(this.btnPayments);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.btnStaff);
@@ -148,6 +160,7 @@
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.PictureBox pbxLogo;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Button btnPayments;
     }
 }
 

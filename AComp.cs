@@ -15,10 +15,10 @@ namespace GrenciCPA
         private int char_ID;
         private string char_Name;
 
-        private double char_cost;
-        private double char_multi;
+        private decimal char_cost;
+        private decimal char_multi;
 
-        private double total;
+        private decimal total;
 
         private int sortInt;
         private int row;
@@ -34,9 +34,9 @@ namespace GrenciCPA
         public string Serv_Name { get => serv_Name; set => serv_Name = value; }
         public int Char_ID { get => char_ID; set => char_ID = value; }
         public string Char_Name { get => char_Name; set => char_Name = value; }
-        public double Char_cost { get => char_cost; set => char_cost = value; }
-        public double Char_multi { get => char_multi; set => char_multi = value; }
-        public double Total { get => total; set => total = value; }
+        public decimal Char_cost { get => char_cost; set => char_cost = value; }
+        public decimal Char_multi { get => char_multi; set => char_multi = value; }
+        public decimal Total { get => total; set => total = value; }
         public int SortInt { get => sortInt; set => sortInt = value; }
         public int Row { get => row; set => row = value; }
         public string Serv_Sentence { get => serv_Sentence; set => serv_Sentence = value; }

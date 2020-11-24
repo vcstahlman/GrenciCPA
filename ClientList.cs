@@ -139,7 +139,7 @@ namespace GrenciCPA
 
                         if (reader["OWED_BALANCE"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["OWED_BALANCE"] as double?) ?? 0.0;
+                            tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0;
                         }
 
 
@@ -258,7 +258,7 @@ namespace GrenciCPA
 
                         if (reader["OWED_BALANCE"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["OWED_BALANCE"] as double?) ?? 0.0;
+                            tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0;
                         }
 
 
@@ -487,7 +487,7 @@ namespace GrenciCPA
 
                         if (reader["OWED_BALANCE"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["OWED_BALANCE"] as double?) ?? 0.0;
+                            tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0;
                         }
 
 
@@ -606,7 +606,7 @@ namespace GrenciCPA
 
                         if (reader["OWED_BALANCE"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["OWED_BALANCE"] as double?) ?? 0.0;
+                            tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0;
                         }
 
 
@@ -725,7 +725,7 @@ namespace GrenciCPA
 
                         if (reader["OWED_BALANCE"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["OWED_BALANCE"] as double?) ?? 0.0;
+                            tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0;
                         }
 
 

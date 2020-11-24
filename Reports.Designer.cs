@@ -40,27 +40,21 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.clbLabels = new System.Windows.Forms.CheckedListBox();
-            this.cboService = new System.Windows.Forms.ComboBox();
             this.lblName = new System.Windows.Forms.Label();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.tbxMisc = new System.Windows.Forms.TextBox();
             this.lbxReport = new System.Windows.Forms.ListBox();
             this.lblMisc = new System.Windows.Forms.Label();
             this.dgvReports = new System.Windows.Forms.DataGridView();
+            this.lblReports = new System.Windows.Forms.Label();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalBilled = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblReports = new System.Windows.Forms.Label();
-            this.lblFrom = new System.Windows.Forms.Label();
-            this.lblTo = new System.Windows.Forms.Label();
-            this.tbxTo = new System.Windows.Forms.TextBox();
-            this.tbxFrom = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,12 +71,13 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(532, 104);
+            this.btnSearch.Location = new System.Drawing.Point(338, 105);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(136, 48);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // clbLabels
             // 
@@ -97,21 +92,6 @@
             this.clbLabels.Name = "clbLabels";
             this.clbLabels.Size = new System.Drawing.Size(229, 137);
             this.clbLabels.TabIndex = 2;
-            // 
-            // cboService
-            // 
-            this.cboService.FormattingEnabled = true;
-            this.cboService.Items.AddRange(new object[] {
-            "Income Taxes",
-            "Payroll",
-            "Book Keeping",
-            "Audit",
-            "Sales Tax",
-            "Merchantile Tax"});
-            this.cboService.Location = new System.Drawing.Point(258, 114);
-            this.cboService.Name = "cboService";
-            this.cboService.Size = new System.Drawing.Size(232, 26);
-            this.cboService.TabIndex = 3;
             // 
             // lblName
             // 
@@ -156,12 +136,17 @@
             this.lblMisc.AutoSize = true;
             this.lblMisc.Location = new System.Drawing.Point(255, 66);
             this.lblMisc.Name = "lblMisc";
-            this.lblMisc.Size = new System.Drawing.Size(44, 18);
+            this.lblMisc.Size = new System.Drawing.Size(53, 18);
             this.lblMisc.TabIndex = 8;
-            this.lblMisc.Text = "Misc:";
+            this.lblMisc.Text = "Comp:";
             // 
             // dgvReports
             // 
+            this.dgvReports.AllowUserToAddRows = false;
+            this.dgvReports.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvReports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -172,101 +157,16 @@
             this.Company,
             this.Service,
             this.TotalBilled,
-            this.TotalPaid,
             this.TotalOwed,
-            this.Invoice,
+            this.TotalPaid,
             this.Date});
             this.dgvReports.Location = new System.Drawing.Point(18, 159);
             this.dgvReports.Name = "dgvReports";
+            this.dgvReports.ReadOnly = true;
             this.dgvReports.RowHeadersWidth = 51;
             this.dgvReports.RowTemplate.Height = 24;
             this.dgvReports.Size = new System.Drawing.Size(1484, 268);
             this.dgvReports.TabIndex = 9;
-            // 
-            // FirstName
-            // 
-            this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.FirstName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.FirstName.FillWeight = 125F;
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.MinimumWidth = 125;
-            this.FirstName.Name = "FirstName";
-            // 
-            // LastName
-            // 
-            this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.LastName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.LastName.FillWeight = 125F;
-            this.LastName.HeaderText = "LastName";
-            this.LastName.MinimumWidth = 125;
-            this.LastName.Name = "LastName";
-            // 
-            // Company
-            // 
-            this.Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Company.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Company.FillWeight = 150F;
-            this.Company.HeaderText = "Company";
-            this.Company.MinimumWidth = 100;
-            this.Company.Name = "Company";
-            // 
-            // Service
-            // 
-            this.Service.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Service.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Service.HeaderText = "Service";
-            this.Service.MinimumWidth = 90;
-            this.Service.Name = "Service";
-            // 
-            // TotalBilled
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TotalBilled.DefaultCellStyle = dataGridViewCellStyle5;
-            this.TotalBilled.HeaderText = "Billed";
-            this.TotalBilled.MinimumWidth = 70;
-            this.TotalBilled.Name = "TotalBilled";
-            this.TotalBilled.Width = 125;
-            // 
-            // TotalPaid
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TotalPaid.DefaultCellStyle = dataGridViewCellStyle6;
-            this.TotalPaid.HeaderText = "Paid";
-            this.TotalPaid.MinimumWidth = 70;
-            this.TotalPaid.Name = "TotalPaid";
-            this.TotalPaid.Width = 125;
-            // 
-            // TotalOwed
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TotalOwed.DefaultCellStyle = dataGridViewCellStyle7;
-            this.TotalOwed.HeaderText = "Owed";
-            this.TotalOwed.MinimumWidth = 70;
-            this.TotalOwed.Name = "TotalOwed";
-            this.TotalOwed.Width = 125;
-            // 
-            // Invoice
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Invoice.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Invoice.HeaderText = "Invoice";
-            this.Invoice.MinimumWidth = 100;
-            this.Invoice.Name = "Invoice";
-            this.Invoice.Width = 125;
-            // 
-            // Date
-            // 
-            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Date.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Date.FillWeight = 125F;
-            this.Date.HeaderText = "Date";
-            this.Date.MinimumWidth = 100;
-            this.Date.Name = "Date";
             // 
             // lblReports
             // 
@@ -278,47 +178,96 @@
             this.lblReports.TabIndex = 10;
             this.lblReports.Text = "Report:";
             // 
-            // lblFrom
+            // FirstName
             // 
-            this.lblFrom.AutoSize = true;
-            this.lblFrom.Location = new System.Drawing.Point(489, 22);
-            this.lblFrom.Name = "lblFrom";
-            this.lblFrom.Size = new System.Drawing.Size(48, 18);
-            this.lblFrom.TabIndex = 11;
-            this.lblFrom.Text = "From:";
+            this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.FirstName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FirstName.FillWeight = 125F;
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.MinimumWidth = 125;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
             // 
-            // lblTo
+            // LastName
             // 
-            this.lblTo.AutoSize = true;
-            this.lblTo.Location = new System.Drawing.Point(489, 69);
-            this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(30, 18);
-            this.lblTo.TabIndex = 12;
-            this.lblTo.Text = "To:";
+            this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.LastName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.LastName.FillWeight = 125F;
+            this.LastName.HeaderText = "LastName";
+            this.LastName.MinimumWidth = 125;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
             // 
-            // tbxTo
+            // Company
             // 
-            this.tbxTo.Location = new System.Drawing.Point(555, 66);
-            this.tbxTo.Name = "tbxTo";
-            this.tbxTo.Size = new System.Drawing.Size(112, 24);
-            this.tbxTo.TabIndex = 13;
+            this.Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Company.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Company.FillWeight = 150F;
+            this.Company.HeaderText = "Company";
+            this.Company.MinimumWidth = 100;
+            this.Company.Name = "Company";
+            this.Company.ReadOnly = true;
             // 
-            // tbxFrom
+            // Service
             // 
-            this.tbxFrom.Location = new System.Drawing.Point(555, 19);
-            this.tbxFrom.Name = "tbxFrom";
-            this.tbxFrom.Size = new System.Drawing.Size(112, 24);
-            this.tbxFrom.TabIndex = 14;
+            this.Service.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Service.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Service.HeaderText = "Service";
+            this.Service.MinimumWidth = 90;
+            this.Service.Name = "Service";
+            this.Service.ReadOnly = true;
+            // 
+            // TotalBilled
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalBilled.DefaultCellStyle = dataGridViewCellStyle6;
+            this.TotalBilled.HeaderText = "Billed";
+            this.TotalBilled.MinimumWidth = 70;
+            this.TotalBilled.Name = "TotalBilled";
+            this.TotalBilled.ReadOnly = true;
+            this.TotalBilled.Width = 125;
+            // 
+            // TotalOwed
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalOwed.DefaultCellStyle = dataGridViewCellStyle7;
+            this.TotalOwed.HeaderText = "Owed";
+            this.TotalOwed.MinimumWidth = 70;
+            this.TotalOwed.Name = "TotalOwed";
+            this.TotalOwed.ReadOnly = true;
+            this.TotalOwed.Width = 125;
+            // 
+            // TotalPaid
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalPaid.DefaultCellStyle = dataGridViewCellStyle8;
+            this.TotalPaid.HeaderText = "Paid";
+            this.TotalPaid.MinimumWidth = 70;
+            this.TotalPaid.Name = "TotalPaid";
+            this.TotalPaid.ReadOnly = true;
+            this.TotalPaid.Width = 125;
+            // 
+            // Date
+            // 
+            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Date.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Date.FillWeight = 125F;
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 100;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
             // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1517, 670);
-            this.Controls.Add(this.tbxFrom);
-            this.Controls.Add(this.tbxTo);
-            this.Controls.Add(this.lblTo);
-            this.Controls.Add(this.lblFrom);
             this.Controls.Add(this.lblReports);
             this.Controls.Add(this.dgvReports);
             this.Controls.Add(this.lblMisc);
@@ -326,7 +275,6 @@
             this.Controls.Add(this.tbxMisc);
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.cboService);
             this.Controls.Add(this.clbLabels);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClose);
@@ -345,7 +293,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.CheckedListBox clbLabels;
-        private System.Windows.Forms.ComboBox cboService;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.TextBox tbxMisc;
@@ -353,18 +300,13 @@
         private System.Windows.Forms.Label lblMisc;
         private System.Windows.Forms.DataGridView dgvReports;
         private System.Windows.Forms.Label lblReports;
-        private System.Windows.Forms.Label lblFrom;
-        private System.Windows.Forms.Label lblTo;
-        private System.Windows.Forms.TextBox tbxTo;
-        private System.Windows.Forms.TextBox tbxFrom;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Company;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalBilled;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalOwed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
     }
 }

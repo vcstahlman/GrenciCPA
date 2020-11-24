@@ -12,16 +12,16 @@ namespace GrenciCPA
 
         private int charID;
         private string charName;
-        private double charCost;
-        private double charMini;
+        private decimal charCost;
+        private decimal charMini;
         private int charAsso;
         private int charClient;
         private int charActive;
 
         public int CharID { get => charID; set => charID = value; }
         public string CharName { get => charName; set => charName = value; }
-        public double CharCost { get => charCost; set => charCost = value; }
-        public double CharMini { get => charMini; set => charMini = value; }
+        public decimal CharCost { get => charCost; set => charCost = value; }
+        public decimal CharMini { get => charMini; set => charMini = value; }
         public int CharAsso { get => charAsso; set => charAsso = value; }
         public int CharClient { get => charClient; set => charClient = value; }
         public int CharActive { get => charActive; set => charActive = value; }

@@ -60,5 +60,11 @@ namespace GrenciCPA
             ReportDemo form = new ReportDemo();
             form.ShowDialog();
         }
+
+        private void btnPayments_Click(object sender, EventArgs e)
+        {
+            Reports form = new Reports();
+            form.ShowDialog();
+        }
     }
 }

@@ -154,11 +154,11 @@ namespace GrenciCPA
                     }
                     if (reader["CHAR_COST"] != DBNull.Value)
                     {
-                        tempFee.FeeCost = (reader["CHAR_COST"] as float?) ?? 0.00;
+                        tempFee.FeeCost = (reader["CHAR_COST"] as decimal?) ?? 0.00m;
                     }
                     if (reader["CHAR_MIN"] != DBNull.Value)
                     {
-                        tempFee.FeeMin = (reader["CHAR_MIN"] as float?) ?? 0.00;
+                        tempFee.FeeMin = (reader["CHAR_MIN"] as decimal?) ?? 0.00m;
                     }
                     if (reader["SERV_ID"] != DBNull.Value)
                     {
@@ -474,8 +474,8 @@ namespace GrenciCPA
 
                         aFee.FeeID = int.Parse(dgvFees.Rows[e.RowIndex].Cells[0].Value.ToString());
                         aFee.FeeName = dgvFees.Rows[e.RowIndex].Cells[1].Value.ToString();
-                        aFee.FeeCost = double.Parse(dgvFees.Rows[e.RowIndex].Cells[2].Value.ToString());
-                        aFee.FeeMin = double.Parse(dgvFees.Rows[e.RowIndex].Cells[3].Value.ToString());
+                        aFee.FeeCost = decimal.Parse(dgvFees.Rows[e.RowIndex].Cells[2].Value.ToString());
+                        aFee.FeeMin = decimal.Parse(dgvFees.Rows[e.RowIndex].Cells[3].Value.ToString());  
                         aFee.ServID = (int) dgvFees.Rows[e.RowIndex].Cells[4].Value;
 
                         // calls CreateFees with instance of aFee
@@ -494,8 +494,8 @@ namespace GrenciCPA
 
                         aFee.FeeID = int.Parse(dgvFees.Rows[e.RowIndex].Cells[0].Value.ToString());
                         aFee.FeeName = dgvFees.Rows[e.RowIndex].Cells[1].Value.ToString();
-                        aFee.FeeCost = double.Parse(dgvFees.Rows[e.RowIndex].Cells[2].Value.ToString());
-                        aFee.FeeMin = double.Parse(dgvFees.Rows[e.RowIndex].Cells[3].Value.ToString());
+                        aFee.FeeCost = decimal.Parse(dgvFees.Rows[e.RowIndex].Cells[2].Value.ToString());
+                        aFee.FeeMin = decimal.Parse(dgvFees.Rows[e.RowIndex].Cells[3].Value.ToString());
 
                         // to read in associated services
                         foreach (AServ aServ in ServiceObjList)

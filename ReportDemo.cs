@@ -95,7 +95,7 @@ namespace GrenciCPA
                     }
                     if (reader ["OWED_BALANCE"] != DBNull.Value)
                     {
-                        tempPayment.OwedBalance = (reader["OWED_BALANCE"] as float?) ?? 0.00;
+                        tempPayment.OwedBalance = (reader["OWED_BALANCE"] as decimal?) ?? 0.00m;
                     }
                     if (reader["PAYMENT_TYPE"] != DBNull.Value)
                     {
@@ -103,7 +103,7 @@ namespace GrenciCPA
                     }
                     if (reader["PAYMENT_AMOUNT"] != DBNull.Value)
                     {
-                        tempPayment.PaymentAmt = (reader["PAYMENT_AMOUNT"] as float?) ?? 0.00;
+                        tempPayment.PaymentAmt = (reader["PAYMENT_AMOUNT"] as decimal?) ?? 0.00m;
                     }
                     if(reader["DATE_PAID"] != DBNull.Value)
                     {
@@ -127,7 +127,8 @@ namespace GrenciCPA
         {
             foreach (APayment aPayment in PaymentObjList)
             {
-                dgvReports.Rows.Add(aPayment.ClientID, aPayment.ClientFirst, aPayment.ClientLast, aPayment.CompanyName, aPayment.PaymentID, aPayment.PaymentAmt, aPayment.PaymentType, aPayment.OwedBalance);
+                dgvReports.Rows.Add(aPayment.ClientID, aPayment.ClientFirst, aPayment.ClientLast, aPayment.CompanyName, aPayment.PaymentID, 
+                    string.Format("{0:#,0.00}", aPayment.PaymentAmt), aPayment.PaymentType, string.Format("{0:#,0.00}", aPayment.OwedBalance));
             }
         }
 

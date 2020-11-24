@@ -96,7 +96,7 @@ namespace GrenciCPA
                         }
                         if (reader["AMOUNT_OWED"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
+                            tempClient.Balance = (reader["AMOUNT_OWED"] as decimal?) ?? 0;
                         }
 
                         //Add the temporary plot stuff from list.
@@ -181,7 +181,7 @@ namespace GrenciCPA
                         }
                         if (reader["AMOUNT_OWED"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
+                            tempClient.Balance = (reader["AMOUNT_OWED"] as decimal?) ?? 0;
                         }
 
                         //Add the temporary plot stuff from list.
@@ -257,7 +257,7 @@ namespace GrenciCPA
                         }
                         if (reader["AMOUNT_OWED"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
+                            tempClient.Balance = (reader["AMOUNT_OWED"] as decimal?) ?? 0;
                         }
 
                         //Add the temporary plot stuff from list.
@@ -395,7 +395,7 @@ namespace GrenciCPA
                         }
                         if (reader["AMOUNT_OWED"] != DBNull.Value)
                         {
-                            tempClient.Balance = (reader["AMOUNT_OWED"] as float?) ?? 0.00;
+                            tempClient.Balance = (reader["AMOUNT_OWED"] as decimal?) ?? 0;
                         }
 
                         //Add the temporary plot stuff from list.

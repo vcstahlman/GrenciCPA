@@ -12,23 +12,23 @@ namespace GrenciCPA
         private int paymentID;
         private int clientID;
         private string paymentType;
-        private double paymentAmt;
+        private decimal paymentAmt;
         private string clientFirst;
         private string clientLast;
         private string companyName;
         private bool isBusiness;
-        private double owedBalance;
+        private decimal owedBalance;
         private DateTime datePaid;
 
         public int PaymentID { get => paymentID; set => paymentID = value; }
         public int ClientID { get => clientID; set => clientID = value; }
         public string PaymentType { get => paymentType; set => paymentType = value; }
-        public double PaymentAmt { get => paymentAmt; set => paymentAmt = value; }
+        public decimal PaymentAmt { get => paymentAmt; set => paymentAmt = value; }
         public string ClientFirst { get => clientFirst; set => clientFirst = value; }
         public string ClientLast { get => clientLast; set => clientLast = value; }
         public string CompanyName { get => companyName; set => companyName = value; }
         public bool IsBusiness { get => isBusiness; set => isBusiness = value; }
-        public double OwedBalance { get => owedBalance; set => owedBalance = value; }
+        public decimal OwedBalance { get => owedBalance; set => owedBalance = value; }
         public DateTime DatePaid { get => datePaid; set => datePaid = value; }
     }
 }

@@ -37,7 +37,7 @@ namespace GrenciCPA
         private int parentID;
         private int staffID = 0;
 
-        private double jobTotal;
+        private decimal jobTotal;
         private bool afterLoad;
 
         private bool isActive = true;
@@ -305,19 +305,19 @@ namespace GrenciCPA
                 temp.Char_ID = inOutInt;
 
 
-                double inOutDub = 0.00;
+                decimal inOutDub = 0.00m;
                 if (dgvFees.Rows[i].Cells[3].Value != null)
-                    double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out inOutDub);
+                    decimal.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out inOutDub);
                 temp.Char_cost = inOutDub;
 
-                inOutDub = 0.00;
+                inOutDub = 0.00m;
                 if (dgvFees.Rows[i].Cells[4].Value != null)
-                    double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out inOutDub);
+                    decimal.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out inOutDub);
                 temp.Char_multi = inOutDub;
 
-                inOutDub = 0.00;
+                inOutDub = 0.00m;
                 if (dgvFees.Rows[i].Cells[5].Value != null)
-                    double.TryParse(dgvFees.Rows[i].Cells[5].Value.ToString(), out inOutDub);
+                    decimal.TryParse(dgvFees.Rows[i].Cells[5].Value.ToString(), out inOutDub);
                 temp.Total = inOutDub;
 
 
@@ -381,11 +381,11 @@ namespace GrenciCPA
                             aComp.Char_ID = int.Parse(dgvFees.Rows[i].Cells[2].Value.ToString());
                         else aComp.Char_ID = 0;
 
-                        double cost = 0;
-                        double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out cost);
+                        decimal cost = 0;
+                        decimal.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out cost);
                         aComp.Char_cost = cost;
-                        double multi = 0;
-                        double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out multi);
+                        decimal multi = 0;
+                        decimal.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out multi);
                         aComp.Char_multi = multi;
                         aComp.Total = multi * cost;
 
@@ -827,7 +827,7 @@ namespace GrenciCPA
 
                     if (reader["OWED_BALANCE"] != DBNull.Value)
                     {
-                        tempClient.Balance = (reader["OWED_BALANCE"] as double?) ?? 0.0;
+                        tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0;
                     }
 
 
@@ -966,7 +966,7 @@ namespace GrenciCPA
             rtbNotes.Text = aClient.Notes;
 
             lblParent.Text = GetParent(aClient.ParentID);
-            lblBalance.Text = "Balance: " + aClient.Balance;
+            lblBalance.Text = "Balance: " + string.Format("{0:#,0.00}", aClient.Balance);
 
             
         }
@@ -1070,7 +1070,7 @@ namespace GrenciCPA
                     }
                     if (reader["CHAR_COST"] != DBNull.Value)
                     {
-                        tempChar.CharCost = (reader["CHAR_COST"] as float?) ?? 0;
+                        tempChar.CharCost = (reader["CHAR_COST"] as decimal?) ?? 0.00m;
                     }
                     if (reader["SERV_ID"] != DBNull.Value)
                     {
@@ -1274,16 +1274,15 @@ namespace GrenciCPA
                     }
                     if (reader["CHAR_COST"] != DBNull.Value)
                     {
-                        tempComp.Char_cost = (reader["CHAR_COST"] as float?) ?? 0.0;
-                    }
-                    
+                        tempComp.Char_cost = (reader["CHAR_COST"] as decimal?) ?? 0.00m;
+                    }                    
                     if (reader["CHAR_MULTI"] != DBNull.Value)
                     {
-                        tempComp.Char_multi = (reader["CHAR_MULTI"] as float?) ?? 0.0;
+                        tempComp.Char_multi = (reader["CHAR_MULTI"] as decimal?) ?? 0.00m;
                     }
                     if (reader["TOTAL"] != DBNull.Value)
                     {
-                        tempComp.Total = (reader["TOTAL"] as float?) ?? 0.0;
+                        tempComp.Total = (reader["TOTAL"] as decimal?) ?? 0.00m;
                         
                     }
 
@@ -1306,12 +1305,11 @@ namespace GrenciCPA
             {
                 //inserts the component on the last row of the dgv
                 dgvFees.Rows.Insert(comp.Row, new string[] {                    
-                    comp.Component_ID.ToString(), null , null,
-                    string.Format("{0:#,0.00}", comp.Char_cost), string.Format("{0:#,0.00}", comp.Char_multi), comp.Total.ToString() });
+                    comp.Component_ID.ToString(), null , null, string.Format("{0:#,0.00}",comp.Char_cost), string.Format("{0:#,0.00}",comp.Char_multi), string.Format("{0:#,0.00}",comp.Total) });
             }
             foreach( AComp acomp in componentList)
             {
-                if(acomp.Serv_ID != 0)dgvFees.Rows[acomp.Row].Cells[1].Value = acomp.Serv_ID;
+                if(acomp.Serv_ID != 0) dgvFees.Rows[acomp.Row].Cells[1].Value = acomp.Serv_ID;
                 if(acomp.Char_ID != 0) dgvFees.Rows[acomp.Row].Cells[2].Value = acomp.Char_ID;
 
             }
@@ -1376,7 +1374,7 @@ namespace GrenciCPA
                 temp.SortInt = 1; //this will tag it to be added to the list.
                 temp.Row = dgvFees.Rows.Count;//the count should be updated so this should give the comp a new rowrelated id.
                 dgvFees.Rows[e.RowIndex].Cells[4].Value = 0.00;
-                dgvFees.Rows[e.RowIndex].Cells[3].Value = 0.0;
+                dgvFees.Rows[e.RowIndex].Cells[3].Value = 0.00;
                 dgvFees.Rows[e.RowIndex].Cells[5].Value = 0.00;
                 componentList.Add(temp);
 
@@ -1400,13 +1398,13 @@ namespace GrenciCPA
             jobTotal = 0;// retotal every move 
             for (int i = 0; i < dgvFees.RowCount; i++)
             {
-                double newcost = 0;
-                double newmulti = 0;
+                decimal newcost = 0;
+                decimal newmulti = 0;
                 
-                if (dgvFees.Rows[i].Cells[3].Value != null) double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out newcost);
-                if (dgvFees.Rows[i].Cells[4].Value != null) double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out newmulti);
+                if (dgvFees.Rows[i].Cells[3].Value != null) decimal.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out newcost);
+                if (dgvFees.Rows[i].Cells[4].Value != null) decimal.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out newmulti);
 
-                double newtotal = newcost * newmulti;//if it is less it will be overwriten, if not it will be fine.
+                decimal newtotal = newcost * newmulti;//if it is less it will be overwriten, if not it will be fine.
                 dgvFees.Rows[i].Cells[5].Value = string.Format("{0:#,0.00}", newtotal);//if the new total is more than the one in there it will rewrite.
 
 
@@ -1430,7 +1428,7 @@ namespace GrenciCPA
                             if (achar.CharID == selectedChar)
                             {
 
-                                dgvFees.Rows[e.RowIndex].Cells[3].Value = achar.CharCost;//resets the cost to be whatever the charcost is.
+                                dgvFees.Rows[e.RowIndex].Cells[3].Value = string.Format("{0:#,0.00}", achar.CharCost);//resets the cost to be whatever the charcost is.
 
                                 foreach (AComp cmp in componentList)//this finds the current row under edit and adds the correct data for the char selected
                                 {
@@ -1462,13 +1460,13 @@ namespace GrenciCPA
                                 cbo.DisplayMember = "CharName";
                                 cbo.ValueMember = "CharID";
                                 dgvFees.Rows[e.RowIndex].Cells[2] = cbo;
+                                dgvFees.Rows[e.RowIndex].Cells[3].Value = "0.00";
 
                                 //gets the list of chars for each serv in the second combo box if the first one is used.
                                 foreach (AComp cmp in componentList)//this finds the current row under edit and adds the correct data for the char selected
                                 {
                                     if (cmp.Row == e.RowIndex)//sets the component details for thatrow if somethin is selected
                                     {
-                                        
                                         cmp.Serv_ID = aserv.ServID;
                                         cmp.Serv_Name = aserv.ServName;
                                     }
