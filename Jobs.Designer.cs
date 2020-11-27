@@ -41,6 +41,9 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.dgvJobs = new System.Windows.Forms.DataGridView();
+            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
+            this.cbxProgress = new System.Windows.Forms.RadioButton();
+            this.cbxPast = new System.Windows.Forms.RadioButton();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,9 +53,6 @@
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JobID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
-            this.cbxProgress = new System.Windows.Forms.RadioButton();
-            this.cbxPast = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(627, 9);
+            this.btnSearch.Location = new System.Drawing.Point(498, 9);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(111, 42);
             this.btnSearch.TabIndex = 13;
@@ -123,6 +123,38 @@
             this.dgvJobs.TabIndex = 11;
             this.dgvJobs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJobs_CellContentClick);
             // 
+            // cbxUnassigned
+            // 
+            this.cbxUnassigned.AutoSize = true;
+            this.cbxUnassigned.Location = new System.Drawing.Point(208, 21);
+            this.cbxUnassigned.Name = "cbxUnassigned";
+            this.cbxUnassigned.Size = new System.Drawing.Size(105, 22);
+            this.cbxUnassigned.TabIndex = 17;
+            this.cbxUnassigned.Text = "Unassigned";
+            this.cbxUnassigned.UseVisualStyleBackColor = true;
+            // 
+            // cbxProgress
+            // 
+            this.cbxProgress.AutoSize = true;
+            this.cbxProgress.Checked = true;
+            this.cbxProgress.Location = new System.Drawing.Point(316, 19);
+            this.cbxProgress.Name = "cbxProgress";
+            this.cbxProgress.Size = new System.Drawing.Size(102, 22);
+            this.cbxProgress.TabIndex = 21;
+            this.cbxProgress.TabStop = true;
+            this.cbxProgress.Text = "In Progress";
+            this.cbxProgress.UseVisualStyleBackColor = true;
+            // 
+            // cbxPast
+            // 
+            this.cbxPast.AutoSize = true;
+            this.cbxPast.Location = new System.Drawing.Point(424, 20);
+            this.cbxPast.Name = "cbxPast";
+            this.cbxPast.Size = new System.Drawing.Size(56, 22);
+            this.cbxPast.TabIndex = 22;
+            this.cbxPast.Text = "Past";
+            this.cbxPast.UseVisualStyleBackColor = true;
+            // 
             // FirstName
             // 
             this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -166,30 +198,32 @@
             this.ParentClient.MinimumWidth = 100;
             this.ParentClient.Name = "ParentClient";
             this.ParentClient.ReadOnly = true;
+            this.ParentClient.Visible = false;
             this.ParentClient.Width = 125;
             // 
             // Service
             // 
+            this.Service.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.Service.DefaultCellStyle = dataGridViewCellStyle6;
             this.Service.HeaderText = "Services";
             this.Service.MinimumWidth = 100;
             this.Service.Name = "Service";
             this.Service.ReadOnly = true;
-            this.Service.Width = 125;
             // 
             // AssignedTo
             // 
+            this.AssignedTo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.AssignedTo.DefaultCellStyle = dataGridViewCellStyle7;
             this.AssignedTo.HeaderText = "Assigned To";
             this.AssignedTo.MinimumWidth = 100;
             this.AssignedTo.Name = "AssignedTo";
             this.AssignedTo.ReadOnly = true;
-            this.AssignedTo.Width = 125;
             // 
             // View
             // 
+            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.View.FillWeight = 95F;
             this.View.HeaderText = "View Job";
             this.View.MinimumWidth = 95;
@@ -197,10 +231,10 @@
             this.View.ReadOnly = true;
             this.View.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.View.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.View.Width = 95;
             // 
             // Client
             // 
+            this.Client.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Client.FillWeight = 95F;
             this.Client.HeaderText = "Client";
             this.Client.MinimumWidth = 95;
@@ -208,48 +242,15 @@
             this.Client.ReadOnly = true;
             this.Client.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Client.Visible = false;
-            this.Client.Width = 95;
             // 
             // JobID
             // 
+            this.JobID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.JobID.HeaderText = "JobID";
             this.JobID.MinimumWidth = 6;
             this.JobID.Name = "JobID";
             this.JobID.ReadOnly = true;
             this.JobID.Visible = false;
-            this.JobID.Width = 125;
-            // 
-            // cbxUnassigned
-            // 
-            this.cbxUnassigned.AutoSize = true;
-            this.cbxUnassigned.Location = new System.Drawing.Point(208, 21);
-            this.cbxUnassigned.Name = "cbxUnassigned";
-            this.cbxUnassigned.Size = new System.Drawing.Size(105, 22);
-            this.cbxUnassigned.TabIndex = 17;
-            this.cbxUnassigned.Text = "Unassigned";
-            this.cbxUnassigned.UseVisualStyleBackColor = true;
-            // 
-            // cbxProgress
-            // 
-            this.cbxProgress.AutoSize = true;
-            this.cbxProgress.Checked = true;
-            this.cbxProgress.Location = new System.Drawing.Point(445, 19);
-            this.cbxProgress.Name = "cbxProgress";
-            this.cbxProgress.Size = new System.Drawing.Size(102, 22);
-            this.cbxProgress.TabIndex = 21;
-            this.cbxProgress.TabStop = true;
-            this.cbxProgress.Text = "In Progress";
-            this.cbxProgress.UseVisualStyleBackColor = true;
-            // 
-            // cbxPast
-            // 
-            this.cbxPast.AutoSize = true;
-            this.cbxPast.Location = new System.Drawing.Point(553, 20);
-            this.cbxPast.Name = "cbxPast";
-            this.cbxPast.Size = new System.Drawing.Size(56, 22);
-            this.cbxPast.TabIndex = 22;
-            this.cbxPast.Text = "Past";
-            this.cbxPast.UseVisualStyleBackColor = true;
             // 
             // Jobs
             // 
@@ -282,6 +283,8 @@
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.DataGridView dgvJobs;
         private System.Windows.Forms.CheckBox cbxUnassigned;
+        private System.Windows.Forms.RadioButton cbxProgress;
+        private System.Windows.Forms.RadioButton cbxPast;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Company;
@@ -291,7 +294,5 @@
         private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn JobID;
-        private System.Windows.Forms.RadioButton cbxProgress;
-        private System.Windows.Forms.RadioButton cbxPast;
     }
 }

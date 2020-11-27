@@ -29,18 +29,24 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JobScreen));
             this.button3 = new System.Windows.Forms.Button();
             this.btnEditClient = new System.Windows.Forms.Button();
             this.dgvFees = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboService = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cboCharacteristics = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.txtCharCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCharMultiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMiniTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnComplete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblStaff = new System.Windows.Forms.Label();
@@ -73,12 +79,6 @@
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cboService = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cboCharacteristics = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.txtCharCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtCharMultiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtMiniTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTime)).BeginInit();
             this.SuspendLayout();
@@ -130,10 +130,77 @@
             this.dgvFees.RowTemplate.Height = 24;
             this.dgvFees.Size = new System.Drawing.Size(1197, 350);
             this.dgvFees.TabIndex = 29;
+            this.dgvFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             this.dgvFees.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
-            this.dgvFees.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_CellContentClick);
             this.dgvFees.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFees_RowEnter);
             this.dgvFees.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvFees_RowsAdded);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            this.ID.Width = 125;
+            // 
+            // cboService
+            // 
+            this.cboService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.cboService.DefaultCellStyle = dataGridViewCellStyle2;
+            this.cboService.HeaderText = "Service";
+            this.cboService.MaxDropDownItems = 100;
+            this.cboService.MinimumWidth = 100;
+            this.cboService.Name = "cboService";
+            this.cboService.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // cboCharacteristics
+            // 
+            this.cboCharacteristics.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.cboCharacteristics.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cboCharacteristics.HeaderText = "Characteristics";
+            this.cboCharacteristics.MaxDropDownItems = 100;
+            this.cboCharacteristics.MinimumWidth = 100;
+            this.cboCharacteristics.Name = "cboCharacteristics";
+            // 
+            // txtCharCost
+            // 
+            this.txtCharCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
+            this.txtCharCost.DefaultCellStyle = dataGridViewCellStyle4;
+            this.txtCharCost.FillWeight = 85F;
+            this.txtCharCost.HeaderText = "Cost";
+            this.txtCharCost.MinimumWidth = 85;
+            this.txtCharCost.Name = "txtCharCost";
+            this.txtCharCost.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // txtCharMultiplier
+            // 
+            this.txtCharMultiplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Format = "N2";
+            this.txtCharMultiplier.DefaultCellStyle = dataGridViewCellStyle5;
+            this.txtCharMultiplier.FillWeight = 75F;
+            this.txtCharMultiplier.HeaderText = "Multiplier";
+            this.txtCharMultiplier.MinimumWidth = 75;
+            this.txtCharMultiplier.Name = "txtCharMultiplier";
+            this.txtCharMultiplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // txtMiniTotal
+            // 
+            this.txtMiniTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.txtMiniTotal.DefaultCellStyle = dataGridViewCellStyle6;
+            this.txtMiniTotal.FillWeight = 75F;
+            this.txtMiniTotal.HeaderText = "Total";
+            this.txtMiniTotal.MinimumWidth = 75;
+            this.txtMiniTotal.Name = "txtMiniTotal";
+            this.txtMiniTotal.ReadOnly = true;
             // 
             // btnComplete
             // 
@@ -498,73 +565,6 @@
             this.lblTotal.Size = new System.Drawing.Size(50, 17);
             this.lblTotal.TabIndex = 86;
             this.lblTotal.Text = "Total:";
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            this.ID.Width = 125;
-            // 
-            // cboService
-            // 
-            this.cboService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.cboService.DefaultCellStyle = dataGridViewCellStyle2;
-            this.cboService.HeaderText = "Service";
-            this.cboService.MaxDropDownItems = 100;
-            this.cboService.MinimumWidth = 100;
-            this.cboService.Name = "cboService";
-            this.cboService.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // cboCharacteristics
-            // 
-            this.cboCharacteristics.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.cboCharacteristics.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cboCharacteristics.HeaderText = "Characteristics";
-            this.cboCharacteristics.MaxDropDownItems = 100;
-            this.cboCharacteristics.MinimumWidth = 100;
-            this.cboCharacteristics.Name = "cboCharacteristics";
-            // 
-            // txtCharCost
-            // 
-            this.txtCharCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
-            this.txtCharCost.DefaultCellStyle = dataGridViewCellStyle4;
-            this.txtCharCost.FillWeight = 85F;
-            this.txtCharCost.HeaderText = "Cost";
-            this.txtCharCost.MinimumWidth = 85;
-            this.txtCharCost.Name = "txtCharCost";
-            this.txtCharCost.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // txtCharMultiplier
-            // 
-            this.txtCharMultiplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Format = "N2";
-            this.txtCharMultiplier.DefaultCellStyle = dataGridViewCellStyle5;
-            this.txtCharMultiplier.FillWeight = 75F;
-            this.txtCharMultiplier.HeaderText = "Multiplier";
-            this.txtCharMultiplier.MinimumWidth = 75;
-            this.txtCharMultiplier.Name = "txtCharMultiplier";
-            this.txtCharMultiplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // txtMiniTotal
-            // 
-            this.txtMiniTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.txtMiniTotal.DefaultCellStyle = dataGridViewCellStyle6;
-            this.txtMiniTotal.FillWeight = 75F;
-            this.txtMiniTotal.HeaderText = "Total";
-            this.txtMiniTotal.MinimumWidth = 75;
-            this.txtMiniTotal.Name = "txtMiniTotal";
-            this.txtMiniTotal.ReadOnly = true;
             // 
             // JobScreen
             // 

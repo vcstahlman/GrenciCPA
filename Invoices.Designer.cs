@@ -34,7 +34,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.dgvInvoices = new System.Windows.Forms.DataGridView();
-            this.cbxOverdue = new System.Windows.Forms.CheckBox();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +42,7 @@
             this.AmountOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientFile = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Payment = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cbxOverdue = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoices)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,17 +100,6 @@
             this.dgvInvoices.Size = new System.Drawing.Size(1330, 584);
             this.dgvInvoices.TabIndex = 6;
             this.dgvInvoices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInvoices_CellContentClick_1);
-            // 
-            // cbxOverdue
-            // 
-            this.cbxOverdue.AutoSize = true;
-            this.cbxOverdue.Location = new System.Drawing.Point(159, 18);
-            this.cbxOverdue.Name = "cbxOverdue";
-            this.cbxOverdue.Size = new System.Drawing.Size(73, 22);
-            this.cbxOverdue.TabIndex = 12;
-            this.cbxOverdue.Text = "Unpaid";
-            this.cbxOverdue.UseVisualStyleBackColor = true;
-            this.cbxOverdue.CheckedChanged += new System.EventHandler(this.cbxOverdue_CheckedChanged);
             // 
             // View
             // 
@@ -183,6 +172,17 @@
             this.Payment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Payment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Payment.Width = 125;
+            // 
+            // cbxOverdue
+            // 
+            this.cbxOverdue.AutoSize = true;
+            this.cbxOverdue.Location = new System.Drawing.Point(159, 18);
+            this.cbxOverdue.Name = "cbxOverdue";
+            this.cbxOverdue.Size = new System.Drawing.Size(100, 22);
+            this.cbxOverdue.TabIndex = 12;
+            this.cbxOverdue.Text = "All Invoices";
+            this.cbxOverdue.UseVisualStyleBackColor = true;
+            this.cbxOverdue.CheckedChanged += new System.EventHandler(this.cbxOverdue_CheckedChanged);
             // 
             // Invoices
             // 

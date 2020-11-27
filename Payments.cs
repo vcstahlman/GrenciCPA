@@ -102,64 +102,6 @@ namespace GrenciCPA
             }
         }
 
-        //private void CreatePaymentList(int pClientID)
-        //{
-
-        //    string GetPaymentSQL = "SELECT PAYMENT_ID, PAYMENT_TYPE, PAYMENT_AMOUNT, DATE_PAID, pt.CLIENT_ID " +
-        //        "FROM PAYMENT_TABLE pt INNER " +
-        //        "JOIN CLIENT_TABLE ct on pt.CLIENT_ID = ct.CLIENT_ID WHERE pt.CLIENT_ID = " + pClientID + ";";
-
-
-        //    connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-        //    try
-        //    {
-        //        connection = new SqlConnection(connectionString);
-        //        command = new SqlCommand(GetPaymentSQL, connection);
-
-        //        connection.Open();
-
-        //        SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-
-        //        while (reader.Read())
-        //        {
-
-        //            APayment tempPayment = new APayment();
-
-
-        //            if (reader["PAYMENT_ID"] != DBNull.Value)
-        //            {
-        //                tempPayment.PaymentID = (reader["PAYMENT_ID"] as int?) ?? 0;
-        //            }
-        //            if (reader["CLIENT_ID"] != DBNull.Value)
-        //            {
-        //                tempPayment.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;
-        //            }
-        //            if (reader["PAYMENT_TYPE"] != DBNull.Value)
-        //            {
-        //                tempPayment.PaymentType = reader["PAYMENT_TYPE"] as string;
-        //            }
-        //            if (reader["PAYMENT_AMOUNT"] != DBNull.Value)
-        //            {
-        //                tempPayment.PaymentAmt = (reader["PAYMENT_AMOUNT"] as double?) ?? 0.00;
-        //            }
-        //            if(reader["DATE_PAID"] != DBNull.Value)
-        //            {
-        //                tempPayment.DatePaid = (DateTime)reader["DATE_PAID"];
-        //            }
-                    
-        //            PaymentObjList.Add(tempPayment);
-
-        //            tempPayment = null;
-        //        }
-        //        connection.Close();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-
         private void CreateClientList(int pClientID)
         {
 
@@ -231,6 +173,11 @@ namespace GrenciCPA
                     {
                         tempClient.Active = reader.GetBoolean(reader.GetOrdinal("CLIENT_ACTIVE"));
                     }
+                    if (reader["OWED_BALANCE"] != DBNull.Value)
+                    {
+                        tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0.00m;
+                    }
+
 
                     ClientsObj = tempClient;
 
@@ -321,8 +268,11 @@ namespace GrenciCPA
             
             decimal.TryParse(txtOverride.Text, out paymentAmount);
 
+            
+
             foreach (AInvoice aninvoice in InvoiceObjList)
-            {   if (paymentAmount > 0)
+            {   
+                if (paymentAmount > 0)
                 {
                     setPaymentSQL = "UPDATE INVOICE_TABLE SET AMOUNT_OWED = @pOwed, AMOUNT_PAID = @pPaid  WHERE INVOICE_ID = " + aninvoice.InvoiceID + ";";
                     //we are going through and updating the prices that we need to pull
@@ -341,11 +291,12 @@ namespace GrenciCPA
                         {
                             aninvoice.AmtOwed -= paymentAmount;//if payment is left then put rest into it
                             aninvoice.AmtPaid += paymentAmount;
+                            //payment is less and therefore is logiclly zero here
                         }
                         else//the payment is more than the owed
                         {
                             paymentAmount -= aninvoice.AmtOwed;
-                            aninvoice.AmtPaid += aninvoice.AmtPaid;
+                            aninvoice.AmtPaid = aninvoice.AmtOwed; //it sets payment to be fulle amount of owed
                             aninvoice.AmtOwed = 0;
                         }
 
@@ -381,6 +332,8 @@ namespace GrenciCPA
 
                 decimal bal = ClientsObj.Balance;
 
+                decimal.TryParse(txtOverride.Text, out paymentAmount);
+
                 bal -= paymentAmount;
                 
                 command.Parameters.AddWithValue("@pOwed", bal);
@@ -394,11 +347,11 @@ namespace GrenciCPA
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Could not update the table \nError: " + ex.Message);
+                MessageBox.Show("Could not update client balance e \nError: " + ex.Message);
             }
 
 
-            MessageBox.Show("Payment of $" + txtOverride.Text + " made. \nIt went towards " + rowsaffected);
+            MessageBox.Show("Payment of $" + txtOverride.Text + " made. \nIt went towards " + rowsaffected + " invoice(s)");
             this.Close();
         }
     }

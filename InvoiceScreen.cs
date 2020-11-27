@@ -47,6 +47,8 @@ namespace GrenciCPA
         private string clientZip;
         private string clientEmail;
 
+        private decimal clientBal;
+
         private string filePath;
 
         public InvoiceScreen()
@@ -104,7 +106,7 @@ namespace GrenciCPA
         public void CreateJobs(int pJob)
         {
             string GetJobSQL = "SELECT JOB_COMPONENT_TABLE.SERV_ID, JOB_COMPONENT_TABLE.TOTAL, JOB_COMPONENT_TABLE.JOB_ID, SERVICE_TABLE.SERV_NAME, SERVICE_TABLE.SERV_SENTENCE, CLIENT_TABLE.CLIENT_ID, " +
-                "CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP, CLIENT_TABLE.EMAIL " +
+                "CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP, CLIENT_TABLE.EMAIL, CLIENT_TABLE.OWED_BALANCE " +
                 "FROM JOB_COMPONENT_TABLE INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID INNER JOIN SERVICE_TABLE ON JOB_COMPONENT_TABLE.SERV_ID = SERVICE_TABLE.SERV_ID " +
                 "INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
                 "WHERE JOB_COMPONENT_TABLE.JOB_ID = " + jobID + " " +
@@ -190,6 +192,10 @@ namespace GrenciCPA
 
                     }
                     else clientEmail = "";
+                    if (reader["OWED_BALANCE"] != DBNull.Value)
+                    {
+                        clientBal = (reader["OWED_BALANCE"] as decimal ?) ?? 0.00m;
+                    }
                     //this is used for a comparason for in the save function
                     tempComp.Row = i;
                     i++;
@@ -355,7 +361,7 @@ namespace GrenciCPA
 
 
 
-            string setPaymentSQL = "UPDATE JOB_TABLE SET JOB_ACTIVE = 0  WHERE JOB_ID = " + jobID + ";";
+            string setPaymentSQL = "UPDATE CLIENT_TABLE SET OWED_BALANCE = @BAL  WHERE CLIENT_ID = " + clientID + ";";
             //we are going through and updating the prices that we need to pull
 
             //Pulled from App.config
@@ -366,6 +372,35 @@ namespace GrenciCPA
                 command = new SqlCommand(setPaymentSQL, connection);
                 //Open the connection
                 connection.Open();
+
+                command.Parameters.AddWithValue("@BAL", clientBal + finalTotal);
+
+                command.ExecuteNonQuery();//tells ya if it worked
+
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not add balance to client \nError: " + ex.Message);
+            }
+
+
+            setPaymentSQL = "UPDATE JOB_TABLE SET JOB_ACTIVE = @active  WHERE JOB_ID = " + jobID + ";";
+            //we are going through and updating the prices that we need to pull
+
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(setPaymentSQL, connection);
+                //Open the connection
+                connection.Open();
+
+                command.Parameters.AddWithValue("@active", 0);
+
                 command.ExecuteNonQuery();//tells ya if it worked
 
                 connection.Close();
@@ -378,6 +413,7 @@ namespace GrenciCPA
             }
 
             btnClose.Text = "Close";
+            btnMakeInvoice.Enabled = false;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

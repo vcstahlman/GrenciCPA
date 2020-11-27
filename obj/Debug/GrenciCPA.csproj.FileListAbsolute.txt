@@ -155,6 +155,7 @@ C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.JobScreen.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.MainMenu.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Payments.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Properties.Resources.resources
+C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ReportDemo.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.Reports.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ServiceSelect.resources
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.SplashScreen.resources
@@ -165,5 +166,3 @@ C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.CoreCompileInput
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csproj.CopyComplete
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.exe
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.pdb
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.csprojAssemblyReference.cache
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Debug\GrenciCPA.ReportDemo.resources

@@ -54,7 +54,6 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddClient = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cbxIsCompany = new System.Windows.Forms.CheckBox();
@@ -247,19 +246,9 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // cbxUnassigned
-            // 
-            this.cbxUnassigned.AutoSize = true;
-            this.cbxUnassigned.Location = new System.Drawing.Point(276, 15);
-            this.cbxUnassigned.Name = "cbxUnassigned";
-            this.cbxUnassigned.Size = new System.Drawing.Size(139, 22);
-            this.cbxUnassigned.TabIndex = 23;
-            this.cbxUnassigned.Text = "Unassigned Only";
-            this.cbxUnassigned.UseVisualStyleBackColor = true;
-            // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(601, 5);
+            this.btnSearch.Location = new System.Drawing.Point(424, 5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(111, 41);
             this.btnSearch.TabIndex = 21;
@@ -277,7 +266,7 @@
             // cbxIsCompany
             // 
             this.cbxIsCompany.AutoSize = true;
-            this.cbxIsCompany.Location = new System.Drawing.Point(441, 15);
+            this.cbxIsCompany.Location = new System.Drawing.Point(284, 15);
             this.cbxIsCompany.Name = "cbxIsCompany";
             this.cbxIsCompany.Size = new System.Drawing.Size(122, 22);
             this.cbxIsCompany.TabIndex = 25;
@@ -291,7 +280,6 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1555, 669);
             this.Controls.Add(this.cbxIsCompany);
-            this.Controls.Add(this.cbxUnassigned);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnClose);
@@ -314,7 +302,6 @@
         private System.Windows.Forms.DataGridView dgvClients;
         private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.CheckBox cbxUnassigned;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.CheckBox cbxIsCompany;

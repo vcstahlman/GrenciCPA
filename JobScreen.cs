@@ -38,7 +38,7 @@ namespace GrenciCPA
         private int staffID = 0;
 
         private decimal jobTotal;
-        private bool afterLoad;
+        private bool afterLoad = false;
 
         private bool isActive = true;
 
@@ -68,8 +68,10 @@ namespace GrenciCPA
             CreateClientList();
             FillClientInfo();
 
-            FillComponents();
+
             GetServChar();
+            FillComponents();
+            
 
             GetTime();
             FillTimes();
@@ -93,6 +95,8 @@ namespace GrenciCPA
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).ValueMember = "ServID";
 
             activeCheck();
+            afterLoad = true;
+
         }
 
 
@@ -179,6 +183,7 @@ namespace GrenciCPA
 
             InvoiceScreen form = new InvoiceScreen(jobID, jobTotal);//pass the jobID and the total
             form.ShowDialog();
+            this.Close();
         }
 
         // Allows the user to edit the timer incase of user error (ex. forgot to click the Start Timer button or let it run for too long)
@@ -827,7 +832,7 @@ namespace GrenciCPA
 
                     if (reader["OWED_BALANCE"] != DBNull.Value)
                     {
-                        tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0;
+                        tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0.00m;
                     }
 
 
@@ -1313,8 +1318,7 @@ namespace GrenciCPA
                 if(acomp.Char_ID != 0) dgvFees.Rows[acomp.Row].Cells[2].Value = acomp.Char_ID;
 
             }
-            afterLoad = true;
-
+            
         }
         private void activeCheck()
         {
@@ -1422,6 +1426,7 @@ namespace GrenciCPA
                 {
                     if (e.ColumnIndex == 2)
                     {
+                        MessageBox.Show(dgvFees.Rows[e.RowIndex].Cells[2].Value.ToString());///////TEST///////
                         int selectedChar = (int)dgvFees.Rows[e.RowIndex].Cells[2].Value;
                         foreach (AChar achar in characteristicList)
                         {
@@ -1443,7 +1448,7 @@ namespace GrenciCPA
                         }
                     }
                 }
-                if (dgvFees.Rows[e.RowIndex].Cells[1].Value != null)
+                if (dgvFees.Rows[e.RowIndex].Cells[1].Value != null && afterLoad)
                 //if the user selects the  row, it is saved into the current component
                 {
                     if (e.ColumnIndex == 1)

@@ -56,21 +56,25 @@ namespace GrenciCPA
                 string search = tbxSearch.Text;
                 if (cbxUnassigned.Checked == true && cbxProgress.Checked == true)
                 {
-                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                     "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                     "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                     "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
-                    "WHERE JOB_TABLE.JOB_ACTIVE = 1 AND JOB_TABLE.STAFF_ID IS NULL AND (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%')";
+                    "WHERE JOB_TABLE.JOB_ACTIVE = 1 AND JOB_TABLE.STAFF_ID IS NULL AND ((CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') " +
+                    "OR (CLIENT_TABLE.FIRST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '%" + search + "%') " +
+                    "OR (CLIENT_TABLE.ST_ADDRESS LIKE '" + search + "%') OR (CLIENT_TABLE.CITY LIKE '" + search + "%') OR (CLIENT_TABLE.ZIP LIKE '" + search + "%'))";
 
                 }
 
                 else if (cbxPast.Checked == true && cbxUnassigned.Checked == true)
                 {
-                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                     "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                     "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                     "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
-                    "WHERE JOB_TABLE.STAFF_ID IS NULL AND JOB_TABLE.JOB_ACTIVE = 0 AND (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%')";
+                    "WHERE JOB_TABLE.STAFF_ID IS NULL AND JOB_TABLE.JOB_ACTIVE = 0 AND ((CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') " +
+                    "OR (CLIENT_TABLE.FIRST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '%" + search + "%') " +
+                    "OR (CLIENT_TABLE.ST_ADDRESS LIKE '" + search + "%') OR (CLIENT_TABLE.CITY LIKE '" + search + "%') OR (CLIENT_TABLE.ZIP LIKE '" + search + "%'))";
 
                 }
 
@@ -78,26 +82,30 @@ namespace GrenciCPA
                 //one of these 2 is always checked
                 else if (cbxProgress.Checked == true)
                 {
-                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                     "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                     "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                     "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
-                    "WHERE JOB_TABLE.JOB_ACTIVE = 1 AND (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%')";
+                    "WHERE JOB_TABLE.JOB_ACTIVE = 1 AND ((CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') " +
+                    "OR (CLIENT_TABLE.FIRST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '%" + search + "%') " +
+                    "OR (CLIENT_TABLE.ST_ADDRESS LIKE '" + search + "%') OR (CLIENT_TABLE.CITY LIKE '" + search + "%') OR (CLIENT_TABLE.ZIP LIKE '" + search + "%'))";
 
                 }
                 else if (cbxPast.Checked == true)
                 {
-                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                     "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                     "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                     "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
-                    "WHERE JOB_TABLE.JOB_ACTIVE = 0 AND (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%')";
+                    "WHERE JOB_TABLE.JOB_ACTIVE = 0 AND ((CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') " +
+                    "OR (CLIENT_TABLE.FIRST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '%" + search + "%') " +
+                    "OR (CLIENT_TABLE.ST_ADDRESS LIKE '" + search + "%') OR (CLIENT_TABLE.CITY LIKE '" + search + "%') OR (CLIENT_TABLE.ZIP LIKE '" + search + "%'))";
 
                 }
             }
             else if (cbxUnassigned.Checked == true && cbxProgress.Checked == true)
             {
-                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                 "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                 "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                 "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
@@ -107,7 +115,7 @@ namespace GrenciCPA
             
             else if (cbxPast.Checked == true && cbxUnassigned.Checked == true)
             {
-                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                 "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                 "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                 "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
@@ -119,7 +127,7 @@ namespace GrenciCPA
             //one of these 2 is always checked
             else if (cbxProgress.Checked == true)
             {
-                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                 "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                 "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                 "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
@@ -128,7 +136,7 @@ namespace GrenciCPA
             }
             else if (cbxPast.Checked == true)
             {
-                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, " +
                 "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                 "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                 "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
@@ -215,13 +223,13 @@ namespace GrenciCPA
             if (tbxSearch.Text != "")
             {
                 string search = tbxSearch.Text;
-                string GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                string GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                     "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                     "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                     "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
                     "WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') AND JOB_TABLE.JOB_ACTIVE = 1 ";
                 if(cbxPast.Checked) {
-                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                        "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                        "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                        "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
@@ -292,7 +300,7 @@ namespace GrenciCPA
                 }
             }
             else {
-                String GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                String GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                     "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                     "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                     "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
@@ -303,7 +311,7 @@ namespace GrenciCPA
                 //need to auto put in the name when the filtering is a thing.
 
                 {
-                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID,  " +
                     "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                     "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                     "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE JOB_TABLE.CLIENT_ID = " + clientID + ";";
@@ -314,7 +322,7 @@ namespace GrenciCPA
                 //need to auto put in the name when the filtering is a thing.
 
                 {
-                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, JOB_TABLE.TIME_ID, " +
+                    GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, JOB_TABLE.STAFF_ID, " +
                     "JOB_TABLE.TOTAL_BILL, JOB_TABLE.JOB_ACTIVE, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.IS_BUSINESS, " +
                     "CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.CLIENT_ACTIVE " +
                     "FROM JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID WHERE JOB_TABLE.STAFF_ID = " + staffID + ";";

@@ -44,6 +44,7 @@ namespace GrenciCPA
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvReports.Rows.Clear();
+            ClientsObjList.Clear();
 
             string makeReportSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, JOB_TABLE.TOTAL_BILL, " +
                 "INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.AMOUNT_PAID, INVOICE_TABLE.DATE_SENT " +
@@ -80,21 +81,21 @@ namespace GrenciCPA
                 {
                     if (clbLabels.CheckedItems[i].ToString() == chara.CharName)
                     {
-                        if (!isFirst)
+                        if (isFirst)
                         {
-                            makeReportSQLChar += " CHACTERISTIC_TABLE.CHAR_ID = " + chara.CharID + " ";
+                            makeReportSQLChar += " CHARACTERISTIC_TABLE.CHAR_ID = " + chara.CharID + " ";
                             isFirst = false;
                             charFound = true;
                         }
-                        else makeReportSQLChar += " OR CHACTERISTIC_TABLE.CHAR_ID = " + chara.CharID + " ";
+                        else makeReportSQLChar += " AND CHARACTERISTIC_TABLE.CHAR_ID = " + chara.CharID + " ";
                     }
                 } 
                 
             }
-            if (charFound) makeReportSQLChar += ");";//if there was a char then it adds this to end
+            if (charFound) makeReportSQLChar += ") ";//if there was a char then it adds this to end
             else makeReportSQLChar = "";//if not then it clears the string
 
-            makeReportSQL += makeReportSQLChar + " GROUP BY CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME , CLIENT_TABLE.LAST_NAME, COMPANY_NAME, TOTAL_BILL , AMOUNT_OWED, AMOUNT_PAID, DATE_SENT";
+            makeReportSQL += makeReportSQLChar + " GROUP BY CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME , CLIENT_TABLE.LAST_NAME, COMPANY_NAME, TOTAL_BILL , AMOUNT_OWED, AMOUNT_PAID, DATE_SENT;";
 
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
 
@@ -132,7 +133,7 @@ namespace GrenciCPA
                     }                    
                     if(reader["TOTAL_BILL"] != DBNull.Value)
                     {
-                        tempClient.TotalBill = (reader["TOTAL_BILL"] as float?) ?? 0;
+                        tempClient.TotalBill = (reader["TOTAL_BILL"] as decimal?) ?? 0.00m;
                     }
                     if (reader["AMOUNT_OWED"] != DBNull.Value)
                     {
@@ -140,13 +141,15 @@ namespace GrenciCPA
                     }
                     if (reader["AMOUNT_PAID"] != DBNull.Value)
                     {
-                        tempClient.PaymentAmount = (reader["AMOUNT_PAID"] as float?) ?? 0;
+                        tempClient.PaymentAmount = (reader["AMOUNT_PAID"] as decimal?) ?? 0.00m;
                     }
 
                     if (reader["DATE_SENT"] != DBNull.Value)
                     {
-                        tempClient.DateSent = reader["DATE_SENT"] as string;
+                        DateTime dateSent = (DateTime)reader["DATE_SENT"];
+                        tempClient.DateSent = dateSent.ToShortDateString();
                     }
+
 
 
                     //Add the temporary plot stuff from list.
@@ -154,6 +157,9 @@ namespace GrenciCPA
 
                     tempClient = null;
                 }
+
+                FillReport();
+
                 connection.Close();
             }
             catch (Exception ex)
@@ -163,15 +169,7 @@ namespace GrenciCPA
             }
 
 
-            if (ClientsObjList.Count > 0)
-            {
-                foreach (AClient client in ClientsObjList)
-                {
-                    dgvReports.Rows.Add(client.FirstName, client.LastName, client.Company, GetServ(client.ClientID), client.TotalBill, client.Balance, client.PaymentAmount, client.DateSent);
-
-                }
-            }
-            else lbxReport.Text = "No clients found that match search";
+            
         }
 
         private void GetServChar() //this makes a list of the char and serv at the begining of the
@@ -285,6 +283,37 @@ namespace GrenciCPA
                 MessageBox.Show("Could not retrieve services for the client from Database.! \n Error reads: " + ex.Message);
             }
             return returning;
+        }
+
+        private void FillReport() 
+        {
+            if (ClientsObjList.Count > 0)
+            {
+                decimal total = 0.00m;
+                decimal payment = 0.00m;
+                decimal avgBal = 0.00m;
+
+                foreach (AClient client in ClientsObjList)
+                {
+                    dgvReports.Rows.Add(client.FirstName, client.LastName, client.Company, GetServ(client.ClientID), 
+                        string.Format("{0:#,0.00}", client.TotalBill), 
+                        string.Format("{0:#,0.00}", client.Balance), 
+                        string.Format("{0:#,0.00}", client.PaymentAmount), client.DateSent);
+                    total += client.TotalBill;
+                    payment += client.PaymentAmount;
+
+                    avgBal = avgBal + client.Balance;
+
+                }
+                lbxReport.Items.Add("Total Billing: "+ string.Format("{0:#,0.00}", total));
+                lbxReport.Items.Add("Payments: " + string.Format("{0:#,0.00}", payment));
+                lbxReport.Items.Add("Still Owed: " + string.Format("{0:#,0.00}", avgBal));
+                
+
+            }
+            else dgvReports.Rows.Add("No clients found that match search");
+
+
         }
     }
 }

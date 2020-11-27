@@ -124,14 +124,14 @@ namespace GrenciCPA
                     "FROM CLIENT_TABLE INNER JOIN " +
                     "JOB_TABLE ON CLIENT_TABLE.CLIENT_ID = JOB_TABLE.CLIENT_ID INNER JOIN " +
                     "INVOICE_TABLE ON JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID " +
-                    "WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') "; //gets all that fall under the search
+                    "WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '" + search + "%')  "; //gets all that fall under the search
 
-                if (cbxOverdue.Checked) GetClientsSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, " +
+                if (!cbxOverdue.Checked) GetClientsSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, " +
                     "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH " +
                     "FROM CLIENT_TABLE INNER JOIN " +
                     "JOB_TABLE ON CLIENT_TABLE.CLIENT_ID = JOB_TABLE.CLIENT_ID INNER JOIN " +
                     "INVOICE_TABLE ON JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID " +
-                    "WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%')  AND " +
+                    "WHERE ((CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '" + search + "%')) AND " +
                     "INVOICE_TABLE.AMOUNT_OWED > 0 ;"; //gets all overdue that follow search
 
                 connectionString = Properties.Settings.Default.GrenciDBConnectionString;
@@ -205,7 +205,7 @@ namespace GrenciCPA
                     "JOB_TABLE ON CLIENT_TABLE.CLIENT_ID = JOB_TABLE.CLIENT_ID INNER JOIN " +
                     "INVOICE_TABLE ON JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID ";//gets all
 
-                if (cbxOverdue.Checked) GetClientsSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, " +
+                if (!cbxOverdue.Checked) GetClientsSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, " +
                     "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH " +
                     "FROM CLIENT_TABLE INNER JOIN " +
                     "JOB_TABLE ON CLIENT_TABLE.CLIENT_ID = JOB_TABLE.CLIENT_ID INNER JOIN " +
@@ -283,8 +283,8 @@ namespace GrenciCPA
             dgvInvoices.Rows.Clear();
             foreach (AClient aClient in ClientsObjList)
             {
-                dgvInvoices.Rows.Add("View", aClient.ClientID, aClient.LastName, aClient.FirstName, aClient.Company,
-                   string.Format("{0:#,0.00}", aClient.Balance) , aClient.Address, "Make Payment");
+                dgvInvoices.Rows.Insert( 0 , new string[]{"View", aClient.ClientID.ToString(), aClient.LastName, aClient.FirstName, aClient.Company,
+                   string.Format("{0:#,0.00}", aClient.Balance) , aClient.Address, "Make Payment" });
             }
         }
 
@@ -337,89 +337,13 @@ namespace GrenciCPA
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvInvoices.Rows.Clear();
-            if (ClientsObjList.Count != 0) ClientsObjList.Clear();
+            ClientsObjList.Clear();
 
-            if (tbxSearch.Text == "" && cbxOverdue.Checked == true)
-            {
-
-                string GetClientsSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, " +
-                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH " +
-                    "FROM CLIENT_TABLE INNER JOIN " +
-                    "JOB_TABLE ON CLIENT_TABLE.CLIENT_ID = JOB_TABLE.CLIENT_ID INNER JOIN " +
-                    "INVOICE_TABLE ON JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID WHERE " +
-                    "INVOICE_TABLE.AMOUNT_OWED > 0";
-                //Pulled from App.config
-                connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-                try
-                {
-                    ClientsObjList = null;//resets the client list
-
-                    connection = new SqlConnection(connectionString);
-                    command = new SqlCommand(GetClientsSQL, connection);
-                    //Open the connection
-                    connection.Open();
-                    //Create a SQL Data Reader object
-                    SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-                    //Keep reading as long as I have data from the database to read
-
-
-
-                    while (reader.Read())
-                    {
-
-
-
-                        AClient tempClient = new AClient();
-
-
-
-                        if (reader["CLIENT_ID"] != DBNull.Value)
-                        {
-                            tempClient.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;
-                        }
-                        if (reader["FIRST_NAME"] != DBNull.Value)
-                        {
-                            tempClient.FirstName = reader["FIRST_NAME"] as string;
-                        }
-                        if (reader["LAST_NAME"] != DBNull.Value)
-                        {
-                            tempClient.LastName = reader["LAST_NAME"] as string;
-                        }
-                        if (reader["COMPANY_NAME"] != DBNull.Value)
-                        {
-                            tempClient.Company = reader["COMPANY_NAME"] as string;
-                        }
-                        if (reader["FILE_PATH"] != DBNull.Value)
-                        {
-                            tempClient.Address = reader["FILE_PATH"] as string;
-                        }
-                        if (reader["AMOUNT_OWED"] != DBNull.Value)
-                        {
-                            tempClient.Balance = (reader["AMOUNT_OWED"] as decimal?) ?? 0;
-                        }
-
-                        //Add the temporary plot stuff from list.
-                        ClientsObjList.Add(tempClient);
-
-                        tempClient = null;
-                    }
-                    connection.Close();
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Could not retrieve clients from Database.! \n Error reads: " + ex.Message);
-                }
-                dgvInvoices.Rows.Clear();
-                if (ClientsObjList != null) FillDGV();
-                else MessageBox.Show("There are no clients with outstanding payments.");
-            }
-            else
-            {
-                CreateClientList();
-                dgvInvoices.Rows.Clear();
-                FillDGV();
-            }
+           
+            CreateClientList();
+            dgvInvoices.Rows.Clear();
+            FillDGV();
+            
 
 
         }
