@@ -1,4 +1,12 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for the AComponent class which we use to store the parts of a job on the jobscreen on the 
+/// backend to do the saving and calculations through your interfacing of the datagridview on JobScreen
+///
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

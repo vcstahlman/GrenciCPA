@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for viewing the client information and their past invoices. we can also lauch invoice and jobs for the client as well as create new jobs
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,9 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-// Justin Bloss
-// The purpose of the ClientView form is to allow the user to access and see older client records, services provided will be categorized by most current year
-// first, with the ability of sorting by date, service provided, dates invoiced, and amounts
+
 namespace GrenciCPA
 {
     public partial class ClientView : Form
@@ -22,15 +26,14 @@ namespace GrenciCPA
         private SqlCommand command;
         private SqlConnection connection;
 
+
         private AClient ClientsObj;
         private int parentID;
         private int clientID;
 
         private List<AInvoice> invoiceList = new List<AInvoice>();
 
-        public ClientView()
-        {
-        }
+        //constructor
         public ClientView(int pClientID)
         {
             InitializeComponent();
@@ -45,6 +48,8 @@ namespace GrenciCPA
             FillDGV();
         }
 
+
+        //creates the information for the client. it is a common function we used on several pages
         private void CreateClientList()
         {
 
@@ -169,6 +174,10 @@ namespace GrenciCPA
 
         }
 
+
+        //gets parent for the client if there is one
+
+        //this is a hidden function and is not used but it would work if we activate the feature in the future
         private string GetParent(int aClientID)
         {
             string returning = "";
@@ -225,6 +234,8 @@ namespace GrenciCPA
             return returning;
         }
 
+
+        //creates the list of characteristics applied to the client
         private void GetChar(int aClientID)
         {
             lbxLabels.Items.Clear();
@@ -265,6 +276,8 @@ namespace GrenciCPA
 
         }
 
+
+        //fills in all the client information
         private void FillClientInfo()
         {
             AClient aClient = ClientsObj;
@@ -292,6 +305,7 @@ namespace GrenciCPA
             
         }
 
+        //this makes a job and then the user is sent into said job after it is created in a different function
         private int CreateJob()
         {
             int jobID = 0;
@@ -357,9 +371,11 @@ namespace GrenciCPA
             this.Close();
         }
 
+
+
         private void ClientView_Load(object sender, EventArgs e)
         {
-            // work in progress
+            //unused eventhandler
         }
 
         // this button will show all Active Jobs for the given client on the Active Job form
@@ -371,8 +387,11 @@ namespace GrenciCPA
 
         private void dgvClientPast_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //unused eventhandler
         }
+
+
+        //fills in the job info for the datagridview in the form
         private void FillJobs()
         {
             var GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.DATE_SENT, " +
@@ -434,11 +453,13 @@ namespace GrenciCPA
             }
         }
 
+
+        //gets services that the client has needed in the past
         private string GetServ(int aClientID)
         {
             string returning = "";
             string GetParentSQL = "SELECT SERVICE_TABLE.SERV_NAME FROM SERVICE_TABLE INNER JOIN JOB_COMPONENT_TABLE ON SERVICE_TABLE.SERV_ID = JOB_COMPONENT_TABLE.SERV_ID " +
-                "INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID WHERE JOB_TABLE.CLIENT_ID =" + aClientID + ";";
+                "INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID WHERE JOB_TABLE.CLIENT_ID =" + aClientID + ";";//gets on a job by job basis
             //Pulled from App.config
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
@@ -471,6 +492,8 @@ namespace GrenciCPA
             return returning;
         }
 
+
+        //files the infromation needed
         private void FillDGV()
         {
             foreach(AInvoice invoice in invoiceList)
@@ -479,6 +502,8 @@ namespace GrenciCPA
             }
         }
 
+
+        //sends the user to a list of payments they have made
         private void btnPayments_Click(object sender, EventArgs e)
         {
             ReportDemo form = new ReportDemo(clientID);

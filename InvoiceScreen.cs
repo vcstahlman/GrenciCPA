@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is used to make last minute edits to the invoice before it is made and to make the invoice as well as send it and view it to print right away.
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,29 +22,33 @@ using System.CodeDom;
 using System.Data.SqlClient;
 using System.Runtime.Remoting;
 
-// Justin Bloss
-// The purpose of this form is to allow the user to create and either print or email an invoice to a client, amounts are generated based on what is entered
-// on the JobScreen form in terms of costs.
 namespace GrenciCPA
 {
     public partial class InvoiceScreen : Form
     {
-        private int jobID;
+
+        //sql stuff
+        
         private string connectionString;
         private SqlCommand command;
         private SqlConnection connection;
 
+        //ids used in the page 
+        private int jobID;
         private AClient ClientsObj;
         private int parentID;
         private int clientID;
         private decimal finalTotal;
         private decimal cumulativeTotal = 0;
 
+        //lists used
         private List<AComp> componentList = new List<AComp>();
         private List<string> service_names = new List<string>();
         private List<decimal> service_totals = new List<decimal>();
         private List<string> service_sentences = new List<string>();
 
+
+        //quick access for client information
         private string clientFirstName;
         private string clientLastName;
         private string clientAddress;
@@ -49,11 +59,8 @@ namespace GrenciCPA
 
         private string filePath;
 
-        public InvoiceScreen()
-        {
-            InitializeComponent();
 
-        }
+        //constructor
         public InvoiceScreen(int pJob, decimal pTotal)
         {
             InitializeComponent();
@@ -62,6 +69,7 @@ namespace GrenciCPA
             CreateJobs(jobID);
             txtName.Text = clientFirstName + " " + clientLastName;
 
+            //this fills the data into the datagridview
             for (int i = 0; i < service_names.Count; i++)
             {
                 if (i == 0) dgvInvoice.Rows.Add(service_sentences[i], string.Format("{0:#,0.00}", service_totals[i]));
@@ -77,6 +85,8 @@ namespace GrenciCPA
             }
             decimal sum = 0;
 
+
+            //gets the sum of all the rows
             for (int i = 0; i < dgvInvoice.Rows.Count; ++i)
 
             {
@@ -91,6 +101,8 @@ namespace GrenciCPA
 
             }
 
+
+            //sets up differnt lists and parts of the page
             txtAmtOwed.Text = "Total sum is: $" + string.Format("{0:#,0.00}", sum);
             service_names.Add("Other ");
             service_sentences.Add("Other Costs: ");
@@ -98,9 +110,13 @@ namespace GrenciCPA
             dgvInvoice.Rows.Add("Other Costs", string.Format("{0:#,0.00}", finalTotal - cumulativeTotal));
             txtAmtOwed.Text = '$'+ string.Format("{0:#,0.00}", finalTotal);
 
+
+            //disables these buttons till the invoice is made
             btnEmail.Enabled = false;
             btnPrint.Enabled = false;
         }
+
+        //creates the info for the job and reads inall the components 
         public void CreateJobs(int pJob)
         {
             string GetJobSQL = "SELECT JOB_COMPONENT_TABLE.SERV_ID, JOB_COMPONENT_TABLE.TOTAL, JOB_COMPONENT_TABLE.JOB_ID, SERVICE_TABLE.SERV_NAME, SERVICE_TABLE.SERV_SENTENCE, CLIENT_TABLE.CLIENT_ID, " +
@@ -220,12 +236,14 @@ namespace GrenciCPA
             }
         }
 
-
+        //when the email button is clicked it will create the mail item
         private void btnEmail_Click(object sender, EventArgs e)
         {
             CreateMailItem();
         }
 
+
+        //sets up the mail item 
         private void CreateMailItem()
         {
             Outlook.Application oApp = new Outlook.Application();
@@ -239,6 +257,8 @@ namespace GrenciCPA
             oMailItem.Display(true);
         }
 
+
+        //makes the invoice and deactivates the job
         private void btnMakeInvoice_Click_1(object sender, EventArgs e)
         {
 
@@ -259,6 +279,8 @@ namespace GrenciCPA
                 "OUTPUT INSERTED.INVOICE_ID " +
                 "VALUES (@JOB_ID, @OWED, @PAID, @TEXT, @PATH, @DATE); ";
 
+
+            //sets the path of the file
             filePath = "C:/Invoices/" + clientFirstName + clientLastName + clientID +"/"+ jobID + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
 
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
@@ -302,10 +324,9 @@ namespace GrenciCPA
                 return;//stops the creation of an invoice file if it fails
             }
 
-            Document document = new Document();
 
-            // we need to gothrough the name and update it to fit and not save over the old
-            //also need a filenetwork based off of clients
+            //makes the pdf document with the information on the datagridview
+            Document document = new Document();
 
             Directory.CreateDirectory(Path.GetDirectoryName(filePath));
 
@@ -380,16 +401,22 @@ namespace GrenciCPA
             btnClose.Text = "Close";
         }
 
+
+        //it opens the pdf in the default pdf viewer
         private void btnPrint_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(@filePath);
         }
 
+
+        //closes the page
         private void btnClose_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //makes edits to what is in the name for the client that will be on the invoice and then makes the lists again to be uploaded
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (btnEdit.Text == "Edit")
@@ -405,6 +432,7 @@ namespace GrenciCPA
 
 
                 txtAmtOwed.Text = total.ToString();
+                btnMakeInvoice.Enabled = false;
             }
 
             else
@@ -412,14 +440,17 @@ namespace GrenciCPA
 
                 txtName.ReadOnly = true;
                 btnEdit.Text = "Edit";
+                btnMakeInvoice.Enabled = true;
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //unused event handler
         }
 
+
+        //updates the lists to have what is in the datagridview
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             decimal sum = 0;

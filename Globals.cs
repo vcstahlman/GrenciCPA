@@ -1,4 +1,12 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for the interaction of the characteristics and services database information and the editing of saving of them for use.
+/// There are 2 separate datagridviews that hold one of each type and each row has save and delete buttons. 
+/// The delete buttons deactivate them moreso than delete them. You also add by directly typing into the datagridview
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,28 +17,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-// Justin Bloss
-// The Globals form is what the user will use to enter in service and fee information, this information will be pulled over to the JobScreen form
-// to allow the user to select from here. ALL fees have a related service, the purpose of this being if a service is selected on the jobscreen, the
-// only fees that will show are ones that are ASSOCIATED with a specific service. Eventually, we will also have a free service to link miscellaneous
-// fees to.
+
 namespace GrenciCPA
 {
     public partial class Globals : Form
     {
 
+
+        //sql stuff
         private string connectionString;
         private SqlCommand command;
         private SqlConnection connection;
 
+        //bools to keep tracl of what information state things are
         private bool isSaved = false;
         private bool isNew = false;
 
+
+        //lists to hole information
         private List<AServ> ServiceObjList;
         private List<AFee> FeeObjList;
 
-        private List<AChar> charList = new List<AChar>();
 
+        //constructor
         public Globals()
         {
             InitializeComponent();
@@ -56,7 +65,9 @@ namespace GrenciCPA
             (dgvFees.Columns[4] as DataGridViewComboBoxColumn).ValueMember = "ServID";
         }
 
-
+        /// <summary>
+        /// creates the list of services that we interact with, filled later
+        /// </summary>
         private void CreateServiceList()
         {
             string GetServicesSQL = "SELECT SERV_ID, SERV_NAME, SERV_SENTENCE, SERV_ACTIVE " + "FROM SERVICE_TABLE";
@@ -114,7 +125,11 @@ namespace GrenciCPA
                 MessageBox.Show(ex.Message);
             }
         }
+        
 
+        /// <summary>
+        /// creates a list of characteristics that we interact with on this page, filled later
+        /// </summary>
         private void CreateFeeList()
         {
 
@@ -174,7 +189,7 @@ namespace GrenciCPA
                     }
                     else
                     {
-                        tempFee.Active = true; 
+                        tempFee.Active = true; //if it is null we treat it as true
                     }
 
 
@@ -192,8 +207,8 @@ namespace GrenciCPA
             }
         }
 
-
-        private void FillDGV()//fills in the Datagridview via the list of objects
+        //fills in the Datagridview via the list of objects
+        private void FillDGV()
         {
             foreach (AServ aService in ServiceObjList)
             {
@@ -214,9 +229,11 @@ namespace GrenciCPA
             }
         }
 
+
+        //this is unused but I do not know where the eventhandeler is to delete
         private void Fees_Load(object sender, EventArgs e)
         {
-           //work in progress
+           
         }
 
         // prompts the user to save any information entered before closing the form if they have not already
@@ -456,7 +473,10 @@ namespace GrenciCPA
             }
         }
 
-
+        /// <summary>
+        /// this is an eventhandler for a click. if it is for the save it saves and if not it is deactivated after a prompt
+        /// </summary>
+     
         private void dgvFees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -534,6 +554,8 @@ namespace GrenciCPA
             }
         }
 
+
+        //these are some defalt values that are passed into fees
         private void dgvFees_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
             AFee aFee = new AFee();
@@ -550,6 +572,8 @@ namespace GrenciCPA
 
         }
 
+
+        //when the user hits save it saves if not it deactivates
         private void dgvServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try

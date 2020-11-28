@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for the AChar class which we use to store characteristic throughout the project. In this case this in the version running the globals page
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

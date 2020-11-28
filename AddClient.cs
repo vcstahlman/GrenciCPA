@@ -1,4 +1,12 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for the adding and editing of clients. there are several fields that they tab through and fill up, it works the same for editing as well
+/// there also is a list that holds compnents that can be assigned to the client as reminders for the staff doing the work.
+/// 
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +37,8 @@ namespace GrenciCPA
         
 
 
-        public AddClient()
+        //constructors
+        public AddClient()//for the add
         {
             InitializeComponent();
 
@@ -38,7 +47,7 @@ namespace GrenciCPA
 
         }
 
-        public AddClient(int pClientID)
+        public AddClient(int pClientID)//for the edit
         {
             
             InitializeComponent();
@@ -48,6 +57,10 @@ namespace GrenciCPA
             
         }
 
+
+        /// <summary>
+        /// creates the information displayed in the form in the Aclient class and read in from the Database
+        /// </summary>
         private void CreateClientList()
         {
 
@@ -143,62 +156,10 @@ namespace GrenciCPA
 
         }
 
-        private string GetParent(int aClientID)//work in progress
-        {
-            string returning = "";
-            string GetParentSQL = "SELECT FIRST_NAME, LAST_NAME FROM CLIENT_TABLE WHERE CLIENT_ID =" + aClientID + ";";
-            //Pulled from App.config
-            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-            try
-            {
-                connection = new SqlConnection(connectionString);
-                command = new SqlCommand(GetParentSQL, connection);
-                //Open the connection
-                connection.Open();
-                //Create a SQL Data Reader object
-                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-                //Keep reading as long as I have data from the database to read
 
-
-
-                while (reader.Read())
-                {
-
-                    AClient tempClient = new AClient();
-
-
-                    if (reader["FIRST_NAME"] != DBNull.Value)
-                    {
-                        tempClient.FirstName = reader["FIRST_NAME"] as string;
-                    }
-                    if (reader["LAST_NAME"] != DBNull.Value)
-                    {
-                        tempClient.LastName = reader["LAST_NAME"] as string;
-                    }
-                    if (reader["IS_BUSINESS"] != DBNull.Value)
-                    {
-                        tempClient.IsBusiness = reader.GetBoolean(reader.GetOrdinal("IS_BUSINESS"));
-                    }
-                    else tempClient.IsBusiness = false;
-                    if (reader["COMPANY_NAME"] != DBNull.Value)
-                    {
-                        tempClient.Company = reader["COMPANY_NAME"] as string;
-                    }
-
-                    if (tempClient.IsBusiness) returning = tempClient.Company;
-                    else returning = tempClient.FirstName + " " + tempClient.LastName;
-
-                    tempClient = null;
-                }
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Could not retrieve parent client from Database.! \n Error reads: " + ex.Message);
-            }
-            return returning;
-        }
-
+        /// <summary>
+        /// Gets the characteristics for the client. if it is a new client all are unchecked and and for old the same checks are in place
+        /// </summary>
         private void GetChar()
         {
             clbChar.Items.Clear();
@@ -293,6 +254,10 @@ namespace GrenciCPA
 
         }
 
+
+        /// <summary>
+        /// This saves the characteristics to the client from the updated list. it will also remove the ones that are no longer in use
+        /// </summary>
         private void SaveChar()
         {
 
@@ -448,6 +413,10 @@ namespace GrenciCPA
             }
         }
 
+        
+        /// <summary>
+        /// this saves all the rest of the in formation for the user. 
+        /// </summary>
         private void SaveOthers()
         {
             string SetOtherSQL = "INSERT INTO CLIENT_TABLE (FIRST_NAME, LAST_NAME, BIRTHDATE, " +
@@ -535,6 +504,8 @@ namespace GrenciCPA
         }
     
 
+
+        //this is a middle function we use from the template we used for most pages that we added all the start up stuff we did
         private void FillClientInfo()
         {
             
@@ -544,6 +515,12 @@ namespace GrenciCPA
 
         
 
+        //////////////////////////////////////////BUTTONS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        
+        /// <summary>
+        /// this askes the user if they want to stay and save what is there or not
+        /// </summary>
+        
         private void btnClose_Click(object sender, EventArgs e)
         {
             string message = "If you close now, any unsaved changes may be lost. Are you sure you want to continue?";
@@ -557,6 +534,8 @@ namespace GrenciCPA
 
         }
 
+
+        //saves with the save functions and it closes the page
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveOthers();

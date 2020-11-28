@@ -1426,7 +1426,7 @@ namespace GrenciCPA
                 {
                     if (e.ColumnIndex == 2)
                     {
-                        MessageBox.Show(dgvFees.Rows[e.RowIndex].Cells[2].Value.ToString());///////TEST///////
+                        
                         int selectedChar = (int)dgvFees.Rows[e.RowIndex].Cells[2].Value;
                         foreach (AChar achar in characteristicList)
                         {
@@ -1486,7 +1486,26 @@ namespace GrenciCPA
             {
                 MessageBox.Show("You tried to click the button that was not in a row with data. \n This is the error: " + ex.Message);
             }
+
+            //runs this everytime
+            jobTotal = 0;// retotal every move 
+            for (int i = 0; i < dgvFees.RowCount; i++)
+            {
+                decimal newcost = 0;
+                decimal newmulti = 0;
+
+                if (dgvFees.Rows[i].Cells[3].Value != null) decimal.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out newcost);
+                if (dgvFees.Rows[i].Cells[4].Value != null) decimal.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out newmulti);
+
+                decimal newtotal = newcost * newmulti;//if it is less it will be overwriten, if not it will be fine.
+                dgvFees.Rows[i].Cells[5].Value = string.Format("{0:#,0.00}", newtotal);//if the new total is more than the one in there it will rewrite.
+
+
+                jobTotal += newtotal;
+            }
+            lblTotal.Text = "Total: $" + string.Format("{0:#,0.00}", jobTotal);
         }
+
 
     }
 }

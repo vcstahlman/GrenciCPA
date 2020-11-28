@@ -53,6 +53,8 @@
             // 
             // btnJobs
             // 
+            this.btnJobs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btnJobs.Location = new System.Drawing.Point(14, 224);
             this.btnJobs.Name = "btnJobs";
             this.btnJobs.Size = new System.Drawing.Size(160, 106);
@@ -120,6 +122,7 @@
             // 
             // btnPayments
             // 
+            this.btnPayments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPayments.Location = new System.Drawing.Point(811, 374);
             this.btnPayments.Name = "btnPayments";
             this.btnPayments.Size = new System.Drawing.Size(158, 46);

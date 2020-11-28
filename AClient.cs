@@ -1,4 +1,11 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program AClient class which we use through all the project. 
+/// it is the most complicated and it has the most information going in an out of it
+///
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
