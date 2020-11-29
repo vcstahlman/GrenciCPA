@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for listing of the jobs and it displayes the client the staff assigned to the job and the list of services in a job. it also shows past jobs by sending along a past view set up
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,8 +15,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-// Justin Bloss
-// This form will read in from the database all past clients, with leftmost information on the data grid being the most pivotal with identifying a client
 namespace GrenciCPA
 {
     public partial class Jobs : Form
@@ -26,18 +30,23 @@ namespace GrenciCPA
         private int clientID = 0 ;
         private int staffID = 0;
 
+        //constructor breaks up only active at first
         public Jobs()
         {
             InitializeComponent();
             ClientsObjList = new List<AClient>();
         }
 
+
+        //brings up active for a client
         public Jobs(int pclient)
         {
             InitializeComponent();
             ClientsObjList = new List<AClient>();
             clientID = pclient;
         }
+
+        //brings up active for a staff
         public Jobs(int pStaff, string useless)
         {
             InitializeComponent();
@@ -45,7 +54,7 @@ namespace GrenciCPA
             staffID = pStaff;
         }
 
-
+        //when the button is clicked it will search for matches
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvJobs.Rows.Clear();
@@ -217,7 +226,7 @@ namespace GrenciCPA
             FillDGV();
         }
 
-
+        //defalt creation
         private void CreateJobList()
         {
             if (tbxSearch.Text != "")
@@ -401,6 +410,7 @@ namespace GrenciCPA
         }
 
         ////////////////
+        ///gets the staff for the job in the row during the creation
         private string GetStaff(int aJob)
         {
             string returning = "";
@@ -446,6 +456,7 @@ namespace GrenciCPA
             return returning;
         }
         ////////////////
+        ///gets the services for a given job
         private string GetServ(int aJob)
         {
             string returning = "";
@@ -482,6 +493,7 @@ namespace GrenciCPA
             return returning;
         }
         ////////////////
+        ///unused would get parent if enabled
         private string GetParent(int aClientID)
         {
             if (clientID == 0) return " ";
@@ -539,6 +551,7 @@ namespace GrenciCPA
             return returning;
         }
 
+        ///click event for the user to get to the jobscreen and pass on the correct info.
         private void dgvJobs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try

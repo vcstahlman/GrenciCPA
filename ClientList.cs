@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for listing offthe clients and allowing the user to view the client and view the invoices for the client via buttons to other forms
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +28,8 @@ namespace GrenciCPA
 
         private List<AClient> ClientsObjList;
 
+
+        //constructor
         public ClientList()
         {
             InitializeComponent();
@@ -34,6 +42,7 @@ namespace GrenciCPA
             dgvClients.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
+        //creates a list of clients that matches what search settings there are.
         private void CreateClientList()
         {
             if (txtSearch.Text != "")
@@ -159,7 +168,7 @@ namespace GrenciCPA
                 }
 
             }
-            else {
+            else {//if there is no search this is the base sql for retrieving the clients
                 string GetClientsSQL = "SELECT CLIENT_ID, CLIENT_ACTIVE, FIRST_NAME, LAST_NAME, SS, BIRTHDATE, ST_ADDRESS, " +
                     "CITY, STATE_AB, ZIP, COUNTY, SCHOOL, EMAIL, PHONE, IS_BUSINESS, COMPANY_NAME, PARENT_CLIENT, NOTES, OWED_BALANCE " +
                     "FROM CLIENT_TABLE;";
@@ -283,6 +292,7 @@ namespace GrenciCPA
 
         
 
+        //this gets the clients characteristics that serve as a reminder to the staff of what to add on the jobscreen
         private string GetChar(int aClientID)
         {
             string ret = "";
@@ -336,18 +346,23 @@ namespace GrenciCPA
         }
 
 
+        //closes the form
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
 
         }
 
+
+        //brings the user to the addedit screen with the screen empty for an addition
         private void btnAddClient_Click(object sender, EventArgs e)
         {
             AddClient form = new AddClient();
             form.ShowDialog();
         }
 
+
+        //this is theclick event that checks for the buttons and then opens the respective form
         private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
                 
@@ -376,6 +391,8 @@ namespace GrenciCPA
             }
         }
 
+
+        //this is the load that we used for hardcoded info
         private void ClientList_Load(object sender, EventArgs e)
         {
 
@@ -383,6 +400,8 @@ namespace GrenciCPA
 
         }
 
+
+        //this creates a list of clients depending on the search fields
         private void btnSearch_Click(object sender, EventArgs e)
         {
             ClientsObjList.Clear();//reset the list

@@ -56,6 +56,7 @@ namespace GrenciCPA
         private string clientState;
         private string clientZip;
         private string clientEmail;
+        private string clientCompany;
 
         private string filePath;
 
@@ -68,6 +69,8 @@ namespace GrenciCPA
             finalTotal = pTotal;
             CreateJobs(jobID);
             txtName.Text = clientFirstName + " " + clientLastName;
+
+            if (clientCompany != "") txtName.Text += " " + clientCompany;
 
             //this fills the data into the datagridview
             for (int i = 0; i < service_names.Count; i++)
@@ -120,7 +123,7 @@ namespace GrenciCPA
         public void CreateJobs(int pJob)
         {
             string GetJobSQL = "SELECT JOB_COMPONENT_TABLE.SERV_ID, JOB_COMPONENT_TABLE.TOTAL, JOB_COMPONENT_TABLE.JOB_ID, SERVICE_TABLE.SERV_NAME, SERVICE_TABLE.SERV_SENTENCE, CLIENT_TABLE.CLIENT_ID, " +
-                "CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP, CLIENT_TABLE.EMAIL " +
+                "CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.CLIENT_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP, CLIENT_TABLE.EMAIL " +
                 "FROM JOB_COMPONENT_TABLE INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID INNER JOIN SERVICE_TABLE ON JOB_COMPONENT_TABLE.SERV_ID = SERVICE_TABLE.SERV_ID " +
                 "INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
                 "WHERE JOB_COMPONENT_TABLE.JOB_ID = " + jobID + " " +
@@ -178,6 +181,11 @@ namespace GrenciCPA
                     {
                         tempClient.LastName = reader["LAST_NAME"] as string;
                         clientLastName = reader["LAST_NAME"] as string;
+                    }
+                    if (reader["COMPANY_NAME"] != DBNull.Value)
+                    {
+                        tempClient.Company = reader["COMPANY_NAME"] as string;
+                        clientCompany = reader["COMPANY_NAME"] as string;
                     }
                     if (reader["ST_ADDRESS"] != DBNull.Value)
                     {
@@ -371,6 +379,7 @@ namespace GrenciCPA
             document.Close();
 
             btnMakeInvoice.Text = "Invoice made";
+            btnMakeInvoice.Enabled = false;
             btnEmail.Enabled = true;
             btnPrint.Enabled = true;
 
@@ -397,6 +406,7 @@ namespace GrenciCPA
             {
                 MessageBox.Show("Could not deactivate job \nError: " + ex.Message);
             }
+
 
             btnClose.Text = "Close";
         }
@@ -432,7 +442,7 @@ namespace GrenciCPA
 
 
                 txtAmtOwed.Text = total.ToString();
-                btnMakeInvoice.Enabled = false;
+                
             }
 
             else
@@ -440,7 +450,7 @@ namespace GrenciCPA
 
                 txtName.ReadOnly = true;
                 btnEdit.Text = "Edit";
-                btnMakeInvoice.Enabled = true;
+                
             }
         }
 

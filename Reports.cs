@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for making basic summaries of a list of clients and their owings. there are a few search options as well such as a search
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,11 +29,15 @@ namespace GrenciCPA
         private List<AServ> serviceList = new List<AServ>();
         private List<AChar> characteristicList = new List<AChar>();
 
+
+        //constructor
         public Reports()
         {
             InitializeComponent();
         }
 
+
+        //
         private void Reports_Load(object sender, EventArgs e)
         {
             lbxReport.Items.Clear();
@@ -52,16 +62,24 @@ namespace GrenciCPA
                 "INNER JOIN JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID INNER JOIN INVOICE_TABLE ON " +
                 "JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID ";
             string makeReportSQLChar = " ";
-            if (tbxName.Text != "")
+            if (tbxName.Text != "" && tbxMisc.Text != "")
             {
                 string search = tbxName.Text;
-                makeReportSQL += " WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') ";
+                string searchDate = tbxMisc.Text;
+                makeReportSQL += " WHERE (INVOICE_TABLE.DATE_SENT LIKE '" + searchDate + "%') AND( (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') OR " +
+                    "(CLIENT_TABLE.FIRST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '" + search + "%'))";
+                makeReportSQLChar = " AND (";
+            }
+            else if (tbxName.Text != "")
+            {
+                string search = tbxName.Text;
+                makeReportSQL += " WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.FIRST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '" + search + "%')";
                 makeReportSQLChar = " AND (";
             }
             else if (tbxMisc.Text != "")
             {
-                string search = tbxName.Text;
-                makeReportSQL += " WHERE (CLIENT_TABLE.COMPANY_NAME LIKE '" + search + "%') ";
+                string search = tbxMisc.Text;
+                makeReportSQL += " WHERE  (INVOICE_TABLE.DATE_SENT LIKE '" + search + "%')";
                 makeReportSQLChar = " AND (";
             }
             else
@@ -70,7 +88,7 @@ namespace GrenciCPA
                 makeReportSQLChar = " WHERE (";
             }
 
-
+            //bools to keep track where the program is for the and section
             bool isFirst = true;
             bool charFound = false;
             for (int i = 0; i < clbLabels.CheckedItems.Count; i++)
@@ -92,9 +110,13 @@ namespace GrenciCPA
                 } 
                 
             }
+
+            //if there is a character selected it will end the string if not it will clear it
             if (charFound) makeReportSQLChar += ") ";//if there was a char then it adds this to end
             else makeReportSQLChar = "";//if not then it clears the string
 
+
+            //makes the search string
             makeReportSQL += makeReportSQLChar + " GROUP BY CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME , CLIENT_TABLE.LAST_NAME, COMPANY_NAME, TOTAL_BILL , AMOUNT_OWED, AMOUNT_PAID, DATE_SENT;";
 
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
@@ -241,12 +263,16 @@ namespace GrenciCPA
                 MessageBox.Show("Could not retrieve characteristics from Database.! \n Error reads: " + ex.Message);
             }
 
+
+            //fill the checked list box
             foreach (AChar charactor in characteristicList) {
                 clbLabels.Items.Add(charactor.CharName);
 
             }
         }
 
+
+        //gets all services for the client
         private string GetServ(int pClient)
         {
             string returning = "";
@@ -285,8 +311,11 @@ namespace GrenciCPA
             return returning;
         }
 
+
+        //fills the datagridview from the lsit created
         private void FillReport() 
         {
+            dgvReports.Rows.Clear();
             if (ClientsObjList.Count > 0)
             {
                 decimal total = 0.00m;
@@ -305,6 +334,7 @@ namespace GrenciCPA
                     avgBal = avgBal + client.Balance;
 
                 }
+                lbxReport.Items.Clear();
                 lbxReport.Items.Add("Total Billing: "+ string.Format("{0:#,0.00}", total));
                 lbxReport.Items.Add("Payments: " + string.Format("{0:#,0.00}", payment));
                 lbxReport.Items.Add("Still Owed: " + string.Format("{0:#,0.00}", avgBal));
@@ -312,7 +342,6 @@ namespace GrenciCPA
 
             }
             else dgvReports.Rows.Add("No clients found that match search");
-
 
         }
     }

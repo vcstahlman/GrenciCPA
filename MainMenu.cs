@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is the main laung page for the program. it has 7 branches
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +14,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Justin Bloss
-// The purpose of this form is to act as a fully functioning main menu screen that grants the user access to other forms through button clicks
 namespace GrenciCPA
 {
     public partial class MainMenu : Form
@@ -62,7 +66,8 @@ namespace GrenciCPA
         }
 
         private void btnPayments_Click(object sender, EventArgs e)
-        {
+        {   
+            //brings up the payments form to view past payments
             Reports form = new Reports();
             form.ShowDialog();
         }

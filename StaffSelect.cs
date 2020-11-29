@@ -1,4 +1,12 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for selecting who is working on stuff. basically it is a quick way to search what jobs a staff is doing. 
+/// one can add and edit staff with the buttons on the form that link to StaffAddEdit
+/// hitting select will bring up a list of active jobs they are working on.
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,10 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-// Justin Bloss
-// The StaffSelect form is our solution to keeping track of WHO is working on an instance of the interface, Jobs on the active job form will have a column
-// for "assigned to" that will list whatever staff member we select from this page. The user is also allowed to add a new staff member in the event of
-// future employees.
+
 namespace GrenciCPA
 {
     public partial class StaffSelect : Form

@@ -1,4 +1,11 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for listing of the invoices and allowing the user to view the client and pay invoices as well as bring up the invoice from the file system.
+///
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +28,8 @@ namespace GrenciCPA
 
         private List<AClient> ClientsObjList;
 
+
+        //constructor
         public Invoices()
         {
             InitializeComponent();
@@ -29,6 +38,8 @@ namespace GrenciCPA
             FillDGV();
         }
 
+
+        //constructor that sets up the page for a specific client
         public Invoices(int pClientID)
         {
             InitializeComponent();            
@@ -64,12 +75,10 @@ namespace GrenciCPA
                     //Keep reading as long as I have data from the database to read
 
 
-
+                    //puts all the info into the client class
                     while (reader.Read())
                     {
-
-
-
+                    
                         AClient tempClient = new AClient();
 
 
@@ -114,6 +123,7 @@ namespace GrenciCPA
             
         }
 
+        //this gets all the clients that meet a specific search criteria 
         private void CreateClientList()
         {
             if (tbxSearch.Text != "")
@@ -290,20 +300,22 @@ namespace GrenciCPA
 
         private void Invoices_Load(object sender, EventArgs e)
         {
-            
+        //unused, it was used for hardcoding    
         }
 
         private void cbxOverdue_CheckedChanged(object sender, EventArgs e)
         {
-
+            //unused operater
         }
 
+        //closes the form
         private void btnClose_Click(object sender, EventArgs e)
         {
+            
             this.Close();
         }
 
-        
+        //button click event for each of the clicks it will open up the respecive form or file from that row
         private void dgvInvoices_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -334,6 +346,8 @@ namespace GrenciCPA
             }
         }
 
+
+        //when clicked it will run though the set up and searching through the database for client invoices that match the parameters
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvInvoices.Rows.Clear();

@@ -469,29 +469,7 @@ namespace GrenciCPA
 
                 connection.Close();
 
-                //if (isEdit)
-                //{
-                //    if (rowsAffected > 0)//if added it will say it did, if not it said it will not
-                //    {
-                //        MessageBox.Show("Client was Updated! \n Close Client View and re-enter to see changes.!!");
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("No Client was Updated!!");
-                //    }
-                //}
-                //else
-                //{
-                //    if (rowsAffected > 0)//if added it will say it did, if not it said it will not
-                //    {
-                //        MessageBox.Show("New Client added! \nClose Client View and re-enter to see changes.!!");
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("No Client was added!!");
-                //    }
-                //}
-
+                SaveChar();
                 this.Close();
 
                 
@@ -499,7 +477,7 @@ namespace GrenciCPA
             catch (Exception ex)
             {
 
-                MessageBox.Show("Could not open or insert data! \nError: " + ex.Message);
+                MessageBox.Show("Could not open or insert data! \nPlease retry a new submit with shorter lenghts if needed \nError: " + ex.Message);
             }
         }
     
@@ -539,7 +517,7 @@ namespace GrenciCPA
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveOthers();
-            SaveChar();
+            
 
             this.Close();
         }

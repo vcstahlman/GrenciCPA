@@ -614,7 +614,7 @@ namespace GrenciCPA
                 // If the user clicks "Delete" on the services DGV
                 else if (e.ColumnIndex == 4)
                 {
-                    string message = "Are you sure you want to delete this service?";
+                    string message = "Are you sure you want to delete this service? \nIf so it will remove access to their related characteristics on this page.";
                     string title = "Confirm Window";
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     // Serves as a confirmation window if the user really wants to delete a service

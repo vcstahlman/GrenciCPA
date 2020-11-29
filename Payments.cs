@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is about making payments. the will be payed oldest to newest.
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,20 +19,20 @@ namespace GrenciCPA
 {
     public partial class Payments : Form
     {
+
+        //sql stuff
         private string connectionString;
         private SqlCommand command;
         private SqlConnection connection;
 
+
+        //information keepers
         private AClient ClientsObj;
         private List<AInvoice> InvoiceObjList;
         private int clientID;
 
 
-        public Payments()
-        {
-            InitializeComponent();
-        }
-
+        //consteructor that sets up all the lists and infromation
         public Payments(int pClientID)
         {
             InitializeComponent();
@@ -39,6 +45,8 @@ namespace GrenciCPA
             FillPaymentInfo();
         }
 
+
+        //for hardcoding the data in
         private void Payments_Load(object sender, EventArgs e)
         {
             //dgvPayments.Rows.Add("1232", "$200.00");
@@ -46,6 +54,7 @@ namespace GrenciCPA
             //lblTotal.Text = "$700.00";
         }
 
+        //this gets all the chagres to the account that are able to be payed
         private void CreateChargeList(int pClientID)
         {
             string GetPaymentSQL = "SELECT INVOICE_TABLE.* " +
@@ -102,6 +111,8 @@ namespace GrenciCPA
             }
         }
 
+
+        //gets the clients information 
         private void CreateClientList(int pClientID)
         {
 
@@ -192,6 +203,7 @@ namespace GrenciCPA
 
         }
 
+        //fills in the client information
         private void FillClientInfo()
         {
             AClient aClient = ClientsObj;
@@ -206,6 +218,8 @@ namespace GrenciCPA
             txtOverride.Text = string.Format("{0:#,0.00}", aClient.Balance);
 
         }
+
+        //fills in the payment information
         private void FillPaymentInfo()
         {
 
@@ -216,6 +230,8 @@ namespace GrenciCPA
             
         }
 
+
+        //this is for the close
         private void btnClose_Click(object sender, EventArgs e)
         {
             string message = "If you close now, any unsaved changes may be lost. Are you sure you want to continue?";
@@ -228,6 +244,8 @@ namespace GrenciCPA
             }
         }
 
+
+        //this takes the payment and makes it towards 
         private void btnProcess_Click(object sender, EventArgs e)
         {
             string setPaymentSQL = "INSERT INTO PAYMENT_TABLE (CLIENT_ID, PAYMENT_TYPE, PAYMENT_AMOUNT, DATE_PAID)  " +

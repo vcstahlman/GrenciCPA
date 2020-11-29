@@ -1,4 +1,12 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is the heaviest page in the project. it takes in information from the clients the characteristics jobs services and times as well as makes its components
+/// it is used for billing and creation of items for an invoice. the user can also keep track of time on this page.
+/// the user can save or complete to go onto the invoiceing area.
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +22,6 @@ using System.IO;
 using System.Data.SqlClient;
 
 
-
-// Justin Bloss
-// The JobScreen form is where the user enters in services provided for a client and takes time of each service to calculate a total for the invoice
 namespace GrenciCPA
 {
     public partial class JobScreen : Form
@@ -27,21 +32,22 @@ namespace GrenciCPA
         private SqlCommand command;
         private SqlConnection connection;
 
+        //timer stuff
         private TimeSpan time;
         private DateTime timeStart;
 
-        private AClient ClientsObj;
 
+        //information holders
+        private AClient ClientsObj;
         private int clientID;
         private int jobID;        
         private int parentID;
         private int staffID = 0;
-
         private decimal jobTotal;
         private bool afterLoad = false;
-
         private bool isActive = true;
-
+        
+        //lists and lists again
         private List<AComp> componentList = new List<AComp>();
         private List<AServ> serviceList = new List<AServ>();
         private List<AChar> characteristicList = new List<AChar>();
@@ -51,14 +57,7 @@ namespace GrenciCPA
         
 
 
-
-        public JobScreen()
-        {
-            InitializeComponent();
-
-
-        }
-
+        //constructor runs through the functions and fills out the page for use
         public JobScreen(int pClient, int pjob)
         {
             InitializeComponent();
@@ -81,7 +80,7 @@ namespace GrenciCPA
         }
 
         
-
+        //when loading the page it will set the comboboxes and their values
         private void JobScreen_Load(object sender, EventArgs e)
         {
                      
@@ -264,6 +263,8 @@ namespace GrenciCPA
 
             }
         }
+
+        //saves the page via the savePage operation and it makes a box to tell you that it saved
         private void btnSave_Click(object sender, EventArgs e)
                 {
 
@@ -337,38 +338,6 @@ namespace GrenciCPA
 
             }
 
-            //for (int i = 0; i < dgvFees.Rows.Count; i++)//goes through the dgv and saves items to the page
-            //{
-            //    foreach (AComp aComp in componentList)
-            //    {
-            //        if (i == aComp.Row && aComp.SortInt == 1)//if it is new and if it is in the correct row
-            //        {
-            //            if (dgvFees.Rows[i].Cells[1].Value != null)
-            //                aComp.Serv_ID = int.Parse(dgvFees.Rows[i].Cells[1].Value.ToString());
-            //            else aComp.Serv_ID = 0;
-            //            //reads in the string for the serv
-
-            //            if (dgvFees.Rows[i].Cells[2].Value != null)
-            //                aComp.Char_ID = int.Parse(dgvFees.Rows[i].Cells[2].Value.ToString());
-            //            else aComp.Char_ID = 0;
-            //            //readsin the string for the char
-
-            //            double cost = 0;
-            //            double.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out cost);
-            //            aComp.Char_cost = cost;
-
-            //            double multi = 0;
-            //            double.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out multi);
-            //            aComp.Char_multi = multi;
-
-            //            aComp.Total = multi * cost;
-
-
-
-            //        }
-
-            //    }
-            //}
 
             //this travels through the datagridview and checks if the current row is saved at all
             for (int i = 0; i < dgvFees.Rows.Count; i++)
@@ -680,6 +649,7 @@ namespace GrenciCPA
             
         }
 
+        //this fills the time area of the datagridview
         private void FillTimes()
         {
             foreach (ATime atime in timeList)
@@ -690,6 +660,8 @@ namespace GrenciCPA
             }
         }
 
+
+        //saves the time component that is made from a timer or from the add sub bar
         private void SaveTime(string ptimedesc)
         {
             string SetTimeSQL = "INSERT INTO TIME_TABLE (JOB_ID, START_TIME, END_TIME, TIME_DESCRIPT)  " +
@@ -729,6 +701,8 @@ namespace GrenciCPA
 
         //\\\\\\\\\\\\\\\\\CLIENT\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+
+        //creates the client information to a client class object
         private void CreateClientList()
         {
 
@@ -853,6 +827,7 @@ namespace GrenciCPA
 
         }
 
+        //gets parent if it was activated in the program
         private string GetParent(int aClientID)
         {
             string returning = "";
@@ -909,6 +884,8 @@ namespace GrenciCPA
             return returning;
         }
 
+
+        //gets the charactreistics to fill the listbox
         private void GetChar(int aClientID) //client charlist
         {
             lbxChar.Items.Clear();
@@ -949,6 +926,7 @@ namespace GrenciCPA
 
         }
 
+        //fills all the client information that is retrieved in the last operations
         private void FillClientInfo()
         {
             AClient aClient = ClientsObj;
@@ -1105,6 +1083,7 @@ namespace GrenciCPA
                 }
                 connection.Close();
 
+                //adds in a blank characteristic
                 AChar temp = new AChar();
                 temp.CharID = 0;
                 temp.CharName = "____Blank____";
@@ -1132,6 +1111,7 @@ namespace GrenciCPA
             
         }
 
+        //gets the staff list and it sets the assigned to the combo box head
         private void GetJobStaff()
         {
             string GetStaffSQL = "SELECT * FROM STAFF_TABLE";
@@ -1230,6 +1210,8 @@ namespace GrenciCPA
 
 
         //\\\\\\\\\\\\\\\\\\\\\COMPONENTS\\\\\\\\\\\\\\\\\\\
+
+        //fills in componentes from an old job save
         private void FillComponents()
         {
 
@@ -1320,6 +1302,8 @@ namespace GrenciCPA
             }
             
         }
+
+        //checks if the job is active and if not it will deactivate parts of the program
         private void activeCheck()
         {
             string GetCompSQL = "SELECT JOB_ACTIVE FROM JOB_TABLE " +
@@ -1382,21 +1366,11 @@ namespace GrenciCPA
                 dgvFees.Rows[e.RowIndex].Cells[5].Value = 0.00;
                 componentList.Add(temp);
 
-                //DataGridViewComboBoxCell cboServ = (DataGridViewComboBoxCell)dgvFees[dgvFees.Rows.Count, 1];
-                //foreach(AServ serv in serivceList) { 
-                //    cboServ.Items.AddRange(serv.ServName); 
-                //}
-
-                //DataGridViewComboBoxCell cboChar = (DataGridViewComboBoxCell)dgvFees[dgvFees.Rows.Count, 2];
-                //foreach (AChar achar in characteristicList)
-                //{
-                //    cboChar.Items.AddRange(achar.CharName);
-                //}
             }
 
         }
 
-
+        //if a row is entered it will total the row
         private void dgvFees_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             jobTotal = 0;// retotal every move 
@@ -1417,6 +1391,8 @@ namespace GrenciCPA
             lblTotal.Text = "Total: $" + string.Format("{0:#,0.00}", jobTotal);
         }
 
+
+        //cell click event
         private void dgvFees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try

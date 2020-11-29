@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// Grenci CPA 411 Project
+/// Authors: Justin Bloss, Will Hoffman, Victor Stahlman, & Cameron Weaver
+/// Project goal: make a program for Dr. Anthony Grenci to use at his CPA firm to keep track of billing, and automate the calculation process.
+/// Page: This page is for the adding of staff and editing of current staff names. 
+///
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,14 +15,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-// Justin Bloss
-// The StaffAddEdit form is meant for both new staff members that need to enter in their information on this screen, as well as editing current staff
-// information.
+
 namespace GrenciCPA
 {
     public partial class StaffAddEdit : Form
     {
 
+        //sql stuff
         private string connectionString;
         private SqlCommand command;
         private SqlConnection connection;
@@ -25,6 +30,7 @@ namespace GrenciCPA
         private int staffID = 0;
         private List<AStaff> StaffObjList;
 
+        //default constructor
         public StaffAddEdit()
         {
             InitializeComponent();
@@ -32,6 +38,7 @@ namespace GrenciCPA
             isNew = true;
         }
 
+        //overloaded constructor. it is for editing the staff passed in
         public StaffAddEdit(int pStaffID)
         {
             InitializeComponent();
@@ -42,6 +49,8 @@ namespace GrenciCPA
             FillStaff(staffID);
         }
 
+
+        //it gets the staff that is passed in
         private void CreateStaffList()
         {
             string GetStaffSQL = "SELECT STAFF_ID, STAFF_FIRST_NAME, STAFF_LAST_NAME, STAFF_RATE_PER_HR, STAFF_ACTIVE " + "FROM STAFF_TABLE";
@@ -101,6 +110,8 @@ namespace GrenciCPA
                 MessageBox.Show("Could not retrieve clients from Database.! \n Error reads: " + ex.Message);
             }
         }
+
+        //this only displays the staff you want to edit, the others are in a list in the background
         private void FillStaff(int staffID)
         {
             foreach (AStaff staff in StaffObjList)
@@ -114,6 +125,8 @@ namespace GrenciCPA
             }
         }
 
+
+        //closes the page after a prompt
         private void btnClose_Click(object sender, EventArgs e)
         {
             if (isNew)
@@ -131,7 +144,7 @@ namespace GrenciCPA
                 this.Close();
         }
 
-
+        //saves the additions or edits made to the page to the database
         private void btnSave_Click_1(object sender, EventArgs e)
         {
             string SetOtherSQL = "INSERT INTO STAFF_TABLE (STAFF_FIRST_NAME, STAFF_LAST_NAME, STAFF_RATE_PER_HR) " +
