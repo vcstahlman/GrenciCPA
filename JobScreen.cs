@@ -620,11 +620,11 @@ namespace GrenciCPA
                     }
                     if (reader["START_TIME"] != DBNull.Value)
                     {
-                        temptime.StartTime = (DateTime)reader["START_TIME"];
+                        temptime.StartTime = DateTime.Parse(reader["START_TIME"].ToString());
                     }
                     if (reader["END_TIME"] != DBNull.Value)
                     {
-                        temptime.EndTime = (DateTime)reader["END_TIME"];
+                        temptime.EndTime = DateTime.Parse(reader["END_TIME"].ToString());
                     }
                     if(reader["TIME_DESCRIPT"] != DBNull.Value)
                     {
@@ -1292,7 +1292,7 @@ namespace GrenciCPA
             {
                 //inserts the component on the last row of the dgv
                 dgvFees.Rows.Insert(comp.Row, new string[] {                    
-                    comp.Component_ID.ToString(), null , null, string.Format("{0:#,0.00}",comp.Char_cost), string.Format("{0:#,0.00}",comp.Char_multi), string.Format("{0:#,0.00}",comp.Total) });
+                    comp.Component_ID.ToString(), null , null, string.Format("{0:#,0.00}", comp.Char_cost), string.Format("{0:#,0.00}", comp.Char_multi), string.Format("{0:#,0.00}", comp.Total) });
             }
             foreach( AComp acomp in componentList)
             {

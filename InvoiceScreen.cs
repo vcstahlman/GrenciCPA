@@ -122,8 +122,8 @@ namespace GrenciCPA
         //creates the info for the job and reads inall the components 
         public void CreateJobs(int pJob)
         {
-            string GetJobSQL = "SELECT JOB_COMPONENT_TABLE.SERV_ID, JOB_COMPONENT_TABLE.TOTAL, JOB_COMPONENT_TABLE.JOB_ID, SERVICE_TABLE.SERV_NAME, SERVICE_TABLE.SERV_SENTENCE, CLIENT_TABLE.CLIENT_ID, " +
-                "CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.CLIENT_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP, CLIENT_TABLE.EMAIL " +
+            string GetJobSQL = "SELECT JOB_COMPONENT_TABLE.SERV_ID, JOB_COMPONENT_TABLE.TOTAL, JOB_COMPONENT_TABLE.JOB_ID, SERVICE_TABLE.SERV_NAME, SERVICE_TABLE.SERV_SENTENCE, CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.OWED_BALANCE, " +
+                " CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP, CLIENT_TABLE.EMAIL " +
                 "FROM JOB_COMPONENT_TABLE INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID INNER JOIN SERVICE_TABLE ON JOB_COMPONENT_TABLE.SERV_ID = SERVICE_TABLE.SERV_ID " +
                 "INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
                 "WHERE JOB_COMPONENT_TABLE.JOB_ID = " + jobID + " " +
@@ -166,6 +166,11 @@ namespace GrenciCPA
                     {
                         tempComp.Serv_Sentence = (reader["SERV_SENTENCE"] as string);
                         service_sentences.Add(reader["SERV_SENTENCE"] as string);
+                    }
+                    if (reader["OWED_BALANCE"] != DBNull.Value)
+                    {
+                        tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0.00m;
+                        
                     }
                     if (reader["CLIENT_ID"] != DBNull.Value)
                     {
@@ -290,6 +295,7 @@ namespace GrenciCPA
 
             //sets the path of the file
             filePath = "C:/Invoices/" + clientFirstName + clientLastName + clientID +"/"+ jobID + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
+            if(clientCompany != "" || clientCompany != null) filePath = "C:/Invoices/" + clientCompany + clientID + "/" + jobID + clientCompany + DateTime.Now.Year.ToString() + ".pdf";
 
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
@@ -354,6 +360,7 @@ namespace GrenciCPA
             h1.Add(new Chunk("\n" + "\n" + "INVOICE " + "\n", boldFont));
             Paragraph date = new Paragraph(DateTime.Now.ToLongDateString(), normalFont);
             Paragraph p1 = new Paragraph("\n" + clientFirstName + " " + clientLastName, normalFont);
+            if (clientCompany != "" || clientCompany != null) p1 = new Paragraph("\n" + clientCompany, normalFont);
             Paragraph p2 = new Paragraph(clientAddress, normalFont);
             Paragraph p3 = new Paragraph(clientCity + ", " + clientState + " " + clientZip + "\n\n", normalFont);
             document.Add(h1);
@@ -396,6 +403,32 @@ namespace GrenciCPA
                 command = new SqlCommand(setPaymentSQL, connection);
                 //Open the connection
                 connection.Open();
+                command.ExecuteNonQuery();//tells ya if it worked
+
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not deactivate job \nError: " + ex.Message);
+            }
+
+
+            setPaymentSQL = "UPDATE CLIENT_TABLE SET OWED_BALANCE = @BAL WHERE CLIENT_ID = " + clientID + ";";
+            //we are going through and updating the prices that we need to pull
+
+            //Pulled from App.config
+            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand(setPaymentSQL, connection);
+                //Open the connection
+                connection.Open();
+                ClientsObj.Balance += finalTotal;
+
+                command.Parameters.AddWithValue("@BAL", ClientsObj.Balance);
                 command.ExecuteNonQuery();//tells ya if it worked
 
                 connection.Close();

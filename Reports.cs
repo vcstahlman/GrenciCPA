@@ -316,6 +316,7 @@ namespace GrenciCPA
         private void FillReport() 
         {
             dgvReports.Rows.Clear();
+            lbxReport.Items.Clear();
             if (ClientsObjList.Count > 0)
             {
                 decimal total = 0.00m;
@@ -334,7 +335,7 @@ namespace GrenciCPA
                     avgBal = avgBal + client.Balance;
 
                 }
-                lbxReport.Items.Clear();
+                
                 lbxReport.Items.Add("Total Billing: "+ string.Format("{0:#,0.00}", total));
                 lbxReport.Items.Add("Payments: " + string.Format("{0:#,0.00}", payment));
                 lbxReport.Items.Add("Still Owed: " + string.Format("{0:#,0.00}", avgBal));

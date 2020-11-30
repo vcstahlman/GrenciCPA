@@ -245,11 +245,12 @@
             this.StartedTime,
             this.EndedTime,
             this.Desc});
-            this.dgvTime.Location = new System.Drawing.Point(761, 441);
+            this.dgvTime.Location = new System.Drawing.Point(698, 441);
+            this.dgvTime.MultiSelect = false;
             this.dgvTime.Name = "dgvTime";
             this.dgvTime.RowHeadersWidth = 51;
             this.dgvTime.RowTemplate.Height = 24;
-            this.dgvTime.Size = new System.Drawing.Size(581, 206);
+            this.dgvTime.Size = new System.Drawing.Size(708, 206);
             this.dgvTime.TabIndex = 58;
             // 
             // TimeLength
@@ -298,7 +299,7 @@
             // txtSubtract
             // 
             this.txtSubtract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSubtract.Location = new System.Drawing.Point(612, 619);
+            this.txtSubtract.Location = new System.Drawing.Point(573, 619);
             this.txtSubtract.Name = "txtSubtract";
             this.txtSubtract.Size = new System.Drawing.Size(106, 24);
             this.txtSubtract.TabIndex = 67;
@@ -308,7 +309,7 @@
             // 
             this.lblSubtractTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSubtractTime.AutoSize = true;
-            this.lblSubtractTime.Location = new System.Drawing.Point(494, 619);
+            this.lblSubtractTime.Location = new System.Drawing.Point(455, 619);
             this.lblSubtractTime.Name = "lblSubtractTime";
             this.lblSubtractTime.Size = new System.Drawing.Size(104, 18);
             this.lblSubtractTime.TabIndex = 66;
@@ -318,9 +319,9 @@
             // btnEditTime
             // 
             this.btnEditTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditTime.Location = new System.Drawing.Point(496, 489);
+            this.btnEditTime.Location = new System.Drawing.Point(458, 520);
             this.btnEditTime.Name = "btnEditTime";
-            this.btnEditTime.Size = new System.Drawing.Size(120, 51);
+            this.btnEditTime.Size = new System.Drawing.Size(221, 51);
             this.btnEditTime.TabIndex = 65;
             this.btnEditTime.Text = "Edit Time";
             this.btnEditTime.UseVisualStyleBackColor = true;
@@ -330,7 +331,7 @@
             // 
             this.lblAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblAddTime.AutoSize = true;
-            this.lblAddTime.Location = new System.Drawing.Point(526, 592);
+            this.lblAddTime.Location = new System.Drawing.Point(487, 592);
             this.lblAddTime.Name = "lblAddTime";
             this.lblAddTime.Size = new System.Drawing.Size(74, 18);
             this.lblAddTime.TabIndex = 64;
@@ -340,7 +341,7 @@
             // txtAddTime
             // 
             this.txtAddTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAddTime.Location = new System.Drawing.Point(612, 589);
+            this.txtAddTime.Location = new System.Drawing.Point(573, 589);
             this.txtAddTime.Name = "txtAddTime";
             this.txtAddTime.Size = new System.Drawing.Size(106, 24);
             this.txtAddTime.TabIndex = 63;
@@ -349,9 +350,9 @@
             // btnTimer
             // 
             this.btnTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTimer.Location = new System.Drawing.Point(623, 489);
+            this.btnTimer.Location = new System.Drawing.Point(458, 463);
             this.btnTimer.Name = "btnTimer";
-            this.btnTimer.Size = new System.Drawing.Size(120, 51);
+            this.btnTimer.Size = new System.Drawing.Size(221, 51);
             this.btnTimer.TabIndex = 59;
             this.btnTimer.Text = "Start Timer";
             this.btnTimer.UseVisualStyleBackColor = true;

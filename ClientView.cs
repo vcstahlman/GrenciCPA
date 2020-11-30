@@ -498,7 +498,7 @@ namespace GrenciCPA
         {
             foreach(AInvoice invoice in invoiceList)
             {
-                dgvClientPast.Rows.Add(invoice.SentDate.ToLongDateString(), GetServ(clientID), invoice.AmtOwed, invoice.AmtPaid);
+                dgvClientPast.Rows.Add(invoice.SentDate.ToShortDateString(), GetServ(clientID), invoice.AmtOwed, invoice.AmtPaid);
             }
         }
 
