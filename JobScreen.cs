@@ -1262,14 +1262,17 @@ namespace GrenciCPA
                     if (reader["CHAR_COST"] != DBNull.Value)
                     {
                         tempComp.Char_cost = (reader["CHAR_COST"] as decimal?) ?? 0.00m;
+                        //tempComp.Char_cost = decimal.Parse( reader["CHAR_COST"] as string);
                     }                    
                     if (reader["CHAR_MULTI"] != DBNull.Value)
                     {
                         tempComp.Char_multi = (reader["CHAR_MULTI"] as decimal?) ?? 0.00m;
+                        //tempComp.Char_multi = decimal.Parse(reader["CHAR_MULTI"] as string);
                     }
                     if (reader["TOTAL"] != DBNull.Value)
                     {
                         tempComp.Total = (reader["TOTAL"] as decimal?) ?? 0.00m;
+                        //tempComp.Total = decimal.Parse(reader["TOTAL"] as string);
                         
                     }
 

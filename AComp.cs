@@ -35,6 +35,9 @@ namespace GrenciCPA
         {
             sortInt = 0;
             row = -1;
+
+            char_multi = 1.00m;
+            total = 0.00m;
         }
 
         public int Component_ID { get => component_ID; set => component_ID = value; }

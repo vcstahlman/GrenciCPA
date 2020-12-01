@@ -274,174 +274,186 @@ namespace GrenciCPA
         //makes the invoice and deactivates the job
         private void btnMakeInvoice_Click_1(object sender, EventArgs e)
         {
-
-
-            //will save invoice on the path of the id
-            string inString = "";
-            int invoice = 0;
-
-            for (int i = 0; i < service_names.Count; i++)
+            if(MessageBox.Show("Once you complete the invoice, you can no longer make changes to it. Are you sure you would like to complete?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                string sentence = service_sentences[i];
-                decimal total = service_totals[i];
+                //will save invoice on the path of the id
+                string inString = "";
+                int invoice = 0;
 
-                inString += sentence + ": $" + string.Format("{0:#,0.00}", total )+ "\n";
+                for (int i = 0; i < service_names.Count; i++)
+                {
+                    string sentence = service_sentences[i];
+                    decimal total = service_totals[i];
 
+                    inString += sentence + ": $" + string.Format("{0:#,0.00}", total) + "\n";
+
+                }
+                string SetInvoiceSQL = "INSERT INTO INVOICE_TABLE (JOB_ID, AMOUNT_OWED, AMOUNT_PAID, INVOICE_TEXT, FILE_PATH, DATE_SENT) " +
+                    "OUTPUT INSERTED.INVOICE_ID " +
+                    "VALUES (@JOB_ID, @OWED, @PAID, @TEXT, @PATH, @DATE); ";
+
+
+                //sets the path of the file
+                filePath = "C:/Invoices/" + clientFirstName + clientLastName + clientID + "/" + jobID + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
+                if (clientCompany != "" || clientCompany != null) filePath = "C:/Invoices/" + clientCompany + clientID + "/" + jobID + clientCompany + DateTime.Now.Year.ToString() + ".pdf";
+
+                connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+                try
+                {
+                    connection = new SqlConnection(connectionString);
+                    command = new SqlCommand(SetInvoiceSQL, connection);
+                    //Open the connection
+                    connection.Open();
+
+
+                    command.Parameters.AddWithValue("@JOB_ID", jobID);
+                    command.Parameters.AddWithValue("@OWED", finalTotal);
+                    command.Parameters.AddWithValue("@PAID", 0);
+                    command.Parameters.AddWithValue("@TEXT", inString);
+                    command.Parameters.AddWithValue("@PATH", filePath);
+                    command.Parameters.AddWithValue("@DATE", DateTime.Now);
+
+
+
+                    var lastID = command.ExecuteScalar(); //this gets the data of the client that was just added into the system
+                    invoice = Convert.ToInt32(lastID);
+
+
+                    connection.Close();
+                    // Once this button is clicked, it will generated a new pdf and save it to the user's computer, in case they want to print it out or
+                    // save it for later on
+
+                    command = new SqlCommand("UPDATE JOB_TABLE SET JOB_ACTIVE = @active WHERE JOB_ID = " + jobID + ";", connection);
+
+                    connection.Open();
+                    command.Parameters.AddWithValue("@JOB_ACTIVE", 0);
+
+                    connection.Close();
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Could not make invoice! \nError: " + ex.Message);
+                    return;//stops the creation of an invoice file if it fails
+                }
+
+
+                //makes the pdf document with the information on the datagridview
+                Document document = new Document();
+
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
+                PdfWriter.GetInstance(document, new FileStream(@filePath, FileMode.Create));
+                document.Open();
+                iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(@"GrenciHeader.jpg");
+                iTextSharp.text.Image img2 = iTextSharp.text.Image.GetInstance(@"GrenciFooter.jpg");
+                img.Alignment = Element.ALIGN_CENTER;
+                img2.Alignment = Element.ALIGN_CENTER;
+                img.ScaleToFit(450f, 1500f);
+                img2.ScaleToFit(450f, 1500f);
+                document.Add(img);
+                var normalFont = FontFactory.GetFont(FontFactory.TIMES, 12);
+                var boldFont = FontFactory.GetFont(FontFactory.TIMES_BOLD, 12);
+                var h1 = new Paragraph();
+                h1.Alignment = Element.ALIGN_CENTER;
+                h1.Add(new Chunk("\n" + "\n" + "INVOICE " + "\n", boldFont));
+                Paragraph date = new Paragraph(DateTime.Now.ToLongDateString(), normalFont);
+                Paragraph p1;
+                if (clientLastName != "")
+                {
+                    p1 = new Paragraph("\n" + clientFirstName + " " + clientLastName, normalFont);
+                }
+                else
+                {
+                    p1 = new Paragraph("\n" + clientCompany, normalFont);
+                }
+                Paragraph p2 = new Paragraph(clientAddress, normalFont);
+                Paragraph p3 = new Paragraph(clientCity + ", " + clientState + " " + clientZip + "\n\n", normalFont);
+                document.Add(h1);
+                document.Add(date);
+                document.Add(p1);
+                document.Add(p2);
+                document.Add(p3);
+                Paragraph p4;
+                for (int i = 0; i < dgvInvoice.Rows.Count; i++)
+                {
+                    string sentence = dgvInvoice.Rows[i].Cells[0].Value.ToString();
+                    decimal total = decimal.Parse(dgvInvoice.Rows[i].Cells[1].Value.ToString());
+                    cumulativeTotal = total + cumulativeTotal;
+                    p4 = new Paragraph(sentence + ": $" + string.Format("{0:#,0.00}", total) + "\n", normalFont);
+                    document.Add(p4);
+                }
+                //Comes from the sum of the job
+                Paragraph p5 = new Paragraph("\n" + "Total Amount Due: $" + string.Format("{0:#,0.00}", finalTotal), boldFont);
+                Paragraph p6 = new Paragraph("\n\n" + "Thank you for your business!" + "\n\n", normalFont);
+                document.Add(p5);
+                document.Add(p6);
+                document.Add(img2);
+                document.Close();
+
+                btnMakeInvoice.Text = "Invoice made";
+
+                btnMakeInvoice.Enabled = false;
+                btnEmail.Enabled = true;
+                btnPrint.Enabled = true;
+
+
+
+                string setPaymentSQL = "UPDATE JOB_TABLE SET JOB_ACTIVE = 0  WHERE JOB_ID = " + jobID + ";";
+                //we are going through and updating the prices that we need to pull
+
+                //Pulled from App.config
+                connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+                try
+                {
+                    connection = new SqlConnection(connectionString);
+                    command = new SqlCommand(setPaymentSQL, connection);
+                    //Open the connection
+                    connection.Open();
+                    command.ExecuteNonQuery();//tells ya if it worked
+
+                    connection.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not deactivate job \nError: " + ex.Message);
+                }
+
+
+                setPaymentSQL = "UPDATE CLIENT_TABLE SET OWED_BALANCE = @BAL WHERE CLIENT_ID = " + clientID + ";";
+                //we are going through and updating the prices that we need to pull
+
+                //Pulled from App.config
+                connectionString = Properties.Settings.Default.GrenciDBConnectionString;
+                try
+                {
+                    connection = new SqlConnection(connectionString);
+                    command = new SqlCommand(setPaymentSQL, connection);
+                    //Open the connection
+                    connection.Open();
+                    ClientsObj.Balance += finalTotal;
+
+                    command.Parameters.AddWithValue("@BAL", ClientsObj.Balance);
+                    command.ExecuteNonQuery();//tells ya if it worked
+
+                    connection.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not deactivate job \nError: " + ex.Message);
+                }
+
+
+                btnClose.Text = "Close";
             }
-            string SetInvoiceSQL = "INSERT INTO INVOICE_TABLE (JOB_ID, AMOUNT_OWED, AMOUNT_PAID, INVOICE_TEXT, FILE_PATH, DATE_SENT) " +
-                "OUTPUT INSERTED.INVOICE_ID " +
-                "VALUES (@JOB_ID, @OWED, @PAID, @TEXT, @PATH, @DATE); ";
 
 
-            //sets the path of the file
-            filePath = "C:/Invoices/" + clientFirstName + clientLastName + clientID +"/"+ jobID + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
-            if(clientCompany != "" || clientCompany != null) filePath = "C:/Invoices/" + clientCompany + clientID + "/" + jobID + clientCompany + DateTime.Now.Year.ToString() + ".pdf";
-
-            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-            try
-            {
-                connection = new SqlConnection(connectionString);
-                command = new SqlCommand(SetInvoiceSQL, connection);
-                //Open the connection
-                connection.Open();
-
-
-                command.Parameters.AddWithValue("@JOB_ID", jobID);
-                command.Parameters.AddWithValue("@OWED", finalTotal);
-                command.Parameters.AddWithValue("@PAID", 0);
-                command.Parameters.AddWithValue("@TEXT", inString);
-                command.Parameters.AddWithValue("@PATH", filePath);
-                command.Parameters.AddWithValue("@DATE", DateTime.Now);
-
-
-
-                var lastID = command.ExecuteScalar(); //this gets the data of the client that was just added into the system
-                invoice = Convert.ToInt32(lastID);
-
-
-                connection.Close();
-                // Once this button is clicked, it will generated a new pdf and save it to the user's computer, in case they want to print it out or
-                // save it for later on
-
-                command = new SqlCommand("UPDATE JOB_TABLE SET JOB_ACTIVE = @active WHERE JOB_ID = " + jobID + ";", connection);
-
-                connection.Open();
-                command.Parameters.AddWithValue("@JOB_ACTIVE", 0);
-
-                connection.Close();
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Could not make invoice! \nError: " + ex.Message);
-                return;//stops the creation of an invoice file if it fails
-            }
-
-
-            //makes the pdf document with the information on the datagridview
-            Document document = new Document();
-
-            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-
-            PdfWriter.GetInstance(document, new FileStream(@filePath, FileMode.Create));
-            document.Open();
-            iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(@"GrenciHeader.jpg");
-            iTextSharp.text.Image img2 = iTextSharp.text.Image.GetInstance(@"GrenciFooter.jpg");
-            img.Alignment = Element.ALIGN_CENTER;
-            img2.Alignment = Element.ALIGN_CENTER;
-            img.ScaleToFit(450f, 1500f);
-            img2.ScaleToFit(450f, 1500f);
-            document.Add(img);
-            var normalFont = FontFactory.GetFont(FontFactory.TIMES, 12);
-            var boldFont = FontFactory.GetFont(FontFactory.TIMES_BOLD, 12);
-            var h1 = new Paragraph();
-            h1.Alignment = Element.ALIGN_CENTER;
-            h1.Add(new Chunk("\n" + "\n" + "INVOICE " + "\n", boldFont));
-            Paragraph date = new Paragraph(DateTime.Now.ToLongDateString(), normalFont);
-            Paragraph p1 = new Paragraph("\n" + clientFirstName + " " + clientLastName, normalFont);
-            if (clientCompany != "" || clientCompany != null) p1 = new Paragraph("\n" + clientCompany, normalFont);
-            Paragraph p2 = new Paragraph(clientAddress, normalFont);
-            Paragraph p3 = new Paragraph(clientCity + ", " + clientState + " " + clientZip + "\n\n", normalFont);
-            document.Add(h1);
-            document.Add(date);
-            document.Add(p1);
-            document.Add(p2);
-            document.Add(p3);
-            Paragraph p4;
-            for (int i = 0; i < dgvInvoice.Rows.Count; i++)
-            {
-                string sentence = dgvInvoice.Rows[i].Cells[0].Value.ToString();
-                decimal total = decimal.Parse(dgvInvoice.Rows[i].Cells[1].Value.ToString());
-                cumulativeTotal = total + cumulativeTotal;
-                p4 = new Paragraph(sentence + ": $" + string.Format("{0:#,0.00}", total) + "\n", normalFont);
-                document.Add(p4);
-            }
-            //Comes from the sum of the job
-            Paragraph p5 = new Paragraph("\n" + "Total Amount Due: $" + string.Format("{0:#,0.00}",finalTotal), boldFont);
-            Paragraph p6 = new Paragraph("\n\n" + "Thank you for your business!" + "\n\n", normalFont);
-            document.Add(p5);
-            document.Add(p6);
-            document.Add(img2);
-            document.Close();
-
-            btnMakeInvoice.Text = "Invoice made";
-            btnMakeInvoice.Enabled = false;
-            btnEmail.Enabled = true;
-            btnPrint.Enabled = true;
-
-
-
-            string setPaymentSQL = "UPDATE JOB_TABLE SET JOB_ACTIVE = 0  WHERE JOB_ID = " + jobID + ";";
-            //we are going through and updating the prices that we need to pull
-
-            //Pulled from App.config
-            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-            try
-            {
-                connection = new SqlConnection(connectionString);
-                command = new SqlCommand(setPaymentSQL, connection);
-                //Open the connection
-                connection.Open();
-                command.ExecuteNonQuery();//tells ya if it worked
-
-                connection.Close();
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Could not deactivate job \nError: " + ex.Message);
-            }
-
-
-            setPaymentSQL = "UPDATE CLIENT_TABLE SET OWED_BALANCE = @BAL WHERE CLIENT_ID = " + clientID + ";";
-            //we are going through and updating the prices that we need to pull
-
-            //Pulled from App.config
-            connectionString = Properties.Settings.Default.GrenciDBConnectionString;
-            try
-            {
-                connection = new SqlConnection(connectionString);
-                command = new SqlCommand(setPaymentSQL, connection);
-                //Open the connection
-                connection.Open();
-                ClientsObj.Balance += finalTotal;
-
-                command.Parameters.AddWithValue("@BAL", ClientsObj.Balance);
-                command.ExecuteNonQuery();//tells ya if it worked
-
-                connection.Close();
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Could not deactivate job \nError: " + ex.Message);
-            }
-
-
-            btnClose.Text = "Close";
+            
         }
 
 

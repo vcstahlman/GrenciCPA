@@ -29,4 +29,3 @@ C:\Users\vicst\Desktop\411\GrenciCPA\obj\Release\GrenciCPA.csproj.CoreCompileInp
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Release\GrenciCPA.csproj.CopyComplete
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Release\GrenciCPA.exe
 C:\Users\vicst\Desktop\411\GrenciCPA\obj\Release\GrenciCPA.pdb
-C:\Users\vicst\Desktop\411\GrenciCPA\obj\Release\GrenciCPA.csprojAssemblyReference.cache
