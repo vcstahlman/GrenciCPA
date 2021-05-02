@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>afg_logo_APZ_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -52,12 +55,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AChar.cs" />
+    <Compile Include="AClient.cs" />
+    <Compile Include="AComp.cs" />
     <Compile Include="AddClient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddClient.Designer.cs">
       <DependentUpon>AddClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="AFee.cs" />
+    <Compile Include="AInvoice.cs" />
+    <Compile Include="APayment.cs" />
+    <Compile Include="AServ.cs" />
+    <Compile Include="AStaff.cs" />
+    <Compile Include="ATime.cs" />
     <Compile Include="ClientList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +93,14 @@
     </Compile>
     <Compile Include="Globals.Designer.cs">
       <DependentUpon>Globals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrenciDBDataSet.cs">
+      <DependentUpon>GrenciDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GrenciDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrenciDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Invoices.cs">
       <SubType>Form</SubType>
@@ -120,17 +140,17 @@
       <DependentUpon>Payments.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportDemo.Designer.cs">
+      <DependentUpon>ReportDemo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceSelect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ServiceSelect.Designer.cs">
-      <DependentUpon>ServiceSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
@@ -193,11 +213,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportDemo.resx">
+      <DependentUpon>ReportDemo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ServiceSelect.resx">
-      <DependentUpon>ServiceSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
@@ -208,6 +228,17 @@
     <EmbeddedResource Include="StaffSelect.resx">
       <DependentUpon>StaffSelect.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="GrenciDBDataSet.xsc">
+      <DependentUpon>GrenciDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GrenciDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GrenciDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GrenciDBDataSet.xss">
+      <DependentUpon>GrenciDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -229,6 +260,9 @@
     <Content Include="AFG Logo.JPG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="afg_logo_APZ_icon.ico" />
+    <Content Include="GrenciFooter.jpg" />
+    <Content Include="GrenciHeader.jpg" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

@@ -29,31 +29,29 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffSelect));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboStaff = new System.Windows.Forms.ComboBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cboStaff
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Anthony Grenci"});
-            this.comboBox1.Location = new System.Drawing.Point(34, 50);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(234, 24);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Text = "Choose Staff";
+            this.cboStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboStaff.FormattingEnabled = true;
+            this.cboStaff.Location = new System.Drawing.Point(39, 73);
+            this.cboStaff.Name = "cboStaff";
+            this.cboStaff.Size = new System.Drawing.Size(262, 26);
+            this.cboStaff.TabIndex = 0;
+            this.cboStaff.Text = "Choose Staff";
             // 
             // btnSelect
             // 
             this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSelect.Location = new System.Drawing.Point(158, 106);
+            this.btnSelect.Location = new System.Drawing.Point(177, 152);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(133, 49);
+            this.btnSelect.Size = new System.Drawing.Size(150, 55);
             this.btnSelect.TabIndex = 1;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -62,9 +60,9 @@
             // btnClose
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClose.Location = new System.Drawing.Point(158, 161);
+            this.btnClose.Location = new System.Drawing.Point(177, 215);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(134, 43);
+            this.btnClose.Size = new System.Drawing.Size(150, 48);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -73,43 +71,47 @@
             // btnAdd
             // 
             this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAdd.Location = new System.Drawing.Point(12, 106);
+            this.btnAdd.Location = new System.Drawing.Point(14, 152);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(127, 49);
+            this.btnAdd.Size = new System.Drawing.Size(142, 55);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add Staff";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAddEdit_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(12, 161);
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnEdit.Location = new System.Drawing.Point(14, 215);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(127, 43);
+            this.btnEdit.Size = new System.Drawing.Size(142, 48);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // StaffSelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 216);
+            this.ClientSize = new System.Drawing.Size(351, 277);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboStaff);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StaffSelect";
             this.Text = "StaffSelect";
+            this.Load += new System.EventHandler(this.StaffSelect_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboStaff;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAdd;

@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientView));
             this.button3 = new System.Windows.Forms.Button();
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
@@ -46,30 +45,31 @@
             this.lblAddressSt = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.dgvClientPast = new System.Windows.Forms.DataGridView();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDateInvoiced = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAmountCharged = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDateInvoiced = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEditNotes = new System.Windows.Forms.Button();
             this.btnNewJob = new System.Windows.Forms.Button();
             this.btnActive = new System.Windows.Forms.Button();
             this.lblNotes = new System.Windows.Forms.Label();
-            this.btnAddLabels = new System.Windows.Forms.Button();
-            this.lblLabel = new System.Windows.Forms.Label();
+            this.lblChar = new System.Windows.Forms.Label();
             this.lbxLabels = new System.Windows.Forms.ListBox();
-            this.lblOverdue = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.lblBirthdate = new System.Windows.Forms.Label();
+            this.lblCounty = new System.Windows.Forms.Label();
+            this.lblSchool = new System.Windows.Forms.Label();
+            this.lblParent = new System.Windows.Forms.Label();
+            this.btnPayments = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(697, 386);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Location = new System.Drawing.Point(909, 591);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 45);
+            this.button3.Size = new System.Drawing.Size(194, 62);
             this.button3.TabIndex = 28;
             this.button3.Text = "Close";
             this.button3.UseVisualStyleBackColor = true;
@@ -78,18 +78,20 @@
             // rtbNotes
             // 
             this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbNotes.Location = new System.Drawing.Point(507, 19);
+            this.rtbNotes.Location = new System.Drawing.Point(625, 26);
+            this.rtbNotes.Margin = new System.Windows.Forms.Padding(4);
             this.rtbNotes.Name = "rtbNotes";
             this.rtbNotes.ReadOnly = true;
-            this.rtbNotes.Size = new System.Drawing.Size(320, 133);
+            this.rtbNotes.Size = new System.Drawing.Size(478, 223);
             this.rtbNotes.TabIndex = 23;
             this.rtbNotes.Text = ". Kids just left for college\n. Recently moved to 123 Main Street\n";
             // 
             // btnEditClient
             // 
-            this.btnEditClient.Location = new System.Drawing.Point(8, 126);
+            this.btnEditClient.Location = new System.Drawing.Point(351, 204);
+            this.btnEditClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditClient.Name = "btnEditClient";
-            this.btnEditClient.Size = new System.Drawing.Size(94, 23);
+            this.btnEditClient.Size = new System.Drawing.Size(141, 32);
             this.btnEditClient.TabIndex = 22;
             this.btnEditClient.Text = "Edit Client Info";
             this.btnEditClient.UseVisualStyleBackColor = true;
@@ -98,60 +100,72 @@
             // lblSSN
             // 
             this.lblSSN.AutoSize = true;
-            this.lblSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSSN.Location = new System.Drawing.Point(10, 109);
+            this.lblSSN.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSSN.Location = new System.Drawing.Point(15, 230);
+            this.lblSSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSSN.Name = "lblSSN";
-            this.lblSSN.Size = new System.Drawing.Size(78, 13);
+            this.lblSSN.Size = new System.Drawing.Size(101, 18);
             this.lblSSN.TabIndex = 21;
             this.lblSSN.Text = "200-14-3987";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(10, 95);
+            this.lblEmail.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(15, 210);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(115, 13);
+            this.lblEmail.Size = new System.Drawing.Size(158, 18);
             this.lblEmail.TabIndex = 20;
             this.lblEmail.Text = "smiths@yahoo.com";
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(11, 81);
+            this.lblPhone.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(15, 191);
+            this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(85, 13);
+            this.lblPhone.Size = new System.Drawing.Size(110, 18);
             this.lblPhone.TabIndex = 19;
             this.lblPhone.Text = "814-393-2500";
             // 
             // lblAddressCSZ
             // 
             this.lblAddressCSZ.AutoSize = true;
-            this.lblAddressCSZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressCSZ.Location = new System.Drawing.Point(10, 60);
+            this.lblAddressCSZ.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblAddressCSZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddressCSZ.Location = new System.Drawing.Point(15, 83);
+            this.lblAddressCSZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressCSZ.Name = "lblAddressCSZ";
-            this.lblAddressCSZ.Size = new System.Drawing.Size(109, 13);
+            this.lblAddressCSZ.Size = new System.Drawing.Size(143, 18);
             this.lblAddressCSZ.TabIndex = 18;
             this.lblAddressCSZ.Text = "Clarion, PA 16214";
             // 
             // lblAddressSt
             // 
             this.lblAddressSt.AutoSize = true;
-            this.lblAddressSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressSt.Location = new System.Drawing.Point(10, 46);
+            this.lblAddressSt.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblAddressSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddressSt.Location = new System.Drawing.Point(15, 64);
+            this.lblAddressSt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressSt.Name = "lblAddressSt";
-            this.lblAddressSt.Size = new System.Drawing.Size(97, 13);
+            this.lblAddressSt.Size = new System.Drawing.Size(126, 18);
             this.lblAddressSt.TabIndex = 17;
             this.lblAddressSt.Text = "123 Main Street";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(10, 19);
+            this.lblName.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(15, 26);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(118, 13);
+            this.lblName.Size = new System.Drawing.Size(158, 18);
             this.lblName.TabIndex = 16;
             this.lblName.Text = "Joe and Joan Smith";
             // 
@@ -164,56 +178,55 @@
             this.dgvClientPast.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvClientPast.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvClientPast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientPast.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.StartDate,
+            this.txtDateInvoiced,
             this.Service,
             this.txtAmountCharged,
-            this.txtAmountPaid,
-            this.txtDateInvoiced});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientPast.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvClientPast.Location = new System.Drawing.Point(8, 157);
-            this.dgvClientPast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAmountPaid});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientPast.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvClientPast.Location = new System.Drawing.Point(12, 256);
             this.dgvClientPast.Name = "dgvClientPast";
             this.dgvClientPast.ReadOnly = true;
             this.dgvClientPast.RowHeadersWidth = 51;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvClientPast.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvClientPast.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvClientPast.RowTemplate.Height = 24;
-            this.dgvClientPast.Size = new System.Drawing.Size(717, 228);
+            this.dgvClientPast.Size = new System.Drawing.Size(1091, 313);
             this.dgvClientPast.TabIndex = 0;
             this.dgvClientPast.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientPast_CellContentClick);
             // 
-            // StartDate
+            // txtDateInvoiced
             // 
-            this.StartDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.StartDate.DataPropertyName = "StartDate";
+            this.txtDateInvoiced.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.txtDateInvoiced.DataPropertyName = "DateInvoiced";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Format = "d";
             dataGridViewCellStyle1.NullValue = null;
-            this.StartDate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.StartDate.HeaderText = "Start Date";
-            this.StartDate.MinimumWidth = 100;
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
-            this.StartDate.Width = 125;
+            this.txtDateInvoiced.DefaultCellStyle = dataGridViewCellStyle1;
+            this.txtDateInvoiced.HeaderText = "Date Invoiced";
+            this.txtDateInvoiced.MinimumWidth = 100;
+            this.txtDateInvoiced.Name = "txtDateInvoiced";
+            this.txtDateInvoiced.ReadOnly = true;
+            this.txtDateInvoiced.Width = 147;
             // 
             // Service
             // 
             this.Service.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Service.DataPropertyName = "Service";
+            this.Service.DataPropertyName = "Services";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Service.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Service.HeaderText = "Service";
+            this.Service.HeaderText = "Services";
             this.Service.MinimumWidth = 100;
             this.Service.Name = "Service";
             this.Service.ReadOnly = true;
@@ -221,12 +234,12 @@
             // txtAmountCharged
             // 
             this.txtAmountCharged.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.txtAmountCharged.DataPropertyName = "AmountCharged";
+            this.txtAmountCharged.DataPropertyName = "AmountOwed";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle3.Format = "C2";
             dataGridViewCellStyle3.NullValue = null;
             this.txtAmountCharged.DefaultCellStyle = dataGridViewCellStyle3;
-            this.txtAmountCharged.HeaderText = "Amount Charged";
+            this.txtAmountCharged.HeaderText = "Amount Owed";
             this.txtAmountCharged.MinimumWidth = 100;
             this.txtAmountCharged.Name = "txtAmountCharged";
             this.txtAmountCharged.ReadOnly = true;
@@ -246,39 +259,12 @@
             this.txtAmountPaid.ReadOnly = true;
             this.txtAmountPaid.Width = 125;
             // 
-            // txtDateInvoiced
-            // 
-            this.txtDateInvoiced.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.txtDateInvoiced.DataPropertyName = "DateInvoiced";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.txtDateInvoiced.DefaultCellStyle = dataGridViewCellStyle5;
-            this.txtDateInvoiced.HeaderText = "Date Invoiced";
-            this.txtDateInvoiced.MinimumWidth = 100;
-            this.txtDateInvoiced.Name = "txtDateInvoiced";
-            this.txtDateInvoiced.ReadOnly = true;
-            this.txtDateInvoiced.Width = 147;
-            // 
-            // btnEditNotes
-            // 
-            this.btnEditNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditNotes.Location = new System.Drawing.Point(729, 157);
-            this.btnEditNotes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnEditNotes.Name = "btnEditNotes";
-            this.btnEditNotes.Size = new System.Drawing.Size(94, 25);
-            this.btnEditNotes.TabIndex = 30;
-            this.btnEditNotes.Text = "Edit Notes";
-            this.btnEditNotes.UseVisualStyleBackColor = true;
-            this.btnEditNotes.Click += new System.EventHandler(this.btnEditNotes_Click);
-            // 
             // btnNewJob
             // 
             this.btnNewJob.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNewJob.Location = new System.Drawing.Point(8, 386);
-            this.btnNewJob.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewJob.Location = new System.Drawing.Point(12, 591);
             this.btnNewJob.Name = "btnNewJob";
-            this.btnNewJob.Size = new System.Drawing.Size(120, 45);
+            this.btnNewJob.Size = new System.Drawing.Size(180, 62);
             this.btnNewJob.TabIndex = 31;
             this.btnNewJob.Text = "New Job";
             this.btnNewJob.UseVisualStyleBackColor = true;
@@ -287,10 +273,9 @@
             // btnActive
             // 
             this.btnActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnActive.Location = new System.Drawing.Point(132, 386);
-            this.btnActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnActive.Location = new System.Drawing.Point(200, 591);
             this.btnActive.Name = "btnActive";
-            this.btnActive.Size = new System.Drawing.Size(120, 45);
+            this.btnActive.Size = new System.Drawing.Size(180, 62);
             this.btnActive.TabIndex = 34;
             this.btnActive.Text = "Active Jobs";
             this.btnActive.UseVisualStyleBackColor = true;
@@ -300,80 +285,128 @@
             // 
             this.lblNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(505, 5);
-            this.lblNotes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNotes.Location = new System.Drawing.Point(621, 7);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(38, 13);
+            this.lblNotes.Size = new System.Drawing.Size(52, 18);
             this.lblNotes.TabIndex = 35;
             this.lblNotes.Text = "Notes:";
             // 
-            // btnAddLabels
+            // lblChar
             // 
-            this.btnAddLabels.Location = new System.Drawing.Point(235, 128);
-            this.btnAddLabels.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAddLabels.Name = "btnAddLabels";
-            this.btnAddLabels.Size = new System.Drawing.Size(68, 24);
-            this.btnAddLabels.TabIndex = 42;
-            this.btnAddLabels.Text = "Add/Edit Labels";
-            this.btnAddLabels.UseVisualStyleBackColor = true;
-            // 
-            // lblLabel
-            // 
-            this.lblLabel.AutoSize = true;
-            this.lblLabel.Location = new System.Drawing.Point(232, 25);
-            this.lblLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblLabel.Name = "lblLabel";
-            this.lblLabel.Size = new System.Drawing.Size(70, 13);
-            this.lblLabel.TabIndex = 41;
-            this.lblLabel.Text = "Client Labels:";
+            this.lblChar.AutoSize = true;
+            this.lblChar.Location = new System.Drawing.Point(346, 62);
+            this.lblChar.Name = "lblChar";
+            this.lblChar.Size = new System.Drawing.Size(152, 18);
+            this.lblChar.TabIndex = 41;
+            this.lblChar.Text = "Client Characteristics:";
             // 
             // lbxLabels
             // 
             this.lbxLabels.FormattingEnabled = true;
+            this.lbxLabels.ItemHeight = 18;
             this.lbxLabels.Items.AddRange(new object[] {
             "Joint",
             "Schedule C",
             "Dependents"});
-            this.lbxLabels.Location = new System.Drawing.Point(235, 41);
-            this.lbxLabels.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbxLabels.Location = new System.Drawing.Point(351, 83);
             this.lbxLabels.Name = "lbxLabels";
-            this.lbxLabels.Size = new System.Drawing.Size(171, 82);
+            this.lbxLabels.Size = new System.Drawing.Size(254, 112);
             this.lbxLabels.TabIndex = 40;
             // 
-            // lblOverdue
+            // lblBalance
             // 
-            this.lblOverdue.AutoSize = true;
-            this.lblOverdue.Location = new System.Drawing.Point(232, 6);
-            this.lblOverdue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblOverdue.Name = "lblOverdue";
-            this.lblOverdue.Size = new System.Drawing.Size(93, 13);
-            this.lblOverdue.TabIndex = 39;
-            this.lblOverdue.Text = "Overdue: $100.00";
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Location = new System.Drawing.Point(348, 8);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(121, 18);
+            this.lblBalance.TabIndex = 39;
+            this.lblBalance.Text = "Balance: $100.00";
             // 
-            // btnSave
+            // lblBirthdate
             // 
-            this.btnSave.Location = new System.Drawing.Point(341, 127);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(64, 25);
-            this.btnSave.TabIndex = 38;
-            this.btnSave.Text = "Save Notes";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.lblBirthdate.AutoSize = true;
+            this.lblBirthdate.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBirthdate.Location = new System.Drawing.Point(15, 172);
+            this.lblBirthdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBirthdate.Name = "lblBirthdate";
+            this.lblBirthdate.Size = new System.Drawing.Size(92, 18);
+            this.lblBirthdate.TabIndex = 44;
+            this.lblBirthdate.Text = "1997-10-01";
+            // 
+            // lblCounty
+            // 
+            this.lblCounty.AutoSize = true;
+            this.lblCounty.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblCounty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCounty.Location = new System.Drawing.Point(15, 115);
+            this.lblCounty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCounty.Name = "lblCounty";
+            this.lblCounty.Size = new System.Drawing.Size(52, 18);
+            this.lblCounty.TabIndex = 43;
+            this.lblCounty.Text = "Butler";
+            // 
+            // lblSchool
+            // 
+            this.lblSchool.AutoSize = true;
+            this.lblSchool.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSchool.Location = new System.Drawing.Point(15, 134);
+            this.lblSchool.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSchool.Name = "lblSchool";
+            this.lblSchool.Size = new System.Drawing.Size(78, 18);
+            this.lblSchool.TabIndex = 42;
+            this.lblSchool.Text = "North BC";
+            // 
+            // lblParent
+            // 
+            this.lblParent.AutoSize = true;
+            this.lblParent.Location = new System.Drawing.Point(350, 32);
+            this.lblParent.Name = "lblParent";
+            this.lblParent.Size = new System.Drawing.Size(90, 18);
+            this.lblParent.TabIndex = 45;
+            this.lblParent.Text = "Juana Smith";
+            // 
+            // btnPayments
+            // 
+            this.btnPayments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPayments.Location = new System.Drawing.Point(387, 590);
+            this.btnPayments.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPayments.Name = "btnPayments";
+            this.btnPayments.Size = new System.Drawing.Size(180, 62);
+            this.btnPayments.TabIndex = 46;
+            this.btnPayments.Text = "Payments";
+            this.btnPayments.UseVisualStyleBackColor = true;
+            this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Location = new System.Drawing.Point(779, 591);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(124, 61);
+            this.btnRefresh.TabIndex = 47;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // ClientView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 441);
-            this.Controls.Add(this.btnAddLabels);
-            this.Controls.Add(this.lblLabel);
+            this.ClientSize = new System.Drawing.Size(1112, 665);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnPayments);
+            this.Controls.Add(this.lblParent);
+            this.Controls.Add(this.lblBirthdate);
+            this.Controls.Add(this.lblCounty);
+            this.Controls.Add(this.lblSchool);
+            this.Controls.Add(this.lblChar);
             this.Controls.Add(this.lbxLabels);
-            this.Controls.Add(this.lblOverdue);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.lblBalance);
             this.Controls.Add(this.lblNotes);
             this.Controls.Add(this.btnActive);
             this.Controls.Add(this.btnNewJob);
-            this.Controls.Add(this.btnEditNotes);
             this.Controls.Add(this.dgvClientPast);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.rtbNotes);
@@ -384,8 +417,8 @@
             this.Controls.Add(this.lblAddressCSZ);
             this.Controls.Add(this.lblAddressSt);
             this.Controls.Add(this.lblName);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ClientView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientView";
@@ -408,19 +441,21 @@
         private System.Windows.Forms.Label lblAddressSt;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.DataGridView dgvClientPast;
-        private System.Windows.Forms.Button btnEditNotes;
         private System.Windows.Forms.Button btnNewJob;
         private System.Windows.Forms.Button btnActive;
         private System.Windows.Forms.Label lblNotes;
-        private System.Windows.Forms.Button btnAddLabels;
-        private System.Windows.Forms.Label lblLabel;
+        private System.Windows.Forms.Label lblChar;
         private System.Windows.Forms.ListBox lbxLabels;
-        private System.Windows.Forms.Label lblOverdue;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
+        private System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label lblBirthdate;
+        private System.Windows.Forms.Label lblCounty;
+        private System.Windows.Forms.Label lblSchool;
+        private System.Windows.Forms.Label lblParent;
+        private System.Windows.Forms.Button btnPayments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtDateInvoiced;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountCharged;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountPaid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtDateInvoiced;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
