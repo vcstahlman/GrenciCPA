@@ -83,8 +83,8 @@ namespace GrenciCPA
         //when loading the page it will set the comboboxes and their values
         private void JobScreen_Load(object sender, EventArgs e)
         {
-                     
 
+            
             (dgvFees.Columns[2] as DataGridViewComboBoxColumn).DataSource = characteristicList;
             (dgvFees.Columns[2] as DataGridViewComboBoxColumn).DisplayMember = "CharName";
             (dgvFees.Columns[2] as DataGridViewComboBoxColumn).ValueMember = "CharID";
@@ -92,6 +92,7 @@ namespace GrenciCPA
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).DataSource = serviceList;
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).DisplayMember = "ServName";
             (dgvFees.Columns[1] as DataGridViewComboBoxColumn).ValueMember = "ServID";
+            
 
             activeCheck();
             afterLoad = true;
@@ -127,7 +128,7 @@ namespace GrenciCPA
                 SaveTime(timeDesc);//saves it to the database as well.
 
                 time.Add(timeEnd.Subtract(timeStart));
-                lblTime.Text = "Total Elapsed Time: " + String.Format("{0:0.00}", time.TotalHours) + " hours";
+                
             }
 
             string message = "If you close now, any unsaved changes may be lost. Are you sure you want to continue?";
@@ -148,7 +149,7 @@ namespace GrenciCPA
             {
                 btnTimer.Text = "Stop Timer";
                 timeStart = DateTime.Now;
-                lblTime.Text = "Total Elapsed Time: " + String.Format("{0:0.00}", time.TotalHours) + " hours";
+                
 
 
             }
@@ -166,9 +167,10 @@ namespace GrenciCPA
                 SaveTime(timeDesc);//saves it to the database as well.
 
                 time.Add(timeEnd.Subtract(timeStart));
-                lblTime.Text = "Total Elapsed Time: " + String.Format("{0:0.00}", time.TotalHours) + " hours";
+                
             }
-            
+
+            GetTime();
 
 
         }
@@ -262,6 +264,7 @@ namespace GrenciCPA
                 }
 
             }
+            GetTime();
         }
 
         //saves the page via the savePage operation and it makes a box to tell you that it saved
@@ -284,6 +287,25 @@ namespace GrenciCPA
         //\\\\\\\\\\\\\\MAIN SAVE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         private void SavePage()
         {
+
+            //this makes the rows save fully in case they did not click on the datagrid after a calculation
+            jobTotal = 0;// retotal every move 
+            for (int i = 0; i < dgvFees.RowCount; i++)
+            {
+                decimal newcost = 0;
+                decimal newmulti = 0;
+
+                if (dgvFees.Rows[i].Cells[3].Value != null) decimal.TryParse(dgvFees.Rows[i].Cells[3].Value.ToString(), out newcost);
+                if (dgvFees.Rows[i].Cells[4].Value != null) decimal.TryParse(dgvFees.Rows[i].Cells[4].Value.ToString(), out newmulti);
+
+                decimal newtotal = newcost * newmulti;//if it is less it will be overwriten, if not it will be fine.
+                dgvFees.Rows[i].Cells[5].Value = string.Format("{0:#,0.00}", newtotal);//if the new total is more than the one in there it will rewrite.
+
+
+                jobTotal += newtotal;
+            }
+            lblTotal.Text = "Total: $" + string.Format("{0:#,0.00}", jobTotal);
+
             componentList.Clear();
 
             foreach (DataGridViewRow row in dgvFees.Rows)//goes through the dgv and saves items to the page
@@ -581,7 +603,7 @@ namespace GrenciCPA
                 SaveTime(timeDesc);//saves it to the database as well.
 
                 time.Add(timeEnd.Subtract(timeStart));
-                lblTime.Text = "Total Elapsed Time: " + string.Format("{0:#,0.00}", time.TotalHours) + " hours";
+                GetTime();
             }
 
         }
@@ -591,6 +613,7 @@ namespace GrenciCPA
         //\\\\\\\\\\\\\\\\\\TIME\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         private void GetTime()
         {
+            timeList.Clear(); //clears the list for the refresh
             string GetTimeSQL = "SELECT * FROM TIME_TABLE WHERE JOB_ID = " + jobID + ";";
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
@@ -646,12 +669,15 @@ namespace GrenciCPA
             {
                 MessageBox.Show("Could not retrieve times from Database.! \n Error reads: " + ex.Message);
             }
+            FillTimes();
             
         }
 
         //this fills the time area of the datagridview
         private void FillTimes()
         {
+            dgvTime.Rows.Clear();
+            time = new TimeSpan();
             foreach (ATime atime in timeList)
             {
                 dgvTime.Rows.Insert(0, new string[] { atime.Elapse.ToString(), atime.StartTime.ToString(), atime.EndTime.ToString(), atime.Description });
@@ -1289,7 +1315,7 @@ namespace GrenciCPA
             }
 
 
-            if (componentList.Count == 0) MessageBox.Show("Components list for this job is empty. Something did not load correct, or the job is new.");
+            //if (componentList.Count == 0) MessageBox.Show("Components list for this job is empty. Something did not load correct, or the job is new.");
             
             foreach (AComp comp in componentList)
             {
@@ -1346,6 +1372,7 @@ namespace GrenciCPA
 
             if(!isActive)//if the job is not active it will disable everything
             {
+                MessageBox.Show("Not all information may be present if you deactivated something.\nSo if there is an error that pops up before this do not worry.");
                 this.Text += ": Past Job View";
                 dgvFees.Enabled = false;
                 btnComplete.Enabled = false;
@@ -1364,7 +1391,7 @@ namespace GrenciCPA
                 AComp temp = new AComp();
                 temp.SortInt = 1; //this will tag it to be added to the list.
                 temp.Row = dgvFees.Rows.Count;//the count should be updated so this should give the comp a new rowrelated id.
-                dgvFees.Rows[e.RowIndex].Cells[4].Value = 0.00;
+                dgvFees.Rows[e.RowIndex].Cells[4].Value = 1.00;
                 dgvFees.Rows[e.RowIndex].Cells[3].Value = 0.00;
                 dgvFees.Rows[e.RowIndex].Cells[5].Value = 0.00;
                 componentList.Add(temp);

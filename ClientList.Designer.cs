@@ -41,6 +41,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientList));
             this.dgvClients = new System.Windows.Forms.DataGridView();
+            this.btnAddClient = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.cbxIsCompany = new System.Windows.Forms.CheckBox();
+            this.btnExport = new System.Windows.Forms.Button();
             this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,11 +58,6 @@
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Invoices = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAddClient = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.cbxIsCompany = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +65,6 @@
             // 
             this.dgvClients.AllowUserToAddRows = false;
             this.dgvClients.AllowUserToDeleteRows = false;
-            this.dgvClients.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
@@ -93,136 +93,6 @@
             this.dgvClients.Size = new System.Drawing.Size(1525, 519);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
-            // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.Active.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Active.FillWeight = 60F;
-            this.Active.HeaderText = "Active";
-            this.Active.MinimumWidth = 60;
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
-            this.Active.Width = 60;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.FirstName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.FirstName.FillWeight = 125F;
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.MinimumWidth = 125;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            this.FirstName.Width = 125;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "Last Name";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.LastName.DefaultCellStyle = dataGridViewCellStyle4;
-            this.LastName.FillWeight = 125F;
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.MinimumWidth = 125;
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            this.LastName.Width = 125;
-            // 
-            // txtChar
-            // 
-            this.txtChar.DataPropertyName = "Labels";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtChar.DefaultCellStyle = dataGridViewCellStyle5;
-            this.txtChar.FillWeight = 125F;
-            this.txtChar.HeaderText = "Characteristics";
-            this.txtChar.MinimumWidth = 100;
-            this.txtChar.Name = "txtChar";
-            this.txtChar.ReadOnly = true;
-            this.txtChar.Width = 125;
-            // 
-            // txtCompany
-            // 
-            this.txtCompany.DataPropertyName = "Company";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.txtCompany.DefaultCellStyle = dataGridViewCellStyle6;
-            this.txtCompany.FillWeight = 140F;
-            this.txtCompany.HeaderText = "Company";
-            this.txtCompany.MinimumWidth = 100;
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.ReadOnly = true;
-            this.txtCompany.Width = 140;
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "Address";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Address.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Address.FillWeight = 125F;
-            this.Address.HeaderText = "Address";
-            this.Address.MinimumWidth = 125;
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            this.Address.Width = 125;
-            // 
-            // City
-            // 
-            this.City.DataPropertyName = "City";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.City.DefaultCellStyle = dataGridViewCellStyle8;
-            this.City.FillWeight = 75F;
-            this.City.HeaderText = "City";
-            this.City.MinimumWidth = 75;
-            this.City.Name = "City";
-            this.City.ReadOnly = true;
-            this.City.Width = 75;
-            // 
-            // stateZip
-            // 
-            this.stateZip.DataPropertyName = "StateZip";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.stateZip.DefaultCellStyle = dataGridViewCellStyle9;
-            this.stateZip.FillWeight = 85F;
-            this.stateZip.HeaderText = "State, Zip";
-            this.stateZip.MinimumWidth = 85;
-            this.stateZip.Name = "stateZip";
-            this.stateZip.ReadOnly = true;
-            this.stateZip.Width = 85;
-            // 
-            // View
-            // 
-            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.View.DataPropertyName = "ViewClient";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.View.DefaultCellStyle = dataGridViewCellStyle10;
-            this.View.HeaderText = "View";
-            this.View.MinimumWidth = 100;
-            this.View.Name = "View";
-            this.View.ReadOnly = true;
-            this.View.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.View.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Invoices
-            // 
-            this.Invoices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Invoices.DataPropertyName = "ViewInvoices";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Invoices.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Invoices.HeaderText = "Invoices";
-            this.Invoices.MinimumWidth = 100;
-            this.Invoices.Name = "Invoices";
-            this.Invoices.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 125;
             // 
             // btnAddClient
             // 
@@ -273,12 +143,157 @@
             this.cbxIsCompany.Text = "Company only";
             this.cbxIsCompany.UseVisualStyleBackColor = true;
             // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(1219, 593);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(148, 64);
+            this.btnExport.TabIndex = 26;
+            this.btnExport.Text = "Export displayed";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.Active.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Active.FillWeight = 60F;
+            this.Active.HeaderText = "Active";
+            this.Active.MinimumWidth = 60;
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            this.Active.Visible = false;
+            this.Active.Width = 60;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.FirstName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.FirstName.FillWeight = 125F;
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.MinimumWidth = 125;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            this.FirstName.Width = 125;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "Last Name";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.LastName.DefaultCellStyle = dataGridViewCellStyle4;
+            this.LastName.FillWeight = 125F;
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.MinimumWidth = 125;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Width = 125;
+            // 
+            // txtChar
+            // 
+            this.txtChar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txtChar.DataPropertyName = "Labels";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.txtChar.DefaultCellStyle = dataGridViewCellStyle5;
+            this.txtChar.FillWeight = 125F;
+            this.txtChar.HeaderText = "Characteristics";
+            this.txtChar.MinimumWidth = 150;
+            this.txtChar.Name = "txtChar";
+            this.txtChar.ReadOnly = true;
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txtCompany.DataPropertyName = "Company";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.txtCompany.DefaultCellStyle = dataGridViewCellStyle6;
+            this.txtCompany.FillWeight = 140F;
+            this.txtCompany.HeaderText = "Company";
+            this.txtCompany.MinimumWidth = 100;
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Address.DataPropertyName = "Address";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Address.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Address.FillWeight = 125F;
+            this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 125;
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            // 
+            // City
+            // 
+            this.City.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.City.DataPropertyName = "City";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.City.DefaultCellStyle = dataGridViewCellStyle8;
+            this.City.FillWeight = 75F;
+            this.City.HeaderText = "City";
+            this.City.MinimumWidth = 75;
+            this.City.Name = "City";
+            this.City.ReadOnly = true;
+            this.City.Width = 75;
+            // 
+            // stateZip
+            // 
+            this.stateZip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.stateZip.DataPropertyName = "StateZip";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.stateZip.DefaultCellStyle = dataGridViewCellStyle9;
+            this.stateZip.FillWeight = 85F;
+            this.stateZip.HeaderText = "State/Zip";
+            this.stateZip.MinimumWidth = 85;
+            this.stateZip.Name = "stateZip";
+            this.stateZip.ReadOnly = true;
+            this.stateZip.Width = 91;
+            // 
+            // View
+            // 
+            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.View.DataPropertyName = "ViewClient";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.View.DefaultCellStyle = dataGridViewCellStyle10;
+            this.View.HeaderText = "View";
+            this.View.MinimumWidth = 100;
+            this.View.Name = "View";
+            this.View.ReadOnly = true;
+            this.View.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.View.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Invoices
+            // 
+            this.Invoices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Invoices.DataPropertyName = "ViewInvoices";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Invoices.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Invoices.HeaderText = "Invoices";
+            this.Invoices.MinimumWidth = 100;
+            this.Invoices.Name = "Invoices";
+            this.Invoices.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ClientID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 125;
+            // 
             // ClientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1555, 669);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.cbxIsCompany);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
@@ -305,6 +320,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.CheckBox cbxIsCompany;
+        private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.DataGridViewTextBoxColumn Active;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;

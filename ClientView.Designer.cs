@@ -60,6 +60,7 @@
             this.lblSchool = new System.Windows.Forms.Label();
             this.lblParent = new System.Windows.Forms.Label();
             this.btnPayments = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientPast)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,6 +178,7 @@
             this.dgvClientPast.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvClientPast.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvClientPast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientPast.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.txtDateInvoiced,
@@ -222,6 +224,7 @@
             this.Service.DataPropertyName = "Services";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Service.DefaultCellStyle = dataGridViewCellStyle2;
             this.Service.HeaderText = "Services";
             this.Service.MinimumWidth = 100;
@@ -376,11 +379,23 @@
             this.btnPayments.UseVisualStyleBackColor = true;
             this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Location = new System.Drawing.Point(779, 591);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(124, 61);
+            this.btnRefresh.TabIndex = 47;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // ClientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 665);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnPayments);
             this.Controls.Add(this.lblParent);
             this.Controls.Add(this.lblBirthdate);
@@ -436,10 +451,11 @@
         private System.Windows.Forms.Label lblCounty;
         private System.Windows.Forms.Label lblSchool;
         private System.Windows.Forms.Label lblParent;
+        private System.Windows.Forms.Button btnPayments;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtDateInvoiced;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountCharged;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtAmountPaid;
-        private System.Windows.Forms.Button btnPayments;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

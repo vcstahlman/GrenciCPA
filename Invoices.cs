@@ -15,6 +15,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace GrenciCPA
 {
@@ -54,7 +56,7 @@ namespace GrenciCPA
             
                 string search = tbxSearch.Text;
                 string GetClientsSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, " +
-                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH " +
+                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH, JOB_TABLE.JOB_ID" +
                     "FROM CLIENT_TABLE INNER JOIN " +
                     "JOB_TABLE ON CLIENT_TABLE.CLIENT_ID = JOB_TABLE.CLIENT_ID INNER JOIN " +
                     "INVOICE_TABLE ON JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID "+
@@ -86,6 +88,10 @@ namespace GrenciCPA
                         if (reader["CLIENT_ID"] != DBNull.Value)
                         {
                             tempClient.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;
+                        }
+                        if (reader["JOB_ID"] != DBNull.Value)
+                        {
+                            tempClient.JobID = (reader["JOB_ID"] as int?) ?? 0;
                         }
                         if (reader["FIRST_NAME"] != DBNull.Value)
                         {
@@ -130,14 +136,14 @@ namespace GrenciCPA
             {
                 string search = tbxSearch.Text;
                 string GetClientsSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, " +
-                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH " +
+                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH, JOB_TABLE.JOB_ID " +
                     "FROM CLIENT_TABLE INNER JOIN " +
                     "JOB_TABLE ON CLIENT_TABLE.CLIENT_ID = JOB_TABLE.CLIENT_ID INNER JOIN " +
                     "INVOICE_TABLE ON JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID " +
                     "WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '" + search + "%')  "; //gets all that fall under the search
 
                 if (!cbxOverdue.Checked) GetClientsSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, " +
-                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH " +
+                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH, JOB_TABLE.JOB_ID " +
                     "FROM CLIENT_TABLE INNER JOIN " +
                     "JOB_TABLE ON CLIENT_TABLE.CLIENT_ID = JOB_TABLE.CLIENT_ID INNER JOIN " +
                     "INVOICE_TABLE ON JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID " +
@@ -172,6 +178,10 @@ namespace GrenciCPA
                         if (reader["CLIENT_ID"] != DBNull.Value)
                         {
                             tempClient.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;
+                        }
+                        if (reader["JOB_ID"] != DBNull.Value)
+                        {
+                            tempClient.JobID = (reader["JOB_ID"] as int?) ?? 0;
                         }
                         if (reader["FIRST_NAME"] != DBNull.Value)
                         {
@@ -210,13 +220,13 @@ namespace GrenciCPA
             else
             {
                 string GetClientsSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, " +
-                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH " +
+                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH, JOB_TABLE.JOB_ID " +
                     "FROM CLIENT_TABLE INNER JOIN " +
                     "JOB_TABLE ON CLIENT_TABLE.CLIENT_ID = JOB_TABLE.CLIENT_ID INNER JOIN " +
                     "INVOICE_TABLE ON JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID ";//gets all
 
                 if (!cbxOverdue.Checked) GetClientsSQL = "SELECT CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, " +
-                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH " +
+                    "INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.FILE_PATH, JOB_TABLE.JOB_ID " +
                     "FROM CLIENT_TABLE INNER JOIN " +
                     "JOB_TABLE ON CLIENT_TABLE.CLIENT_ID = JOB_TABLE.CLIENT_ID INNER JOIN " +
                     "INVOICE_TABLE ON JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID " +
@@ -248,6 +258,10 @@ namespace GrenciCPA
                         if (reader["CLIENT_ID"] != DBNull.Value)
                         {
                             tempClient.ClientID = (reader["CLIENT_ID"] as int?) ?? 0;
+                        }
+                        if (reader["JOB_ID"] != DBNull.Value)
+                        {
+                            tempClient.JobID = (reader["JOB_ID"] as int?) ?? 0;
                         }
                         if (reader["FIRST_NAME"] != DBNull.Value)
                         {
@@ -294,7 +308,7 @@ namespace GrenciCPA
             foreach (AClient aClient in ClientsObjList)
             {
                 dgvInvoices.Rows.Insert( 0 , new string[]{"View", aClient.ClientID.ToString(), aClient.LastName, aClient.FirstName, aClient.Company,
-                   string.Format("{0:#,0.00}", aClient.Balance) , aClient.Address, "Make Payment" });
+                   string.Format("{0:#,0.00}", aClient.Balance) , aClient.Address, "Make Payment", aClient.JobID.ToString()});
             }
         }
 
@@ -324,7 +338,10 @@ namespace GrenciCPA
                 {
                     int IDtoPass = int.Parse(dgvInvoices.Rows[e.RowIndex].Cells[1].Value.ToString());//gets the ID
 
-                    ClientView form = new ClientView(IDtoPass);
+                    int IDforJob = int.Parse(dgvInvoices.Rows[e.RowIndex].Cells[8].Value.ToString());//gets the ID
+
+
+                    JobScreen form = new JobScreen(IDtoPass, IDforJob);
                     form.ShowDialog();
 
                 }
@@ -360,6 +377,76 @@ namespace GrenciCPA
             
 
 
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dgvInvoices.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "CSV (*.csv)|*.csv";
+                sfd.FileName = "InvoiceOutput" + DateTime.Now.Month + DateTime.Now.Year +".csv";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            int columnCount = dgvInvoices.Columns.Count;
+                            string columnNames = "";
+                            string[] outputCsv = new string[dgvInvoices.Rows.Count + 2];
+                            for (int i = 0; i < columnCount; i++)
+                            {
+                                columnNames += dgvInvoices.Columns[i].HeaderText.ToString() + ",";
+                            }
+                            outputCsv[0] += columnNames;
+
+                            
+
+                            for (int i = 1; (i - 1) < dgvInvoices.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < columnCount; j++)
+                                {
+                                    outputCsv[i] += dgvInvoices.Rows[i - 1].Cells[j].Value.ToString() + ",";
+                                }
+                            }
+                            outputCsv[outputCsv.Length -1] += "Filters,Search: " + tbxSearch.Text + ",All Invoices that match search: " + cbxOverdue.Checked.ToString();
+
+                            int k = 0;
+                            foreach (String st in outputCsv)
+                            {
+                                outputCsv[k] = Regex.Replace(st, "\n", " ");
+                                k++;
+                            }
+
+
+                            File.WriteAllLines(sfd.FileName, outputCsv, Encoding.UTF8);
+                            //MessageBox.Show("Data Exported Successfully !!!", "Info");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Record To Export !!!", "Info");
+            }
         }
     }
 }

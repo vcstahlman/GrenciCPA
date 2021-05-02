@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Drawing.Drawing2D;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace GrenciCPA
 {
@@ -543,5 +545,74 @@ namespace GrenciCPA
             if (ClientsObjList != null) FillDGV();
             else MessageBox.Show("There were no clients to display, retry the filters and search to try again.");
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dgvClients.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "CSV (*.csv)|*.csv";
+                sfd.FileName = "ClientOutput" + DateTime.Now.Month + DateTime.Now.Year + ".csv";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            int columnCount = dgvClients.Columns.Count;
+                            string columnNames = "";
+                            string[] outputCsv = new string[dgvClients.Rows.Count + 2];
+                            for (int i = 0; i < columnCount; i++)
+                            {
+                                columnNames += dgvClients.Columns[i].HeaderText.ToString() + ",";
+                            }
+                            outputCsv[0] += columnNames;
+
+                            for (int i = 1; (i - 1) < dgvClients.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < columnCount; j++)
+                                {
+                                    outputCsv[i] += dgvClients.Rows[i - 1].Cells[j].Value.ToString() + ",";
+                                }
+                            }
+
+                            outputCsv[outputCsv.Length - 1] += "Filters,Search: " + txtSearch.Text + ",OnlyCompany: " + cbxIsCompany.Checked.ToString();
+
+                            int k = 0;
+                            foreach (String st in outputCsv)
+                            {
+                                outputCsv[k] = Regex.Replace(st, "\n", " ");
+                                k++;
+                            }
+
+                            File.WriteAllLines(sfd.FileName, outputCsv, Encoding.UTF8);
+                            //MessageBox.Show("Data Exported Successfully !!!", "Info");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Record To Export !!!", "Info");
+            }
+        }
     }
+    
 }

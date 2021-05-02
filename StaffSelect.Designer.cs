@@ -104,6 +104,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StaffSelect";
             this.Text = "StaffSelect";
+            this.Load += new System.EventHandler(this.StaffSelect_Load);
             this.ResumeLayout(false);
 
         }

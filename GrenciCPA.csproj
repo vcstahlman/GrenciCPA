@@ -261,6 +261,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="afg_logo_APZ_icon.ico" />
+    <Content Include="GrenciFooter.jpg" />
+    <Content Include="GrenciHeader.jpg" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

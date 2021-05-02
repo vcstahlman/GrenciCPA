@@ -133,7 +133,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(15, 33);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(354, 24);
@@ -151,7 +151,7 @@
             this.Column1,
             this.Column2});
             this.dgvInvoice.Location = new System.Drawing.Point(15, 96);
-            this.dgvInvoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvInvoice.Margin = new System.Windows.Forms.Padding(4);
             this.dgvInvoice.Name = "dgvInvoice";
             this.dgvInvoice.Size = new System.Drawing.Size(694, 325);
             this.dgvInvoice.TabIndex = 36;
@@ -171,8 +171,9 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUpdate.Location = new System.Drawing.Point(12, 557);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(122, 32);
             this.btnUpdate.TabIndex = 37;

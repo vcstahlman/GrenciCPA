@@ -21,6 +21,7 @@ using System.IO;
 using System.CodeDom;
 using System.Data.SqlClient;
 using System.Runtime.Remoting;
+using iTextSharp.text.pdf.draw;
 
 namespace GrenciCPA
 {
@@ -57,6 +58,7 @@ namespace GrenciCPA
         private string clientZip;
         private string clientEmail;
         private string clientCompany;
+        private bool isBusiness = false;
 
         private string filePath;
 
@@ -123,7 +125,7 @@ namespace GrenciCPA
         public void CreateJobs(int pJob)
         {
             string GetJobSQL = "SELECT JOB_COMPONENT_TABLE.SERV_ID, JOB_COMPONENT_TABLE.TOTAL, JOB_COMPONENT_TABLE.JOB_ID, SERVICE_TABLE.SERV_NAME, SERVICE_TABLE.SERV_SENTENCE, CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.OWED_BALANCE, " +
-                " CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP, CLIENT_TABLE.EMAIL " +
+                " CLIENT_TABLE.FIRST_NAME, CLIENT_TABLE.LAST_NAME, CLIENT_TABLE.COMPANY_NAME, CLIENT_TABLE.ST_ADDRESS, CLIENT_TABLE.CITY, CLIENT_TABLE.STATE_AB, CLIENT_TABLE.ZIP, CLIENT_TABLE.EMAIL, CLIENT_TABLE.IS_BUSINESS " +
                 "FROM JOB_COMPONENT_TABLE INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID INNER JOIN SERVICE_TABLE ON JOB_COMPONENT_TABLE.SERV_ID = SERVICE_TABLE.SERV_ID " +
                 "INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID " +
                 "WHERE JOB_COMPONENT_TABLE.JOB_ID = " + jobID + " " +
@@ -171,6 +173,10 @@ namespace GrenciCPA
                     {
                         tempClient.Balance = (reader["OWED_BALANCE"] as decimal?) ?? 0.00m;
                         
+                    }
+                    if (reader["IS_BUSINESS" ] != DBNull.Value)
+                    {
+                        isBusiness = reader.GetBoolean(reader.GetOrdinal("IS_BUSINESS"));
                     }
                     if (reader["CLIENT_ID"] != DBNull.Value)
                     {
@@ -295,7 +301,7 @@ namespace GrenciCPA
 
                 //sets the path of the file
                 filePath = "C:/Invoices/" + clientFirstName + clientLastName + clientID + "/" + jobID + clientLastName + DateTime.Now.Year.ToString() + ".pdf";
-                if (clientCompany != "" || clientCompany != null) filePath = "C:/Invoices/" + clientCompany + clientID + "/" + jobID + clientCompany + DateTime.Now.Year.ToString() + ".pdf";
+                if (isBusiness) filePath = "C:/Invoices/" + clientCompany + clientID + "/" + jobID + clientCompany + DateTime.Now.Year.ToString() + ".pdf";
 
                 connectionString = Properties.Settings.Default.GrenciDBConnectionString;
                 try
@@ -348,13 +354,14 @@ namespace GrenciCPA
                 document.Open();
                 iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(@"GrenciHeader.jpg");
                 iTextSharp.text.Image img2 = iTextSharp.text.Image.GetInstance(@"GrenciFooter.jpg");
-                img.Alignment = Element.ALIGN_CENTER;
-                img2.Alignment = Element.ALIGN_CENTER;
-                img.ScaleToFit(450f, 1500f);
-                img2.ScaleToFit(450f, 1500f);
+                img.Alignment = Element.ALIGN_JUSTIFIED;
+                img2.Alignment = Element.ALIGN_JUSTIFIED;
+                img.ScaleToFit(550f, 1500f);
+                img2.ScaleToFit(550f, 1500f);
                 document.Add(img);
-                var normalFont = FontFactory.GetFont(FontFactory.TIMES, 12);
-                var boldFont = FontFactory.GetFont(FontFactory.TIMES_BOLD, 12);
+                var normalFont = FontFactory.GetFont(FontFactory.COURIER, 12);
+                var boldFont = FontFactory.GetFont(FontFactory.COURIER_BOLD, 12);
+                var moneyFont = FontFactory.GetFont(FontFactory.COURIER_BOLD, 10);
                 var h1 = new Paragraph();
                 h1.Alignment = Element.ALIGN_CENTER;
                 h1.Add(new Chunk("\n" + "\n" + "INVOICE " + "\n", boldFont));
@@ -362,7 +369,7 @@ namespace GrenciCPA
                 Paragraph p1;
                 if (clientLastName != "")
                 {
-                    p1 = new Paragraph("\n" + clientFirstName + " " + clientLastName, normalFont);
+                    p1 = new Paragraph("\n" + txtName.Text, normalFont);
                 }
                 else
                 {
@@ -376,12 +383,21 @@ namespace GrenciCPA
                 document.Add(p2);
                 document.Add(p3);
                 Paragraph p4;
+                //Paragraph p4h;//4 and a half basically, cannot have both run off of same paragraph
                 for (int i = 0; i < dgvInvoice.Rows.Count; i++)
                 {
                     string sentence = dgvInvoice.Rows[i].Cells[0].Value.ToString();
                     decimal total = decimal.Parse(dgvInvoice.Rows[i].Cells[1].Value.ToString());
                     cumulativeTotal = total + cumulativeTotal;
-                    p4 = new Paragraph(sentence + ": $" + string.Format("{0:#,0.00}", total) + "\n", normalFont);
+                    //p4 = new Paragraph(sentence , normalFont);
+                    //document.Add(p4);
+                    //p4h = new Paragraph(".......................$" + string.Format("{0:#,0.00}", total) , moneyFont);
+                    //p4h.Alignment = Element.ALIGN_RIGHT;
+                    Chunk glue = new Chunk(new VerticalPositionMark());
+                    p4 = new Paragraph(sentence, normalFont);
+                    p4.Add(new Chunk(glue));
+                    p4.Add(new Chunk(".....$" + string.Format("{0:#,0.00}", total) + '\n', moneyFont));
+
                     document.Add(p4);
                 }
                 //Comes from the sum of the job

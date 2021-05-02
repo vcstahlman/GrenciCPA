@@ -14,6 +14,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace GrenciCPA
 {
@@ -44,6 +46,7 @@ namespace GrenciCPA
             InitializeComponent();
             ClientsObjList = new List<AClient>();
             clientID = pclient;
+            cbxProgress.Checked = false;
         }
 
         //brings up active for a staff
@@ -569,6 +572,73 @@ namespace GrenciCPA
             catch (Exception ex)
             {
                 MessageBox.Show("You tried to click the button that was not in a row with data. \n This is the error: " + ex.Message);
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dgvJobs.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "CSV (*.csv)|*.csv";
+                sfd.FileName = "JobOutput" + DateTime.Now.Month + DateTime.Now.Year + ".csv";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            int columnCount = dgvJobs.Columns.Count;
+                            string columnNames = "";
+                            string[] outputCsv = new string[dgvJobs.Rows.Count + 2];
+                            for (int i = 0; i < columnCount; i++)
+                            {
+                                columnNames += dgvJobs.Columns[i].HeaderText.ToString() + ",";
+                            }
+                            outputCsv[0] += columnNames;
+
+                            for (int i = 1; (i - 1) < dgvJobs.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < columnCount; j++)
+                                {
+                                    outputCsv[i] += dgvJobs.Rows[i - 1].Cells[j].Value.ToString() + ",";
+                                }
+                            }
+                            outputCsv[outputCsv.Length - 1] += "Filters,Search: " + tbxSearch.Text + ",Unassigned: " + cbxUnassigned.Checked.ToString()+ ", Present job: "+ cbxProgress.Checked.ToString();
+
+                            int k = 0;
+                            foreach (String st in outputCsv)
+                            {
+                                outputCsv[k] = Regex.Replace(st, "\n", " ");
+                                k++;
+                            }
+                            
+                            File.WriteAllLines(sfd.FileName, outputCsv, Encoding.UTF8);
+                            //MessageBox.Show("Data Exported Successfully !!!", "Info");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Record To Export !!!", "Info");
             }
         }
         ////////////////

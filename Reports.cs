@@ -14,6 +14,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace GrenciCPA
 {
@@ -62,35 +64,42 @@ namespace GrenciCPA
                 "INNER JOIN JOB_TABLE INNER JOIN CLIENT_TABLE ON JOB_TABLE.CLIENT_ID = CLIENT_TABLE.CLIENT_ID INNER JOIN INVOICE_TABLE ON " +
                 "JOB_TABLE.JOB_ID = INVOICE_TABLE.JOB_ID ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID ";
             string makeReportSQLChar = " ";
-            if (tbxName.Text != "" && tbxMisc.Text != "")
+            if (tbxName.Text != "" && tbxMisc.Text != "" && tbxMisc2.Text != "")
             {
                 string search = tbxName.Text;
                 string searchDate = tbxMisc.Text;
-                makeReportSQL += " WHERE (INVOICE_TABLE.DATE_SENT LIKE '" + searchDate + "%') AND( (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') OR " +
-                    "(CLIENT_TABLE.FIRST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '" + search + "%'))";
-                makeReportSQLChar = " AND (";
+                makeReportSQL += " WHERE ((INVOICE_TABLE.DATE_SENT BETWEEN '" + tbxMisc.Text + "' AND '" + tbxMisc2.Text + "' ) AND( (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') OR " +
+                    "(CLIENT_TABLE.FIRST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '" + search + "%')))";
+                makeReportSQLChar = " AND CHARACTERISTIC_TABLE.CHAR_ID IN(";
             }
             else if (tbxName.Text != "")
             {
                 string search = tbxName.Text;
-                makeReportSQL += " WHERE (CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.FIRST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '" + search + "%')";
-                makeReportSQLChar = " AND (";
+                makeReportSQL += " WHERE ((CLIENT_TABLE.LAST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.FIRST_NAME LIKE '" + search + "%') OR (CLIENT_TABLE.COMPANY_NAME LIKE '" + search + "%'))";
+                makeReportSQLChar = " AND CHARACTERISTIC_TABLE.CHAR_ID IN(";
             }
-            else if (tbxMisc.Text != "")
+            else if (tbxMisc.Text != "" && tbxMisc2.Text != "")
             {
                 string search = tbxMisc.Text;
-                makeReportSQL += " WHERE  (INVOICE_TABLE.DATE_SENT LIKE '" + search + "%')";
-                makeReportSQLChar = " AND (";
+                makeReportSQL += " WHERE  (INVOICE_TABLE.DATE_SENT BETWEEN '"+ tbxMisc.Text +"' AND '"+ tbxMisc2.Text +"' )";
+                makeReportSQLChar = " AND CHARACTERISTIC_TABLE.CHAR_ID IN(";
+            }
+            else if(tbxMisc.Text != "" || tbxMisc2.Text != "")
+            {
+                string search = tbxMisc.Text;
+                search += tbxMisc2.Text;
+                makeReportSQL += " WHERE  (INVOICE_TABLE.DATE_SENT LIKE '" + search + "%' )";
+                makeReportSQLChar = "  AND CHARACTERISTIC_TABLE.CHAR_ID IN(";
             }
             else
             {
 
-                makeReportSQLChar = " WHERE (";
+                makeReportSQLChar = " WHERE CHARACTERISTIC_TABLE.CHAR_ID IN (";
             }
 
             //bools to keep track where the program is for the and section
             bool isFirst = true;
-            bool charFound = false;
+            int charFound = 0;
             for (int i = 0; i < clbLabels.CheckedItems.Count; i++)
             {
                 
@@ -101,23 +110,29 @@ namespace GrenciCPA
                     {
                         if (isFirst)
                         {
-                            makeReportSQLChar += " CHARACTERISTIC_TABLE.CHAR_ID = " + chara.CharID + " ";
+                            makeReportSQLChar += "  " + chara.CharID;
                             isFirst = false;
-                            charFound = true;
+                            charFound = 1;
                         }
-                        else makeReportSQLChar += " AND CHARACTERISTIC_TABLE.CHAR_ID = " + chara.CharID + " ";
+                        else
+                        {
+                            makeReportSQLChar += ", " + chara.CharID + " ";
+                            charFound++;
+                        }
                     }
                 } 
                 
             }
 
             //if there is a character selected it will end the string if not it will clear it
-            if (charFound) makeReportSQLChar += ") ";//if there was a char then it adds this to end
+            if (charFound != 0) makeReportSQLChar += ") ";//if there was a char then it adds this to end
             else makeReportSQLChar = "";//if not then it clears the string
 
 
             //makes the search string
-            makeReportSQL += makeReportSQLChar + " GROUP BY CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME , CLIENT_TABLE.LAST_NAME, COMPANY_NAME, TOTAL_BILL , AMOUNT_OWED, AMOUNT_PAID, DATE_SENT;";
+            makeReportSQL += makeReportSQLChar + " GROUP BY CLIENT_TABLE.CLIENT_ID, CLIENT_TABLE.FIRST_NAME , CLIENT_TABLE.LAST_NAME, COMPANY_NAME, TOTAL_BILL , AMOUNT_OWED, AMOUNT_PAID, DATE_SENT ";
+
+            if (charFound != 0) makeReportSQL += " HAVING COUNT(*) = " + charFound;
 
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
 
@@ -344,6 +359,73 @@ namespace GrenciCPA
             }
             else dgvReports.Rows.Add("No clients found that match search");
 
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dgvReports.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "CSV (*.csv)|*.csv";
+                sfd.FileName = "JobOutput" + DateTime.Now.Month + DateTime.Now.Year + ".csv";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            int columnCount = dgvReports.Columns.Count;
+                            string columnNames = "";
+                            string[] outputCsv = new string[dgvReports.Rows.Count + 2];
+                            for (int i = 0; i < columnCount; i++)
+                            {
+                                columnNames += dgvReports.Columns[i].HeaderText.ToString() + ",";
+                            }
+                            outputCsv[0] += columnNames;
+
+                            for (int i = 1; (i - 1) < dgvReports.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < columnCount; j++)
+                                {
+                                    outputCsv[i] += dgvReports.Rows[i - 1].Cells[j].Value.ToString() + ",";
+                                }
+                            }
+                            outputCsv[outputCsv.Length - 1] += "Filters,Name Search: "+ tbxName.Text +",Dates: "+ tbxMisc.Text + " to " + tbxMisc2.Text ;
+
+                            int k = 0;
+                            foreach (String st in outputCsv)
+                            {
+                                outputCsv[k] = Regex.Replace(st, "\n", " ");
+                                k++;
+                            }
+
+                            File.WriteAllLines(sfd.FileName, outputCsv, Encoding.UTF8);
+                            //MessageBox.Show("Data Exported Successfully !!!", "Info");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Record To Export !!!", "Info");
+            }
         }
     }
 }

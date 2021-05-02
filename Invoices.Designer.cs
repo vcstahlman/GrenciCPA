@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Invoices));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.dgvInvoices = new System.Windows.Forms.DataGridView();
+            this.cbxOverdue = new System.Windows.Forms.CheckBox();
+            this.btnExport = new System.Windows.Forms.Button();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,7 +45,7 @@
             this.AmountOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientFile = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Payment = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cbxOverdue = new System.Windows.Forms.CheckBox();
+            this.JobId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoices)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +81,6 @@
             // 
             this.dgvInvoices.AllowUserToAddRows = false;
             this.dgvInvoices.AllowUserToDeleteRows = false;
-            this.dgvInvoices.AllowUserToOrderColumns = true;
             this.dgvInvoices.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -91,7 +93,8 @@
             this.Company,
             this.AmountOwed,
             this.ClientFile,
-            this.Payment});
+            this.Payment,
+            this.JobId});
             this.dgvInvoices.Location = new System.Drawing.Point(10, 61);
             this.dgvInvoices.Name = "dgvInvoices";
             this.dgvInvoices.ReadOnly = true;
@@ -101,9 +104,31 @@
             this.dgvInvoices.TabIndex = 6;
             this.dgvInvoices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInvoices_CellContentClick_1);
             // 
+            // cbxOverdue
+            // 
+            this.cbxOverdue.AutoSize = true;
+            this.cbxOverdue.Location = new System.Drawing.Point(159, 18);
+            this.cbxOverdue.Name = "cbxOverdue";
+            this.cbxOverdue.Size = new System.Drawing.Size(100, 22);
+            this.cbxOverdue.TabIndex = 12;
+            this.cbxOverdue.Text = "All Invoices";
+            this.cbxOverdue.UseVisualStyleBackColor = true;
+            this.cbxOverdue.CheckedChanged += new System.EventHandler(this.cbxOverdue_CheckedChanged);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(1040, 687);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(148, 64);
+            this.btnExport.TabIndex = 13;
+            this.btnExport.Text = "Export displayed";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // View
             // 
-            this.View.HeaderText = "View";
+            this.View.HeaderText = "View Job";
             this.View.MinimumWidth = 6;
             this.View.Name = "View";
             this.View.ReadOnly = true;
@@ -111,7 +136,7 @@
             // 
             // ClientID
             // 
-            this.ClientID.HeaderText = "ID";
+            this.ClientID.HeaderText = "ClientID";
             this.ClientID.MinimumWidth = 6;
             this.ClientID.Name = "ClientID";
             this.ClientID.ReadOnly = true;
@@ -144,6 +169,8 @@
             // 
             // AmountOwed
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.AmountOwed.DefaultCellStyle = dataGridViewCellStyle1;
             this.AmountOwed.HeaderText = "Amount Owed";
             this.AmountOwed.MinimumWidth = 6;
             this.AmountOwed.Name = "AmountOwed";
@@ -153,9 +180,9 @@
             // ClientFile
             // 
             this.ClientFile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ClientFile.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ClientFile.DefaultCellStyle = dataGridViewCellStyle2;
             this.ClientFile.HeaderText = "Client File";
             this.ClientFile.MinimumWidth = 6;
             this.ClientFile.Name = "ClientFile";
@@ -173,22 +200,19 @@
             this.Payment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Payment.Width = 125;
             // 
-            // cbxOverdue
+            // JobId
             // 
-            this.cbxOverdue.AutoSize = true;
-            this.cbxOverdue.Location = new System.Drawing.Point(159, 18);
-            this.cbxOverdue.Name = "cbxOverdue";
-            this.cbxOverdue.Size = new System.Drawing.Size(100, 22);
-            this.cbxOverdue.TabIndex = 12;
-            this.cbxOverdue.Text = "All Invoices";
-            this.cbxOverdue.UseVisualStyleBackColor = true;
-            this.cbxOverdue.CheckedChanged += new System.EventHandler(this.cbxOverdue_CheckedChanged);
+            this.JobId.HeaderText = "JobId";
+            this.JobId.Name = "JobId";
+            this.JobId.ReadOnly = true;
+            this.JobId.Visible = false;
             // 
             // Invoices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1356, 768);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.cbxOverdue);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSearch);
@@ -212,6 +236,7 @@
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.DataGridView dgvInvoices;
         private System.Windows.Forms.CheckBox cbxOverdue;
+        private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
@@ -220,5 +245,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountOwed;
         private System.Windows.Forms.DataGridViewButtonColumn ClientFile;
         private System.Windows.Forms.DataGridViewButtonColumn Payment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JobId;
     }
 }

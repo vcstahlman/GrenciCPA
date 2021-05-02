@@ -34,15 +34,14 @@ namespace GrenciCPA
         public StaffSelect()
         {
             InitializeComponent();
-            StaffObjList = new List<AStaff>();
-            CreateStaffList();
-            FillStaffDropdown();
+            
         }
         
 
 
         private void CreateStaffList()
         {
+            StaffObjList.Clear();
             string GetStaffSQL = "SELECT STAFF_ID, STAFF_FIRST_NAME, STAFF_LAST_NAME, STAFF_RATE_PER_HR, STAFF_ACTIVE FROM STAFF_TABLE";
 
 
@@ -128,6 +127,7 @@ namespace GrenciCPA
             {
                 Jobs form = new Jobs(staffID, " ");//way to quickly make an overload on the jobs
                 form.ShowDialog();
+                StaffSelect_Load(null, null);
             }
             
         }
@@ -143,6 +143,7 @@ namespace GrenciCPA
             {
                 StaffAddEdit form = new StaffAddEdit(staffID);
                 form.ShowDialog();
+                StaffSelect_Load(null, null);
             }
         }
 
@@ -150,6 +151,13 @@ namespace GrenciCPA
         {
             StaffAddEdit form = new StaffAddEdit();
             form.ShowDialog();
+        }
+
+        private void StaffSelect_Load(object sender, EventArgs e)
+        {
+            StaffObjList = new List<AStaff>();
+            CreateStaffList();
+            FillStaffDropdown();
         }
     }
 }

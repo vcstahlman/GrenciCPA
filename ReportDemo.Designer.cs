@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvReports = new System.Windows.Forms.DataGridView();
-            this.btnClose = new System.Windows.Forms.Button();
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,6 +37,8 @@
             this.Billed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaymentType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Owed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,17 +66,6 @@
             this.dgvReports.RowTemplate.Height = 24;
             this.dgvReports.Size = new System.Drawing.Size(892, 456);
             this.dgvReports.TabIndex = 0;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(742, 486);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(165, 48);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // Client
             // 
@@ -130,11 +120,34 @@
             this.Owed.Name = "Owed";
             this.Owed.ReadOnly = true;
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(742, 486);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(165, 48);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(588, 486);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(148, 48);
+            this.btnExport.TabIndex = 14;
+            this.btnExport.Text = "Export displayed";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // ReportDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 558);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvReports);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
@@ -156,5 +169,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Billed;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaymentType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Owed;
+        private System.Windows.Forms.Button btnExport;
     }
 }

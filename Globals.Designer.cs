@@ -53,6 +53,7 @@
             this.AssociatedServName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SaveFee = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DeleteFee = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnReload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFees)).BeginInit();
             this.SuspendLayout();
@@ -264,11 +265,23 @@
             this.DeleteFee.Name = "DeleteFee";
             this.DeleteFee.Width = 85;
             // 
+            // btnReload
+            // 
+            this.btnReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReload.Location = new System.Drawing.Point(1158, 570);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(125, 39);
+            this.btnReload.TabIndex = 37;
+            this.btnReload.Text = "Reload lists";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
             // Globals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1460, 620);
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.dgvServices);
             this.Controls.Add(this.lblCharacteristics);
             this.Controls.Add(this.dgvFees);
@@ -305,5 +318,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AssociatedServName;
         private System.Windows.Forms.DataGridViewButtonColumn SaveFee;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteFee;
+        private System.Windows.Forms.Button btnReload;
     }
 }

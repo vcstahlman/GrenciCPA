@@ -39,13 +39,6 @@ namespace GrenciCPA
             InitializeComponent();
             clientID = pClientID;
             ClientsObj = new AClient();
-            
-            CreateClientList();
-
-            FillClientInfo();
-
-            FillJobs();
-            FillDGV();
         }
 
 
@@ -375,7 +368,14 @@ namespace GrenciCPA
 
         private void ClientView_Load(object sender, EventArgs e)
         {
-            //unused eventhandler
+
+            dgvClientPast.Rows.Clear();
+            CreateClientList();
+
+            FillClientInfo();
+
+            FillJobs();
+            FillDGV();
         }
 
         // this button will show all Active Jobs for the given client on the Active Job form
@@ -394,6 +394,7 @@ namespace GrenciCPA
         //fills in the job info for the datagridview in the form
         private void FillJobs()
         {
+            invoiceList.Clear();
             var GetClientsSQL = "SELECT JOB_TABLE.JOB_ID, JOB_TABLE.CLIENT_ID, INVOICE_TABLE.INVOICE_ID, INVOICE_TABLE.DATE_SENT, " +
                 "INVOICE_TABLE.AMOUNT_OWED, INVOICE_TABLE.AMOUNT_PAID FROM INVOICE_TABLE " +
                 "INNER JOIN JOB_TABLE ON INVOICE_TABLE.JOB_ID = JOB_TABLE.JOB_ID" +
@@ -430,7 +431,6 @@ namespace GrenciCPA
                     {
                         tempinvoice.AmtPaid = (reader["AMOUNT_PAID"] as decimal?) ?? 0;
                     }
-
                     if (reader["AMOUNT_OWED"] != DBNull.Value)
                     {
                         tempinvoice.AmtOwed = (reader["AMOUNT_OWED"] as decimal?) ?? 0;
@@ -455,11 +455,11 @@ namespace GrenciCPA
 
 
         //gets services that the client has needed in the past
-        private string GetServ(int aClientID)
+        private string GetServ(int ajobID)
         {
             string returning = "";
             string GetParentSQL = "SELECT SERVICE_TABLE.SERV_NAME FROM SERVICE_TABLE INNER JOIN JOB_COMPONENT_TABLE ON SERVICE_TABLE.SERV_ID = JOB_COMPONENT_TABLE.SERV_ID " +
-                "INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID WHERE JOB_TABLE.CLIENT_ID =" + aClientID + ";";//gets on a job by job basis
+                "INNER JOIN JOB_TABLE ON JOB_COMPONENT_TABLE.JOB_ID = JOB_TABLE.JOB_ID WHERE JOB_TABLE.JOB_ID =" + ajobID + ";";//gets on a job by job basis
             //Pulled from App.config
             connectionString = Properties.Settings.Default.GrenciDBConnectionString;
             try
@@ -498,7 +498,7 @@ namespace GrenciCPA
         {
             foreach(AInvoice invoice in invoiceList)
             {
-                dgvClientPast.Rows.Add(invoice.SentDate.ToShortDateString(), GetServ(clientID), invoice.AmtOwed, invoice.AmtPaid);
+                dgvClientPast.Rows.Add(invoice.SentDate.ToShortDateString(), GetServ(invoice.JobID), invoice.AmtOwed, invoice.AmtPaid);
             }
         }
 
@@ -508,6 +508,11 @@ namespace GrenciCPA
         {
             ReportDemo form = new ReportDemo(clientID);
             form.ShowDialog();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ClientView_Load(null, null);
         }
     }
 }

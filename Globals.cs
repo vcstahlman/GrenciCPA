@@ -43,8 +43,7 @@ namespace GrenciCPA
         public Globals()
         {
             InitializeComponent();
-
-            // new lists
+            // new lists/clear
             ServiceObjList = new List<AServ>();
             FeeObjList = new List<AFee>();
 
@@ -63,6 +62,7 @@ namespace GrenciCPA
             (dgvFees.Columns[4] as DataGridViewComboBoxColumn).DataSource = ServiceObjList;
             (dgvFees.Columns[4] as DataGridViewComboBoxColumn).DisplayMember = "ServName";
             (dgvFees.Columns[4] as DataGridViewComboBoxColumn).ValueMember = "ServID";
+
         }
 
         /// <summary>
@@ -210,6 +210,8 @@ namespace GrenciCPA
         //fills in the Datagridview via the list of objects
         private void FillDGV()
         {
+            dgvFees.Rows.Clear();
+            dgvServices.Rows.Clear();
             foreach (AServ aService in ServiceObjList)
             {
                 // if service is active, add values to the row
@@ -230,10 +232,28 @@ namespace GrenciCPA
         }
 
 
-        //this is unused but I do not know where the eventhandeler is to delete
+        //used for reloading
         private void Fees_Load(object sender, EventArgs e)
         {
-           
+            // new lists/clear
+            ServiceObjList = new List<AServ>();
+            FeeObjList = new List<AFee>();
+
+            // these will read in & fill the DGV's
+            CreateServiceList();
+            CreateFeeList();
+            FillDGV();
+
+            //this allows multiple lines for the char
+            dgvFees.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvServices.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvFees.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvServices.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Create combobox for associated services in characteristics dgv
+            (dgvFees.Columns[4] as DataGridViewComboBoxColumn).DataSource = ServiceObjList;
+            (dgvFees.Columns[4] as DataGridViewComboBoxColumn).DisplayMember = "ServName";
+            (dgvFees.Columns[4] as DataGridViewComboBoxColumn).ValueMember = "ServID";
         }
 
         // prompts the user to save any information entered before closing the form if they have not already
@@ -646,6 +666,11 @@ namespace GrenciCPA
             e.Row.Cells[2].Value = "";
             e.Row.Cells[3].Value = "Save";
             e.Row.Cells[4].Value = "Delete";
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            Fees_Load(null, null);
         }
     }
     

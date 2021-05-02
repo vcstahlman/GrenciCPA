@@ -41,9 +41,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.dgvJobs = new System.Windows.Forms.DataGridView();
-            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
-            this.cbxProgress = new System.Windows.Forms.RadioButton();
-            this.cbxPast = new System.Windows.Forms.RadioButton();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +50,10 @@
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JobID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbxUnassigned = new System.Windows.Forms.CheckBox();
+            this.cbxProgress = new System.Windows.Forms.RadioButton();
+            this.cbxPast = new System.Windows.Forms.RadioButton();
+            this.btnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,38 +123,6 @@
             this.dgvJobs.Size = new System.Drawing.Size(1488, 508);
             this.dgvJobs.TabIndex = 11;
             this.dgvJobs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJobs_CellContentClick);
-            // 
-            // cbxUnassigned
-            // 
-            this.cbxUnassigned.AutoSize = true;
-            this.cbxUnassigned.Location = new System.Drawing.Point(208, 21);
-            this.cbxUnassigned.Name = "cbxUnassigned";
-            this.cbxUnassigned.Size = new System.Drawing.Size(105, 22);
-            this.cbxUnassigned.TabIndex = 17;
-            this.cbxUnassigned.Text = "Unassigned";
-            this.cbxUnassigned.UseVisualStyleBackColor = true;
-            // 
-            // cbxProgress
-            // 
-            this.cbxProgress.AutoSize = true;
-            this.cbxProgress.Checked = true;
-            this.cbxProgress.Location = new System.Drawing.Point(316, 19);
-            this.cbxProgress.Name = "cbxProgress";
-            this.cbxProgress.Size = new System.Drawing.Size(102, 22);
-            this.cbxProgress.TabIndex = 21;
-            this.cbxProgress.TabStop = true;
-            this.cbxProgress.Text = "In Progress";
-            this.cbxProgress.UseVisualStyleBackColor = true;
-            // 
-            // cbxPast
-            // 
-            this.cbxPast.AutoSize = true;
-            this.cbxPast.Location = new System.Drawing.Point(424, 20);
-            this.cbxPast.Name = "cbxPast";
-            this.cbxPast.Size = new System.Drawing.Size(56, 22);
-            this.cbxPast.TabIndex = 22;
-            this.cbxPast.Text = "Past";
-            this.cbxPast.UseVisualStyleBackColor = true;
             // 
             // FirstName
             // 
@@ -252,11 +221,55 @@
             this.JobID.ReadOnly = true;
             this.JobID.Visible = false;
             // 
+            // cbxUnassigned
+            // 
+            this.cbxUnassigned.AutoSize = true;
+            this.cbxUnassigned.Location = new System.Drawing.Point(208, 21);
+            this.cbxUnassigned.Name = "cbxUnassigned";
+            this.cbxUnassigned.Size = new System.Drawing.Size(105, 22);
+            this.cbxUnassigned.TabIndex = 17;
+            this.cbxUnassigned.Text = "Unassigned";
+            this.cbxUnassigned.UseVisualStyleBackColor = true;
+            // 
+            // cbxProgress
+            // 
+            this.cbxProgress.AutoSize = true;
+            this.cbxProgress.Checked = true;
+            this.cbxProgress.Location = new System.Drawing.Point(316, 19);
+            this.cbxProgress.Name = "cbxProgress";
+            this.cbxProgress.Size = new System.Drawing.Size(102, 22);
+            this.cbxProgress.TabIndex = 21;
+            this.cbxProgress.TabStop = true;
+            this.cbxProgress.Text = "In Progress";
+            this.cbxProgress.UseVisualStyleBackColor = true;
+            // 
+            // cbxPast
+            // 
+            this.cbxPast.AutoSize = true;
+            this.cbxPast.Location = new System.Drawing.Point(424, 20);
+            this.cbxPast.Name = "cbxPast";
+            this.cbxPast.Size = new System.Drawing.Size(56, 22);
+            this.cbxPast.TabIndex = 22;
+            this.cbxPast.Text = "Past";
+            this.cbxPast.UseVisualStyleBackColor = true;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(1200, 580);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(148, 64);
+            this.btnExport.TabIndex = 23;
+            this.btnExport.Text = "Export displayed";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // Jobs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1517, 656);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.cbxPast);
             this.Controls.Add(this.cbxProgress);
             this.Controls.Add(this.cbxUnassigned);
@@ -294,5 +307,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn JobID;
+        private System.Windows.Forms.Button btnExport;
     }
 }

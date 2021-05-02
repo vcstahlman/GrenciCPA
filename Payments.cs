@@ -309,6 +309,8 @@ namespace GrenciCPA
                         {
                             aninvoice.AmtOwed -= paymentAmount;//if payment is left then put rest into it
                             aninvoice.AmtPaid += paymentAmount;
+
+                            paymentAmount = 0;
                             //payment is less and therefore is logiclly zero here
                         }
                         else//the payment is more than the owed
